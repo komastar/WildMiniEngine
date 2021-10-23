@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="DX12Framework">
+      <UniqueIdentifier>{d2eb6f49-227e-4efc-bccf-84e3ffb72882}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DX12Framework\Interface">
+      <UniqueIdentifier>{77e17e96-8156-4f74-bd3c-5cce44275386}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DX12Framework\Main">
+      <UniqueIdentifier>{f2d64c8f-5fca-41ed-ae4d-8084572d0282}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DX12Framework\GameObject">
+      <UniqueIdentifier>{567efa37-afe6-4020-a4b2-e084a78c292d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DX12Framework\Manager">
+      <UniqueIdentifier>{45010e7d-77df-472f-aaac-c6c2448581ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DX12Framework\Macro">
+      <UniqueIdentifier>{4590bf08-470e-49b8-a36a-30ab20b17fcf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DX12Framework\Manager\IO">
+      <UniqueIdentifier>{d68824ea-7a20-4269-8f2e-21db5c9d1d35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DX12Framework\Manager\Timer">
+      <UniqueIdentifier>{60e2a04a-0c71-411b-abfb-3d0d06bbf81f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameworkInterface.h">
+      <Filter>DX12Framework\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="DX12Base.h">
+      <Filter>DX12Framework\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>DX12Framework\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="CGameObject.h">
+      <Filter>DX12Framework\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="CMainGame.h">
+      <Filter>DX12Framework\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="SafeMacro.h">
+      <Filter>DX12Framework\Macro</Filter>
+    </ClInclude>
+    <ClInclude Include="InlineMacro.h">
+      <Filter>DX12Framework\Macro</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>DX12Framework\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="CDirect3D12.h">
+      <Filter>DX12Framework\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="CInputManager.h">
+      <Filter>DX12Framework\Manager\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="CTimeManager.h">
+      <Filter>DX12Framework\Manager\Timer</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DX12Base.cpp">
+      <Filter>DX12Framework\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="CGameObject.cpp">
+      <Filter>DX12Framework\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="CMainGame.cpp">
+      <Filter>DX12Framework\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="CDirect3D12.cpp">
+      <Filter>DX12Framework\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="CInputManager.cpp">
+      <Filter>DX12Framework\Manager\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="CTimeManager.cpp">
+      <Filter>DX12Framework\Manager\Timer</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DX12Base.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="DX12Base.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".editorconfig" />
+  </ItemGroup>
+</Project>
