@@ -10,9 +10,10 @@ Matrix2 Matrix2::Inversed(Matrix2& m)
 
 Matrix2 Matrix2::Identity()
 {
-    Matrix2 identity;
-    identity._11 = 1.0f;
-    identity._22 = 1.0f;
+    static Matrix2 identity = {
+        1.0f, 0.0f
+        , 0.0f, 1.0f
+    };
 
     return identity;
 }

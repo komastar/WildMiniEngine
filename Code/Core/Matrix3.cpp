@@ -10,11 +10,11 @@ Matrix3 Matrix3::Inversed(Matrix3& m)
 
 Matrix3 Matrix3::Identity()
 {
-    Matrix3 identity;
-    for (int i = 0; i < 3; i++)
-    {
-        identity.m[i][i] = 1.0f;
-    }
+    static Matrix3 identity = {
+        1.0f, 0.0f, 0.0f
+        , 0.0f, 1.0f, 0.0f
+        , 0.0f, 0.0f, 1.0f
+    };
 
     return identity;
 }

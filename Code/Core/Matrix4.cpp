@@ -10,16 +10,14 @@ Matrix4 Matrix4::Inversed(Matrix4& m)
 
 Matrix4 Matrix4::Identity()
 {
-    Matrix4 identity;
-    for (int y = 0; y < 4; y++)
-    {
-        for (int x = 0; x < 4; x++)
-        {
-            identity.m[y][x] = 1.0f;
-        }
-    }
+    static Matrix4 mat = {
+        1.0f, 0.0f, 0.0f, 0.0f
+        , 0.0f, 1.0f, 0.0f, 0.0f
+        , 0.0f, 0.0f, 1.0f, 0.0f
+        , 0.0f, 0.0f, 0.0f, 1.0f
+    };
 
-    return identity;
+    return mat;
 }
 
 Matrix4 Matrix4::Transposed(Matrix4& m)
