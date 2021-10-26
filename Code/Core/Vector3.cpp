@@ -22,6 +22,42 @@ Vector3 Vector3::Cross(const Vector3& v1, const Vector3& v2)
     );
 }
 
+const Vector3& Vector3::Forward()
+{
+    static const auto forward = Vector3(0.0f, 0.0f, 1.0f);
+    return forward;
+}
+
+const Vector3& Vector3::Backward()
+{
+    static const auto backward = Vector3(0.0f, 0.0f, -1.0f);
+    return backward;
+}
+
+const Vector3& Vector3::Left()
+{
+    static const auto left = Vector3(1.0f, 0.0f, 0.0f);
+    return left;
+}
+
+const Vector3& Vector3::Right()
+{
+    static const auto right = Vector3(-1.0f, 0.0f, 0.0f);
+    return right;
+}
+
+const Vector3& Vector3::Up()
+{
+    static const auto up = Vector3(0.0f, 1.0f, 0.0f);
+    return up;
+}
+
+const Vector3& Vector3::Down()
+{
+    static const auto down = Vector3(0.0f, -1.0f, 0.0f);
+    return down;
+}
+
 Vector3::Vector3()
 {
     x = 0.0f;
@@ -66,12 +102,17 @@ Vector3::Vector3(float xyz)
 
 float Vector3::Length()
 {
-    return sqrtf(powf(x, 2) + powf(y, 2) + powf(z, 2));
+    return sqrtf(x * x + y * y + z * z);
+}
+
+float Vector3::LengthSq()
+{
+    return x * x + y * y + z * z;
 }
 
 void Vector3::Normalize()
 {
-    float inv = 1.0f / Length();
+    float inv = 1.0f / sqrtf(x * x + y * y + z * z);
     x *= inv;
     y *= inv;
     z *= inv;

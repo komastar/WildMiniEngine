@@ -22,6 +22,13 @@ public:
     static float Dot(const Vector3& v1, const Vector3& v2);
     static Vector3 Cross(const Vector3& v1, const Vector3& v2);
 
+    static const Vector3& Forward();
+    static const Vector3& Backward();
+    static const Vector3& Left();
+    static const Vector3& Right();
+    static const Vector3& Up();
+    static const Vector3& Down();
+
 public:
     Vector3();
     Vector3(Vector2 v);
@@ -32,6 +39,7 @@ public:
 
 public:
     float Length();
+    float LengthSq();
     void Normalize();
 
 public:

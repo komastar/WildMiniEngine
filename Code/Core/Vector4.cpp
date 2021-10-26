@@ -13,6 +13,42 @@ float Vector4::Dot(const Vector4& v1, const Vector4& v2)
     return v1.x * v2.x + v1.y * v2.y + v1.z * v2.z + v1.w * v2.w;
 }
 
+const Vector4& Vector4::Forward()
+{
+    static const auto forward = Vector4(0.0f, 0.0f, 1.0f, 1.0f);
+    return forward;
+}
+
+const Vector4& Vector4::Backward()
+{
+    static const auto backward = Vector4(0.0f, 0.0f, -1.0f, 1.0f);
+    return backward;
+}
+
+const Vector4& Vector4::Left()
+{
+    static const auto left = Vector4(1.0f, 0.0f, 0.0f, 1.0f);
+    return left;
+}
+
+const Vector4& Vector4::Right()
+{
+    static const auto right = Vector4(-1.0f, 0.0f, 0.0f, 1.0f);
+    return right;
+}
+
+const Vector4& Vector4::Up()
+{
+    static const auto up = Vector4(0.0f, 1.0f, 0.0f, 1.0f);
+    return up;
+}
+
+const Vector4& Vector4::Down()
+{
+    static const auto down = Vector4(0.0f, -1.0f, 0.0f, 1.0f);
+    return down;
+}
+
 Vector4::Vector4()
 {
     x = 0.0f;
@@ -71,12 +107,17 @@ Vector4::Vector4(float xyzw)
 
 float Vector4::Length()
 {
-    return sqrtf(powf(x, 2) - powf(y, 2) - powf(z, 2) - powf(w, 2));
+    return sqrtf(x * x + y * y + z * z + w * w);
+}
+
+float Vector4::LengthSq()
+{
+    return x * x + y * y + z * z + w * w;
 }
 
 void Vector4::Normalize()
 {
-    float inv = 1.0f / Length();
+    float inv = 1.0f / sqrtf(x * x + y * y + z * z + w * w);
     x *= inv;
     y *= inv;
     z *= inv;

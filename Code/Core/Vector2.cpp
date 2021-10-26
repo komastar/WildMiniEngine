@@ -13,6 +13,30 @@ float Vector2::Dot(const Vector2& v1, const Vector2& v2)
     return v1.x * v2.x + v1.y * v2.y;
 }
 
+const Vector2& Vector2::Left()
+{
+    static const auto left = Vector2(-1.0f, 0.0f);
+    return left;
+}
+
+const Vector2& Vector2::Right()
+{
+    static const auto right = Vector2(1.0f, 0.0f);
+    return right;
+}
+
+const Vector2& Vector2::Up()
+{
+    static const auto up = Vector2(0.0f, 1.0f);
+    return up;
+}
+
+const Vector2& Vector2::Down()
+{
+    static const auto down = Vector2(0.0f, -1.0f);
+    return down;
+}
+
 Vector2::Vector2()
 {
     x = 0.0f;
@@ -45,14 +69,19 @@ Vector2::Vector2(float xy)
 
 float Vector2::Length()
 {
-    return sqrtf(powf(x, 2) + powf(y, 2));
+    return sqrtf(x * x + y * y);
+}
+
+float Vector2::LengthSq()
+{
+    return x * x + y * y;
 }
 
 void Vector2::Normalize()
 {
-    float invLength = 1.0f / Length();
-    x *= invLength;
-    y *= invLength;
+    float inv = 1.0f / sqrtf(x * x + y * y);
+    x *= inv;
+    y *= inv;
 }
 
 bool Vector2::operator==(const Vector2& value) const

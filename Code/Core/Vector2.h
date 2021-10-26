@@ -21,6 +21,11 @@ public:
     static Vector2 Normalized(Vector2 v);
     static float Dot(const Vector2& v1, const Vector2& v2);
 
+    const static Vector2& Left();
+    const static Vector2& Right();
+    const static Vector2& Up();
+    const static Vector2& Down();
+
 public:
     Vector2();
     Vector2(Vector3 v);
@@ -30,6 +35,7 @@ public:
 
 public:
     float Length();
+    float LengthSq();
     void Normalize();
 
 public:
