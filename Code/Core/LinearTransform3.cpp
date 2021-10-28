@@ -86,13 +86,25 @@ LinearTransform3 LinearTransform3::Rotate(const Vector3& axis, float r)
 {
     float cos = cosf(r);
     float sin = sinf(r);
+    float reverseCos = 1.0f - cos;
+    m = m * Matrix3(
+        cos + reverseCos * (axis.x * axis.x)
+        , reverseCos * (axis.x * axis.y) + (sin * axis.z)
+        , reverseCos * (axis.x * axis.z) - (sin * axis.y)
+        , reverseCos * (axis.x * axis.y) - (sin * axis.z)
+        , cos + reverseCos * (axis.y * axis.y)
+        , reverseCos * (axis.y * axis.z) + (sin * axis.x)
+        , reverseCos * (axis.x * axis.z) + (sin * axis.y)
+        , reverseCos * (axis.y * axis.z) - (sin * axis.x)
+        , cos + reverseCos * (axis.z * axis.z));
 
     return *this;
 }
 
 LinearTransform3 LinearTransform3::Multiply(const Matrix3& _m)
 {
-    return LinearTransform3();
+    m = m * _m;
+    return *this;
 }
 
 bool LinearTransform3::operator==(const LinearTransform3& lt) const
