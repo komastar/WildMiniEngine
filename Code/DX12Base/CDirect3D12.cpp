@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "CDirect3D12.h"
 
 
@@ -9,7 +9,7 @@ CDirect3D12::CDirect3D12() :
     m_ptScreenSize{ 0, 0 },
     m_fScreenDepth(0.0f),
     m_fScreenNear(0.0f),
-    m_wsAppName(L"DX12App")
+    m_wsAppName("DX12App")
 {
 }
 
@@ -73,7 +73,7 @@ void CDirect3D12::InitInstance(WNDPROC proc)
     SetForegroundWindow(hWnd);
     SetFocus(hWnd);
 
-    //   Ä¿¼­ ¼û±â±â
+    //   ì»¤ì„œ ìˆ¨ê¸°ê¸°
     ShowCursor(false);
 
     g_hWnd = hWnd;
@@ -85,7 +85,7 @@ BOOL CDirect3D12::InitDevice()
 
     if (FAILED(D3D12CreateDevice(NULL, featureLevel, __uuidof(ID3D12Device), (void**)&m_pDevice)))
     {
-        MessageBox(g_hWnd, L"DirectX12.1 device create failed.", L"DirectX Device Failure", MB_OK);
+        MessageBox(g_hWnd, "DirectX12.1 device create failed.", "DirectX Device Failure", MB_OK);
         return FALSE;
     }
 

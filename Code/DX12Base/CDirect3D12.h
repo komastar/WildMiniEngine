@@ -4,7 +4,7 @@
 class CDirect3D12 : public CGameObject
 {
 private:
-    LPCWSTR m_wsAppName;
+    LPCSTR  m_wsAppName;
     BOOL    m_isFullScreen;
     BOOL    m_isVSyncEnable;
     POINT   m_ptScreenPos;
