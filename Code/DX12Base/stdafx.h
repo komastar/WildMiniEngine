@@ -15,11 +15,6 @@
 // Windows 헤더 파일:
 #include <windows.h>
 
-#pragma comment(lib, "d3d12.lib")
-#pragma comment(lib, "dxgi.lib")
-#pragma comment(lib, "d3dcompiler.lib")
-#pragma comment(lib, "winmm.lib")
-
 #include <dxgi1_4.h>
 #include <d3d12.h>
 
