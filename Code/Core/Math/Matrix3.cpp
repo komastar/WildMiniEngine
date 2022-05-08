@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "Math.h"
 
 Matrix3 Matrix3::Inversed(Matrix3& m)
 {

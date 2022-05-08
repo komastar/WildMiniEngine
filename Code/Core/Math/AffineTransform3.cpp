@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "Math.h"
 
 AffineTransform3::AffineTransform3()
 {

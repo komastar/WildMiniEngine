@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "Math.h"
 
 Matrix2 Matrix2::Inversed(Matrix2& m)
 {

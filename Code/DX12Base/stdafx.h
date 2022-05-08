@@ -7,13 +7,8 @@
 
 #include "targetver.h"
 
-#ifdef _DEBUG
-#pragma comment(linker,"/entry:wWinMainCRTStartup /subsystem:console")
-#endif // _DEBUG
-
 #define WIN32_LEAN_AND_MEAN             // 거의 사용되지 않는 내용은 Windows 헤더에서 제외합니다.
 // Windows 헤더 파일:
-#include <windows.h>
 
 #include <dxgi1_4.h>
 #include <d3d12.h>
@@ -26,19 +21,3 @@
 #include <mmsystem.h>
 #include <iostream>
 #include <vector>
-
-using namespace std;
-
-#include "SafeMacro.h"
-#include "InlineMacro.h"
-
-#include "FrameworkInterface.h"
-#include "Singleton.h"
-
-#include "CTimeManager.h"
-#include "CInputManager.h"
-
-extern HWND         g_hWnd;
-extern HINSTANCE    g_hInst;
-
-#define FPS         (60.0f)

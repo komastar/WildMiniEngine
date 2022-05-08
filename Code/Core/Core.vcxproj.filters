@@ -15,78 +15,75 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
+    <ClInclude Include="Math\Math.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="pch.h">
+    <ClInclude Include="Math\Vector2.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Vector2.h">
+    <ClInclude Include="Math\Vector3.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Vector3.h">
+    <ClInclude Include="Math\Vector4.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Vector4.h">
+    <ClInclude Include="Math\Matrix2.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Matrix2.h">
+    <ClInclude Include="Math\Matrix3.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Matrix3.h">
+    <ClInclude Include="Math\Matrix4.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Matrix4.h">
+    <ClInclude Include="Math\LinearTransform2.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="LinearTransform2.h">
+    <ClInclude Include="Math\LinearTransform3.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="LinearTransform3.h">
+    <ClInclude Include="Math\AffineTransform2.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="AffineTransform2.h">
+    <ClInclude Include="Math\AffineTransform3.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="AffineTransform3.h">
+    <ClInclude Include="Application\Application.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Core.cpp">
+    <ClCompile Include="Math\Vector2.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="pch.cpp">
+    <ClCompile Include="Math\Vector3.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Vector2.cpp">
+    <ClCompile Include="Math\Vector4.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Vector3.cpp">
+    <ClCompile Include="Math\Matrix2.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Vector4.cpp">
+    <ClCompile Include="Math\Matrix3.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Matrix2.cpp">
+    <ClCompile Include="Math\Matrix4.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Matrix3.cpp">
+    <ClCompile Include="Math\LinearTransform2.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Matrix4.cpp">
+    <ClCompile Include="Math\LinearTransform3.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="LinearTransform2.cpp">
+    <ClCompile Include="Math\AffineTransform2.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="LinearTransform3.cpp">
+    <ClCompile Include="Math\AffineTransform3.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="AffineTransform2.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="AffineTransform3.cpp">
+    <ClCompile Include="Application\Application.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

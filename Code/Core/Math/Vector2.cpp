@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "Math.h"
 
 Vector2 Vector2::Normalized(Vector2 v)
 {
