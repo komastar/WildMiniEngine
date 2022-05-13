@@ -1,10 +1,4 @@
-#include "WindowsApplication.h"
-#include "Graphics/DeviceFactory.h"
-
-WindowsApplication::WindowsApplication(HINSTANCE hinst)
-{
-    instance = hinst;
-}
+#include "WindowContext.h"
 
 LRESULT WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -18,15 +12,7 @@ LRESULT WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
     return DefWindowProc(hwnd, message, wParam, lParam);
 }
 
-void WindowsApplication::OnInitialize()
-{
-    InitAppWindow();
-    device = reinterpret_cast<D3D12Device*>(DeviceFactory::Create());
-    device->SetWindow(hwnd);
-    device->Create(width, height);
-}
-
-void WindowsApplication::InitAppWindow()
+void Core::WindowContext::Create()
 {
     WNDCLASSW wc = {};
     wc.style = CS_HREDRAW | CS_VREDRAW;
@@ -48,16 +34,39 @@ void WindowsApplication::InitAppWindow()
     int height = R.bottom - R.top;
 
     hwnd = CreateWindowW(L"MainWnd", L"D3D App", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, width, height, 0, 0, instance, 0);
+}
 
+void Core::WindowContext::Show()
+{
     ShowWindow(hwnd, SW_SHOW);
+}
+
+void Core::WindowContext::Hide()
+{
+    ShowWindow(hwnd, SW_HIDE);
+}
+
+void* Core::WindowContext::PlatformHandle()
+{
+    return hwnd;
+}
+
+int Core::WindowContext::Width()
+{
+    return width;
+}
+
+int Core::WindowContext::Height()
+{
+    return height;
+}
+
+void Core::WindowContext::Update()
+{
     UpdateWindow(hwnd);
+}
+
+void Core::WindowContext::Focus()
+{
     SetFocus(hwnd);
-}
-
-void WindowsApplication::OnTerminate()
-{
-}
-
-void WindowsApplication::Run()
-{
 }

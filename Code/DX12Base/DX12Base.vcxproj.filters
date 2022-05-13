@@ -39,37 +39,17 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="targetver.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="DX12Base.h">
-      <Filter>DX12Framework\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>DX12Framework\Main</Filter>
-    </ClInclude>
-    <ClInclude Include="WindowsApplication.h">
+    <ClInclude Include="Win32Application.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="DX12Base.cpp">
       <Filter>DX12Framework\Main</Filter>
     </ClCompile>
-    <ClCompile Include="WindowsApplication.cpp">
+    <ClCompile Include="Win32Application.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="small.ico">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="DX12Base.ico">
-      <Filter>리소스 파일</Filter>
-    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

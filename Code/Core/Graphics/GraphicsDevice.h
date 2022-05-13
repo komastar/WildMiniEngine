@@ -1,7 +1,10 @@
 #pragma once
-class GraphicsDevice
+namespace Core
 {
-public:
-    virtual void Create(int width, int height) = 0;
-};
-
+    class IWindow;
+    class IGraphicsDevice
+    {
+    public:
+        virtual void Create(IWindow* window) = 0;
+    };
+}

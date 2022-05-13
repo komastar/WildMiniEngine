@@ -1,7 +1,25 @@
-#include "D3D12Device.h"
+#include "GraphicsDeviceContext.h"
 
-void D3D12Device::Create(int width, int height)
+Core::GraphicsDeviceContext::GraphicsDeviceContext()
+    : device(nullptr)
+    , dxgiFactory(nullptr)
+    , fence(nullptr)
+    , commandQueue(nullptr)
+    , commandAllocator(nullptr)
+    , commandList(nullptr)
+    , swapChain(nullptr)
+    , hwnd(nullptr)
 {
+}
+
+Core::GraphicsDeviceContext::~GraphicsDeviceContext()
+{
+}
+
+void Core::GraphicsDeviceContext::Create(IWindow* window)
+{
+    hwnd = reinterpret_cast<HWND>(window->PlatformHandle());
+
     CreateDXGIFactory1(__uuidof(IDXGIFactory4), reinterpret_cast<void**>(&dxgiFactory));
     HRESULT result = D3D12CreateDevice(nullptr
         , D3D_FEATURE_LEVEL_12_0
@@ -49,8 +67,8 @@ void D3D12Device::Create(int width, int height)
         , reinterpret_cast<void**>(&commandQueue));
 
     DXGI_SWAP_CHAIN_DESC swapChainDesc = {};
-    swapChainDesc.BufferDesc.Width = width;
-    swapChainDesc.BufferDesc.Height = height;
+    swapChainDesc.BufferDesc.Width = window->Width();
+    swapChainDesc.BufferDesc.Height = window->Height();
     swapChainDesc.BufferDesc.RefreshRate.Numerator = 60;
     swapChainDesc.BufferDesc.RefreshRate.Denominator = 1;
     swapChainDesc.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
@@ -70,9 +88,4 @@ void D3D12Device::Create(int width, int height)
         return;
     }
     dxgiFactory->CreateSwapChain(commandQueue, &swapChainDesc, &swapChain);
-}
-
-void D3D12Device::SetWindow(HWND hwnd)
-{
-    this->hwnd = hwnd;
 }

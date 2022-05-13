@@ -1,9 +1,13 @@
 #pragma once
-class Application
+namespace Core
 {
-public:
-    virtual void OnInitialize() = 0;
-    virtual void OnTerminate() = 0;
-    virtual void Run() = 0;
-};
+    class IApplication
+    {
+    public:
+        virtual void OnInitialize() = 0;
+        virtual void OnTerminate() = 0;
+        virtual int Run();
 
+        virtual int MessageLoop() = 0;
+    };
+}
