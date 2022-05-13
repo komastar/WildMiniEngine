@@ -201,6 +201,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Application\Application.h" />
+    <ClInclude Include="Graphics\D3D12Device.h" />
+    <ClInclude Include="Graphics\DeviceFactory.h" />
+    <ClInclude Include="Graphics\GraphicsDevice.h" />
     <ClInclude Include="Math\AffineTransform2.h" />
     <ClInclude Include="Math\AffineTransform3.h" />
     <ClInclude Include="Math\Math.h" />
@@ -215,6 +218,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application\Application.cpp" />
+    <ClCompile Include="Graphics\D3D12Device.cpp" />
+    <ClCompile Include="Graphics\GraphicsDevice.cpp" />
     <ClCompile Include="Math\AffineTransform2.cpp" />
     <ClCompile Include="Math\AffineTransform3.cpp" />
     <ClCompile Include="Math\LinearTransform2.cpp" />

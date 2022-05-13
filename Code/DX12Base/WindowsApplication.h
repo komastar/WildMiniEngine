@@ -1,8 +1,7 @@
 #pragma once
 #include "Application/Application.h"
+#include "Graphics/D3D12Device.h"
 #include <Windows.h>
-#include <dxgi1_4.h>
-#include <d3d12.h>
 
 class WindowsApplication : public Application
 {
@@ -10,19 +9,9 @@ private:
     HINSTANCE instance;
     HWND hwnd;
 
+    D3D12Device* device;
+
 private:
-    ID3D12Device* device = nullptr;
-    IDXGIFactory4* dxgiFactory = nullptr;
-    ID3D12Fence* fence = nullptr;
-    ID3D12CommandQueue* commandQueue = nullptr;
-    ID3D12CommandAllocator* commandAllocator = nullptr;
-    ID3D12GraphicsCommandList* commandList = nullptr;
-    IDXGISwapChain* swapChain = nullptr;
-
-    unsigned int rtvDescSize = 0;
-    unsigned int dsvDescSize = 0;
-    unsigned int cbvDescSize = 0;
-
     const int width = 1024;
     const int height = 768;
 
@@ -36,6 +25,5 @@ public:
 
 private:
     void InitAppWindow();
-    void InitD3D();
 };
 
