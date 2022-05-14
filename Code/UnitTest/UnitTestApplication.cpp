@@ -1,7 +1,7 @@
 #include "UnitTest.h"
 #include "Application/Application.h"
-#include "Window/Window.h"
-#include "Window/Private/WindowFactory.h"
+#include "Window/IWindow.h"
+#include "Window/WindowContextFactory.h"
 
 class UnitTestApplication : public Core::Application
 {
@@ -15,7 +15,7 @@ public:
 
     virtual void OnInitialize() override
     {
-        window = Core::WindowFactory::Create();
+        window = Core::WindowContextFactory::Create();
         window->Create();
         window->Show();
         window->Focus();

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -74,21 +74,27 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_d</TargetName>
+    <IncludePath>Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
+    <IncludePath>Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_d</TargetName>
+    <IncludePath>Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
+    <IncludePath>Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -114,7 +120,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>d3d12.lib</AdditionalDependencies>
+      <AdditionalDependencies>d3d12.lib;dxgi.lib;d3dcompiler.lib;winmm.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -145,7 +151,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>d3d12.lib</AdditionalDependencies>
+      <AdditionalDependencies>d3d12.lib;dxgi.lib;d3dcompiler.lib;winmm.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -204,48 +210,48 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>d3d12.lib</AdditionalDependencies>
+      <AdditionalDependencies>d3d12.lib;dxgi.lib;d3dcompiler.lib;winmm.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Application\Application.h" />
-    <ClInclude Include="Application\Private\ApplicationContextFactory.h" />
-    <ClInclude Include="Application\Private\Win32\ApplicationContext.h" />
-    <ClInclude Include="Application\IApplication.h" />
-    <ClInclude Include="Application\IApplicationContext.h" />
-    <ClInclude Include="Graphics\Private\Win32\GraphicsDeviceContext.h" />
-    <ClInclude Include="Graphics\Private\DeviceFactory.h" />
-    <ClInclude Include="Graphics\GraphicsDevice.h" />
-    <ClInclude Include="Math\AffineTransform2.h" />
-    <ClInclude Include="Math\AffineTransform3.h" />
-    <ClInclude Include="Math\Math.h" />
-    <ClInclude Include="Math\LinearTransform2.h" />
-    <ClInclude Include="Math\LinearTransform3.h" />
-    <ClInclude Include="Math\Matrix2.h" />
-    <ClInclude Include="Math\Matrix3.h" />
-    <ClInclude Include="Math\Matrix4.h" />
-    <ClInclude Include="Math\Vector2.h" />
-    <ClInclude Include="Math\Vector3.h" />
-    <ClInclude Include="Math\Vector4.h" />
-    <ClInclude Include="Window\Private\Win32\WindowContext.h" />
-    <ClInclude Include="Window\Private\WindowFactory.h" />
-    <ClInclude Include="Window\Window.h" />
+    <ClInclude Include="Include\Application\Application.h" />
+    <ClInclude Include="Include\Application\ApplicationContext.h" />
+    <ClInclude Include="Include\Application\ApplicationContextFactory.h" />
+    <ClInclude Include="Include\Application\IApplication.h" />
+    <ClInclude Include="Include\Application\IApplicationContext.h" />
+    <ClInclude Include="Include\Graphics\DeviceContextFactory.h" />
+    <ClInclude Include="Include\Graphics\GraphicsDeviceContext.h" />
+    <ClInclude Include="Include\Graphics\IGraphicsDevice.h" />
+    <ClInclude Include="Include\Math\AffineTransform2.h" />
+    <ClInclude Include="Include\Math\AffineTransform3.h" />
+    <ClInclude Include="Include\Math\LinearTransform2.h" />
+    <ClInclude Include="Include\Math\LinearTransform3.h" />
+    <ClInclude Include="Include\Math\Math.h" />
+    <ClInclude Include="Include\Math\Matrix2.h" />
+    <ClInclude Include="Include\Math\Matrix3.h" />
+    <ClInclude Include="Include\Math\Matrix4.h" />
+    <ClInclude Include="Include\Math\Vector2.h" />
+    <ClInclude Include="Include\Math\Vector3.h" />
+    <ClInclude Include="Include\Math\Vector4.h" />
+    <ClInclude Include="Include\Window\WindowContext.h" />
+    <ClInclude Include="Include\Window\WindowContextFactory.h" />
+    <ClInclude Include="Include\Window\IWindow.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Application\Private\Win32\ApplicationContext.cpp" />
-    <ClCompile Include="Application\Application.cpp" />
-    <ClCompile Include="Graphics\Private\Win32\GraphicsDeviceContext.cpp" />
-    <ClCompile Include="Math\AffineTransform2.cpp" />
-    <ClCompile Include="Math\AffineTransform3.cpp" />
-    <ClCompile Include="Math\LinearTransform2.cpp" />
-    <ClCompile Include="Math\LinearTransform3.cpp" />
-    <ClCompile Include="Math\Matrix2.cpp" />
-    <ClCompile Include="Math\Matrix3.cpp" />
-    <ClCompile Include="Math\Matrix4.cpp" />
-    <ClCompile Include="Math\Vector2.cpp" />
-    <ClCompile Include="Math\Vector3.cpp" />
-    <ClCompile Include="Math\Vector4.cpp" />
-    <ClCompile Include="Window\Private\Win32\WindowContext.cpp" />
+    <ClCompile Include="Src\Application\Application.cpp" />
+    <ClCompile Include="Src\Application\ApplicationContext.cpp" />
+    <ClCompile Include="Src\Graphics\GraphicsDeviceContext.cpp" />
+    <ClCompile Include="Src\Math\AffineTransform2.cpp" />
+    <ClCompile Include="Src\Math\AffineTransform3.cpp" />
+    <ClCompile Include="Src\Math\LinearTransform2.cpp" />
+    <ClCompile Include="Src\Math\LinearTransform3.cpp" />
+    <ClCompile Include="Src\Math\Matrix2.cpp" />
+    <ClCompile Include="Src\Math\Matrix3.cpp" />
+    <ClCompile Include="Src\Math\Matrix4.cpp" />
+    <ClCompile Include="Src\Math\Vector2.cpp" />
+    <ClCompile Include="Src\Math\Vector3.cpp" />
+    <ClCompile Include="Src\Math\Vector4.cpp" />
+    <ClCompile Include="Src\Window\WindowContext.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
