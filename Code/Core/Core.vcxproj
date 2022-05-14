@@ -209,6 +209,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Application\Application.h" />
+    <ClInclude Include="Application\Private\ApplicationContextFactory.h" />
+    <ClInclude Include="Application\Private\Win32\ApplicationContext.h" />
+    <ClInclude Include="Application\IApplication.h" />
+    <ClInclude Include="Application\IApplicationContext.h" />
     <ClInclude Include="Graphics\Private\Win32\GraphicsDeviceContext.h" />
     <ClInclude Include="Graphics\Private\DeviceFactory.h" />
     <ClInclude Include="Graphics\GraphicsDevice.h" />
@@ -228,6 +232,7 @@
     <ClInclude Include="Window\Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Application\Private\Win32\ApplicationContext.cpp" />
     <ClCompile Include="Application\Application.cpp" />
     <ClCompile Include="Graphics\Private\Win32\GraphicsDeviceContext.cpp" />
     <ClCompile Include="Math\AffineTransform2.cpp" />

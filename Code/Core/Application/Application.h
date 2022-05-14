@@ -1,13 +1,22 @@
 #pragma once
+#include "IApplication.h"
+#include "IApplicationContext.h"
+
 namespace Core
 {
-    class IApplication
+    class Application : public IApplication
     {
     public:
-        virtual void OnInitialize() = 0;
-        virtual void OnTerminate() = 0;
-        virtual int Run();
+        Application();
+        virtual ~Application();
 
-        virtual int MessageLoop() = 0;
+    public:
+        virtual void OnInitialize() override;
+        virtual void OnTerminate() override;
+        virtual int Run() override;
+
+    private:
+        IApplicationContext* context;
     };
 }
+#pragma once

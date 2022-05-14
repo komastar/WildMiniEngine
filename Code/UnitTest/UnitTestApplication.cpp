@@ -1,8 +1,9 @@
 #include "UnitTest.h"
 #include "Application/Application.h"
 #include "Window/Window.h"
+#include "Window/Private/WindowFactory.h"
 
-class UnitTestApplication : public Core::IApplication
+class UnitTestApplication : public Core::Application
 {
 private:
     Core::IWindow* window;
@@ -14,17 +15,21 @@ public:
 
     virtual void OnInitialize() override
     {
+        window = Core::WindowFactory::Create();
+        window->Create();
+        window->Show();
+        window->Focus();
     }
+    
     virtual void OnTerminate() override
     {
-    }
-    virtual int MessageLoop() override
-    {
-        return 0;
+        delete window;
+        window = nullptr;
     }
 };
 
 _TEST_(Win32, App, Run)
 {
-
+    UnitTestApplication testApp;
+    testApp.Run();
 }

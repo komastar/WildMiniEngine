@@ -4,7 +4,7 @@
 #include "Window/Private/WindowFactory.h"
 #include "Graphics/Private/DeviceFactory.h"
 
-class Win32Application : public Core::IApplication
+class Win32Application : public Core::Application
 {
 private:
     Core::IGraphicsDevice* device;
@@ -16,6 +16,5 @@ public:
 public:
     virtual void OnInitialize() override;
     virtual void OnTerminate() override;
-    virtual int MessageLoop() override;
 };
 

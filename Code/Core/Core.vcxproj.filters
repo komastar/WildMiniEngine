@@ -48,7 +48,7 @@
     <ClInclude Include="Math\Math.h">
       <Filter>Math</Filter>
     </ClInclude>
-    <ClInclude Include="Application\Application.h">
+    <ClInclude Include="Application\IApplication.h">
       <Filter>Application</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\Private\DeviceFactory.h">
@@ -69,6 +69,12 @@
     <ClInclude Include="Window\Private\Win32\WindowContext.h">
       <Filter>Window</Filter>
     </ClInclude>
+    <ClInclude Include="Application\IApplicationContext.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="Application\Private\Win32\ApplicationContext.h" />
+    <ClInclude Include="Application\Application.h" />
+    <ClInclude Include="Application\Private\ApplicationContextFactory.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Math\AffineTransform2.cpp">
@@ -110,6 +116,7 @@
     <ClCompile Include="Window\Private\Win32\WindowContext.cpp">
       <Filter>Window</Filter>
     </ClCompile>
+    <ClCompile Include="Application\Private\Win32\ApplicationContext.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
