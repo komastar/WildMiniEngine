@@ -9,33 +9,11 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="리소스 파일">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="DX12Framework">
       <UniqueIdentifier>{d2eb6f49-227e-4efc-bccf-84e3ffb72882}</UniqueIdentifier>
     </Filter>
-    <Filter Include="DX12Framework\Interface">
-      <UniqueIdentifier>{77e17e96-8156-4f74-bd3c-5cce44275386}</UniqueIdentifier>
-    </Filter>
     <Filter Include="DX12Framework\Main">
       <UniqueIdentifier>{f2d64c8f-5fca-41ed-ae4d-8084572d0282}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="DX12Framework\GameObject">
-      <UniqueIdentifier>{567efa37-afe6-4020-a4b2-e084a78c292d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="DX12Framework\Manager">
-      <UniqueIdentifier>{45010e7d-77df-472f-aaac-c6c2448581ea}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="DX12Framework\Macro">
-      <UniqueIdentifier>{4590bf08-470e-49b8-a36a-30ab20b17fcf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="DX12Framework\Manager\IO">
-      <UniqueIdentifier>{d68824ea-7a20-4269-8f2e-21db5c9d1d35}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="DX12Framework\Manager\Timer">
-      <UniqueIdentifier>{60e2a04a-0c71-411b-abfb-3d0d06bbf81f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

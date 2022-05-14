@@ -1,114 +1,114 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="소스 파일">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="Math">
+      <UniqueIdentifier>{ecc59e62-8e77-4a7b-ad28-96e5a8c27ecc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="헤더 파일">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="Application">
+      <UniqueIdentifier>{ef984cb5-6ecf-4908-b6e5-87c05c2346c6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="리소스 파일">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Window">
+      <UniqueIdentifier>{b2246843-09e3-4c8d-b964-027aaf50628c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics">
+      <UniqueIdentifier>{3c3e0baa-f36a-4a5c-a158-1d38193fe968}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Math\Math.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Math\Vector2.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Math\Vector3.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Math\Vector4.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Math\Matrix2.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Math\Matrix3.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Math\Matrix4.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Math\LinearTransform2.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Math\LinearTransform3.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Math\AffineTransform2.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>Math</Filter>
     </ClInclude>
     <ClInclude Include="Math\AffineTransform3.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\LinearTransform2.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\LinearTransform3.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Matrix2.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Matrix3.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Matrix4.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Vector2.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Vector3.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Vector4.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math\Math.h">
+      <Filter>Math</Filter>
     </ClInclude>
     <ClInclude Include="Application\Application.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\GraphicsDevice.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Private\Win32\GraphicsDeviceContext.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>Application</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\Private\DeviceFactory.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Window\Window.h">
-      <Filter>헤더 파일</Filter>
+    <ClInclude Include="Graphics\GraphicsDevice.h">
+      <Filter>Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Window\Private\Win32\WindowContext.h">
-      <Filter>헤더 파일</Filter>
+    <ClInclude Include="Graphics\Private\Win32\GraphicsDeviceContext.h">
+      <Filter>Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Window\Private\WindowFactory.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Window\Window.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Window\Private\Win32\WindowContext.h">
+      <Filter>Window</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Math\Vector2.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Math\Vector3.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Math\Vector4.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Math\Matrix2.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Math\Matrix3.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Math\Matrix4.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Math\LinearTransform2.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Math\LinearTransform3.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Math\AffineTransform2.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>Math</Filter>
     </ClCompile>
     <ClCompile Include="Math\AffineTransform3.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>Math</Filter>
     </ClCompile>
-    <ClCompile Include="Graphics\Private\Win32\GraphicsDeviceContext.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="Math\LinearTransform2.cpp">
+      <Filter>Math</Filter>
     </ClCompile>
-    <ClCompile Include="Window\Private\Win32\WindowContext.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="Math\LinearTransform3.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Math\Matrix2.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Math\Matrix3.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Math\Matrix4.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Math\Vector2.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Math\Vector3.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Math\Vector4.cpp">
+      <Filter>Math</Filter>
     </ClCompile>
     <ClCompile Include="Application\Application.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Private\Win32\GraphicsDeviceContext.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Window\Private\Win32\WindowContext.cpp">
+      <Filter>Window</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
