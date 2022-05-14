@@ -20,6 +20,7 @@ void Core::Application::OnInitialize()
 
     device = Core::DeviceContextFactory::Create();
     device->Create(window);
+    context->device = device;
 }
 
 void Core::Application::OnTerminate()

@@ -1,5 +1,6 @@
 #ifdef _WIN32
 #include "Application/ApplicationContext.h"
+#include "Graphics/IGraphicsDevice.h"
 #include <Windows.h>
 
 int Core::ApplicationContext::MessageLoop()
@@ -17,6 +18,11 @@ int Core::ApplicationContext::MessageLoop()
         if (WM_QUIT == msg.message)
         {
             break;
+        }
+        else
+        {
+            device->Update();
+            device->Render();
         }
     }
 

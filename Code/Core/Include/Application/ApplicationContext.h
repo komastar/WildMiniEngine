@@ -6,6 +6,7 @@ namespace Core
 {
     class ApplicationContext : public IApplicationContext
     {
+    public:
         virtual int MessageLoop() override;
     };
 }

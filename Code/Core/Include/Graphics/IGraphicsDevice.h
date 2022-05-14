@@ -6,5 +6,7 @@ namespace Core
     {
     public:
         virtual void Create(IWindow* window) = 0;
+        virtual void Update() = 0;
+        virtual void Render() = 0;
     };
 }
