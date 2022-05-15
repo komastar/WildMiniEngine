@@ -7,8 +7,9 @@
 #include <vector>
 #include <array>
 #include <memory>
+#include <iomanip>
 #include "Graphics/d3dx12.h"
-#include "IGraphicsDevice.h"
+#include "Graphics/IGraphicsDevice.h"
 #include "Window/IWindow.h"
 #include "Math/Math.h"
 #include <DirectXMath.h>
@@ -25,8 +26,8 @@ namespace Core
 {
     struct Vertex
     {
-        XMFLOAT3 pos;
-        XMFLOAT4 color;
+        Vector3 pos;
+        Vector4 color;
     };
 
     struct ObjectConstants

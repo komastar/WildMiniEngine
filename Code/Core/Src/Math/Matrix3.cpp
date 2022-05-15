@@ -29,10 +29,17 @@ Matrix3 Matrix3::Transposed(Matrix3& m)
 
 Matrix3::Matrix3()
 {
-    for (int i = 0; i < 9; i++)
-    {
-        v[i] = 0.0f;
-    }
+    _11 = 1.0f;
+    _12 = 0.0f;
+    _13 = 0.0f;
+
+    _21 = 0.0f;
+    _22 = 1.0f;
+    _23 = 0.0f;
+    
+    _31 = 0.0f;
+    _32 = 0.0f;
+    _33 = 1.0f;
 }
 
 Matrix3::Matrix3(float _11, float _12, float _13, float _21, float _22, float _23, float _31, float _32, float _33)

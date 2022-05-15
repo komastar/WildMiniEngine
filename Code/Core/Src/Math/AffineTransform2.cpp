@@ -1,6 +1,6 @@
 #include "Math/Math.h"
 
-AffineTransform2::AffineTransform2()
+AffineTransform2::AffineTransform2() : m()
 {
 }
 

@@ -215,13 +215,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Include\Application\Application.h" />
-    <ClInclude Include="Include\Application\ApplicationContext.h" />
-    <ClInclude Include="Include\Application\ApplicationContextFactory.h" />
+    <ClInclude Include="Include\Application\Platform\Win32\ApplicationContext.h" />
+    <ClInclude Include="Include\Application\Platform\ApplicationContextFactory.h" />
     <ClInclude Include="Include\Application\IApplication.h" />
     <ClInclude Include="Include\Application\IApplicationContext.h" />
     <ClInclude Include="Include\Graphics\d3dx12.h" />
-    <ClInclude Include="Include\Graphics\DeviceContextFactory.h" />
-    <ClInclude Include="Include\Graphics\GraphicsDeviceContext.h" />
+    <ClInclude Include="Include\Graphics\Platform\DeviceContextFactory.h" />
+    <ClInclude Include="Include\Graphics\Platform\Win32\GraphicsDeviceContext.h" />
     <ClInclude Include="Include\Graphics\IGraphicsDevice.h" />
     <ClInclude Include="Include\Math\AffineTransform2.h" />
     <ClInclude Include="Include\Math\AffineTransform3.h" />
@@ -240,8 +240,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Application\Application.cpp" />
-    <ClCompile Include="Src\Application\ApplicationContext.cpp" />
-    <ClCompile Include="Src\Graphics\GraphicsDeviceContext.cpp" />
+    <ClCompile Include="Src\Application\Platform\Win32\ApplicationContext.cpp" />
+    <ClCompile Include="Src\Graphics\Platform\Win32\GraphicsDeviceContext.cpp" />
     <ClCompile Include="Src\Math\AffineTransform2.cpp" />
     <ClCompile Include="Src\Math\AffineTransform3.cpp" />
     <ClCompile Include="Src\Math\LinearTransform2.cpp" />

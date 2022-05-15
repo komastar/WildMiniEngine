@@ -1,7 +1,5 @@
 #ifdef _WIN32
-#include "Application/ApplicationContext.h"
-#include "Graphics/IGraphicsDevice.h"
-#include <Windows.h>
+#include "Application/Platform/Win32/ApplicationContext.h"
 
 int Core::ApplicationContext::MessageLoop()
 {
@@ -27,5 +25,13 @@ int Core::ApplicationContext::MessageLoop()
     }
 
     return static_cast<int>(msg.wParam);
+}
+
+Core::ApplicationContext::ApplicationContext(IWindow* _window, IGraphicsDevice* _device)
+    : window(_window)
+    , device(_device)
+    , platformHandle(nullptr)
+{
+    platformHandle = reinterpret_cast<HWND>(window->PlatformHandle());
 }
 #endif // _WIN32

@@ -1,7 +1,8 @@
 #ifdef _WIN32
-#include "Graphics/GraphicsDeviceContext.h"
+#include "Graphics/Platform/Win32/GraphicsDeviceContext.h"
 #include "Math/Math.h"
 #include <DirectXColors.h>
+#include "Math/Math.h"
 
 using namespace DirectX;
 
@@ -596,50 +597,31 @@ ComPtr<ID3D12Resource> CreateDefaultBuffer(
 
 void Core::GraphicsDeviceContext::BuildBoxGeometry()
 {
-    std::array<Vertex, 8> vertices =
+    LinearTransform2 lt;
+    lt.Rotate(-XM_PI * 0.666f);
+    AffineTransform2 at;
+    at.Translate({ 0.0f, 1.0f });
+    at.Multiply(lt);
+    Vector2 vertexPosition = Vector2(at.v);
+    Vector3 pos0 = { 0.0f, 1.0f, 0.0f };
+    Vector3 pos1 = vertexPosition;
+    vertexPosition.x = -vertexPosition.x;
+    Vector3 pos2 = vertexPosition;
+
+    std::array<Vertex, 3> vertices =
     {
-        Vertex({ XMFLOAT3(-1.0f, -1.0f, -1.0f), XMFLOAT4(Colors::White) }),
-        Vertex({ XMFLOAT3(-1.0f, +1.0f, -1.0f), XMFLOAT4(Colors::Black) }),
-        Vertex({ XMFLOAT3(+1.0f, +1.0f, -1.0f), XMFLOAT4(Colors::Red) }),
-        Vertex({ XMFLOAT3(+1.0f, -1.0f, -1.0f), XMFLOAT4(Colors::Green) }),
-        Vertex({ XMFLOAT3(-1.0f, -1.0f, +1.0f), XMFLOAT4(Colors::Blue) }),
-        Vertex({ XMFLOAT3(-1.0f, +1.0f, +1.0f), XMFLOAT4(Colors::Yellow) }),
-        Vertex({ XMFLOAT3(+1.0f, +1.0f, +1.0f), XMFLOAT4(Colors::Cyan) }),
-        Vertex({ XMFLOAT3(+1.0f, -1.0f, +1.0f), XMFLOAT4(Colors::Magenta) })
+        Vertex({ pos0, Vector4(1.0f, 0.0f, 0.0f, 1.0f) }),
+        Vertex({ pos1, Vector4(0.0f, 1.0f, 0.0f, 1.0f) }),
+        Vertex({ pos2, Vector4(0.0f, 0.0f, 1.0f, 1.0f) })
     };
 
-    std::array<std::uint16_t, 36> indices =
+    std::array<std::atomic_uint16_t, 3> indices =
     {
-        // front face
-        0, 1, 2,
-        0, 2, 3,
-
-        // back face
-        4, 6, 5,
-        4, 7, 6,
-
-        // left face
-        4, 5, 1,
-        4, 1, 0,
-
-        // right face
-        3, 2, 6,
-        3, 6, 7,
-
-        // top face
-        1, 5, 6,
-        1, 6, 2,
-
-        // bottom face
-        4, 0, 3,
-        4, 3, 7
+        0, 1, 2
     };
 
     const UINT vbByteSize = (UINT)vertices.size() * sizeof(Vertex);
     const UINT ibByteSize = (UINT)indices.size() * sizeof(std::uint16_t);
-
-    //mBoxGeo = std::make_unique<MeshGeometry>();
-    //mBoxGeo->Name = "boxGeo";
 
     D3DCreateBlob(vbByteSize, &VertexBufferCPU);
     CopyMemory(VertexBufferCPU->GetBufferPointer(), vertices.data(), vbByteSize);
@@ -656,12 +638,7 @@ void Core::GraphicsDeviceContext::BuildBoxGeometry()
     IndexFormat = DXGI_FORMAT_R16_UINT;
     IndexBufferByteSize = ibByteSize;
 
-    //SubmeshGeometry submesh;
     IndexCount = (UINT)indices.size();
-    //submesh.StartIndexLocation = 0;
-    //submesh.BaseVertexLocation = 0;
-
-    //mBoxGeo->DrawArgs["box"] = submesh;
 }
 
 void Core::GraphicsDeviceContext::BuildPSO()

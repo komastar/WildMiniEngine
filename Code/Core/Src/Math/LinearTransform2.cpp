@@ -1,6 +1,6 @@
 #include "Math/Math.h"
 
-LinearTransform2::LinearTransform2()
+LinearTransform2::LinearTransform2() : m()
 {
 }
 

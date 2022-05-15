@@ -30,10 +30,25 @@ Matrix4 Matrix4::Transposed(Matrix4& m)
 
 Matrix4::Matrix4()
 {
-    for (int i = 0; i < 16; i++)
-    {
-        v[i] = 0.0f;
-    }
+    _11 = 1.0f;
+    _12 = 0.0f;
+    _13 = 0.0f;
+    _14 = 0.0f;
+
+    _21 = 0.0f;
+    _22 = 1.0f;
+    _23 = 0.0f;
+    _24 = 0.0f;
+    
+    _31 = 0.0f;
+    _32 = 0.0f;
+    _33 = 1.0f;
+    _34 = 0.0f;
+    
+    _41 = 0.0f;
+    _42 = 0.0f;
+    _43 = 0.0f;
+    _44 = 1.0f;
 }
 
 Matrix4::Matrix4(float _11, float _12, float _13, float _14

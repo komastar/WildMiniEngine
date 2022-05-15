@@ -1,14 +1,13 @@
 #include "Application/Application.h"
-#include "Application/ApplicationContextFactory.h"
+#include "Application/Platform/ApplicationContextFactory.h"
 #include "Window/WindowContextFactory.h"
-#include "Graphics/DeviceContextFactory.h"
+#include "Graphics/Platform/DeviceContextFactory.h"
 
 Core::Application::Application()
     : context(nullptr)
     , device(nullptr)
     , window(nullptr)
 {
-    context = ApplicationContextFactory::Create();
 }
 
 void Core::Application::OnInitialize()
@@ -20,13 +19,20 @@ void Core::Application::OnInitialize()
 
     device = Core::DeviceContextFactory::Create();
     device->Create(window);
-    context->device = device;
+
+    context = ApplicationContextFactory::Create(window, device);
 }
 
 void Core::Application::OnTerminate()
 {
     delete context;
     context = nullptr;
+
+    delete device;
+    device = nullptr;
+
+    delete window;
+    window = nullptr;
 }
 
 int Core::Application::Run()

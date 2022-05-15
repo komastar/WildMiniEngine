@@ -20,10 +20,10 @@ Matrix2 Matrix2::Identity()
 
 Matrix2::Matrix2()
 {
-    for (int i = 0; i < 4; i++)
-    {
-        v[i] = 0.0f;
-    }
+    _11 = 1.0f;
+    _12 = 0.0f;
+    _21 = 0.0f;
+    _22 = 1.0f;
 }
 
 Matrix2::Matrix2(float _11, float _12, float _21, float _22)
@@ -32,7 +32,7 @@ Matrix2::Matrix2(float _11, float _12, float _21, float _22)
     this->_12 = _12;
 
     this->_21 = _21;
-    this->_21 = _22;
+    this->_22 = _22;
 }
 
 Matrix2::Matrix2(const Matrix3& m)
