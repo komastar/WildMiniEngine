@@ -1,5 +1,5 @@
 #ifdef _WIN32
-#include "Graphics/Platform/Win32/GraphicsDeviceContext.h"
+#include "Graphics/Platform/DX/GraphicsDeviceContext.h"
 #include "Math/Math.h"
 #include <DirectXColors.h>
 #include "Math/Math.h"
@@ -530,8 +530,8 @@ void Core::GraphicsDeviceContext::BuildShadersAndInputLayout()
 {
     HRESULT hr = S_OK;
 
-    mvsByteCode = CompileShader(L"..\\Core\\Shaders\\BasicShader.hlsl", nullptr, "VS", "vs_5_0");
-    mpsByteCode = CompileShader(L"..\\Core\\Shaders\\BasicShader.hlsl", nullptr, "PS", "ps_5_0");
+    mvsByteCode = CompileShader(L"Shaders\\BasicShader.hlsl", nullptr, "VS", "vs_5_0");
+    mpsByteCode = CompileShader(L"Shaders\\BasicShader.hlsl", nullptr, "PS", "ps_5_0");
 
     mInputLayout =
     {

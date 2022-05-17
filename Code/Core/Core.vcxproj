@@ -122,6 +122,9 @@
     <Lib>
       <AdditionalDependencies>winmm.lib</AdditionalDependencies>
     </Lib>
+    <PostBuildEvent>
+      <Command>xcopy /Y /I /D /S .\Shaders\ $(SolutionDir)Build\$(Platform)_$(Configuration)\Shaders</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -153,6 +156,9 @@
     <Lib>
       <AdditionalDependencies>winmm.lib</AdditionalDependencies>
     </Lib>
+    <PostBuildEvent>
+      <Command>xcopy /Y /I /D /S .\Shaders\ $(SolutionDir)Build\$(Platform)_$(Configuration)\Shaders</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -181,6 +187,9 @@
     <Lib>
       <AdditionalDependencies>winmm.lib</AdditionalDependencies>
     </Lib>
+    <PostBuildEvent>
+      <Command>xcopy /Y /I /D /S .\Shaders\ $(SolutionDir)Build\$(Platform)_$(Configuration)\Shaders</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -212,6 +221,9 @@
     <Lib>
       <AdditionalDependencies>winmm.lib</AdditionalDependencies>
     </Lib>
+    <PostBuildEvent>
+      <Command>xcopy /Y /I /D /S .\Shaders\ $(SolutionDir)Build\$(Platform)_$(Configuration)\Shaders</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Include\Application\Application.h" />
@@ -220,8 +232,9 @@
     <ClInclude Include="Include\Application\IApplication.h" />
     <ClInclude Include="Include\Application\IApplicationContext.h" />
     <ClInclude Include="Include\Graphics\d3dx12.h" />
+    <ClInclude Include="Include\Graphics\ICommandList.h" />
     <ClInclude Include="Include\Graphics\Platform\DeviceContextFactory.h" />
-    <ClInclude Include="Include\Graphics\Platform\Win32\GraphicsDeviceContext.h" />
+    <ClInclude Include="Include\Graphics\Platform\DX\GraphicsDeviceContext.h" />
     <ClInclude Include="Include\Graphics\IGraphicsDevice.h" />
     <ClInclude Include="Include\Math\AffineTransform2.h" />
     <ClInclude Include="Include\Math\AffineTransform3.h" />

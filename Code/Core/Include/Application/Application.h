@@ -15,10 +15,8 @@ namespace Core
         virtual void OnTerminate() override;
         virtual int Run() override;
 
-    private:
-        IApplicationContext* context;
-
     protected:
+        IApplicationContext* context;
         IGraphicsDevice* device;
         IWindow* window;
     };

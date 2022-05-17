@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Graphics/Platform/Win32/GraphicsDeviceContext.h"
+#include "Graphics/Platform/DX/GraphicsDeviceContext.h"
 
 namespace Core
 {

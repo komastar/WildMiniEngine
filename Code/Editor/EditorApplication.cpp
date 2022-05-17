@@ -1,4 +1,7 @@
 #include "EditorApplication.h"
+#include "Application/Platform/ApplicationContextFactory.h"
+#include "Window/WindowContextFactory.h"
+#include "Graphics/Platform/DeviceContextFactory.h"
 
 EditorApplication::EditorApplication()
 {
@@ -6,10 +9,25 @@ EditorApplication::EditorApplication()
 
 void EditorApplication::OnInitialize()
 {
-    Application::OnInitialize();
+    window = Core::WindowContextFactory::Create();
+    window->Create();
+    window->Show();
+    window->Focus();
+
+    device = Core::DeviceContextFactory::Create();
+    device->Create(window);
+
+    context = Core::ApplicationContextFactory::Create(window, device);
 }
 
 void EditorApplication::OnTerminate()
 {
-    Application::OnTerminate();
+    delete context;
+    context = nullptr;
+
+    delete device;
+    device = nullptr;
+
+    delete window;
+    window = nullptr;
 }
