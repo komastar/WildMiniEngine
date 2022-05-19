@@ -22,12 +22,4 @@ void EditorApplication::OnInitialize()
 
 void EditorApplication::OnTerminate()
 {
-    delete context;
-    context = nullptr;
-
-    delete device;
-    device = nullptr;
-
-    delete window;
-    window = nullptr;
 }

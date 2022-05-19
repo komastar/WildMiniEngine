@@ -1,8 +1,10 @@
 #pragma once
+#include "Common/RefCounter.h"
+
 namespace Core
 {
     class IWindow;
-    class IGraphicsDevice
+    class IGraphicsDevice : public RefCounter
     {
     public:
         virtual void Create(IWindow* window) = 0;

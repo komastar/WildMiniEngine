@@ -75,26 +75,26 @@
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)_d</TargetName>
-    <IncludePath>Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
-    <IncludePath>Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)_d</TargetName>
-    <IncludePath>Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
-    <IncludePath>Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -226,6 +226,30 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Application\Application.h" />
+    <ClInclude Include="Application\IApplication.h" />
+    <ClInclude Include="Application\IApplicationContext.h" />
+    <ClInclude Include="Application\Platform\ApplicationContextFactory.h" />
+    <ClInclude Include="Application\Platform\Win32\ApplicationContext.h" />
+    <ClInclude Include="Graphics\Platform\DX\CommandAllocator.h" />
+    <ClInclude Include="Common\Object.h" />
+    <ClInclude Include="Common\RefCounter.h" />
+    <ClInclude Include="Graphics\Platform\DX\d3dx12.h" />
+    <ClInclude Include="Graphics\ICommandList.h" />
+    <ClInclude Include="Graphics\ICommandQueue.h" />
+    <ClInclude Include="Graphics\IGraphicsDevice.h" />
+    <ClInclude Include="Graphics\ISwapChain.h" />
+    <ClInclude Include="Graphics\Platform\DeviceContextFactory.h" />
+    <ClInclude Include="Graphics\Platform\DX\CommandList.h" />
+    <ClInclude Include="Graphics\Platform\DX\CommandQueue.h" />
+    <ClInclude Include="Graphics\Platform\DX\d3d12_include.h" />
+    <ClInclude Include="Graphics\Platform\DX\GraphicsDeviceContext.h" />
+    <ClInclude Include="Graphics\Platform\DX\SwapChain.h" />
+    <ClInclude Include="Include\Common\RefCounter.h" />
+    <ClInclude Include="Include\Graphics\Platform\DX\CommandQueue.h" />
+    <ClInclude Include="Include\Graphics\ICommandQueue.h" />
+    <ClInclude Include="Include\Graphics\ISwapChain.h" />
+    <ClInclude Include="Include\Graphics\Platform\DX\CommandList.h" />
     <ClInclude Include="Include\Application\Application.h" />
     <ClInclude Include="Include\Application\Platform\Win32\ApplicationContext.h" />
     <ClInclude Include="Include\Application\Platform\ApplicationContextFactory.h" />
@@ -250,22 +274,43 @@
     <ClInclude Include="Include\Window\WindowContext.h" />
     <ClInclude Include="Include\Window\WindowContextFactory.h" />
     <ClInclude Include="Include\Window\IWindow.h" />
+    <ClInclude Include="Include\Graphics\Platform\DX\SwapChain.h" />
+    <ClInclude Include="Include\Common\Object.h" />
+    <ClInclude Include="Math\AffineTransform2.h" />
+    <ClInclude Include="Math\AffineTransform3.h" />
+    <ClInclude Include="Math\LinearTransform2.h" />
+    <ClInclude Include="Math\LinearTransform3.h" />
+    <ClInclude Include="Math\Math.h" />
+    <ClInclude Include="Math\Matrix2.h" />
+    <ClInclude Include="Math\Matrix3.h" />
+    <ClInclude Include="Math\Matrix4.h" />
+    <ClInclude Include="Math\Vector2.h" />
+    <ClInclude Include="Math\Vector3.h" />
+    <ClInclude Include="Math\Vector4.h" />
+    <ClInclude Include="Window\IWindow.h" />
+    <ClInclude Include="Window\WindowContext.h" />
+    <ClInclude Include="Window\WindowContextFactory.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Src\Application\Application.cpp" />
-    <ClCompile Include="Src\Application\Platform\Win32\ApplicationContext.cpp" />
-    <ClCompile Include="Src\Graphics\Platform\Win32\GraphicsDeviceContext.cpp" />
-    <ClCompile Include="Src\Math\AffineTransform2.cpp" />
-    <ClCompile Include="Src\Math\AffineTransform3.cpp" />
-    <ClCompile Include="Src\Math\LinearTransform2.cpp" />
-    <ClCompile Include="Src\Math\LinearTransform3.cpp" />
-    <ClCompile Include="Src\Math\Matrix2.cpp" />
-    <ClCompile Include="Src\Math\Matrix3.cpp" />
-    <ClCompile Include="Src\Math\Matrix4.cpp" />
-    <ClCompile Include="Src\Math\Vector2.cpp" />
-    <ClCompile Include="Src\Math\Vector3.cpp" />
-    <ClCompile Include="Src\Math\Vector4.cpp" />
-    <ClCompile Include="Src\Window\WindowContext.cpp" />
+    <ClCompile Include="Application\Application.cpp" />
+    <ClCompile Include="Application\Platform\Win32\ApplicationContext.cpp" />
+    <ClCompile Include="Graphics\Platform\DX\CommandAllocator.cpp" />
+    <ClCompile Include="Common\RefCounter.cpp" />
+    <ClCompile Include="Graphics\Platform\DX\CommandList.cpp" />
+    <ClCompile Include="Graphics\Platform\DX\CommandQueue.cpp" />
+    <ClCompile Include="Graphics\Platform\DX\GraphicsDeviceContext.cpp" />
+    <ClCompile Include="Graphics\Platform\DX\SwapChain.cpp" />
+    <ClCompile Include="Math\AffineTransform2.cpp" />
+    <ClCompile Include="Math\AffineTransform3.cpp" />
+    <ClCompile Include="Math\LinearTransform2.cpp" />
+    <ClCompile Include="Math\LinearTransform3.cpp" />
+    <ClCompile Include="Math\Matrix2.cpp" />
+    <ClCompile Include="Math\Matrix3.cpp" />
+    <ClCompile Include="Math\Matrix4.cpp" />
+    <ClCompile Include="Math\Vector2.cpp" />
+    <ClCompile Include="Math\Vector3.cpp" />
+    <ClCompile Include="Math\Vector4.cpp" />
+    <ClCompile Include="Window\WindowContext.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

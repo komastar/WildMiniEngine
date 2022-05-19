@@ -36,12 +36,8 @@ public:
     }
 };
 
-TEST(App, Run)
+_TEST_(Win32, App, Run)
 {
     UnitTestApplication testApp;
     int result = testApp.Run();
 }
-
-//_TEST_(Win32, App, Run)
-//{
-//}

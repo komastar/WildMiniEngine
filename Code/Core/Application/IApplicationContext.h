@@ -1,9 +1,11 @@
 #pragma once
+#include "Common/RefCounter.h"
+
 namespace Core
 {
     class IWindow;
     class IGraphicsDevice;
-    class IApplicationContext
+    class IApplicationContext : public RefCounter
     {
     public:
         virtual int MessageLoop() = 0;

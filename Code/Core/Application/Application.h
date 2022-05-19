@@ -1,7 +1,9 @@
 #pragma once
+#include "Common/Object.h"
 #include "IApplication.h"
 #include "IApplicationContext.h"
 #include "Graphics/IGraphicsDevice.h"
+#include "Window/IWindow.h"
 
 namespace Core
 {
@@ -16,9 +18,9 @@ namespace Core
         virtual int Run() override;
 
     protected:
-        IApplicationContext* context;
-        IGraphicsDevice* device;
-        IWindow* window;
+        Object<IApplicationContext> context;
+        Object<IGraphicsDevice> device;
+        Object<IWindow> window;
     };
 }
 #pragma once
