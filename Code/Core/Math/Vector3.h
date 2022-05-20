@@ -40,7 +40,7 @@ public:
 public:
     float Length();
     float LengthSq();
-    void Normalize();
+    const Vector3& Normalize();
 
 public:
     bool operator==(const Vector3& value) const;

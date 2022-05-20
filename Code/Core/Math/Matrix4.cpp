@@ -1,4 +1,4 @@
-#include "Math/Math.h"
+#include "Matrix4.h"
 
 Matrix4 Matrix4::Inversed(Matrix4& m)
 {
@@ -145,6 +145,51 @@ void Matrix4::Inverse()
         inv = Adjoint() * (1.0f / d);
         std::memcpy(m, inv.m, 16);
     }
+}
+
+const Matrix4& Matrix4::View(const Vector3& eye, const Vector3& lookat, const Vector3& up)
+{
+    Vector3 l = (lookat - eye).Normalize();
+    Vector3 r = Vector3::Cross(up, l).Normalize();
+    Vector3 u = Vector3::Cross(l, r).Normalize();
+
+    m[0][0] = r.x;
+    m[1][0] = r.y;
+    m[2][0] = r.z;
+    m[3][0] = -Vector3::Dot(r, eye);
+
+    m[0][1] = u.x;
+    m[1][1] = u.y;
+    m[2][1] = u.z;
+    m[3][1] = -Vector3::Dot(u, eye);
+
+    m[0][2] = l.x;
+    m[1][2] = l.y;
+    m[2][2] = l.z;
+    m[3][2] = -Vector3::Dot(l, eye);
+
+    return *this;
+}
+
+const Matrix4& Matrix4::Projection(float fov, float aspect, float nearZ, float farZ)
+{
+    fov = DegToRad(fov) * 0.5f;
+    float sy = cosf(fov) / sinf(fov);
+    float sx = sy / aspect;
+    m[0][0] = sx;
+    m[1][1] = sy;
+    m[2][2] = farZ / (farZ - nearZ);
+    m[3][2] = -farZ * nearZ / (farZ - nearZ);
+
+    m[2][3] = 1.0f;
+    m[3][3] = 0.0f;
+
+    return *this;
+}
+
+const Matrix4& Matrix4::Viewport(float x, float y, float w, float h, float minZ, float maxZ)
+{
+    return *this;
 }
 
 float Matrix4::Determinant()

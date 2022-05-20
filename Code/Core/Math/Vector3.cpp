@@ -110,12 +110,14 @@ float Vector3::LengthSq()
     return x * x + y * y + z * z;
 }
 
-void Vector3::Normalize()
+const Vector3& Vector3::Normalize()
 {
     float inv = 1.0f / sqrtf(x * x + y * y + z * z);
     x *= inv;
     y *= inv;
     z *= inv;
+
+    return *this;
 }
 
 bool Vector3::operator==(const Vector3& value) const
