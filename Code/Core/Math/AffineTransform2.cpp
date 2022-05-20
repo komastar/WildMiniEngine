@@ -1,4 +1,6 @@
-#include "Math/Math.h"
+#include "AffineTransform2.h"
+
+using namespace Core::Math;
 
 AffineTransform2::AffineTransform2() : m()
 {

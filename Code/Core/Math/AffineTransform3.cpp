@@ -1,4 +1,6 @@
-#include "Math/Math.h"
+#include "AffineTransform3.h"
+
+using namespace Core::Math;
 
 AffineTransform3::AffineTransform3()
 {

@@ -234,6 +234,7 @@
     <ClInclude Include="Graphics\Platform\DX\CommandAllocator.h" />
     <ClInclude Include="Common\Object.h" />
     <ClInclude Include="Common\RefCounter.h" />
+    <ClInclude Include="Core.h" />
     <ClInclude Include="Graphics\Platform\DX\d3dx12.h" />
     <ClInclude Include="Graphics\ICommandList.h" />
     <ClInclude Include="Graphics\ICommandQueue.h" />

@@ -1,4 +1,6 @@
-#include "Math/Math.h"
+#include "LinearTransform3.h"
+
+using namespace Core::Math;
 
 LinearTransform3::LinearTransform3()
 {

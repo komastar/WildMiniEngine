@@ -1,4 +1,6 @@
-#include "Math/Math.h"
+#include "Vector2.h"
+
+using namespace Core::Math;
 
 Vector2 Vector2::Normalized(Vector2 v)
 {

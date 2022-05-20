@@ -1,4 +1,6 @@
-#include "Math/Math.h"
+#include "LinearTransform2.h"
+
+using namespace Core::Math;
 
 LinearTransform2::LinearTransform2() : m()
 {

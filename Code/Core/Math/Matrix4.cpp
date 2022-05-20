@@ -1,4 +1,6 @@
-#include "Matrix4.h"
+#include "Math.h"
+
+using namespace Core::Math;
 
 Matrix4 Matrix4::Inversed(Matrix4& m)
 {

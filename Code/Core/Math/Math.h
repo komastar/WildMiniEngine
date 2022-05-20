@@ -1,20 +1,18 @@
 #pragma once
 #define _USE_MATH_DEFINES
 
-#include <cmath>
-#include <math.h>
-#include <iostream>
+#include "Core.h"
 
-#include "Vector2.h"
-#include "Vector3.h"
-#include "Vector4.h"
+#include "AffineTransform2.h"
+#include "AffineTransform3.h"
+#include "LinearTransform2.h"
+#include "LinearTransform3.h"
 #include "Matrix2.h"
 #include "Matrix3.h"
 #include "Matrix4.h"
-#include "LinearTransform2.h"
-#include "LinearTransform3.h"
-#include "AffineTransform2.h"
-#include "AffineTransform3.h"
+#include "Vector2.h"
+#include "Vector3.h"
+#include "Vector4.h"
 
 inline float DegToRad(float degree)
 {

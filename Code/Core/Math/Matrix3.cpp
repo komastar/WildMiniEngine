@@ -1,4 +1,6 @@
-#include "Math/Math.h"
+#include "Matrix3.h"
+
+using namespace Core::Math;
 
 Matrix3 Matrix3::Inversed(Matrix3& m)
 {

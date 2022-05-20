@@ -1,4 +1,6 @@
-#include "Math/Math.h"
+#include "Matrix2.h"
+
+using namespace Core::Math;
 
 Matrix2 Matrix2::Inversed(Matrix2& m)
 {
@@ -83,12 +85,6 @@ void Matrix2::Scale(float x, float y)
 {
     _11 = x;
     _22 = y;
-}
-
-void Matrix2::Scale(const Vector2& v)
-{
-    _11 = v.x;
-    _22 = v.y;
 }
 
 float Matrix2::Determinant()
