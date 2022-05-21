@@ -25,14 +25,6 @@ public:
     
     virtual void OnTerminate() override
     {
-        delete context;
-        context = nullptr;
-
-        delete device;
-        device = nullptr;
-
-        delete window;
-        window = nullptr;
     }
 };
 
