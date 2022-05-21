@@ -1,10 +1,10 @@
 #pragma once
 #include <Windows.h>
-#include "IWindow.h"
+#include "Window/IWindow.h"
 
 namespace Core
 {
-    class WindowContext : public Core::IWindow
+    class WindowContext : public IWindow
     {
     public:
         virtual void Create() override;

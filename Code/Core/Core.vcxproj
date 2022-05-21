@@ -289,8 +289,8 @@
     <ClInclude Include="Math\Vector3.h" />
     <ClInclude Include="Math\Vector4.h" />
     <ClInclude Include="Window\IWindow.h" />
-    <ClInclude Include="Window\WindowContext.h" />
-    <ClInclude Include="Window\WindowContextFactory.h" />
+    <ClInclude Include="Window\Platform\Win32\WindowContext.h" />
+    <ClInclude Include="Window\Platform\WindowContextFactory.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application\Application.cpp" />
@@ -311,7 +311,7 @@
     <ClCompile Include="Math\Vector2.cpp" />
     <ClCompile Include="Math\Vector3.cpp" />
     <ClCompile Include="Math\Vector4.cpp" />
-    <ClCompile Include="Window\WindowContext.cpp" />
+    <ClCompile Include="Window\Platform\Win32\WindowContext.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

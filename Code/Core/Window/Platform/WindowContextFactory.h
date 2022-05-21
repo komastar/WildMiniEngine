@@ -1,5 +1,5 @@
 #pragma once
-#include "WindowContext.h"
+#include "Window/Platform/Win32/WindowContext.h"
 
 namespace Core
 {

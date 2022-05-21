@@ -1,6 +1,6 @@
 #include "EditorApplication.h"
 #include "Application/Platform/ApplicationContextFactory.h"
-#include "Window/WindowContextFactory.h"
+#include "Window/Platform/WindowContextFactory.h"
 #include "Graphics/Platform/DeviceContextFactory.h"
 
 EditorApplication::EditorApplication()

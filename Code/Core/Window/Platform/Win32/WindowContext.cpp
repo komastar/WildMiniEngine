@@ -1,4 +1,4 @@
-#include "Window/WindowContext.h"
+#include "WindowContext.h"
 
 LRESULT WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 {

@@ -1,6 +1,6 @@
 #include "UnitTest.h"
 #include "Application/Application.h"
-#include "Window/WindowContextFactory.h"
+#include "Window/Platform/WindowContextFactory.h"
 #include "Application/Platform/ApplicationContextFactory.h"
 #include "Graphics/Platform/DeviceContextFactory.h"
 
