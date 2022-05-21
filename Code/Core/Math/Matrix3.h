@@ -37,7 +37,7 @@ namespace Core::Math
 
     public:
         void Transpose();
-        void Inverse();
+        Matrix3 Inverse();
 
     private:
         float Determinant();

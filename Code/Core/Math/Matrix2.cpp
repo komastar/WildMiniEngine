@@ -5,9 +5,7 @@ using namespace Core::Math;
 Matrix2 Matrix2::Inversed(Matrix2& m)
 {
     Matrix2 inversed(m);
-    inversed.Inverse();
-
-    return inversed;
+    return inversed.Inverse();
 }
 
 Matrix2 Matrix2::Identity()
@@ -62,7 +60,7 @@ void Matrix2::Transpose()
     _21 = t;
 }
 
-void Matrix2::Inverse()
+Matrix2 Matrix2::Inverse()
 {
     Matrix2 inv;
     inv._11 = _22;
@@ -79,6 +77,8 @@ void Matrix2::Inverse()
             m[y][x] = inv.m[y][x];
         }
     }
+
+    return inv;
 }
 
 void Matrix2::Scale(float x, float y)

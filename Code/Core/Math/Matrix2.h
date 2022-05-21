@@ -33,7 +33,7 @@ namespace Core::Math
 
     public:
         void Transpose();
-        void Inverse();
+        Matrix2 Inverse();
 
     public:
         void Scale(float x, float y);

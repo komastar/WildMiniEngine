@@ -38,7 +38,7 @@ namespace Core::Math
 
     public:
         void Transpose();
-        void Inverse();
+        Matrix4 Inverse();
         const Matrix4& View(const Vector3& eye, const Vector3& lookat, const Vector3& up);
         const Matrix4& Projection(float fov, float aspect, float nearZ, float farZ);
         const Matrix4& Viewport(float x, float y, float w, float h, float minZ, float maxZ);

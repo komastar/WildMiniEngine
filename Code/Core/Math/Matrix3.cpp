@@ -5,9 +5,7 @@ using namespace Core::Math;
 Matrix3 Matrix3::Inversed(Matrix3& m)
 {
     Matrix3 inversed(m);
-    m.Inverse();
-
-    return inversed;
+    return m.Inverse();
 }
 
 Matrix3 Matrix3::Identity()
@@ -102,26 +100,36 @@ void Matrix3::Transpose()
     }
 }
 
-void Matrix3::Inverse()
+Matrix3 Matrix3::Inverse()
 {
-    Matrix3 inv;
     float d = Determinant();
-    if (0.0f < fabsf(d))
+    if (0.0f != d)
     {
-        inv = Adjoint() * (1.0f / d);
+        float invDet = 1.0f / d;
+        Matrix3 inv;
+        inv._11 = (_22 * _33 - _32 * _23) * invDet;
+        inv._12 = (_32 * _13 - _12 * _33) * invDet;
+        inv._13 = (_12 * _23 - _22 * _13) * invDet;
+        inv._21 = (_31 * _23 - _21 * _33) * invDet;
+        inv._22 = (_11 * _33 - _31 * _13) * invDet;
+        inv._23 = (_21 * _13 - _11 * _23) * invDet;
+        inv._31 = (_21 * _32 - _31 * _22) * invDet;
+        inv._32 = (_31 * _12 - _11 * _32) * invDet;
+        inv._33 = (_11 * _22 - _21 * _12) * invDet;
+        return inv;
     }
+    
+    return Matrix3();
 }
 
 float Matrix3::Determinant()
 {
-    float d = 0.0f;
-    for (int i = 0; i < 3; i++)
-    {
-        float cof = Cofactor(i, 0);
-        d += m[i][0] * cof;
-    }
-
-    return d;
+    return (_11 * _22 * _33) +
+        (_21 * _32 * _13) +
+        (_31 * _12 * _23) -
+        (_31 * _22 * _13) -
+        (_21 * _12 * _33) -
+        (_11 * _32 * _23);
 }
 
 Matrix3 Matrix3::Adjoint()

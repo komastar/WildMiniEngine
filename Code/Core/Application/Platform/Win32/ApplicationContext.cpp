@@ -4,7 +4,6 @@
 int Core::ApplicationContext::MessageLoop()
 {
     MSG msg;
-    BOOL isFrame = FALSE;
     while (true)
     {
         if (PeekMessageW(&msg, nullptr, 0, 0, PM_REMOVE))
