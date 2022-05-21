@@ -7,8 +7,8 @@ LinearTransform3::LinearTransform3()
 }
 
 LinearTransform3::LinearTransform3(const Matrix3& _m)
+    : m(_m)
 {
-    m = Matrix3(_m);
 }
 
 LinearTransform3 LinearTransform3::Scale(const float& x, const float& y, const float& z)

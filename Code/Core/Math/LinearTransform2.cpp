@@ -7,8 +7,8 @@ LinearTransform2::LinearTransform2() : m()
 }
 
 LinearTransform2::LinearTransform2(const Matrix2& _m)
+    : m(_m)
 {
-    m = Matrix2(_m);
 }
 
 LinearTransform2 LinearTransform2::Scale(const float& x, const float& y)

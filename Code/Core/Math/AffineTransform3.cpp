@@ -7,8 +7,8 @@ AffineTransform3::AffineTransform3()
 }
 
 AffineTransform3::AffineTransform3(const Matrix3& _m)
+    : m(_m)
 {
-    m = Matrix3(_m);
 }
 
 AffineTransform3 AffineTransform3::Translate(float x, float y, float z)
