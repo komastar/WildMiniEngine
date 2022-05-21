@@ -11,4 +11,3 @@ public:
     virtual void OnInitialize() override;
     virtual void OnTerminate() override;
 };
-

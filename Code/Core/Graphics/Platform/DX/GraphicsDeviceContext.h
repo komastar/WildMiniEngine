@@ -8,7 +8,6 @@
 #include "Graphics/Platform/DX/CommandList.h"
 #include "Graphics/Platform/DX/CommandQueue.h"
 #include "Graphics/Platform/DX/SwapChain.h"
-#include "Graphics/Platform/DX/CommandAllocator.h"
 
 namespace Core
 {
@@ -21,11 +20,11 @@ namespace Core
     private:
         ComPtr<IDXGIFactory4> dxgiFactory;
         ComPtr<ID3D12Device> device;
+        ComPtr<ID3D12CommandAllocator> commandAllocator;
 
         Object<IWindow> window;
         Object<CommandList> commandList;
         Object<CommandQueue> commandQueue;
-        Object<CommandAllocator> commandAllocator;
         Object<SwapChain> swapChain;
 
     private:

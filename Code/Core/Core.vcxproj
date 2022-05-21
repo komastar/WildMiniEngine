@@ -231,7 +231,6 @@
     <ClInclude Include="Application\IApplicationContext.h" />
     <ClInclude Include="Application\Platform\ApplicationContextFactory.h" />
     <ClInclude Include="Application\Platform\Win32\ApplicationContext.h" />
-    <ClInclude Include="Graphics\Platform\DX\CommandAllocator.h" />
     <ClInclude Include="Common\Object.h" />
     <ClInclude Include="Common\RefCounter.h" />
     <ClInclude Include="Core.h" />
@@ -295,7 +294,6 @@
   <ItemGroup>
     <ClCompile Include="Application\Application.cpp" />
     <ClCompile Include="Application\Platform\Win32\ApplicationContext.cpp" />
-    <ClCompile Include="Graphics\Platform\DX\CommandAllocator.cpp" />
     <ClCompile Include="Common\RefCounter.cpp" />
     <ClCompile Include="Graphics\Platform\DX\CommandList.cpp" />
     <ClCompile Include="Graphics\Platform\DX\CommandQueue.cpp" />

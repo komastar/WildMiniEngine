@@ -7,7 +7,7 @@ namespace Core
     class CommandQueue : public ICommandQueue
     {
     public:
-        CommandQueue(ID3D12Device* device);
+        CommandQueue(ID3D12CommandQueue* commandQueue);
 
         ID3D12CommandQueue* Get();
 

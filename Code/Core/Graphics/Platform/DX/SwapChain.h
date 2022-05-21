@@ -8,7 +8,7 @@ namespace Core
     class SwapChain : public ISwapChain
     {
     public:
-        SwapChain(ID3D12Device* device, IDXGIFactory4* dxgiFactory, IWindow* window);
+        SwapChain(IDXGISwapChain* swapChain, uint32_t width, uint32_t height);
 
     public:
         void Resize(uint32_t width, uint32_t height);
