@@ -14,8 +14,7 @@ void EditorApplication::OnInitialize()
     window->Show();
     window->Focus();
 
-    device = Core::DeviceContextFactory::Create();
-    device->Create(window);
+    device = Core::DeviceContextFactory::Create(window);
 
     context = Core::ApplicationContextFactory::Create(window, device);
 }

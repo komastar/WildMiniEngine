@@ -11,8 +11,8 @@ namespace Core
         virtual void Show() override;
         virtual void Hide() override;
         virtual void* PlatformHandle() override;
-        virtual int Width() override;
-        virtual int Height() override;
+        virtual uint32_t Width() override;
+        virtual uint32_t Height() override;
         virtual void Update() override;
         virtual void Focus() override;
 
@@ -21,7 +21,7 @@ namespace Core
         HWND hwnd;
 
     private:
-        const int width = 1024;
-        const int height = 768;
+        const uint32_t width = 1024;
+        const uint32_t height = 768;
     };
 }

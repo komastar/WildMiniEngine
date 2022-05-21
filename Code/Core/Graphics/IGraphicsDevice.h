@@ -7,7 +7,7 @@ namespace Core
     class IGraphicsDevice : public RefCounter
     {
     public:
-        virtual void Create(IWindow* window) = 0;
+        virtual void Create() = 0;
         virtual void Update() = 0;
         virtual void Render() = 0;
     };

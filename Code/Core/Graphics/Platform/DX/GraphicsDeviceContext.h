@@ -3,18 +3,24 @@
 #include "d3d12_include.h"
 
 #include "Graphics/IGraphicsDevice.h"
-#include "Window/IWindow.h"
-#include "Math/Math.h"
+//#include "Window/IWindow.h"
 #include "Graphics/Platform/DX/CommandList.h"
 #include "Graphics/Platform/DX/CommandQueue.h"
 #include "Graphics/Platform/DX/SwapChain.h"
 
 namespace Core
 {
+    class IWindow;
     class GraphicsDeviceContext : public IGraphicsDevice
     {
     public:
-        GraphicsDeviceContext();
+        static GraphicsDeviceContext* Create(IWindow* window)
+        {
+            return new GraphicsDeviceContext(window);
+        }
+
+    private:
+        GraphicsDeviceContext(IWindow* window);
         virtual ~GraphicsDeviceContext();
 
     private:
@@ -28,14 +34,13 @@ namespace Core
         Object<SwapChain> swapChain;
 
     private:
-        void CreateDevice();
         void CreateCommandQueue();
         void CreateCommandAllocator();
         void CreateCommandList();
         void CreateSwapChain();
 
     public:
-        virtual void Create(IWindow* window) override;
+        virtual void Create() override;
         virtual void Update() override;
         virtual void Render() override;
     };

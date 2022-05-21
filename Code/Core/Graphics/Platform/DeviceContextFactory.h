@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Graphics/Platform/DX/GraphicsDeviceContext.h"
 
 namespace Core
@@ -7,9 +6,9 @@ namespace Core
     class DeviceContextFactory
     {
     public:
-        static IGraphicsDevice* Create()
+        static IGraphicsDevice* Create(IWindow* window = nullptr)
         {
-            return new GraphicsDeviceContext();
+            return GraphicsDeviceContext::Create(window);
         }
     };
 }

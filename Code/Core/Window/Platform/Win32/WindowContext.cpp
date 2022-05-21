@@ -28,7 +28,7 @@ void Core::WindowContext::Create()
 
     RegisterClassW(&wc);
 
-    RECT R = { 0, 0, width, height };
+    RECT R = { 0, 0, static_cast<LONG>(width), static_cast<LONG>(height)};
     AdjustWindowRect(&R, WS_OVERLAPPEDWINDOW, false);
     int width = R.right - R.left;
     int height = R.bottom - R.top;
@@ -51,12 +51,12 @@ void* Core::WindowContext::PlatformHandle()
     return hwnd;
 }
 
-int Core::WindowContext::Width()
+uint32_t Core::WindowContext::Width()
 {
     return width;
 }
 
-int Core::WindowContext::Height()
+uint32_t Core::WindowContext::Height()
 {
     return height;
 }

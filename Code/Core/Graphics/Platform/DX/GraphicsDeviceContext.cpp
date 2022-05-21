@@ -1,27 +1,27 @@
 #ifdef _WIN32
 #include "Graphics/Platform/DX/GraphicsDeviceContext.h"
-#include "Math/Math.h"
 #include "Graphics/Platform/DX/CommandList.h"
+#include "Window/IWindow.h"
 
-Core::GraphicsDeviceContext::GraphicsDeviceContext()
+Core::GraphicsDeviceContext::GraphicsDeviceContext(IWindow* window)
     : device(nullptr)
     , dxgiFactory(nullptr)
-    , window(nullptr)
+    , window(window)
     , commandList(nullptr)
     , commandAllocator(nullptr)
     , commandQueue(nullptr)
     , swapChain(nullptr)
 {
+    CreateDXGIFactory1(IID_PPV_ARGS(&dxgiFactory));
+    D3D12CreateDevice(nullptr, D3D_FEATURE_LEVEL_12_0, IID_PPV_ARGS(&device));
 }
 
 Core::GraphicsDeviceContext::~GraphicsDeviceContext()
 {
 }
 
-void Core::GraphicsDeviceContext::Create(IWindow* window)
+void Core::GraphicsDeviceContext::Create()
 {
-    this->window = window;
-    CreateDevice();
     CreateCommandQueue();
     CreateCommandAllocator();
     CreateCommandList();
@@ -35,12 +35,6 @@ void Core::GraphicsDeviceContext::Update()
 
 void Core::GraphicsDeviceContext::Render()
 {
-}
-
-void Core::GraphicsDeviceContext::CreateDevice()
-{
-    CreateDXGIFactory1(IID_PPV_ARGS(&dxgiFactory));
-    D3D12CreateDevice(nullptr, D3D_FEATURE_LEVEL_12_0, IID_PPV_ARGS(&device));
 }
 
 void Core::GraphicsDeviceContext::CreateCommandQueue()

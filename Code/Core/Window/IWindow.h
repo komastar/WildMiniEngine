@@ -14,7 +14,7 @@ namespace Core
 
         virtual void* PlatformHandle() = 0;
 
-        virtual int Width() = 0;
-        virtual int Height() = 0;
+        virtual uint32_t Width() = 0;
+        virtual uint32_t Height() = 0;
     };
 }
