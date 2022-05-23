@@ -2,6 +2,15 @@
 
 using namespace Core::Math;
 
+const Vector4 Vector4::one = { 1.0f, 1.0f, 1.0f, 1.0f };
+const Vector4 Vector4::zero = { 0.0f, 0.0f, 0.0f, 1.0f };
+const Vector4 Vector4::left = { -1.0f, 0.0f, 0.0f, 1.0f };
+const Vector4 Vector4::up = { 0.0f, 1.0f, 0.0f, 1.0f };
+const Vector4 Vector4::right = { 1.0f, 0.0f, 0.0f, 1.0f };
+const Vector4 Vector4::down = { 0.0f, -1.0f, 0.0f, 1.0f };
+const Vector4 Vector4::forward = { 0.0f, 0.0f, 1.0f, 1.0f };
+const Vector4 Vector4::back = { 0.0f, 0.0f, -1.0f, 1.0f };
+
 Vector4 Vector4::Normalized(Vector4 v)
 {
     Vector4 normalized(v);

@@ -4,12 +4,18 @@
     <Filter Include="Application">
       <UniqueIdentifier>{c534a94b-d1ab-48d9-b77f-704d653909c5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{cb17ef46-d3ed-45e3-bf4b-f7daf2472b54}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="UnitTestApplication.cpp">
       <Filter>Application</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="UnitTestVector.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="UnitTest.h" />

@@ -56,5 +56,15 @@ namespace Core::Math
         Vector3 operator*(const float& value) const;
         Vector3 operator*(const Matrix3& value) const;
         Vector3 operator/(const float& value) const;
+
+    public:
+        static const Vector3 one;
+        static const Vector3 zero;
+        static const Vector3 left;
+        static const Vector3 up;
+        static const Vector3 right;
+        static const Vector3 down;
+        static const Vector3 forward;
+        static const Vector3 back;
     };
 }

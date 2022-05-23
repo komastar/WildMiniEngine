@@ -2,6 +2,13 @@
 
 using namespace Core::Math;
 
+const Vector2 Vector2::one = Vector2(1.0f, 1.0f);
+const Vector2 Vector2::zero = Vector2(0.0f, 0.0f);
+const Vector2 Vector2::left = Vector2(-1.0f, 0.0f);
+const Vector2 Vector2::up = Vector2(0.0f, 1.0f);
+const Vector2 Vector2::right = Vector2(1.0f, 0.0f);
+const Vector2 Vector2::down = Vector2(0.0f, -1.0f);
+
 Vector2 Vector2::Normalized(Vector2 v)
 {
     Vector2 normalized(v);
@@ -109,6 +116,63 @@ Vector2 Vector2::operator-(const Vector2& value) const
 Vector2 Vector2::operator*(const float& value) const
 {
     return Vector2(x * value, y * value);
+}
+
+const Vector2& Vector2::operator+=(const float& value)
+{
+    this->x = this->x + value;
+    this->y = this->y + value;
+    return *this;
+}
+
+const Vector2& Vector2::operator-=(const float& value)
+{
+    this->x = this->x - value;
+    this->y = this->y - value;
+    return *this;
+}
+
+const Vector2& Vector2::operator*=(const float& value)
+{
+    this->x = this->x * value;
+    this->y = this->y * value;
+    return *this;
+}
+
+const Vector2& Vector2::operator/=(const float& value)
+{
+    float inv = 1.0f / value;
+    this->x = this->x / inv;
+    this->y = this->y / inv;
+    return *this;
+}
+
+const Vector2& Vector2::operator+=(const Vector2& value)
+{
+    this->x = this->x + value.x;
+    this->y = this->y + value.y;
+    return *this;
+}
+
+const Vector2& Vector2::operator-=(const Vector2& value)
+{
+    this->x = this->x - value.x;
+    this->y = this->y - value.y;
+    return *this;
+}
+
+const Vector2& Vector2::operator*=(const Vector2& value)
+{
+    this->x = this->x * value.x;
+    this->y = this->y * value.y;
+    return *this;
+}
+
+const Vector2& Vector2::operator/=(const Vector2& value)
+{
+    this->x = this->x / value.x;
+    this->y = this->y / value.y;
+    return *this;
 }
 
 Vector2 Vector2::operator*(const Matrix2& value) const

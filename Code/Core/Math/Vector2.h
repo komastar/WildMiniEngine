@@ -49,7 +49,23 @@ namespace Core::Math
         Vector2 operator+(const Vector2& value) const;
         Vector2 operator-(const Vector2& value) const;
         Vector2 operator*(const float& value) const;
+        const Vector2& operator+=(const Vector2& value);
+        const Vector2& operator-=(const Vector2& value);
+        const Vector2& operator*=(const Vector2& value);
+        const Vector2& operator/=(const Vector2& value);
+        const Vector2& operator+=(const float& value);
+        const Vector2& operator-=(const float& value);
+        const Vector2& operator*=(const float& value);
+        const Vector2& operator/=(const float& value);
         Vector2 operator*(const Matrix2& value) const;
         Vector2 operator/(const float& value) const;
+
+    public:
+        static const Vector2 one;
+        static const Vector2 zero;
+        static const Vector2 left;
+        static const Vector2 up;
+        static const Vector2 right;
+        static const Vector2 down;
     };
 }

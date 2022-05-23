@@ -165,6 +165,7 @@
   <ItemGroup>
     <ClCompile Include="UnitTestApplication.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="UnitTestVector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.vcxproj">

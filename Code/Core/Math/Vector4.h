@@ -57,5 +57,15 @@ namespace Core::Math
         Vector4 operator*(const float& value) const;
         Vector4 operator*(const Matrix4& value) const;
         Vector4 operator/(const float& value) const;
+
+    public:
+        static const Vector4 one;
+        static const Vector4 zero;
+        static const Vector4 left;
+        static const Vector4 up;
+        static const Vector4 right;
+        static const Vector4 down;
+        static const Vector4 back;
+        static const Vector4 forward;
     };
 }
