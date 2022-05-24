@@ -7,7 +7,7 @@ namespace Core
     class CommandList : public ICommandList, public RefCounter
     {
     public:
-        CommandList(ID3D12GraphicsCommandList* commandList, ID3D12CommandAllocator* commandAllocator);
+        CommandList(ID3D12Device* device, ID3D12CommandAllocator* commandAllocator);
 
         void Close();
         void Reset();

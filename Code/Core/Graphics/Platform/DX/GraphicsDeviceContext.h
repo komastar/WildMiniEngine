@@ -41,8 +41,6 @@ namespace Core
 
     public:
         virtual void Create() override;
-        virtual void Update() override;
-        virtual void Render() override;
     };
 }
 #endif  //  _WIN32

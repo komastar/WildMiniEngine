@@ -3,7 +3,7 @@
 
 namespace Core
 {
-    template<class T = RefCounter>
+    template<class T>
     class Object
     {
     public:
@@ -19,7 +19,13 @@ namespace Core
             InternalAddRef();
         }
 
-        ~Object()
+        Object(const Object&& obj) noexcept
+            : object(obj)
+        {
+            InternalAddRef();
+        }
+
+        ~Object() noexcept
         {
             InternalRelease();
         }
@@ -36,7 +42,7 @@ namespace Core
             return *this;
         }
 
-        Object& operator=(const Object& obj)
+        Object& operator=(const Object& obj) noexcept
         {
             if (object != obj.object)
             {
@@ -48,7 +54,30 @@ namespace Core
             return *this;
         }
 
+        Object& operator=(const Object&& obj) noexcept
+        {
+            if (object != obj->object)
+            {
+                InternalAddRef();
+            }
+
+            object = obj->object;
+            obj->object = nullptr;
+            return *this;
+        }
+
+        template<class U>
+        Object<U> DynamicCast()
+        {
+            return dynamic_cast<U>(object);
+        }
+
         T* operator->()
+        {
+            return object;
+        }
+
+        const T* operator->() const
         {
             return object;
         }
@@ -56,11 +85,6 @@ namespace Core
         T* operator*()
         {
             return object;
-        }
-
-        T** operator&()
-        {
-            return &object;
         }
 
         const T* operator*() const
@@ -76,6 +100,11 @@ namespace Core
         operator const T* () const
         {
             return object;
+        }
+
+        T** operator&()
+        {
+            return &object;
         }
 
         T* Ptr()

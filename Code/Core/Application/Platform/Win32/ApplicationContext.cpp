@@ -16,11 +16,6 @@ int Core::ApplicationContext::MessageLoop()
         {
             break;
         }
-        else
-        {
-            device->Update();
-            device->Render();
-        }
     }
 
     return static_cast<int>(msg.wParam);
