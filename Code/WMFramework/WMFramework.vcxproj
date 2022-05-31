@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{a2a52466-f5d9-4fff-b608-7a24285a2abb}</ProjectGuid>
+    <RootNamespace>WildMini</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>WMFramework</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_d</TargetName>
+    <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
+    <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_d</TargetName>
+    <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
+    <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>winmm.lib</AdditionalDependencies>
+    </Lib>
+    <PostBuildEvent>
+      <Command>xcopy /Y /I /D /S .\Shaders\ $(SolutionDir)Build\$(Platform)_$(Configuration)\Shaders</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>winmm.lib</AdditionalDependencies>
+    </Lib>
+    <PostBuildEvent>
+      <Command>xcopy /Y /I /D /S .\Shaders\ $(SolutionDir)Build\$(Platform)_$(Configuration)\Shaders</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <AdditionalOptions>/Qpar %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>winmm.lib</AdditionalDependencies>
+    </Lib>
+    <PostBuildEvent>
+      <Command>xcopy /Y /I /D /S .\Shaders\ $(SolutionDir)Build\$(Platform)_$(Configuration)\Shaders</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>winmm.lib</AdditionalDependencies>
+    </Lib>
+    <PostBuildEvent>
+      <Command>xcopy /Y /I /D /S .\Shaders\ $(SolutionDir)Build\$(Platform)_$(Configuration)\Shaders</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="Application\WMApplication.h" />
+    <ClInclude Include="Application\WMApplicationContext.h" />
+    <ClInclude Include="Application\Platform\WMApplicationContextFactory.h" />
+    <ClInclude Include="Application\Platform\Win32\WMApplicationContextImpl.h" />
+    <ClInclude Include="Object\WMObject.h" />
+    <ClInclude Include="Object\WMRefCounter.h" />
+    <ClInclude Include="WMFramework.h" />
+    <ClInclude Include="Graphics\WMGPUBuffer.h" />
+    <ClInclude Include="Graphics\WMTexture.h" />
+    <ClInclude Include="Graphics\Platform\DX\WMGPUBufferImpl.h" />
+    <ClInclude Include="Graphics\Platform\DX\d3dx12.h" />
+    <ClInclude Include="Graphics\WMCommandList.h" />
+    <ClInclude Include="Graphics\WMCommandQueue.h" />
+    <ClInclude Include="Graphics\WMGraphicsDevice.h" />
+    <ClInclude Include="Graphics\WMSwapChain.h" />
+    <ClInclude Include="Graphics\Platform\WMGraphicsDeviceFactory.h" />
+    <ClInclude Include="Graphics\Platform\DX\WMCommandListImpl.h" />
+    <ClInclude Include="Graphics\Platform\DX\WMCommandQueueImpl.h" />
+    <ClInclude Include="Graphics\Platform\DX\d3d12_include.h" />
+    <ClInclude Include="Graphics\Platform\DX\WMGraphicsDeviceContext.h" />
+    <ClInclude Include="Graphics\Platform\DX\WMSwapChainImpl.h" />
+    <ClInclude Include="Include\Common\RefCounter.h" />
+    <ClInclude Include="Include\Graphics\Platform\DX\CommandQueue.h" />
+    <ClInclude Include="Include\Graphics\ICommandQueue.h" />
+    <ClInclude Include="Include\Graphics\ISwapChain.h" />
+    <ClInclude Include="Include\Graphics\Platform\DX\CommandList.h" />
+    <ClInclude Include="Include\Application\Application.h" />
+    <ClInclude Include="Include\Application\Platform\Win32\ApplicationContext.h" />
+    <ClInclude Include="Include\Application\Platform\ApplicationContextFactory.h" />
+    <ClInclude Include="Include\Application\IApplication.h" />
+    <ClInclude Include="Include\Application\IApplicationContext.h" />
+    <ClInclude Include="Include\Graphics\d3dx12.h" />
+    <ClInclude Include="Include\Graphics\ICommandList.h" />
+    <ClInclude Include="Include\Graphics\Platform\DeviceContextFactory.h" />
+    <ClInclude Include="Include\Graphics\Platform\DX\GraphicsDeviceContext.h" />
+    <ClInclude Include="Include\Graphics\IGraphicsDevice.h" />
+    <ClInclude Include="Include\Math\AffineTransform2.h" />
+    <ClInclude Include="Include\Math\AffineTransform3.h" />
+    <ClInclude Include="Include\Math\LinearTransform2.h" />
+    <ClInclude Include="Include\Math\LinearTransform3.h" />
+    <ClInclude Include="Include\Math\Math.h" />
+    <ClInclude Include="Include\Math\Matrix2.h" />
+    <ClInclude Include="Include\Math\Matrix3.h" />
+    <ClInclude Include="Include\Math\Matrix4.h" />
+    <ClInclude Include="Include\Math\Vector2.h" />
+    <ClInclude Include="Include\Math\Vector3.h" />
+    <ClInclude Include="Include\Math\Vector4.h" />
+    <ClInclude Include="Include\Window\WindowContext.h" />
+    <ClInclude Include="Include\Window\WindowContextFactory.h" />
+    <ClInclude Include="Include\Window\IWindow.h" />
+    <ClInclude Include="Include\Graphics\Platform\DX\SwapChain.h" />
+    <ClInclude Include="Include\Common\Object.h" />
+    <ClInclude Include="Math\WMAffineTransform2.h" />
+    <ClInclude Include="Math\WMAffineTransform3.h" />
+    <ClInclude Include="Math\WMLinearTransform2.h" />
+    <ClInclude Include="Math\WMLinearTransform3.h" />
+    <ClInclude Include="Math\WMMath.h" />
+    <ClInclude Include="Math\WMMatrix2.h" />
+    <ClInclude Include="Math\WMMatrix3.h" />
+    <ClInclude Include="Math\WMMatrix4.h" />
+    <ClInclude Include="Math\WMVector2.h" />
+    <ClInclude Include="Math\WMVector3.h" />
+    <ClInclude Include="Math\WMVector4.h" />
+    <ClInclude Include="Graphics\Platform\DX\WMTextureImpl.h" />
+    <ClInclude Include="Window\Platform\WMWindowtFactory.h" />
+    <ClInclude Include="Window\WMWindow.h" />
+    <ClInclude Include="Window\Platform\Win32\WMWindowContext.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Application\WMApplication.cpp" />
+    <ClCompile Include="Application\Platform\Win32\WMApplicationContextImpl.cpp" />
+    <ClCompile Include="Object\WMRefCounter.cpp" />
+    <ClCompile Include="Graphics\Platform\DX\WMGPUBufferImpl.cpp" />
+    <ClCompile Include="Graphics\Platform\DX\WMCommandListImpl.cpp" />
+    <ClCompile Include="Graphics\Platform\DX\WMCommandQueueImpl.cpp" />
+    <ClCompile Include="Graphics\Platform\DX\WMGraphicsDeviceContext.cpp" />
+    <ClCompile Include="Graphics\Platform\DX\WMSwapChainImpl.cpp" />
+    <ClCompile Include="Math\WMAffineTransform2.cpp" />
+    <ClCompile Include="Math\WMAffineTransform3.cpp" />
+    <ClCompile Include="Math\WMLinearTransform2.cpp" />
+    <ClCompile Include="Math\WMLinearTransform3.cpp" />
+    <ClCompile Include="Math\WMMatrix2.cpp" />
+    <ClCompile Include="Math\WMMatrix3.cpp" />
+    <ClCompile Include="Math\WMMatrix4.cpp" />
+    <ClCompile Include="Math\WMVector2.cpp" />
+    <ClCompile Include="Math\WMVector3.cpp" />
+    <ClCompile Include="Math\WMVector4.cpp" />
+    <ClCompile Include="Graphics\Platform\DX\WMTextureImpl.cpp" />
+    <ClCompile Include="Window\Platform\Win32\WMWindowContext.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".editorconfig" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,13 +1,13 @@
 #pragma once
-#include "Application/Application.h"
+#include "Application/WMApplication.h"
 #include <Windows.h>
 
-class EditorApplication : public Core::Application
+class EditorApplication : public WildMini::Application::WMApplication
 {
 public:
     EditorApplication();
 
 public:
-    virtual void OnInitialize() override;
-    virtual void OnTerminate() override;
+    void OnInitialize() override;
+    void OnTerminate() override;
 };

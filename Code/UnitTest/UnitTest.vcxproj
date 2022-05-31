@@ -86,7 +86,7 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
-    <IncludePath>..\Core;..\Thirdparty\googletest\googletest\include;$(IncludePath)</IncludePath>
+    <IncludePath>..\WMFramework;..\Thirdparty\googletest\googletest\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -168,11 +168,11 @@
     <ClCompile Include="UnitTestVector.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core\Core.vcxproj">
-      <Project>{a2a52466-f5d9-4fff-b608-7a24285a2abb}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\Thirdparty\googletest\googletest.vcxproj">
       <Project>{10506515-512e-49f2-b74b-adfb50fda426}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\WMFramework\WMFramework.vcxproj">
+      <Project>{a2a52466-f5d9-4fff-b608-7a24285a2abb}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

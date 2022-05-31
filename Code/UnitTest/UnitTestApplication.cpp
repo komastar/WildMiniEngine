@@ -1,28 +1,30 @@
 #include "UnitTest.h"
-#include "Application/Application.h"
-#include "Window/Platform/WindowContextFactory.h"
-#include "Application/Platform/ApplicationContextFactory.h"
-#include "Graphics/Platform/DeviceContextFactory.h"
+#include "Application/WMApplication.h"
+#include "Window/Platform/WMWindowtFactory.h"
+#include "Application/Platform/WMApplicationContextFactory.h"
+#include "Graphics/Platform/WMGraphicsDeviceFactory.h"
 
-class UnitTestApplication : public Core::Application
+using namespace WildMini::Window;
+
+class UnitTestApplication : public WildMini::Application::WMApplication
 {
 public:
     UnitTestApplication() {}
     virtual ~UnitTestApplication() {}
 
-    virtual void OnInitialize() override
+    void OnInitialize() override
     {
-        window = Core::WindowContextFactory::Create();
+        window = WMWindowtFactory::Create();
         window->Create();
         window->Show();
         window->Focus();
 
-        device = Core::DeviceContextFactory::Create(window);
+        device = WildMini::Graphics::WMGraphicsDeviceFactory::Create(window);
 
-        context = Core::ApplicationContextFactory::Create(window, device);
+        context = WildMini::Application::WMApplicationContextFactory::Create(window, device);
     }
     
-    virtual void OnTerminate() override
+    void OnTerminate() override
     {
     }
 };
