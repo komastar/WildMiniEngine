@@ -1,8 +1,8 @@
 #include "UnitTest.h"
 #include "Application/WMApplication.h"
-#include "Window/Platform/WMWindowtFactory.h"
-#include "Application/Platform/WMApplicationContextFactory.h"
-#include "Graphics/Platform/WMGraphicsDeviceFactory.h"
+#include "Window/Private/WindowFactory.h"
+#include "Application/Private/ApplicationContextFactory.h"
+#include "Graphics/Private/GraphicsDeviceFactory.h"
 
 using namespace WildMini::Window;
 
@@ -19,18 +19,22 @@ public:
         window->Show();
         window->Focus();
 
-        device = WildMini::Graphics::GraphicsDeviceFactory::Create(window);
+        device = WildMini::Graphics::Private::GraphicsDeviceFactory::Create();
 
-        context = WildMini::Application::WMApplicationContextFactory::Create(window, device);
+        context = WildMini::Application::Private::ApplicationContextFactory::Create();
     }
     
     void OnTerminate() override
     {
     }
+
+private:
+    WildMini::Object::WMObject<WildMini::Window::WMWindow> window;
+    WildMini::Object::WMObject<WildMini::Graphics::WMGraphicsDevice> device;
 };
 
 _TEST_(Win32, App, Run)
 {
-    UnitTestApplication testApp;
-    int result = testApp.Run();
+    //UnitTestApplication testApp;
+    //int result = testApp.Run();
 }

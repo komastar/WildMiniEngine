@@ -1,5 +1,6 @@
 #include "UnitTest.h"
 #include "Math/WMMath.h"
+#include "Math/WMVector2.h"
 
 using namespace WildMini::Math;
 

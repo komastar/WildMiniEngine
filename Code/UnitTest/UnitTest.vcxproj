@@ -128,49 +128,49 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
-    <IncludePath>..\Core;..\Thirdparty\googletest\googletest\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)WMFramework;..\Thirdparty\googletest\googletest\include;..\Thirdparty\fmt\include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_DLL|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
-    <IncludePath>..\Core;..\Thirdparty\googletest\googletest\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)WMFramework;..\Thirdparty\googletest\googletest\include;..\Thirdparty\fmt\include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
-    <IncludePath>..\Core;..\Thirdparty\googletest\googletest\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)WMFramework;..\Thirdparty\googletest\googletest\include;..\Thirdparty\fmt\include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_DLL|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
-    <IncludePath>..\Core;..\Thirdparty\googletest\googletest\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)WMFramework;..\Thirdparty\googletest\googletest\include;..\Thirdparty\fmt\include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
-    <IncludePath>..\WMFramework;..\Thirdparty\googletest\googletest\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)WMFramework;..\Thirdparty\googletest\googletest\include;..\Thirdparty\fmt\include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_DLL|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
-    <IncludePath>..\WMFramework;..\Thirdparty\googletest\googletest\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)WMFramework;..\Thirdparty\googletest\googletest\include;..\Thirdparty\fmt\include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
-    <IncludePath>..\Core;..\Thirdparty\googletest\googletest\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)WMFramework;..\Thirdparty\googletest\googletest\include;..\Thirdparty\fmt\include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_DLL|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
-    <IncludePath>..\Core;..\Thirdparty\googletest\googletest\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)WMFramework;..\Thirdparty\googletest\googletest\include;..\Thirdparty\fmt\include</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -311,9 +311,13 @@
   <ItemGroup>
     <ClCompile Include="UnitTestApplication.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="UnitTestLog.cpp" />
     <ClCompile Include="UnitTestVector.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Thirdparty\fmt\fmt.vcxproj">
+      <Project>{597e1b0e-1297-42c9-befd-282634e30cba}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\Thirdparty\googletest\googletest.vcxproj">
       <Project>{10506515-512e-49f2-b74b-adfb50fda426}</Project>
     </ProjectReference>

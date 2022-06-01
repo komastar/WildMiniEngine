@@ -7,6 +7,9 @@
     <Filter Include="Math">
       <UniqueIdentifier>{cb17ef46-d3ed-45e3-bf4b-f7daf2472b54}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Log">
+      <UniqueIdentifier>{50ae094a-a1fc-4610-81ee-758491302b47}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="UnitTestApplication.cpp">
@@ -15,6 +18,9 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="UnitTestVector.cpp">
       <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="UnitTestLog.cpp">
+      <Filter>Log</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
