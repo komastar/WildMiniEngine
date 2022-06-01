@@ -1,5 +1,5 @@
 #ifdef _WIN32
-#include "WMWindowContext.h"
+#include "WindowContext.h"
 
 using namespace WildMini::Window;
 
@@ -15,7 +15,7 @@ LRESULT WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
     return DefWindowProc(hwnd, message, wParam, lParam);
 }
 
-void WMWindowContext::Create()
+void WindowContext::Create()
 {
     WNDCLASSW wc = {};
     wc.style = CS_HREDRAW | CS_VREDRAW;
@@ -39,37 +39,37 @@ void WMWindowContext::Create()
     hwnd = CreateWindowW(L"MainWnd", L"D3D App", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, width, height, 0, 0, instance, 0);
 }
 
-void WMWindowContext::Show()
+void WindowContext::Show()
 {
     ShowWindow(hwnd, SW_SHOW);
 }
 
-void WMWindowContext::Hide()
+void WindowContext::Hide()
 {
     ShowWindow(hwnd, SW_HIDE);
 }
 
-void* WMWindowContext::PlatformHandle()
+void* WindowContext::PlatformHandle()
 {
     return hwnd;
 }
 
-uint32_t WMWindowContext::Width()
+uint32_t WindowContext::Width()
 {
     return width;
 }
 
-uint32_t WMWindowContext::Height()
+uint32_t WindowContext::Height()
 {
     return height;
 }
 
-void WMWindowContext::Update()
+void WindowContext::Update()
 {
     UpdateWindow(hwnd);
 }
 
-void WMWindowContext::Focus()
+void WindowContext::Focus()
 {
     SetFocus(hwnd);
 }

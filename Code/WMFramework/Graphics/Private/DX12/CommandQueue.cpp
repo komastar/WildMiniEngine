@@ -1,9 +1,8 @@
-#include "Graphics/Platform/DX/WMCommandQueueImpl.h"
-#include <d3d12.h>
+#include "CommandQueue.h"
 
-using namespace WildMini::Graphics;
+using namespace WildMini::Graphics::Private::DX12;
 
-WMCommandQueueImpl::WMCommandQueueImpl(ID3D12Device* device)
+CommandQueue::CommandQueue(ID3D12Device* device)
     : commandQueue(nullptr)
 {
     D3D12_COMMAND_QUEUE_DESC queueDesc = {};
@@ -12,7 +11,7 @@ WMCommandQueueImpl::WMCommandQueueImpl(ID3D12Device* device)
     device->CreateCommandQueue(&queueDesc, IID_PPV_ARGS(&commandQueue));
 }
 
-ID3D12CommandQueue* WMCommandQueueImpl::Get()
+ID3D12CommandQueue* CommandQueue::Get()
 {
     return commandQueue.Get();
 }

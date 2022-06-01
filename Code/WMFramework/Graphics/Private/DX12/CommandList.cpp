@@ -1,8 +1,8 @@
-#include "WMCommandListImpl.h"
+#include "CommandList.h"
 
-using namespace WildMini::Graphics;
+using namespace WildMini::Graphics::Private::DX12;
 
-WMCommandListImpl::WMCommandListImpl(ID3D12Device* device, ID3D12CommandAllocator* commandAllocator)
+CommandList::CommandList(ID3D12Device* device, ID3D12CommandAllocator* commandAllocator)
     : commandList(nullptr)
     , commandAllocator(commandAllocator)
 {
@@ -13,12 +13,12 @@ WMCommandListImpl::WMCommandListImpl(ID3D12Device* device, ID3D12CommandAllocato
         , IID_PPV_ARGS(&commandList));
 }
 
-void WMCommandListImpl::Close()
+void CommandList::Close()
 {
     commandList->Close();
 }
 
-void WMCommandListImpl::Reset()
+void CommandList::Reset()
 {
     commandList->Reset(commandAllocator.Get(), nullptr);
 }

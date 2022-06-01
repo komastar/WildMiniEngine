@@ -3,7 +3,7 @@
 
 namespace WildMini::Window
 {
-    class WMWindow : public WildMini::Object::WMRefCounter
+    class WM_API WMWindow : public WildMini::Object::WMRefCounter
     {
     public:
         virtual void Create() = 0;

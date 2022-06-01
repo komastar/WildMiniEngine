@@ -14,12 +14,12 @@ public:
 
     void OnInitialize() override
     {
-        window = WMWindowtFactory::Create();
+        window = WindowFactory::Create();
         window->Create();
         window->Show();
         window->Focus();
 
-        device = WildMini::Graphics::WMGraphicsDeviceFactory::Create(window);
+        device = WildMini::Graphics::GraphicsDeviceFactory::Create(window);
 
         context = WildMini::Application::WMApplicationContextFactory::Create(window, device);
     }

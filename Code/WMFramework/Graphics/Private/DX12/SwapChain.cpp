@@ -1,10 +1,10 @@
-#include "Graphics/Platform/DX/WMSwapChainImpl.h"
+#include "SwapChain.h"
 #include <Windows.h>
 
-using namespace WildMini::Graphics;
+using namespace WildMini::Graphics::Private::DX12;
 using namespace WildMini::Window;
 
-WMSwapChainImpl::WMSwapChainImpl(ID3D12Device* device, IDXGIFactory4* dxgiFactory, WMWindow* window)
+SwapChain::SwapChain(ID3D12Device* device, IDXGIFactory4* dxgiFactory, WMWindow* window)
     : swapChain(nullptr)
     , width(width)
     , height(height)
@@ -32,7 +32,7 @@ WMSwapChainImpl::WMSwapChainImpl(ID3D12Device* device, IDXGIFactory4* dxgiFactor
     dxgiFactory->CreateSwapChain(device, &sd, &pSwapChain);
 }
 
-void WMSwapChainImpl::Resize(uint32_t width, uint32_t height)
+void SwapChain::Resize(uint32_t width, uint32_t height)
 {
     this->width = width;
     this->height = height;
@@ -42,12 +42,12 @@ void WMSwapChainImpl::Resize(uint32_t width, uint32_t height)
     swapChain->ResizeBuffers(BUFFER_COUNT, width, height, desc.BufferDesc.Format, 0);
 }
 
-uint32_t WMSwapChainImpl::Width()
+uint32_t SwapChain::Width()
 {
     return width;
 }
 
-uint32_t WMSwapChainImpl::Height()
+uint32_t SwapChain::Height()
 {
     return height;
 }

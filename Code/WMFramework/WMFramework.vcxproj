@@ -1,9 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug_DLL|Win32">
+      <Configuration>Debug_DLL</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_DLL|x64">
+      <Configuration>Debug_DLL</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_DLL|Win32">
+      <Configuration>Release_DLL</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_DLL|x64">
+      <Configuration>Release_DLL</Configuration>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
@@ -33,8 +49,21 @@
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>NotSet</CharacterSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_DLL|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_DLL|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -46,8 +75,21 @@
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>NotSet</CharacterSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_DLL|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_DLL|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -61,17 +103,36 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_DLL|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_DLL|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug_DLL|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_DLL|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_d</TargetName>
+    <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_DLL|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
@@ -84,6 +145,12 @@
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
     <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_DLL|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
+    <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
@@ -91,7 +158,20 @@
     <TargetName>$(ProjectName)_d</TargetName>
     <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_DLL|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_d</TargetName>
+    <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
+    <IncludePath>$(ProjectDir);$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_DLL|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
@@ -124,7 +204,41 @@
       <AdditionalDependencies>winmm.lib</AdditionalDependencies>
     </Lib>
     <PostBuildEvent>
-      <Command>xcopy /Y /I /D /S .\Shaders\ $(SolutionDir)Build\$(Platform)_$(Configuration)\Shaders</Command>
+      <Command>xcopy /YIDS /EXCLUDE:$(SolutionDir)exclude.txt $(ProjectDir)*.h $(SolutionDir)Build\include
+xcopy /YIDS $(OutputPath)\*.lib $(SolutionDir)Build\Libs
+xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_DLL|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>winmm.lib</AdditionalDependencies>
+    </Lib>
+    <PostBuildEvent>
+      <Command>xcopy /YIDS /EXCLUDE:$(SolutionDir)exclude.txt $(ProjectDir)*.h $(SolutionDir)Build\include
+xcopy /YIDS $(OutputPath)\*.lib $(SolutionDir)Build\Libs
+xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -158,7 +272,45 @@
       <AdditionalDependencies>winmm.lib</AdditionalDependencies>
     </Lib>
     <PostBuildEvent>
-      <Command>xcopy /Y /I /D /S .\Shaders\ $(SolutionDir)Build\$(Platform)_$(Configuration)\Shaders</Command>
+      <Command>xcopy /YIDS /EXCLUDE:$(SolutionDir)exclude.txt $(ProjectDir)*.h $(SolutionDir)Build\include
+xcopy /YIDS $(OutputPath)\*.lib $(SolutionDir)Build\Libs
+xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_DLL|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>winmm.lib</AdditionalDependencies>
+    </Lib>
+    <PostBuildEvent>
+      <Command>xcopy /YIDS /EXCLUDE:$(SolutionDir)exclude.txt $(ProjectDir)*.h $(SolutionDir)Build\include
+xcopy /YIDS $(OutputPath)\*.lib $(SolutionDir)Build\Libs
+xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -189,7 +341,42 @@
       <AdditionalDependencies>winmm.lib</AdditionalDependencies>
     </Lib>
     <PostBuildEvent>
-      <Command>xcopy /Y /I /D /S .\Shaders\ $(SolutionDir)Build\$(Platform)_$(Configuration)\Shaders</Command>
+      <Command>xcopy /YIDS /EXCLUDE:$(SolutionDir)exclude.txt $(ProjectDir)*.h $(SolutionDir)Build\include
+xcopy /YIDS $(OutputPath)\*.lib $(SolutionDir)Build\Libs
+xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_DLL|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_LIB;WM_DYNAMIC;DLL_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <AdditionalOptions>/Qpar %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>winmm.lib</AdditionalDependencies>
+    </Lib>
+    <PostBuildEvent>
+      <Command>xcopy /YIDS /EXCLUDE:$(SolutionDir)exclude.txt $(ProjectDir)*.h $(SolutionDir)Build\include
+xcopy /YIDS $(OutputPath)\*.lib $(SolutionDir)Build\Libs
+xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -223,31 +410,69 @@
       <AdditionalDependencies>winmm.lib</AdditionalDependencies>
     </Lib>
     <PostBuildEvent>
-      <Command>xcopy /Y /I /D /S .\Shaders\ $(SolutionDir)Build\$(Platform)_$(Configuration)\Shaders</Command>
+      <Command>xcopy /YIDS /EXCLUDE:$(SolutionDir)exclude.txt $(ProjectDir)*.h $(SolutionDir)Build\include
+xcopy /YIDS $(OutputPath)\*.lib $(SolutionDir)Build\Libs
+xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_DLL|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>winmm.lib</AdditionalDependencies>
+    </Lib>
+    <PostBuildEvent>
+      <Command>xcopy /YIDS /EXCLUDE:$(SolutionDir)exclude.txt $(ProjectDir)*.h $(SolutionDir)Build\include
+xcopy /YIDS $(OutputPath)\*.lib $(SolutionDir)Build\Libs
+xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Application\WMApplication.h" />
     <ClInclude Include="Application\WMApplicationContext.h" />
-    <ClInclude Include="Application\Platform\WMApplicationContextFactory.h" />
-    <ClInclude Include="Application\Platform\Win32\WMApplicationContextImpl.h" />
+    <ClInclude Include="Application\Private\ApplicationContextFactory.h" />
+    <ClInclude Include="Application\Private\Win32\ApplicationContext.h" />
     <ClInclude Include="Object\WMObject.h" />
     <ClInclude Include="Object\WMRefCounter.h" />
     <ClInclude Include="WMFramework.h" />
     <ClInclude Include="Graphics\WMGPUBuffer.h" />
     <ClInclude Include="Graphics\WMTexture.h" />
-    <ClInclude Include="Graphics\Platform\DX\WMGPUBufferImpl.h" />
-    <ClInclude Include="Graphics\Platform\DX\d3dx12.h" />
+    <ClInclude Include="Graphics\Private\DX12\GPUBuffer.h" />
+    <ClInclude Include="Graphics\Private\DX12\d3dx12.h" />
     <ClInclude Include="Graphics\WMCommandList.h" />
     <ClInclude Include="Graphics\WMCommandQueue.h" />
     <ClInclude Include="Graphics\WMGraphicsDevice.h" />
     <ClInclude Include="Graphics\WMSwapChain.h" />
-    <ClInclude Include="Graphics\Platform\WMGraphicsDeviceFactory.h" />
-    <ClInclude Include="Graphics\Platform\DX\WMCommandListImpl.h" />
-    <ClInclude Include="Graphics\Platform\DX\WMCommandQueueImpl.h" />
-    <ClInclude Include="Graphics\Platform\DX\d3d12_include.h" />
-    <ClInclude Include="Graphics\Platform\DX\WMGraphicsDeviceContext.h" />
-    <ClInclude Include="Graphics\Platform\DX\WMSwapChainImpl.h" />
+    <ClInclude Include="Graphics\Private\GraphicsDeviceFactory.h" />
+    <ClInclude Include="Graphics\Private\DX12\CommandList.h" />
+    <ClInclude Include="Graphics\Private\DX12\CommandQueue.h" />
+    <ClInclude Include="Graphics\Private\DX12\d3d12_include.h" />
+    <ClInclude Include="Graphics\Private\DX12\GraphicsDeviceContext.h" />
+    <ClInclude Include="Graphics\Private\DX12\SwapChain.h" />
     <ClInclude Include="Include\Common\RefCounter.h" />
     <ClInclude Include="Include\Graphics\Platform\DX\CommandQueue.h" />
     <ClInclude Include="Include\Graphics\ICommandQueue.h" />
@@ -290,20 +515,21 @@
     <ClInclude Include="Math\WMVector2.h" />
     <ClInclude Include="Math\WMVector3.h" />
     <ClInclude Include="Math\WMVector4.h" />
-    <ClInclude Include="Graphics\Platform\DX\WMTextureImpl.h" />
-    <ClInclude Include="Window\Platform\WMWindowtFactory.h" />
+    <ClInclude Include="Graphics\Private\DX12\Texture.h" />
+    <ClInclude Include="Window\Private\WindowFactory.h" />
     <ClInclude Include="Window\WMWindow.h" />
-    <ClInclude Include="Window\Platform\Win32\WMWindowContext.h" />
+    <ClInclude Include="Window\Private\Win32\WindowContext.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application\WMApplication.cpp" />
-    <ClCompile Include="Application\Platform\Win32\WMApplicationContextImpl.cpp" />
+    <ClCompile Include="Application\Private\Win32\ApplicationContext.cpp" />
+    <ClCompile Include="Graphics\WMGraphicsDevice.cpp" />
     <ClCompile Include="Object\WMRefCounter.cpp" />
-    <ClCompile Include="Graphics\Platform\DX\WMGPUBufferImpl.cpp" />
-    <ClCompile Include="Graphics\Platform\DX\WMCommandListImpl.cpp" />
-    <ClCompile Include="Graphics\Platform\DX\WMCommandQueueImpl.cpp" />
-    <ClCompile Include="Graphics\Platform\DX\WMGraphicsDeviceContext.cpp" />
-    <ClCompile Include="Graphics\Platform\DX\WMSwapChainImpl.cpp" />
+    <ClCompile Include="Graphics\Private\DX12\GPUBuffer.cpp" />
+    <ClCompile Include="Graphics\Private\DX12\CommandList.cpp" />
+    <ClCompile Include="Graphics\Private\DX12\CommandQueue.cpp" />
+    <ClCompile Include="Graphics\Private\DX12\GraphicsDeviceContext.cpp" />
+    <ClCompile Include="Graphics\Private\DX12\SwapChain.cpp" />
     <ClCompile Include="Math\WMAffineTransform2.cpp" />
     <ClCompile Include="Math\WMAffineTransform3.cpp" />
     <ClCompile Include="Math\WMLinearTransform2.cpp" />
@@ -314,8 +540,8 @@
     <ClCompile Include="Math\WMVector2.cpp" />
     <ClCompile Include="Math\WMVector3.cpp" />
     <ClCompile Include="Math\WMVector4.cpp" />
-    <ClCompile Include="Graphics\Platform\DX\WMTextureImpl.cpp" />
-    <ClCompile Include="Window\Platform\Win32\WMWindowContext.cpp" />
+    <ClCompile Include="Graphics\Private\DX12\Texture.cpp" />
+    <ClCompile Include="Window\Private\Win32\WindowContext.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

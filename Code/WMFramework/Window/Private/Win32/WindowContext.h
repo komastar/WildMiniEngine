@@ -5,7 +5,7 @@
 
 namespace WildMini::Window
 {
-    class WMWindowContext : public WMWindow
+    class WindowContext : public WMWindow
     {
     public:
         virtual void Create() override;

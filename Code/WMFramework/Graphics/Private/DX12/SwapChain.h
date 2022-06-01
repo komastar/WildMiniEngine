@@ -3,12 +3,12 @@
 #include "Graphics/WMSwapChain.h"
 #include "Window/WMWindow.h"
 
-namespace WildMini::Graphics
+namespace WildMini::Graphics::Private::DX12
 {
-    class WMSwapChainImpl : public WMSwapChain
+    class SwapChain : public WMSwapChain
     {
     public:
-        WMSwapChainImpl(ID3D12Device* device, IDXGIFactory4* dxgiFactory, WildMini::Window::WMWindow* window);
+        SwapChain(ID3D12Device* device, IDXGIFactory4* dxgiFactory, WildMini::Window::WMWindow* window);
         enum { BUFFER_COUNT = 2 };
 
     public:

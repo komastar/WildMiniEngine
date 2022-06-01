@@ -1,13 +1,13 @@
 #pragma once
-#include "Graphics/Platform/DX/d3d12_include.h"
+#include "d3d12_include.h"
 #include "Graphics/WMCommandList.h"
 
-namespace WildMini::Graphics
+namespace WildMini::Graphics::Private::DX12
 {
-    class WMCommandListImpl : public WMCommandList
+    class CommandList : public WMCommandList
     {
     public:
-        WMCommandListImpl(ID3D12Device* device, ID3D12CommandAllocator* commandAllocator);
+        CommandList(ID3D12Device* device, ID3D12CommandAllocator* commandAllocator);
 
     private:
         ComPtr<ID3D12GraphicsCommandList> commandList;

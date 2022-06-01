@@ -1,7 +1,7 @@
 #include "EditorApplication.h"
-#include "Application/Platform/WMApplicationContextFactory.h"
-#include "Window/Platform/WMWindowtFactory.h"
-#include "Graphics/Platform/WMGraphicsDeviceFactory.h"
+#include "Application/Private/ApplicationContextFactory.h"
+#include "Window/Private/WindowFactory.h"
+#include "Graphics/Private/GraphicsDeviceFactory.h"
 
 EditorApplication::EditorApplication()
 {
@@ -9,14 +9,13 @@ EditorApplication::EditorApplication()
 
 void EditorApplication::OnInitialize()
 {
-    window = WildMini::Window::WMWindowtFactory::Create();
+    window = WildMini::Window::WindowFactory::Create();
     window->Create();
     window->Show();
     window->Focus();
 
-    device = WildMini::Graphics::WMGraphicsDeviceFactory::Create(window);
-
-    context = WildMini::Application::WMApplicationContextFactory::Create(window, device);
+    device = WildMini::Graphics::Private::GraphicsDeviceFactory::Create();
+    device->CreateCommandList();
 }
 
 void EditorApplication::OnTerminate()

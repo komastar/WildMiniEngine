@@ -1,14 +1,14 @@
 #pragma once
-#include "Window/Platform/Win32/WMWindowContext.h"
+#include "Window/Private/Win32/WindowContext.h"
 
 namespace WildMini::Window
 {
-    class WMWindowtFactory
+    class WindowFactory
     {
     public:
         static WMWindow* Create()
         {
-            return new WMWindowContext();
+            return new WindowContext();
         }
     };
 }

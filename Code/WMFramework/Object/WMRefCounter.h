@@ -1,10 +1,12 @@
 #pragma once
+#include "WMFramework.h"
+
 #include <cstdint>
 #include <atomic>
 
 namespace WildMini::Object
 {
-    class WMRefCounter
+    class WM_API WMRefCounter
     {
     public:
         WMRefCounter();
@@ -15,6 +17,6 @@ namespace WildMini::Object
         uint32_t RefCount() const;
 
     private:
-        struct std::atomic<uint32_t> refCount;
+        struct WM_API std::atomic<uint32_t> refCount;
     };
 }
