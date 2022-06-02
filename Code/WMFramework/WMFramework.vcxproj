@@ -519,6 +519,8 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClInclude Include="Window\Private\WindowFactory.h" />
     <ClInclude Include="Window\WMWindow.h" />
     <ClInclude Include="Window\Private\Win32\WindowContext.h" />
+    <ClInclude Include="Log\WMLog.h" />
+    <ClInclude Include="Log\WMLogVariant.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application\WMApplication.cpp" />
@@ -542,6 +544,8 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClCompile Include="Math\WMVector4.cpp" />
     <ClCompile Include="Graphics\Private\DX12\Texture.cpp" />
     <ClCompile Include="Window\Private\Win32\WindowContext.cpp" />
+    <ClCompile Include="Log\WMLog.cpp" />
+    <ClCompile Include="Log\WMLogVariant.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

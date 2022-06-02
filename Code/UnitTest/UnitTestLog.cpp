@@ -1,10 +1,15 @@
 #include "UnitTest.h"
-#include <fmt/args.h>
-#include <fmt/format.h>
-#include <fmt/color.h>
+#include "Log/WMLog.h"
 
 _TEST_(System, Log, Print)
 {
-    auto style = fg(fmt::color::red);
-    fmt::print(stdout, style, "[{}] [{}] {}\n", "hello", "world", 0);
+    WildMini::WMLogInfo("Info");
+    WildMini::WMLogDebug("Debug");
+    WildMini::WMLogWarning("Warning");
+    WildMini::WMLogError("Error");
+
+    WildMini::WMLogInfo(L"Info");
+    WildMini::WMLogDebug(L"Debug");
+    WildMini::WMLogWarning(L"Warning");
+    WildMini::WMLogError(L"Error");
 }

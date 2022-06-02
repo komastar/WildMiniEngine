@@ -3,6 +3,8 @@
 #include "Window/Private/WindowFactory.h"
 #include "Graphics/Private/GraphicsDeviceFactory.h"
 
+using namespace WildMini;
+
 EditorApplication::EditorApplication()
 {
 }
