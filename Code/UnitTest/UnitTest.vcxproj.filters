@@ -10,6 +10,12 @@
     <Filter Include="Log">
       <UniqueIdentifier>{50ae094a-a1fc-4610-81ee-758491302b47}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Graphics">
+      <UniqueIdentifier>{41dd2d84-bd67-40ef-9f1f-102352e3b858}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\Primitive">
+      <UniqueIdentifier>{31a0303f-65fb-44d6-a3b9-5eca31ceeb41}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="UnitTestApplication.cpp">
@@ -21,6 +27,9 @@
     </ClCompile>
     <ClCompile Include="UnitTestLog.cpp">
       <Filter>Log</Filter>
+    </ClCompile>
+    <ClCompile Include="UnitTestColor.cpp">
+      <Filter>Graphics\Primitive</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

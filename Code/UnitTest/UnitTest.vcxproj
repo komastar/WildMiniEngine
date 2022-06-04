@@ -311,6 +311,7 @@
   <ItemGroup>
     <ClCompile Include="UnitTestApplication.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="UnitTestColor.cpp" />
     <ClCompile Include="UnitTestLog.cpp" />
     <ClCompile Include="UnitTestVector.cpp" />
   </ItemGroup>

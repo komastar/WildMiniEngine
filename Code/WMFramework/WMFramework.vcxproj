@@ -458,6 +458,7 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClInclude Include="Application\Private\Win32\ApplicationContext.h" />
     <ClInclude Include="Object\WMObject.h" />
     <ClInclude Include="Object\WMRefCounter.h" />
+    <ClInclude Include="Graphics\Primitive\WMColor.h" />
     <ClInclude Include="WMFramework.h" />
     <ClInclude Include="Graphics\WMGPUBuffer.h" />
     <ClInclude Include="Graphics\WMTexture.h" />
@@ -546,6 +547,7 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClCompile Include="Window\Private\Win32\WindowContext.cpp" />
     <ClCompile Include="Log\WMLog.cpp" />
     <ClCompile Include="Log\WMLogVariant.cpp" />
+    <ClCompile Include="Graphics\Primitive\WMColor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
