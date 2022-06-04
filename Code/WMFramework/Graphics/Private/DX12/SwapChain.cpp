@@ -6,12 +6,9 @@ using namespace WildMini::Window;
 
 SwapChain::SwapChain(ID3D12Device* device, IDXGIFactory4* dxgiFactory, WMWindow* window)
     : swapChain(nullptr)
-    , width(width)
-    , height(height)
+    , width(window->Width())
+    , height(window->Height())
 {
-    width = window->Width();
-    height = window->Height();
-
     DXGI_SWAP_CHAIN_DESC sd{};
     sd.BufferDesc.Width = width;
     sd.BufferDesc.Height = height;

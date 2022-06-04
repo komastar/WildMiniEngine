@@ -102,7 +102,7 @@ WMObject<WMTexture> GraphicsDeviceContext::CreateTexture(const WMTexture::Desc& 
     bufferDesc.Flags = D3D12_RESOURCE_FLAG_NONE;
     if (desc.usage & WMTexture::USAGE_SHADER_READ)
     {
-        initState = D3D12_RESOURCE_STATE_NON_PIXEL_SHADER_RESOURCE | D3D12_RESOURCE_STATE_NON_PIXEL_SHADER_RESOURCE;
+        initState = D3D12_RESOURCE_STATE_NON_PIXEL_SHADER_RESOURCE | D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE;
     }
     else
     {
