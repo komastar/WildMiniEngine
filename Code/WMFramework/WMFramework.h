@@ -40,7 +40,7 @@ namespace WildMini
     template<class T, class U, class... V>
     constexpr decltype(auto) Min(const T& a, const U& b, const V&... args) noexcept
     {
-        return Min(a, Min(b, Args...));
+        return Min(a, Min(b, args...));
     }
 
     template<class T, class U>
@@ -52,7 +52,7 @@ namespace WildMini
     template<class T, class U, class... V>
     constexpr decltype(auto) Max(const T& a, const U& b, const V&... args) noexcept
     {
-        return Max(a, Max(b, Args...));
+        return Max(a, Max(b, args...));
     }
 
     template<class T>

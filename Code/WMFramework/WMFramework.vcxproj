@@ -522,6 +522,13 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClInclude Include="Window\Private\Win32\WindowContext.h" />
     <ClInclude Include="Log\WMLog.h" />
     <ClInclude Include="Log\WMLogVariant.h" />
+    <ClInclude Include="Graphics\Primitive\WMRect.h" />
+    <ClInclude Include="Graphics\Primitive\WMQuad.h" />
+    <ClInclude Include="Graphics\Primitive\WMPoint.h" />
+    <ClInclude Include="Graphics\Primitive\WMSize.h" />
+    <ClInclude Include="Math\WMVector2Int.h" />
+    <ClInclude Include="Math\WMVector3Int.h" />
+    <ClInclude Include="Math\WMVector4Int.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application\WMApplication.cpp" />
@@ -548,6 +555,13 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClCompile Include="Log\WMLog.cpp" />
     <ClCompile Include="Log\WMLogVariant.cpp" />
     <ClCompile Include="Graphics\Primitive\WMColor.cpp" />
+    <ClCompile Include="Graphics\Primitive\WMRect.cpp" />
+    <ClCompile Include="Graphics\Primitive\WMQuad.cpp" />
+    <ClCompile Include="Graphics\Primitive\WMPoint.cpp" />
+    <ClCompile Include="Graphics\Primitive\WMSize.cpp" />
+    <ClCompile Include="Math\WMVector2Int.cpp" />
+    <ClCompile Include="Math\WMVector3Int.cpp" />
+    <ClCompile Include="Math\WMVector4Int.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
