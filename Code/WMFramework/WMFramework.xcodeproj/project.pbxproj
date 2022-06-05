@@ -7,7 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		748A7278284CD489001D5D57 /* WMFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 748A7277284CD489001D5D57 /* WMFramework.h */; };
+		748A7288284CD67F001D5D57 /* Application in Sources */ = {isa = PBXBuildFile; fileRef = 748A7271284CD489001D5D57 /* Application */; };
+		748A7289284CD67F001D5D57 /* Graphics in Sources */ = {isa = PBXBuildFile; fileRef = 748A7273284CD489001D5D57 /* Graphics */; };
+		748A728A284CD67F001D5D57 /* Log in Sources */ = {isa = PBXBuildFile; fileRef = 748A7274284CD489001D5D57 /* Log */; };
+		748A728B284CD67F001D5D57 /* Math in Sources */ = {isa = PBXBuildFile; fileRef = 748A7272284CD489001D5D57 /* Math */; };
+		748A728C284CD67F001D5D57 /* Object in Sources */ = {isa = PBXBuildFile; fileRef = 748A7276284CD489001D5D57 /* Object */; };
+		748A728D284CD67F001D5D57 /* Window in Sources */ = {isa = PBXBuildFile; fileRef = 748A7275284CD489001D5D57 /* Window */; };
+		748A728E284CD691001D5D57 /* Application in Headers */ = {isa = PBXBuildFile; fileRef = 748A7271284CD489001D5D57 /* Application */; };
+		748A728F284CD691001D5D57 /* Graphics in Headers */ = {isa = PBXBuildFile; fileRef = 748A7273284CD489001D5D57 /* Graphics */; };
+		748A7290284CD691001D5D57 /* Log in Headers */ = {isa = PBXBuildFile; fileRef = 748A7274284CD489001D5D57 /* Log */; };
+		748A7291284CD691001D5D57 /* Math in Headers */ = {isa = PBXBuildFile; fileRef = 748A7272284CD489001D5D57 /* Math */; };
+		748A7292284CD691001D5D57 /* Object in Headers */ = {isa = PBXBuildFile; fileRef = 748A7276284CD489001D5D57 /* Object */; };
+		748A7293284CD691001D5D57 /* Window in Headers */ = {isa = PBXBuildFile; fileRef = 748A7275284CD489001D5D57 /* Window */; };
+		748A7294284CD691001D5D57 /* WMFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 748A7277284CD489001D5D57 /* WMFramework.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,7 +73,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				748A7278284CD489001D5D57 /* WMFramework.h in Headers */,
+				748A728E284CD691001D5D57 /* Application in Headers */,
+				748A728F284CD691001D5D57 /* Graphics in Headers */,
+				748A7290284CD691001D5D57 /* Log in Headers */,
+				748A7291284CD691001D5D57 /* Math in Headers */,
+				748A7292284CD691001D5D57 /* Object in Headers */,
+				748A7293284CD691001D5D57 /* Window in Headers */,
+				748A7294284CD691001D5D57 /* WMFramework.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +140,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				748A7288284CD67F001D5D57 /* Application in Sources */,
+				748A7289284CD67F001D5D57 /* Graphics in Sources */,
+				748A728A284CD67F001D5D57 /* Log in Sources */,
+				748A728B284CD67F001D5D57 /* Math in Sources */,
+				748A728C284CD67F001D5D57 /* Object in Sources */,
+				748A728D284CD67F001D5D57 /* Window in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
