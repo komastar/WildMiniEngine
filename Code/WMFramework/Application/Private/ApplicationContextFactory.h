@@ -1,6 +1,7 @@
 #pragma once
 #include "Application/WMApplication.h"
 #include "Win32/ApplicationContext.h"
+#include "Cocoa/ApplicationContext.h"
 #include "Window/WMWindow.h"
 #include "Graphics/WMGraphicsDevice.h"
 

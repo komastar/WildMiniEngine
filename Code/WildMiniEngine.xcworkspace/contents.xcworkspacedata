@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
-   <FileRef
-      location = "group:Editor/Editor.xcodeproj">
-   </FileRef>
+   <Group
+      location = "container:"
+      name = "Thirdparty">
+      <FileRef
+         location = "group:Thirdparty/googletest/googletest.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Thirdparty/fmt/fmt.xcodeproj">
+      </FileRef>
+   </Group>
    <FileRef
       location = "group:WMFramework/WMFramework.xcodeproj">
    </FileRef>

@@ -8,7 +8,11 @@ namespace WildMini::Graphics::Private
     public:
         static WMGraphicsDevice* Create()
         {
+#ifdef __APPLE__
+            return nullptr;
+#else
             return new GraphicsDeviceContext();
+#endif // __APPLE__
         }
     };
 }

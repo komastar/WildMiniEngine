@@ -6,33 +6,12 @@
 	objectVersion = 55;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		746E6A98284DEE6200805558 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A95284DEE6200805558 /* main.cpp */; };
-		746E6A99284DEE6200805558 /* EditorApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A96284DEE6200805558 /* EditorApplication.cpp */; };
-		746E6A9A284DEE6200805558 /* EditorApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A97284DEE6200805558 /* EditorApplication.h */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		74234C43284CD8E100D2632D /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		74234C45284CD8E100D2632D /* Editor */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = Editor; path = /Users/komastar/WildMini/WildMiniEngine/Code/Editor/build/Debug/Editor; sourceTree = "<absolute>"; };
-		746E6A95284DEE6200805558 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		746E6A96284DEE6200805558 /* EditorApplication.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EditorApplication.cpp; sourceTree = "<group>"; };
-		746E6A97284DEE6200805558 /* EditorApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditorApplication.h; sourceTree = "<group>"; };
+		746E691F284DECD900805558 /* libgoogletest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libgoogletest.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		74234C42284CD8E100D2632D /* Frameworks */ = {
+		746E691D284DECD900805558 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,62 +21,66 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		74234C3C284CD8E100D2632D = {
+		746E6916284DECD900805558 = {
 			isa = PBXGroup;
 			children = (
-				746E6A96284DEE6200805558 /* EditorApplication.cpp */,
-				746E6A97284DEE6200805558 /* EditorApplication.h */,
-				746E6A95284DEE6200805558 /* main.cpp */,
+				746E6920284DECD900805558 /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		746E6920284DECD900805558 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				746E691F284DECD900805558 /* libgoogletest.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		746E688B284D915E00805558 /* Headers */ = {
+		746E691B284DECD900805558 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				746E6A9A284DEE6200805558 /* EditorApplication.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		74234C44284CD8E100D2632D /* Editor */ = {
+		746E691E284DECD900805558 /* googletest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 74234C4C284CD8E100D2632D /* Build configuration list for PBXNativeTarget "Editor" */;
+			buildConfigurationList = 746E692A284DECD900805558 /* Build configuration list for PBXNativeTarget "googletest" */;
 			buildPhases = (
-				746E688B284D915E00805558 /* Headers */,
-				74234C41284CD8E100D2632D /* Sources */,
-				74234C42284CD8E100D2632D /* Frameworks */,
-				74234C43284CD8E100D2632D /* CopyFiles */,
+				746E691B284DECD900805558 /* Headers */,
+				746E691C284DECD900805558 /* Sources */,
+				746E691D284DECD900805558 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Editor;
-			productName = Editor;
-			productReference = 74234C45284CD8E100D2632D /* Editor */;
-			productType = "com.apple.product-type.tool";
+			name = googletest;
+			productName = googletest;
+			productReference = 746E691F284DECD900805558 /* libgoogletest.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		74234C3D284CD8E100D2632D /* Project object */ = {
+		746E6917284DECD900805558 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
-					74234C44284CD8E100D2632D = {
+					746E691E284DECD900805558 = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
 				};
 			};
-			buildConfigurationList = 74234C40284CD8E100D2632D /* Build configuration list for PBXProject "Editor" */;
+			buildConfigurationList = 746E691A284DECD900805558 /* Build configuration list for PBXProject "googletest" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -105,36 +88,34 @@
 				en,
 				Base,
 			);
-			mainGroup = 74234C3C284CD8E100D2632D;
-			productRefGroup = 74234C3C284CD8E100D2632D;
+			mainGroup = 746E6916284DECD900805558;
+			productRefGroup = 746E6920284DECD900805558 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				74234C44284CD8E100D2632D /* Editor */,
+				746E691E284DECD900805558 /* googletest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		74234C41284CD8E100D2632D /* Sources */ = {
+		746E691C284DECD900805558 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				746E6A98284DEE6200805558 /* main.cpp in Sources */,
-				746E6A99284DEE6200805558 /* EditorApplication.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		74234C4A284CD8E100D2632D /* Debug */ = {
+		746E6928284DECD900805558 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -166,7 +147,6 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -179,7 +159,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = ../WMFramework;
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -188,13 +167,13 @@
 			};
 			name = Debug;
 		};
-		74234C4B284CD8E100D2632D /* Release */ = {
+		746E6929284DECD900805558 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -225,7 +204,6 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -233,7 +211,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = ../WMFramework;
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -241,44 +218,52 @@
 			};
 			name = Release;
 		};
-		74234C4D284CD8E100D2632D /* Debug */ = {
+		746E692B284DECD900805558 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		74234C4E284CD8E100D2632D /* Release */ = {
+		746E692C284DECD900805558 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		74234C40284CD8E100D2632D /* Build configuration list for PBXProject "Editor" */ = {
+		746E691A284DECD900805558 /* Build configuration list for PBXProject "googletest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				74234C4A284CD8E100D2632D /* Debug */,
-				74234C4B284CD8E100D2632D /* Release */,
+				746E6928284DECD900805558 /* Debug */,
+				746E6929284DECD900805558 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		74234C4C284CD8E100D2632D /* Build configuration list for PBXNativeTarget "Editor" */ = {
+		746E692A284DECD900805558 /* Build configuration list for PBXNativeTarget "googletest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				74234C4D284CD8E100D2632D /* Debug */,
-				74234C4E284CD8E100D2632D /* Release */,
+				746E692B284DECD900805558 /* Debug */,
+				746E692C284DECD900805558 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 74234C3D284CD8E100D2632D /* Project object */;
+	rootObject = 746E6917284DECD900805558 /* Project object */;
 }
