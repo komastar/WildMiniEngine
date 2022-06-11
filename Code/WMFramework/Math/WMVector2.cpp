@@ -12,6 +12,12 @@ const WMVector2 WMVector2::left = WMVector2(-1.0f, 0.0f);
 const WMVector2 WMVector2::up = WMVector2(0.0f, 1.0f);
 const WMVector2 WMVector2::right = WMVector2(1.0f, 0.0f);
 const WMVector2 WMVector2::down = WMVector2(0.0f, -1.0f);
+const WMVector2 WMVector2::inf = { FLT_MAX, FLT_MAX };
+const WMVector2 WMVector2::negInf = { FLT_MIN, FLT_MIN };
+const WMVector2 WMVector2::infLeft = { FLT_MIN, 0.0f };
+const WMVector2 WMVector2::infUp = { 0.0f, FLT_MAX };
+const WMVector2 WMVector2::infRight = { FLT_MAX, 0.0f };
+const WMVector2 WMVector2::infDown = { 0.0f, FLT_MIN };
 
 WMVector2 WMVector2::Normalized(WMVector2 v)
 {

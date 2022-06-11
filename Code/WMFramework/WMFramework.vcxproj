@@ -456,6 +456,7 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClInclude Include="Application\WMApplicationContext.h" />
     <ClInclude Include="Application\Private\ApplicationContextFactory.h" />
     <ClInclude Include="Application\Private\Win32\ApplicationContext.h" />
+    <ClInclude Include="Graphics\Primitive\WMViewport.h" />
     <ClInclude Include="Graphics\Private\DX12\CommandBuffer.h" />
     <ClInclude Include="Graphics\WMCommandBuffer.h" />
     <ClInclude Include="Graphics\WMRenderCommandEncoder.h" />
@@ -506,6 +507,7 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
   <ItemGroup>
     <ClCompile Include="Application\WMApplication.cpp" />
     <ClCompile Include="Application\Private\Win32\ApplicationContext.cpp" />
+    <ClCompile Include="Graphics\Primitive\WMViewport.cpp" />
     <ClCompile Include="Graphics\Private\DX12\CommandBuffer.cpp" />
     <ClCompile Include="Graphics\WMGraphicsDevice.cpp" />
     <ClCompile Include="Object\WMRefCounter.cpp" />

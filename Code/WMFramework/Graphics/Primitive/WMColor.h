@@ -1,7 +1,7 @@
 #pragma once
 #include "WMFramework.h"
 
-namespace WildMini::Graphics
+namespace WildMini::Graphics::Primitive
 {
     class WMColor
     {

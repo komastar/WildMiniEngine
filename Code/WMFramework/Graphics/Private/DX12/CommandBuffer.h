@@ -9,7 +9,7 @@ namespace WildMini::Graphics::Private::DX12
     class CommandBuffer : public WMCommandBuffer
     {
     public:
-        virtual void CreateRenderCommandEncoder() override;
+        virtual Object::WMObject<WMRenderCommandEncoder> CreateRenderCommandEncoder() override;
         virtual void Commit() override;
 
     protected:

@@ -1,7 +1,7 @@
 #include "UnitTest.h"
 #include "Graphics/Primitive/WMColor.h"
 
-using namespace WildMini::Graphics;
+using namespace WildMini::Graphics::Primitive;
 
 _TEST_(Core, Graphics, Color)
 {

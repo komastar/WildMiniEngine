@@ -97,7 +97,12 @@
     <ClCompile Include="Graphics\Private\DX12\CommandBuffer.cpp">
       <Filter>Graphics\Private\DX12</Filter>
     </ClCompile>
-    <ClCompile Include="Graphics\Private\DX12\RenderCommandEncoder.cpp" />
+    <ClCompile Include="Graphics\Primitive\WMViewport.cpp">
+      <Filter>Graphics\Primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Private\DX12\RenderCommandEncoder.cpp">
+      <Filter>Graphics\Private\DX12</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application\WMApplication.h">
@@ -245,7 +250,12 @@
     <ClInclude Include="Graphics\Private\DX12\CommandBuffer.h">
       <Filter>Graphics\Private\DX12</Filter>
     </ClInclude>
-    <ClInclude Include="Graphics\Private\DX12\RenderCommandEncoder.h" />
+    <ClInclude Include="Graphics\Primitive\WMViewport.h">
+      <Filter>Graphics\Primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Private\DX12\RenderCommandEncoder.h">
+      <Filter>Graphics\Private\DX12</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Application">

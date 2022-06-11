@@ -62,5 +62,11 @@ namespace WildMini::Math
         static const WMVector2 up;
         static const WMVector2 right;
         static const WMVector2 down;
+        static const WMVector2 inf;
+        static const WMVector2 negInf;
+        static const WMVector2 infLeft;
+        static const WMVector2 infUp;
+        static const WMVector2 infRight;
+        static const WMVector2 infDown;
     };
 }

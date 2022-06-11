@@ -1,6 +1,6 @@
 #include "WMColor.h"
 
-using namespace WildMini::Graphics;
+using namespace WildMini::Graphics::Primitive;
 
 const WMColor WMColor::transparent =    { 0.0f, 0.0f, 0.0f, 1.0f };
 const WMColor WMColor::white =          { 1.0f, 1.0f, 1.0f, 1.0f };
@@ -12,7 +12,7 @@ const WMColor WMColor::cyan =           { 0.0f, 1.0f, 1.0f, 1.0f };
 const WMColor WMColor::magenta =        { 1.0f, 0.0f, 1.0f, 1.0f };
 const WMColor WMColor::yellow =         { 1.0f, 1.0f, 0.0f, 1.0f };
 
-WildMini::Graphics::WMColor::WMColor()
+WMColor::WMColor()
     : r(0.0f)
     , g(0.0f)
     , b(0.0f)
@@ -20,7 +20,7 @@ WildMini::Graphics::WMColor::WMColor()
 {
 }
 
-WildMini::Graphics::WMColor::WMColor(float rgba)
+WMColor::WMColor(float rgba)
     : r(rgba)
     , g(rgba)
     , b(rgba)
@@ -28,7 +28,7 @@ WildMini::Graphics::WMColor::WMColor(float rgba)
 {
 }
 
-WildMini::Graphics::WMColor::WMColor(float _r, float _g, float _b, float _a)
+WMColor::WMColor(float _r, float _g, float _b, float _a)
     : r(_r)
     , g(_g)
     , b(_b)
@@ -36,7 +36,7 @@ WildMini::Graphics::WMColor::WMColor(float _r, float _g, float _b, float _a)
 {
 }
 
-WMColor WildMini::Graphics::WMColor::Clamp()
+WMColor WMColor::Clamp()
 {
     r = WildMini::Clamp(r, 0.0f, 1.0f);
     g = WildMini::Clamp(g, 0.0f, 1.0f);
@@ -45,7 +45,7 @@ WMColor WildMini::Graphics::WMColor::Clamp()
     return *this;
 }
 
-WMColor WildMini::Graphics::WMColor::operator+(const WMColor& color) const
+WMColor WMColor::operator+(const WMColor& color) const
 {
     return WMColor(
         this->r + color.r
@@ -55,7 +55,7 @@ WMColor WildMini::Graphics::WMColor::operator+(const WMColor& color) const
     ).Clamp();
 }
 
-WMColor WildMini::Graphics::WMColor::operator-(const WMColor& color) const
+WMColor WMColor::operator-(const WMColor& color) const
 {
     return WMColor(
         this->r - color.r
@@ -65,7 +65,7 @@ WMColor WildMini::Graphics::WMColor::operator-(const WMColor& color) const
     ).Clamp();
 }
 
-WMColor WildMini::Graphics::WMColor::operator*(float v) const
+WMColor WMColor::operator*(float v) const
 {
     return WMColor(
         this->r * v
@@ -75,7 +75,7 @@ WMColor WildMini::Graphics::WMColor::operator*(float v) const
     ).Clamp();
 }
 
-WMColor WildMini::Graphics::WMColor::operator/(float v) const
+WMColor WMColor::operator/(float v) const
 {
     v = 1.0f / v;
     return WMColor(
@@ -86,7 +86,7 @@ WMColor WildMini::Graphics::WMColor::operator/(float v) const
     ).Clamp();
 }
 
-bool WildMini::Graphics::WMColor::operator==(const WMColor& color) const
+bool WMColor::operator==(const WMColor& color) const
 {
     return this->r == color.r
         && this->g == color.g
@@ -94,7 +94,7 @@ bool WildMini::Graphics::WMColor::operator==(const WMColor& color) const
         && this->a == color.a;
 }
 
-bool WildMini::Graphics::WMColor::operator!=(const WMColor& color) const
+bool WMColor::operator!=(const WMColor& color) const
 {
     return this->r != color.r
         || this->g != color.g
