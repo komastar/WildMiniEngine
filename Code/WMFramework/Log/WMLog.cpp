@@ -9,7 +9,8 @@ using namespace WildMini;
 std::string Now()
 {
     time_t now = time(0);
-    struct tm tstruct = *localtime(&now);
+    struct tm tstruct;
+    localtime_s(&tstruct, &now);
     char buf[80];
     strftime(buf, sizeof(buf), "%Y-%m-%d.%x", &tstruct);
     return buf;
@@ -18,7 +19,8 @@ std::string Now()
 std::wstring NowW()
 {
     time_t now = time(0);
-    struct tm tstruct = *localtime(&now);
+    struct tm tstruct;
+    localtime_s(&tstruct, &now);
     wchar_t buf[80];
     wcsftime(buf, sizeof(buf), L"%Y-%m-%d.%x", &tstruct);
     return buf;
