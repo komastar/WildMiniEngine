@@ -12,8 +12,18 @@ namespace WildMini::Graphics::Primitive
             {
                 WMPoint origin;
                 WMSize size;
-                float near;
-                float far;
+                float nearDepth;
+                float farDepth;
+            };
+
+            struct 
+            {
+                float x;
+                float y;
+                float width;
+                float height;
+                float nearDepth;
+                float farDepth;
             };
 
             float c[6];

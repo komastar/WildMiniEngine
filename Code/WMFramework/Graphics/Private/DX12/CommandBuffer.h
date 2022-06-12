@@ -1,6 +1,7 @@
 #pragma once
 #include "d3d12_include.h"
 #include "Graphics/WMCommandBuffer.h"
+#include "Graphics/WMRenderCommandEncoder.h"
 #include "CommandQueue.h"
 #include "CommandList.h"
 

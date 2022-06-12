@@ -70,6 +70,8 @@ namespace WildMini::Graphics::Private::DX12
         virtual uint32_t Height() const override;
         virtual WMPixelFormat Format() const override;
 
+        D3D12_CPU_DESCRIPTOR_HANDLE renderTargetView;
+
     private:
         size_t size;
         uint32_t width;

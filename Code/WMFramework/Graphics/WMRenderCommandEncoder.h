@@ -1,12 +1,12 @@
 #pragma once
 #include "Object/WMRefCounter.h"
 #include "Graphics/Primitive/WMViewport.h"
-#include <Graphics/WMTexture.h>
-#include <Graphics/Primitive/WMColor.h>
+#include "Graphics/WMTexture.h"
+#include "Graphics/Primitive/WMColor.h"
 
 namespace WildMini::Graphics
 {
-    class WMRenderCommandEncoder : Object::WMRefCounter
+    class WMRenderCommandEncoder : public Object::WMRefCounter
     {
     public:
         virtual void SetViewport(const Primitive::WMViewport& viewport) = 0;
