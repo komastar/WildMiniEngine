@@ -3,8 +3,10 @@
 using namespace WildMini::Graphics::Private::DX12;
 using namespace WildMini::Graphics::Primitive;
 
-RenderCommandEncoder::RenderCommandEncoder(WMCommandList* _commandList)
+RenderCommandEncoder::RenderCommandEncoder(WMRenderPipeline* _renderPipeline, WMCommandBuffer* _commandBuffer, WMCommandList* _commandList)
     : commandList(_commandList)
+    , renderPipeline(_renderPipeline)
+    , commandBuffer(_commandBuffer)
 {
 }
 

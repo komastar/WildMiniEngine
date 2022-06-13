@@ -2,14 +2,16 @@
 #include "d3d12_include.h"
 #include "Object/WMObject.h"
 #include "Graphics/WMRenderCommandEncoder.h"
-#include "Graphics/Private/DX12/CommandList.h"
+#include "Graphics/WMRenderPipeline.h"
+#include "Graphics/WMCommandBuffer.h"
+#include "Graphics/WMCommandList.h"
 
 namespace WildMini::Graphics::Private::DX12
 {
     class RenderCommandEncoder : public WMRenderCommandEncoder
     {
     public:
-        RenderCommandEncoder(WMCommandList* _commandList);
+        RenderCommandEncoder(WMRenderPipeline* _renderPipeline, WMCommandBuffer* _commandBuffer, WMCommandList* _commandList);
 
     public:
         virtual void SetViewport(const Primitive::WMViewport& viewport) override;
@@ -20,5 +22,7 @@ namespace WildMini::Graphics::Private::DX12
 
     protected:
         Object::WMObject<WMCommandList> commandList;
+        Object::WMObject<WMRenderPipeline> renderPipeline;
+        Object::WMObject<WMCommandBuffer> commandBuffer;
     };
 }

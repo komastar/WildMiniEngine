@@ -460,10 +460,12 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClInclude Include="Graphics\Private\DX12\CommandBuffer.h" />
     <ClInclude Include="Graphics\WMCommandBuffer.h" />
     <ClInclude Include="Graphics\WMRenderCommandEncoder.h" />
+    <ClInclude Include="Graphics\WMRenderPipeline.h" />
     <ClInclude Include="Object\WMObject.h" />
     <ClInclude Include="Object\WMRefCounter.h" />
     <ClInclude Include="Graphics\Primitive\WMColor.h" />
     <ClInclude Include="Graphics\Private\DX12\RenderCommandEncoder.h" />
+    <ClInclude Include="Graphics\Private\DX12\RenderPipeline.h" />
     <ClInclude Include="WMFramework.h" />
     <ClInclude Include="Graphics\WMGPUBuffer.h" />
     <ClInclude Include="Graphics\WMTexture.h" />
@@ -528,6 +530,7 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClCompile Include="Math\WMVector4.cpp" />
     <ClCompile Include="Graphics\Private\DX12\Texture.cpp" />
     <ClCompile Include="Graphics\Private\DX12\RenderCommandEncoder.cpp" />
+    <ClCompile Include="Graphics\Private\DX12\RenderPipeline.cpp" />
     <ClCompile Include="Window\Private\Win32\WindowContext.cpp" />
     <ClCompile Include="Log\WMLog.cpp" />
     <ClCompile Include="Log\WMLogVariant.cpp" />

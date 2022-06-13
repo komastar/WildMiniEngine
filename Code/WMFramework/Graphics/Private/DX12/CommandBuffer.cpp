@@ -5,9 +5,10 @@ using namespace WildMini::Object;
 using namespace WildMini::Graphics;
 using namespace WildMini::Graphics::Private::DX12;
 
-WMObject<WMRenderCommandEncoder> CommandBuffer::CreateRenderCommandEncoder()
+WMObject<WMRenderCommandEncoder> CommandBuffer::CreateRenderCommandEncoder(WMRenderPipeline* _renderPipeline, WMCommandList* _commandList)
 {
-    return new RenderCommandEncoder(nullptr);
+    _commandList->Reset();
+    return new RenderCommandEncoder(_renderPipeline, this, _commandList);
 }
 
 void CommandBuffer::Commit()
