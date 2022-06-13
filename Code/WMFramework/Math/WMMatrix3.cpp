@@ -6,7 +6,6 @@ using namespace WildMini::Math;
 
 WMMatrix3 WMMatrix3::Inversed(WMMatrix3& m)
 {
-    WMMatrix3 inversed(m);
     return m.Inverse();
 }
 

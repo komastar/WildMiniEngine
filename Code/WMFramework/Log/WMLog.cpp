@@ -10,7 +10,11 @@ std::string Now()
 {
     time_t now = time(0);
     struct tm tstruct;
+#ifdef WIN32
     localtime_s(&tstruct, &now);
+#elif __APPLE__
+    localtime_r(&now, &tstruct);
+#endif
     char buf[80];
     strftime(buf, sizeof(buf), "%Y-%m-%d.%x", &tstruct);
     return buf;
@@ -20,7 +24,11 @@ std::wstring NowW()
 {
     time_t now = time(0);
     struct tm tstruct;
+#ifdef WIN32
     localtime_s(&tstruct, &now);
+#elif __APPLE__
+    localtime_r(&now, &tstruct);
+#endif
     wchar_t buf[80];
     wcsftime(buf, sizeof(buf), L"%Y-%m-%d.%x", &tstruct);
     return buf;
@@ -127,6 +135,9 @@ void WildMini::Log(WMLogLevel level, const char* format, const std::vector<WMLog
         case WMLogVariant::Type::WCHAR:
             WMASSERT_DESC(false, "WCHAR NOT SUPPORTED");
             break;
+        case WMLogVariant::Type::NONE:
+            WMASSERT_DESC(false, "NONE NOT SUPPORTED");
+            break;
         }
     }
     LogPrint(level, fmt::vformat(format, dynamicArgs).c_str());
@@ -171,6 +182,9 @@ void WildMini::Log(WMLogLevel level, const wchar_t* format, const std::vector<WM
             break;
         case WMLogVariant::Type::WCHAR:
             dynamicArgs.push_back(v.WChar());
+            break;
+        case WMLogVariant::Type::NONE:
+            WMASSERT_DESC(false, "NONE NOT SUPPORTED");
             break;
         }
     }

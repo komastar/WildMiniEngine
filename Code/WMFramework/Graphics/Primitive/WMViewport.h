@@ -22,8 +22,8 @@ namespace WildMini::Graphics::Primitive
                 float y;
                 float width;
                 float height;
-                float nearDepth;
-                float farDepth;
+                float nearDepth2;
+                float farDepth2;
             };
 
             float c[6];

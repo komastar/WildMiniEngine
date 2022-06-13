@@ -3,6 +3,7 @@
 
 #include <cmath>
 #include <math.h>
+#include <float.h>
 
 namespace WildMini::Math
 {
