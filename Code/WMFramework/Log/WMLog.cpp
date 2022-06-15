@@ -21,6 +21,8 @@ std::string Now()
     localtime_s(&tstruct, &now);
 #elif __APPLE__
     localtime_r(&now, &tstruct);
+#else
+    localtime_s(&tstruct, &now);
 #endif
     char buf[80];
     strftime(buf, sizeof(buf), "%Y-%m-%d.%x", &tstruct);
@@ -35,6 +37,8 @@ std::wstring NowW()
     localtime_s(&tstruct, &now);
 #elif __APPLE__
     localtime_r(&now, &tstruct);
+#else
+    localtime_s(&tstruct, &now);
 #endif
     wchar_t buf[80];
     wcsftime(buf, sizeof(buf), L"%Y-%m-%d.%x", &tstruct);

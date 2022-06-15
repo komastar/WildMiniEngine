@@ -59,7 +59,6 @@
 		746E6A7D284DEE4A00805558 /* WMColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A2C284DEE4900805558 /* WMColor.cpp */; };
 		746E6A7E284DEE4A00805558 /* WMRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A2D284DEE4900805558 /* WMRect.cpp */; };
 		746E6A7F284DEE4A00805558 /* WMSize.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A2E284DEE4900805558 /* WMSize.cpp */; };
-		746E6A81284DEE4A00805558 /* WMCommandList.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A30284DEE4900805558 /* WMCommandList.h */; };
 		746E6A82284DEE4A00805558 /* GraphicsDeviceFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A32284DEE4900805558 /* GraphicsDeviceFactory.h */; };
 		746E6A91284DEE4A00805558 /* WMGraphicsDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A44284DEE4900805558 /* WMGraphicsDevice.cpp */; };
 		746E6A92284DEE4A00805558 /* WMGraphicsDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A45284DEE4900805558 /* WMGraphicsDevice.h */; };
@@ -128,7 +127,6 @@
 		746E6A2D284DEE4900805558 /* WMRect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WMRect.cpp; sourceTree = "<group>"; };
 		746E6A2E284DEE4900805558 /* WMSize.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WMSize.cpp; sourceTree = "<group>"; };
 		746E6A2F284DEE4900805558 /* WMGPUBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMGPUBuffer.h; sourceTree = "<group>"; };
-		746E6A30284DEE4900805558 /* WMCommandList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMCommandList.h; sourceTree = "<group>"; };
 		746E6A32284DEE4900805558 /* GraphicsDeviceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphicsDeviceFactory.h; sourceTree = "<group>"; };
 		746E6A43284DEE4900805558 /* dummy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dummy; sourceTree = "<group>"; };
 		746E6A44284DEE4900805558 /* WMGraphicsDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WMGraphicsDevice.cpp; sourceTree = "<group>"; };
@@ -139,7 +137,6 @@
 		746E6A9D284DF18100805558 /* ApplicationContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplicationContext.h; sourceTree = "<group>"; };
 		746E6AA4284DF3D500805558 /* WindowContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowContext.h; sourceTree = "<group>"; };
 		746E6AA6284DF3EA00805558 /* WindowContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WindowContext.m; sourceTree = "<group>"; };
-		74DDAA71285778260083C841 /* WMCommandList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMCommandList.h; sourceTree = "<group>"; };
 		74DDAA73285778260083C841 /* WMGPUBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMGPUBuffer.h; sourceTree = "<group>"; };
 		74DDAA74285778260083C841 /* WMCommandBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMCommandBuffer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -280,9 +277,9 @@
 		746E6A1C284DEE4900805558 /* Log */ = {
 			isa = PBXGroup;
 			children = (
-				746E6A1D284DEE4900805558 /* WMLogVariant.cpp */,
-				746E6A1E284DEE4900805558 /* WMLog.h */,
 				746E6A1F284DEE4900805558 /* WMLog.cpp */,
+				746E6A1E284DEE4900805558 /* WMLog.h */,
+				746E6A1D284DEE4900805558 /* WMLogVariant.cpp */,
 				746E6A20284DEE4900805558 /* WMLogVariant.h */,
 			);
 			path = Log;
@@ -294,7 +291,6 @@
 				746E6A24284DEE4900805558 /* Primitive */,
 				746E6A31284DEE4900805558 /* Private */,
 				74DDAA74285778260083C841 /* WMCommandBuffer.h */,
-				74DDAA71285778260083C841 /* WMCommandList.h */,
 				746E6A47284DEE4900805558 /* WMCommandQueue.h */,
 				74DDAA73285778260083C841 /* WMGPUBuffer.h */,
 				746E6A44284DEE4900805558 /* WMGraphicsDevice.cpp */,
@@ -302,7 +298,6 @@
 				746E6A46284DEE4900805558 /* WMSwapChain.h */,
 				746E6A23284DEE4900805558 /* WMTexture.h */,
 				746E6A2F284DEE4900805558 /* WMGPUBuffer.h */,
-				746E6A30284DEE4900805558 /* WMCommandList.h */,
 			);
 			path = Graphics;
 			sourceTree = "<group>";
@@ -364,7 +359,6 @@
 				746E6A5A284DEE4900805558 /* WMMatrix4.h in Headers */,
 				746E6A7B284DEE4A00805558 /* WMQuad.h in Headers */,
 				746E6A60284DEE4A00805558 /* WMVector4Int.h in Headers */,
-				746E6A81284DEE4A00805558 /* WMCommandList.h in Headers */,
 				746E6A59284DEE4900805558 /* WMLinearTransform3.h in Headers */,
 				746E6A94284DEE4A00805558 /* WMCommandQueue.h in Headers */,
 				746E6A73284DEE4A00805558 /* WMLogVariant.h in Headers */,
