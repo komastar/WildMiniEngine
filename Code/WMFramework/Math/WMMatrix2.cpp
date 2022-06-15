@@ -1,3 +1,10 @@
+//
+//  File:   WMMatrix2.cpp
+//  Author: Eugene Kim (komastar.dev@gmail.com)
+//
+//  Copyright (c) 2022 komastar. All rights reserved.
+//
+
 #include "WMMatrix2.h"
 #include "WMMath.h"
 #include "WMMatrix3.h"

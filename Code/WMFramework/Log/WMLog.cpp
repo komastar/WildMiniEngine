@@ -1,3 +1,10 @@
+//
+//  File:   WMLog.cpp
+//  Author: Eugene Kim (komastar.dev@gmail.com)
+//
+//  Copyright (c) 2022 komastar. All rights reserved.
+//
+
 #include "WMLog.h"
 #include <fmt/args.h>
 #include <fmt/format.h>

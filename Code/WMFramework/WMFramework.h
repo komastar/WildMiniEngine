@@ -1,7 +1,16 @@
+//
+//  File:   WMFramework.h
+//  Author: Eugene Kim (komastar.dev@gmail.com)
+//
+//  Copyright (c) 2022 komastar. All rights reserved.
+//
+
 #pragma once
+#include <vector>
 #include <cassert>
 #include <cstdint>
 #include <iostream>
+#include <atomic>
 
 #ifdef WM_DYNAMIC
     #ifdef DLL_EXPORTS

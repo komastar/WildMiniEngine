@@ -1,3 +1,10 @@
+//
+//  File:   UnitTestColor.cpp
+//  Author: Eugene Kim (komastar.dev@gmail.com)
+//
+//  Copyright (c) 2022 komastar. All rights reserved.
+//
+
 #include "UnitTest.h"
 #include "Graphics/Primitive/WMColor.h"
 

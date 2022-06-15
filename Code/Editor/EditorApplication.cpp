@@ -1,3 +1,10 @@
+//
+//  File:   EditorApplication.cpp
+//  Author: Eugene Kim (komastar.dev@gmail.com)
+//
+//  Copyright (c) 2022 komastar. All rights reserved.
+//
+
 #include "EditorApplication.h"
 #include "Application/Private/ApplicationContextFactory.h"
 #include "Window/Private/WindowFactory.h"
@@ -17,7 +24,6 @@ void EditorApplication::OnInitialize()
     window->Focus();
 
     device = WildMini::Graphics::Private::GraphicsDeviceFactory::Create();
-    device->CreateCommandList();
 }
 
 void EditorApplication::OnTerminate()

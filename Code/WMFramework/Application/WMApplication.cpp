@@ -1,3 +1,10 @@
+//
+//  File:   WMApplication.cpp
+//  Author: Eugene Kim (komastar.dev@gmail.com)
+//
+//  Copyright (c) 2022 komastar. All rights reserved.
+//
+
 #include "Application/WMApplication.h"
 #include "Application/Private/ApplicationContextFactory.h"
 

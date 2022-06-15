@@ -1,3 +1,10 @@
+//
+//  File:   GPUBuffer.cpp
+//  Author: Eugene Kim (komastar.dev@gmail.com)
+//
+//  Copyright (c) 2022 komastar. All rights reserved.
+//
+
 #include "GPUBuffer.h"
 
 using namespace WildMini::Graphics::Private::DX12;

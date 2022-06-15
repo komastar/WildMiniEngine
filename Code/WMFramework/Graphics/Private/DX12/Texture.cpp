@@ -1,3 +1,10 @@
+//
+//  File:   Texture.cpp
+//  Author: Eugene Kim (komastar.dev@gmail.com)
+//
+//  Copyright (c) 2022 komastar. All rights reserved.
+//
+
 #include "Texture.h"
 
 using namespace WildMini::Graphics;
@@ -32,4 +39,34 @@ uint32_t Texture::Height() const
 WMPixelFormat Texture::Format() const
 {
     return format;
+}
+
+void Texture::SetRenderTargetViewHeap(ID3D12DescriptorHeap* heap)
+{
+    renderTargetViewHeap = heap;
+}
+
+void Texture::SetDepthStencilViewHeap(ID3D12DescriptorHeap* heap)
+{
+    depthStencilViewHeap = heap;
+}
+
+void Texture::SetShaderResourceViewHeap(ID3D12DescriptorHeap* heap)
+{
+    shaderResourceViewHeap = heap;
+}
+
+D3D12_CPU_DESCRIPTOR_HANDLE Texture::RenderTargetView() const
+{
+    return renderTargetViewHeap->GetCPUDescriptorHandleForHeapStart();
+}
+
+D3D12_CPU_DESCRIPTOR_HANDLE Texture::DepthStencilView() const
+{
+    return depthStencilViewHeap->GetCPUDescriptorHandleForHeapStart();
+}
+
+D3D12_CPU_DESCRIPTOR_HANDLE Texture::ShaderResourceView() const
+{
+    return shaderResourceViewHeap->GetCPUDescriptorHandleForHeapStart();
 }

@@ -1,3 +1,10 @@
+//
+//  File:   GraphicsDeviceFactory.h
+//  Author: Eugene Kim (komastar.dev@gmail.com)
+//
+//  Copyright (c) 2022 komastar. All rights reserved.
+//
+
 #pragma once
 #include "Graphics/Private/DX12/GraphicsDeviceContext.h"
 

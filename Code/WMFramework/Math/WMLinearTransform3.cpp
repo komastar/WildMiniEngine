@@ -1,3 +1,10 @@
+//
+//  File:   WMLinearTransform3.cpp
+//  Author: Eugene Kim (komastar.dev@gmail.com)
+//
+//  Copyright (c) 2022 komastar. All rights reserved.
+//
+
 #include "WMLinearTransform3.h"
 #include "WMMath.h"
 

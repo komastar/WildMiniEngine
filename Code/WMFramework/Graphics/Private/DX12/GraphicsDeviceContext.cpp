@@ -1,6 +1,12 @@
+//
+//  File:   GraphicsDeviceContext.cpp
+//  Author: Eugene Kim (komastar.dev@gmail.com)
+//
+//  Copyright (c) 2022 komastar. All rights reserved.
+//
+
 #ifdef _WIN32
 #include "GraphicsDeviceContext.h"
-#include "CommandList.h"
 #include "CommandQueue.h"
 #include "GPUBuffer.h"
 #include "Texture.h"
@@ -24,14 +30,7 @@ GraphicsDeviceContext::~GraphicsDeviceContext()
 
 WMObject<WMCommandQueue> GraphicsDeviceContext::CreateCommandQueue()
 {
-    return new CommandQueue(device.Get());
-}
-
-WMObject<WMCommandList> GraphicsDeviceContext::CreateCommandList()
-{
-    ComPtr<ID3D12CommandAllocator> commandAllocator;
-    device->CreateCommandAllocator(D3D12_COMMAND_LIST_TYPE_DIRECT, IID_PPV_ARGS(&commandAllocator));
-    return new CommandList(device.Get(), commandAllocator.Get());
+    return new CommandQueue(this, nullptr, nullptr, nullptr, nullptr);
 }
 
 WMObject<WMGPUBuffer> GraphicsDeviceContext::CreateGPUBuffer(size_t size, WMGPUBuffer::CPUCacheMode mode)

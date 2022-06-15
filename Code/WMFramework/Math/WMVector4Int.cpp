@@ -1,3 +1,10 @@
+//
+//  File:   WMVector4Int.cpp
+//  Author: Eugene Kim (komastar.dev@gmail.com)
+//
+//  Copyright (c) 2022 komastar. All rights reserved.
+//
+
 #include "WMVector4Int.h"
 
 WildMini::Math::WMVector4Int::WMVector4Int()

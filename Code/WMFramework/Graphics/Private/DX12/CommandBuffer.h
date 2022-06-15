@@ -1,21 +1,31 @@
+//
+//  File:   CommandBuffer.h
+//  Author: Eugene Kim (komastar.dev@gmail.com)
+//
+//  Copyright (c) 2022 komastar. All rights reserved.
+//
+
 #pragma once
 #include "d3d12_include.h"
 #include "Graphics/WMCommandBuffer.h"
 #include "Graphics/WMRenderCommandEncoder.h"
 #include "CommandQueue.h"
-#include "CommandList.h"
 
 namespace WildMini::Graphics::Private::DX12
 {
     class CommandBuffer : public WMCommandBuffer
     {
     public:
-        virtual Object::WMObject<WMRenderCommandEncoder> CreateRenderCommandEncoder(WMRenderPipeline* _renderPipeline, WMCommandList* _commandList) override;
+        CommandBuffer(CommandQueue*, ID3D12CommandAllocator*, ID3D12GraphicsCommandList*, D3D12_COMMAND_LIST_TYPE);
+
+        virtual Object::WMObject<WMRenderCommandEncoder> CreateRenderCommandEncoder() override;
         virtual void Commit() override;
+        void AddEncodedCommandList(ID3D12GraphicsCommandList* commandList);
 
     protected:
-        CommandQueue commandQueue;
-        CommandList commandList;
+        Object::WMObject<CommandQueue> commandQueue;
+        ComPtr<ID3D12GraphicsCommandList> commandList;
         ComPtr<ID3D12CommandAllocator> commandAllocator;
+        D3D12_COMMAND_LIST_TYPE type;
     };
 }

@@ -16,9 +16,6 @@
     <ClCompile Include="Graphics\Private\DX12\GPUBuffer.cpp">
       <Filter>Graphics\Private\DX12</Filter>
     </ClCompile>
-    <ClCompile Include="Graphics\Private\DX12\CommandList.cpp">
-      <Filter>Graphics\Private\DX12</Filter>
-    </ClCompile>
     <ClCompile Include="Graphics\Private\DX12\CommandQueue.cpp">
       <Filter>Graphics\Private\DX12</Filter>
     </ClCompile>
@@ -142,9 +139,6 @@
     <ClInclude Include="Graphics\Private\DX12\d3dx12.h">
       <Filter>Graphics\Private\DX12</Filter>
     </ClInclude>
-    <ClInclude Include="Graphics\WMCommandList.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
     <ClInclude Include="Graphics\WMCommandQueue.h">
       <Filter>Graphics</Filter>
     </ClInclude>
@@ -156,9 +150,6 @@
     </ClInclude>
     <ClInclude Include="Graphics\Private\GraphicsDeviceFactory.h">
       <Filter>Graphics\Private</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Private\DX12\CommandList.h">
-      <Filter>Graphics\Private\DX12</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\Private\DX12\CommandQueue.h">
       <Filter>Graphics\Private\DX12</Filter>

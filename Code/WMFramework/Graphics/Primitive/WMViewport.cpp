@@ -1,3 +1,10 @@
+//
+//  File:   WMViewport.cpp
+//  Author: Eugene Kim (komastar.dev@gmail.com)
+//
+//  Copyright (c) 2022 komastar. All rights reserved.
+//
+
 #include "WMViewport.h"
 
 using namespace WildMini::Graphics::Primitive;

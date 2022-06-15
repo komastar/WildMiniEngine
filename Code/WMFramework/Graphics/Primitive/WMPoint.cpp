@@ -1,3 +1,10 @@
+//
+//  File:   WMPoint.cpp
+//  Author: Eugene Kim (komastar.dev@gmail.com)
+//
+//  Copyright (c) 2022 komastar. All rights reserved.
+//
+
 #include "WMPoint.h"
 
 using namespace WildMini::Graphics::Primitive;

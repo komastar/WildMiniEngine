@@ -129,14 +129,14 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
-    <TargetName>$(ProjectName)_d</TargetName>
+    <TargetName>$(ProjectName)</TargetName>
     <IncludePath>$(ProjectDir);$(SolutionDir)Thirdparty\fmt\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_DLL|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
-    <TargetName>$(ProjectName)_d</TargetName>
+    <TargetName>$(ProjectName)</TargetName>
     <IncludePath>$(ProjectDir);$(SolutionDir)Thirdparty\fmt\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -155,14 +155,14 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
-    <TargetName>$(ProjectName)_d</TargetName>
+    <TargetName>$(ProjectName)</TargetName>
     <IncludePath>$(ProjectDir);$(SolutionDir)Thirdparty\fmt\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_DLL|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
-    <TargetName>$(ProjectName)_d</TargetName>
+    <TargetName>$(ProjectName)</TargetName>
     <IncludePath>$(ProjectDir);$(SolutionDir)Thirdparty\fmt\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -471,12 +471,10 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClInclude Include="Graphics\WMTexture.h" />
     <ClInclude Include="Graphics\Private\DX12\GPUBuffer.h" />
     <ClInclude Include="Graphics\Private\DX12\d3dx12.h" />
-    <ClInclude Include="Graphics\WMCommandList.h" />
     <ClInclude Include="Graphics\WMCommandQueue.h" />
     <ClInclude Include="Graphics\WMGraphicsDevice.h" />
     <ClInclude Include="Graphics\WMSwapChain.h" />
     <ClInclude Include="Graphics\Private\GraphicsDeviceFactory.h" />
-    <ClInclude Include="Graphics\Private\DX12\CommandList.h" />
     <ClInclude Include="Graphics\Private\DX12\CommandQueue.h" />
     <ClInclude Include="Graphics\Private\DX12\d3d12_include.h" />
     <ClInclude Include="Graphics\Private\DX12\GraphicsDeviceContext.h" />
@@ -514,7 +512,6 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClCompile Include="Graphics\WMGraphicsDevice.cpp" />
     <ClCompile Include="Object\WMRefCounter.cpp" />
     <ClCompile Include="Graphics\Private\DX12\GPUBuffer.cpp" />
-    <ClCompile Include="Graphics\Private\DX12\CommandList.cpp" />
     <ClCompile Include="Graphics\Private\DX12\CommandQueue.cpp" />
     <ClCompile Include="Graphics\Private\DX12\GraphicsDeviceContext.cpp" />
     <ClCompile Include="Graphics\Private\DX12\SwapChain.cpp" />

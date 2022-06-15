@@ -1,17 +1,39 @@
-#include "CommandQueue.h"
+//
+//  File:   CommandQueue.cpp
+//  Author: Eugene Kim (komastar.dev@gmail.com)
+//
+//  Copyright (c) 2022 komastar. All rights reserved.
+//
 
+#include "CommandQueue.h"
+#include "SwapChain.h"
+
+using namespace WildMini::Window;
+using namespace WildMini::Object;
+using namespace WildMini::Graphics;
 using namespace WildMini::Graphics::Private::DX12;
 
-CommandQueue::CommandQueue(ID3D12Device* device)
-    : commandQueue(nullptr)
+CommandQueue::CommandQueue(WMGraphicsDevice* _graphicsDevice, ID3D12CommandQueue* _commandQueue, ID3D12CommandAllocator* _commandAllocator, ID3D12GraphicsCommandList* _commandList, ID3D12Fence* _fence)
 {
-    D3D12_COMMAND_QUEUE_DESC queueDesc = {};
-    queueDesc.Type = D3D12_COMMAND_LIST_TYPE_DIRECT;
-    queueDesc.Flags = D3D12_COMMAND_QUEUE_FLAG_NONE;
-    device->CreateCommandQueue(&queueDesc, IID_PPV_ARGS(&commandQueue));
+
 }
 
-ID3D12CommandQueue* CommandQueue::Get()
+WMObject<WMCommandBuffer> CommandQueue::CreateCommandBuffer()
 {
-    return commandQueue.Get();
+    return WMObject<WMCommandBuffer>();
+}
+
+WMObject<WMSwapChain> CommandQueue::CreateSwapChain(const WMWindow* window)
+{
+    return new SwapChain();
+}
+
+void CommandQueue::WaitComplete()
+{
+
+}
+
+uint64_t CommandQueue::ExecuteCommandLists(uint32_t numCommandLists, ID3D12CommandList* const* commandLists)
+{
+    return uint64_t();
 }

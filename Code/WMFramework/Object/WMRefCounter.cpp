@@ -1,5 +1,11 @@
+//
+//  File:   WMRefCounter.cpp
+//  Author: Eugene Kim (komastar.dev@gmail.com)
+//
+//  Copyright (c) 2022 komastar. All rights reserved.
+//
+
 #include "WMRefCounter.h"
-#include <cassert>
 
 using namespace WildMini::Object;
 

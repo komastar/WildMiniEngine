@@ -1,7 +1,13 @@
+//
+//  File:   WMGraphicsDevice.h
+//  Author: Eugene Kim (komastar.dev@gmail.com)
+//
+//  Copyright (c) 2022 komastar. All rights reserved.
+//
+
 #pragma once
 #include "WMFramework.h"
 #include "Object/WMObject.h"
-#include "WMCommandList.h"
 #include "WMCommandQueue.h"
 #include "WMSwapChain.h"
 #include "WMGPUBuffer.h"
@@ -16,7 +22,6 @@ namespace WildMini::Graphics
 
     public:
         virtual WildMini::Object::WMObject<WMCommandQueue> CreateCommandQueue() = 0;
-        virtual WildMini::Object::WMObject<WMCommandList> CreateCommandList() = 0;
         virtual WildMini::Object::WMObject<WMGPUBuffer> CreateGPUBuffer(size_t size, WMGPUBuffer::CPUCacheMode mode) = 0;
         virtual WildMini::Object::WMObject<WMTexture> CreateTexture(const WMTexture::Desc& desc) = 0;
     };

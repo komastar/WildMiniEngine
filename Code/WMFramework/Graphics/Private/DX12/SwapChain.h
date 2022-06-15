@@ -1,14 +1,23 @@
+//
+//  File:   SwapChain.h
+//  Author: Eugene Kim (komastar.dev@gmail.com)
+//
+//  Copyright (c) 2022 komastar. All rights reserved.
+//
+
 #pragma once
 #include "d3d12_include.h"
 #include "Graphics/WMSwapChain.h"
 #include "Window/WMWindow.h"
+#include "Graphics/WMGraphicsDevice.h"
 
 namespace WildMini::Graphics::Private::DX12
 {
     class SwapChain : public WMSwapChain
     {
     public:
-        SwapChain(ID3D12Device* device, IDXGIFactory4* dxgiFactory, WildMini::Window::WMWindow* window);
+        SwapChain();
+        SwapChain(Graphics::WMGraphicsDevice* device, IDXGIFactory4* dxgiFactory, Window::WMWindow* window);
         enum { BUFFER_COUNT = 2 };
 
     public:

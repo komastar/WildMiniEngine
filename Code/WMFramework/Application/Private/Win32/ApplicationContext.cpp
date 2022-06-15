@@ -1,3 +1,10 @@
+//
+//  File:   ApplicationContext.cpp
+//  Author: Eugene Kim (komastar.dev@gmail.com)
+//
+//  Copyright (c) 2022 komastar. All rights reserved.
+//
+
 #ifdef _WIN32
 #include "Application/Private/Win32/ApplicationContext.h"
 

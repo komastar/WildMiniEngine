@@ -1,3 +1,10 @@
+//
+//  File:   WMApplication.h
+//  Author: Eugene Kim (komastar.dev@gmail.com)
+//
+//  Copyright (c) 2022 komastar. All rights reserved.
+//
+
 #pragma once
 #include "WMFramework.h"
 #include "Object/WMObject.h"

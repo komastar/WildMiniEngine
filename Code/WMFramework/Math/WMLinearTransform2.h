@@ -1,3 +1,10 @@
+//
+//  File:   WMLinearTransform2.h
+//  Author: Eugene Kim (komastar.dev@gmail.com)
+//
+//  Copyright (c) 2022 komastar. All rights reserved.
+//
+
 #pragma once
 #include "WMVector2.h"
 #include "WMMatrix2.h"

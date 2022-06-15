@@ -1,3 +1,10 @@
+//
+//  File:   GraphicsDeviceContext.h
+//  Author: Eugene Kim (komastar.dev@gmail.com)
+//
+//  Copyright (c) 2022 komastar. All rights reserved.
+//
+
 #pragma once
 #ifdef _WIN32
 #include "d3d12_include.h"
@@ -18,7 +25,6 @@ namespace WildMini::Graphics::Private
 
     public:
         virtual WildMini::Object::WMObject<WMCommandQueue> CreateCommandQueue() override;
-        virtual WildMini::Object::WMObject<WMCommandList> CreateCommandList() override;
         virtual WildMini::Object::WMObject<WMGPUBuffer> CreateGPUBuffer(size_t size, WMGPUBuffer::CPUCacheMode mode) override;
         virtual WildMini::Object::WMObject<WMTexture> CreateTexture(const WMTexture::Desc& desc) override;
     };

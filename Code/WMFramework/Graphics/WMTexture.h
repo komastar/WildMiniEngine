@@ -1,4 +1,12 @@
+//
+//  File:   WMTexture.h
+//  Author: Eugene Kim (komastar.dev@gmail.com)
+//
+//  Copyright (c) 2022 komastar. All rights reserved.
+//
+
 #pragma once
+#include "WMFramework.h"
 #include "Object/WMRefCounter.h"
 
 namespace WildMini::Graphics
@@ -15,7 +23,7 @@ namespace WildMini::Graphics
         DEPTH_24_UNORM_STENCIL_8
     };
 
-    class WMTexture : public WildMini::Object::WMRefCounter
+    class WM_API WMTexture : public WildMini::Object::WMRefCounter
     {
     public:
         enum Type

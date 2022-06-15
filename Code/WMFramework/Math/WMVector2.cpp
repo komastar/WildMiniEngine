@@ -1,3 +1,10 @@
+//
+//  File:   WMVector2.cpp
+//  Author: Eugene Kim (komastar.dev@gmail.com)
+//
+//  Copyright (c) 2022 komastar. All rights reserved.
+//
+
 #include "WMVector2.h"
 #include "WMMath.h"
 #include "WMVector3.h"
