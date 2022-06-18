@@ -56,17 +56,17 @@ void WindowContext::Hide()
     ShowWindow(hwnd, SW_HIDE);
 }
 
-void* WindowContext::PlatformHandle()
+void* WindowContext::PlatformHandle() const
 {
     return hwnd;
 }
 
-uint32_t WindowContext::Width()
+uint32_t WindowContext::Width() const
 {
     return width;
 }
 
-uint32_t WindowContext::Height()
+uint32_t WindowContext::Height() const
 {
     return height;
 }

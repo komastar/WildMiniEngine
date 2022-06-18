@@ -8,7 +8,6 @@
 #pragma once
 #ifdef _WIN32
 #include "d3d12_include.h"
-
 #include "Graphics/WMGraphicsDevice.h"
 
 namespace WildMini::Graphics::Private
@@ -24,9 +23,13 @@ namespace WildMini::Graphics::Private
         ComPtr<ID3D12Device> device;
 
     public:
-        virtual WildMini::Object::WMObject<WMCommandQueue> CreateCommandQueue() override;
-        virtual WildMini::Object::WMObject<WMGPUBuffer> CreateGPUBuffer(size_t size, WMGPUBuffer::CPUCacheMode mode) override;
-        virtual WildMini::Object::WMObject<WMTexture> CreateTexture(const WMTexture::Desc& desc) override;
+        virtual WildMini::Object::WMObject<WildMini::Graphics::WMCommandQueue> CreateCommandQueue() override;
+        virtual WildMini::Object::WMObject<WildMini::Graphics::WMGPUBuffer> CreateGPUBuffer(size_t size, WMGPUBuffer::CPUCacheMode mode) override;
+        virtual WildMini::Object::WMObject<WildMini::Graphics::WMTexture> CreateTexture(const WMTexture::Desc& desc) override;
+
+    public:
+        ID3D12Device* Device() const { return device.Get(); }
+        ComPtr<IDXGIFactory4> Factory() const { return dxgiFactory; }
     };
 }
 #endif  //  _WIN32

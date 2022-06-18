@@ -6,7 +6,6 @@
 //
 
 #include "CommandBuffer.h"
-#include "RenderCommandEncoder.h"
 
 using namespace WildMini::Object;
 using namespace WildMini::Graphics;

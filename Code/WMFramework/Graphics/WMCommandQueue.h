@@ -14,11 +14,11 @@
 
 namespace WildMini::Graphics
 {
-    class WM_API WMCommandQueue : public Object::WMRefCounter
+    class WM_API WMCommandQueue : public WildMini::Object::WMRefCounter
     {
     public:
-        virtual Object::WMObject<WMSwapChain> CreateSwapChain(const Window::WMWindow*) = 0;
-        virtual Object::WMObject<WMCommandBuffer> CreateCommandBuffer() = 0;
+        virtual WildMini::Object::WMObject<WMSwapChain> CreateSwapChain(const Window::WMWindow*) = 0;
+        virtual WildMini::Object::WMObject<WMCommandBuffer> CreateCommandBuffer() = 0;
 
         virtual void WaitComplete() = 0;
     };

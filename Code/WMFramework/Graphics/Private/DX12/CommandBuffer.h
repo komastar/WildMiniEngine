@@ -9,6 +9,7 @@
 #include "d3d12_include.h"
 #include "Graphics/WMCommandBuffer.h"
 #include "Graphics/WMRenderCommandEncoder.h"
+#include "RenderCommandEncoder.h"
 #include "CommandQueue.h"
 
 namespace WildMini::Graphics::Private::DX12

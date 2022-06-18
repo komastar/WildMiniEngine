@@ -7,7 +7,6 @@
 
 #pragma once
 #include "d3d12_include.h"
-#include "Object/WMObject.h"
 #include "Graphics/WMRenderCommandEncoder.h"
 #include "Graphics/WMRenderPipeline.h"
 #include "Graphics/WMCommandBuffer.h"

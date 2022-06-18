@@ -11,6 +11,7 @@
 #include <cstdint>
 #include <iostream>
 #include <atomic>
+#include <thread>
 
 #ifdef WM_DYNAMIC
     #ifdef DLL_EXPORTS

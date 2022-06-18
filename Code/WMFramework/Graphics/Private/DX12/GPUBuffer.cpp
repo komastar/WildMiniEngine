@@ -7,13 +7,14 @@
 
 #include "GPUBuffer.h"
 
+using namespace WildMini::Graphics;
 using namespace WildMini::Graphics::Private::DX12;
 
-GPUBuffer::GPUBuffer(ID3D12Resource* buffer, CPUCacheMode mode, D3D12_RESOURCE_STATES state)
+GPUBuffer::GPUBuffer(ID3D12Resource* buffer, WMGPUBuffer::CPUCacheMode mode, D3D12_RESOURCE_STATES state)
     : buffer(buffer)
     , state(state)
-    , writable(CPUCacheMode::WRITABLE == mode)
-    , readable(CPUCacheMode::READABLE == mode)
+    , writable(WMGPUBuffer::CPUCacheMode::WRITABLE == mode)
+    , readable(WMGPUBuffer::CPUCacheMode::READABLE == mode)
 {
     WMASSERT(buffer);
     size = buffer->GetDesc().Width;

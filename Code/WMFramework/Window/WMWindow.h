@@ -19,9 +19,9 @@ namespace WildMini::Window
         virtual void Update() = 0;
         virtual void Focus() = 0;
 
-        virtual void* PlatformHandle() = 0;
+        virtual void* PlatformHandle() const = 0;
 
-        virtual uint32_t Width() = 0;
-        virtual uint32_t Height() = 0;
+        virtual uint32_t Width() const = 0;
+        virtual uint32_t Height() const = 0;
     };
 }

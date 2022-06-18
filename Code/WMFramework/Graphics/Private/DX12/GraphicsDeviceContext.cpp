@@ -30,7 +30,23 @@ GraphicsDeviceContext::~GraphicsDeviceContext()
 
 WMObject<WMCommandQueue> GraphicsDeviceContext::CreateCommandQueue()
 {
-    return new CommandQueue(this, nullptr, nullptr, nullptr, nullptr);
+    ComPtr<ID3D12CommandQueue> commandQueue;
+    D3D12_COMMAND_QUEUE_DESC commandQueueDesc = {};
+    commandQueueDesc.Type = D3D12_COMMAND_LIST_TYPE_DIRECT;
+    commandQueueDesc.Flags = D3D12_COMMAND_QUEUE_FLAG_NONE;
+    device->CreateCommandQueue(&commandQueueDesc, IID_PPV_ARGS(&commandQueue));
+
+    ComPtr<ID3D12Fence> fence;
+    device->CreateFence(0, D3D12_FENCE_FLAG_NONE, IID_PPV_ARGS(&fence));
+
+    ComPtr<ID3D12CommandAllocator> commandAllocator;
+    device->CreateCommandAllocator(D3D12_COMMAND_LIST_TYPE_DIRECT, IID_PPV_ARGS(&commandAllocator));
+
+    ComPtr<ID3D12GraphicsCommandList> commandList;
+    device->CreateCommandList(0, D3D12_COMMAND_LIST_TYPE_DIRECT, commandAllocator.Get(), nullptr, IID_PPV_ARGS(&commandList));
+    commandList->Close();
+
+    return new CommandQueue(this, commandQueue.Get(), commandAllocator.Get(), commandList.Get(), fence.Get());
 }
 
 WMObject<WMGPUBuffer> GraphicsDeviceContext::CreateGPUBuffer(size_t size, WMGPUBuffer::CPUCacheMode mode)
@@ -40,15 +56,15 @@ WMObject<WMGPUBuffer> GraphicsDeviceContext::CreateGPUBuffer(size_t size, WMGPUB
 
     switch (mode)
     {
-    case WildMini::Graphics::WMGPUBuffer::NONE:
+    case WildMini::Graphics::WMGPUBuffer::CPUCacheMode::NONE:
         heapProp = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_DEFAULT);
         initBufferState = D3D12_RESOURCE_STATE_GENERIC_READ;
         break;
-    case WildMini::Graphics::WMGPUBuffer::WRITABLE:
+    case WildMini::Graphics::WMGPUBuffer::CPUCacheMode::WRITABLE:
         heapProp = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD);
         initBufferState = D3D12_RESOURCE_STATE_GENERIC_READ;
         break;
-    case WildMini::Graphics::WMGPUBuffer::READABLE:
+    case WildMini::Graphics::WMGPUBuffer::CPUCacheMode::READABLE:
         heapProp = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_READBACK);
         initBufferState = D3D12_RESOURCE_STATE_COPY_DEST;
         break;

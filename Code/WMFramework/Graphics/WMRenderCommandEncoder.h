@@ -7,14 +7,14 @@
 
 #pragma once
 #include "WMFramework.h"
-#include "Object/WMRefCounter.h"
+#include "Object/WMObject.h"
 #include "Graphics/Primitive/WMViewport.h"
 #include "Graphics/WMTexture.h"
 #include "Graphics/Primitive/WMColor.h"
 
 namespace WildMini::Graphics
 {
-    class WM_API WMRenderCommandEncoder : public Object::WMRefCounter
+    class WM_API WMRenderCommandEncoder : public WildMini::Object::WMRefCounter
     {
     public:
         enum class DepthStencilClearFlag

@@ -7,7 +7,7 @@
 
 #pragma once
 #include "WMFramework.h"
-#include "Object/WMRefCounter.h"
+#include "Object/WMObject.h"
 
 namespace WildMini::Graphics
 {

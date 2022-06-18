@@ -14,12 +14,15 @@ namespace WildMini::Graphics
     class WM_API WMGPUBuffer : public WildMini::Object::WMRefCounter
     {
     public:
-        enum CPUCacheMode
+        enum class CPUCacheMode
         {
             NONE = 0,
             WRITABLE,
             READABLE
         };
+
+    public:
+        WMGPUBuffer() = default;
 
     public:
         virtual size_t Size() const = 0;

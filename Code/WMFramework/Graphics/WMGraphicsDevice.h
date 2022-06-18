@@ -9,7 +9,6 @@
 #include "WMFramework.h"
 #include "Object/WMObject.h"
 #include "WMCommandQueue.h"
-#include "WMSwapChain.h"
 #include "WMGPUBuffer.h"
 #include "WMTexture.h"
 
@@ -21,8 +20,8 @@ namespace WildMini::Graphics
         static WMGraphicsDevice* CreateGraphicsDevice();
 
     public:
-        virtual WildMini::Object::WMObject<WMCommandQueue> CreateCommandQueue() = 0;
-        virtual WildMini::Object::WMObject<WMGPUBuffer> CreateGPUBuffer(size_t size, WMGPUBuffer::CPUCacheMode mode) = 0;
-        virtual WildMini::Object::WMObject<WMTexture> CreateTexture(const WMTexture::Desc& desc) = 0;
+        virtual WildMini::Object::WMObject<WildMini::Graphics::WMCommandQueue> CreateCommandQueue() = 0;
+        virtual WildMini::Object::WMObject<WildMini::Graphics::WMGPUBuffer> CreateGPUBuffer(size_t size, WMGPUBuffer::CPUCacheMode mode) = 0;
+        virtual WildMini::Object::WMObject<WildMini::Graphics::WMTexture> CreateTexture(const WMTexture::Desc& desc) = 0;
     };
 }
