@@ -61,15 +61,15 @@ namespace WildMini::Object
             return *this;
         }
 
-        WMObject& operator=(const WMObject&& obj) noexcept
+        WMObject& operator=(WMObject&& obj) noexcept
         {
-            if (object != obj->object)
+            if (object != obj.object)
             {
                 InternalAddRef();
             }
 
-            object = obj->object;
-            obj->object = nullptr;
+            object = obj.object;
+            obj.object = nullptr;
             return *this;
         }
 
