@@ -456,6 +456,7 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClInclude Include="Application\WMApplicationContext.h" />
     <ClInclude Include="Application\Private\ApplicationContextFactory.h" />
     <ClInclude Include="Application\Private\Win32\ApplicationContext.h" />
+    <ClInclude Include="Graphics\Private\DX12\CopyCommandEncoder.h" />
     <ClInclude Include="Graphics\Primitive\WMViewport.h" />
     <ClInclude Include="Graphics\Private\DX12\CommandBuffer.h" />
     <ClInclude Include="Graphics\WMCommandBuffer.h" />
@@ -466,6 +467,7 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClInclude Include="Graphics\Primitive\WMColor.h" />
     <ClInclude Include="Graphics\Private\DX12\RenderCommandEncoder.h" />
     <ClInclude Include="Graphics\Private\DX12\RenderPipeline.h" />
+    <ClInclude Include="Graphics\WMCopyCommandEncoder.h" />
     <ClInclude Include="WMFramework.h" />
     <ClInclude Include="Graphics\WMGPUBuffer.h" />
     <ClInclude Include="Graphics\WMTexture.h" />
@@ -507,6 +509,7 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
   <ItemGroup>
     <ClCompile Include="Application\WMApplication.cpp" />
     <ClCompile Include="Application\Private\Win32\ApplicationContext.cpp" />
+    <ClCompile Include="Graphics\Private\DX12\CopyCommandEncoder.cpp" />
     <ClCompile Include="Graphics\Primitive\WMViewport.cpp" />
     <ClCompile Include="Graphics\Private\DX12\CommandBuffer.cpp" />
     <ClCompile Include="Graphics\WMGraphicsDevice.cpp" />

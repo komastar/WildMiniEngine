@@ -24,6 +24,9 @@ namespace WildMini::Graphics::Private::DX12
         virtual bool WriteDataForTexture(const void* data, uint32_t width, uint32_t height, uint32_t formatSize) override;
         virtual bool ReadData(void* data, size_t size) override;
 
+        ID3D12Resource* Buffer() const { return buffer.Get(); }
+        D3D12_RESOURCE_STATES InitialState() const { return state; }
+
     private:
         size_t size;
         bool writable;
