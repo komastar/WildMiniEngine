@@ -103,6 +103,9 @@
     <ClCompile Include="Graphics\Private\DX12\RenderPipeline.cpp">
       <Filter>Graphics\Private\DX12</Filter>
     </ClCompile>
+    <ClCompile Include="Graphics\Private\DX12\CopyCommandEncoder.cpp">
+      <Filter>Graphics\Private\DX12</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application\WMApplication.h">
@@ -255,6 +258,12 @@
     </ClInclude>
     <ClInclude Include="Graphics\WMRenderPipeline.h">
       <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\WMCopyCommandEncoder.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Private\DX12\CopyCommandEncoder.h">
+      <Filter>Graphics\Private\DX12</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
