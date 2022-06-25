@@ -7,6 +7,7 @@
 
 #pragma once
 #include <vector>
+#include <array>
 #include <cassert>
 #include <cstdint>
 #include <iostream>

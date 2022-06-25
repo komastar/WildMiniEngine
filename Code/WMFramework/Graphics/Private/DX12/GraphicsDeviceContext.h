@@ -26,6 +26,7 @@ namespace WildMini::Graphics::Private
         virtual WildMini::Object::WMObject<WildMini::Graphics::WMCommandQueue> CreateCommandQueue() override;
         virtual WildMini::Object::WMObject<WildMini::Graphics::WMGPUBuffer> CreateGPUBuffer(size_t size, WMGPUBuffer::CPUCacheMode mode) override;
         virtual WildMini::Object::WMObject<WildMini::Graphics::WMTexture> CreateTexture(const WMTexture::Desc& desc) override;
+        virtual WildMini::Object::WMObject<WildMini::Graphics::WMRenderPipeline> CreateRenderPipeline(const WMRenderPipelineDescriptor& desc) override;
 
     public:
         ID3D12Device* Device() const { return device.Get(); }

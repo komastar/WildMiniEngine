@@ -16,6 +16,65 @@ using namespace WildMini::Graphics;
 using namespace WildMini::Graphics::Private;
 using namespace WildMini::Graphics::Private::DX12;
 
+static std::array<const CD3DX12_STATIC_SAMPLER_DESC, 6> GetStaticSampler()
+{
+    const CD3DX12_STATIC_SAMPLER_DESC pointWrap(
+        0,
+        D3D12_FILTER_MIN_MAG_MIP_POINT,
+        D3D12_TEXTURE_ADDRESS_MODE_WRAP,
+        D3D12_TEXTURE_ADDRESS_MODE_WRAP,
+        D3D12_TEXTURE_ADDRESS_MODE_WRAP
+    );
+
+    const CD3DX12_STATIC_SAMPLER_DESC pointClamp(
+        1,
+        D3D12_FILTER_MIN_MAG_MIP_POINT,
+        D3D12_TEXTURE_ADDRESS_MODE_CLAMP,
+        D3D12_TEXTURE_ADDRESS_MODE_CLAMP,
+        D3D12_TEXTURE_ADDRESS_MODE_CLAMP
+    );
+
+    const CD3DX12_STATIC_SAMPLER_DESC linearWrap(
+        2,
+        D3D12_FILTER_MIN_MAG_MIP_LINEAR,
+        D3D12_TEXTURE_ADDRESS_MODE_WRAP,
+        D3D12_TEXTURE_ADDRESS_MODE_WRAP,
+        D3D12_TEXTURE_ADDRESS_MODE_WRAP
+    );
+
+    const CD3DX12_STATIC_SAMPLER_DESC linearClamp(
+        3,
+        D3D12_FILTER_MIN_MAG_MIP_LINEAR,
+        D3D12_TEXTURE_ADDRESS_MODE_CLAMP,
+        D3D12_TEXTURE_ADDRESS_MODE_CLAMP,
+        D3D12_TEXTURE_ADDRESS_MODE_CLAMP
+    );
+
+    const CD3DX12_STATIC_SAMPLER_DESC anisotropicWrap(
+        4,
+        D3D12_FILTER_ANISOTROPIC,
+        D3D12_TEXTURE_ADDRESS_MODE_WRAP,
+        D3D12_TEXTURE_ADDRESS_MODE_WRAP,
+        D3D12_TEXTURE_ADDRESS_MODE_WRAP,
+        0.0f,
+        8
+    );
+
+    const CD3DX12_STATIC_SAMPLER_DESC anisotropicClamp(
+        5,
+        D3D12_FILTER_ANISOTROPIC,
+        D3D12_TEXTURE_ADDRESS_MODE_CLAMP,
+        D3D12_TEXTURE_ADDRESS_MODE_CLAMP,
+        D3D12_TEXTURE_ADDRESS_MODE_CLAMP,
+        0.0f,
+        0
+    );
+
+    return {
+        pointWrap, pointClamp, linearWrap, linearClamp, anisotropicWrap, anisotropicClamp
+    };
+}
+
 GraphicsDeviceContext::GraphicsDeviceContext()
     : device(nullptr)
     , dxgiFactory(nullptr)
@@ -141,5 +200,44 @@ WMObject<WMTexture> GraphicsDeviceContext::CreateTexture(const WMTexture::Desc& 
     device->CreateCommittedResource(&heapProp, D3D12_HEAP_FLAG_NONE, &bufferDesc, initState, nullptr, IID_PPV_ARGS(buffer.GetAddressOf()));
 
     return new Texture(buffer.Get(), initState);
+}
+
+WMObject<WMRenderPipeline> GraphicsDeviceContext::CreateRenderPipeline(const WMRenderPipelineDescriptor& desc)
+{
+    ComPtr<ID3D12RootSignature> rootSignature;
+    CD3DX12_ROOT_PARAMETER slotRootParams[1] = {};
+    auto staticSamplers = GetStaticSampler();
+
+    CD3DX12_ROOT_SIGNATURE_DESC rootSigDesc(
+        1
+        , slotRootParams
+        , static_cast<UINT>(staticSamplers.size())
+        , staticSamplers.data()
+        , D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT);
+
+    ComPtr<ID3DBlob> serializeRootSig = nullptr;
+    ComPtr<ID3DBlob> errorBlob= nullptr;
+    D3D12SerializeRootSignature(
+        &rootSigDesc
+        , D3D_ROOT_SIGNATURE_VERSION_1
+        , serializeRootSig.GetAddressOf()
+        , errorBlob.GetAddressOf());
+
+    device->CreateRootSignature(
+        0
+        , serializeRootSig->GetBufferPointer()
+        , serializeRootSig->GetBufferSize()
+        , IID_PPV_ARGS(&rootSignature));
+
+    ComPtr<ID3D12PipelineState> pipelineState;
+    D3D12_GRAPHICS_PIPELINE_STATE_DESC psoDesc = {};
+    psoDesc.pRootSignature = rootSignature.Get();
+
+    std::vector<D3D12_INPUT_ELEMENT_DESC> inputLayout;
+    UINT index = 0;
+
+    //  TODO
+
+    return Object::WMObject<Graphics::WMRenderPipeline>();
 }
 #endif // _WIN32

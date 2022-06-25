@@ -11,6 +11,7 @@
 #include "WMCommandQueue.h"
 #include "WMGPUBuffer.h"
 #include "WMTexture.h"
+#include "WMRenderPipeline.h"
 
 namespace WildMini::Graphics
 {
@@ -23,5 +24,6 @@ namespace WildMini::Graphics
         virtual WildMini::Object::WMObject<WildMini::Graphics::WMCommandQueue> CreateCommandQueue() = 0;
         virtual WildMini::Object::WMObject<WildMini::Graphics::WMGPUBuffer> CreateGPUBuffer(size_t size, WMGPUBuffer::CPUCacheMode mode) = 0;
         virtual WildMini::Object::WMObject<WildMini::Graphics::WMTexture> CreateTexture(const WMTexture::Desc& desc) = 0;
+        virtual WildMini::Object::WMObject<WildMini::Graphics::WMRenderPipeline> CreateRenderPipeline(const WMRenderPipelineDescriptor& desc) = 0;
     };
 }

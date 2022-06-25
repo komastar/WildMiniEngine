@@ -265,6 +265,11 @@
     <ClInclude Include="Graphics\Private\DX12\CopyCommandEncoder.h">
       <Filter>Graphics\Private\DX12</Filter>
     </ClInclude>
+    <ClInclude Include="Graphics\WMShader.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\WMVertexDescriptor.h" />
+    <ClInclude Include="Graphics\WMBlendState.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Application">
