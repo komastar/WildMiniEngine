@@ -10,6 +10,9 @@
 #include "CommandQueue.h"
 #include "GPUBuffer.h"
 #include "Texture.h"
+#include "Shader.h"
+#include "Type.h"
+#include "RenderPipeline.h"
 
 using namespace WildMini::Object;
 using namespace WildMini::Graphics;
@@ -157,7 +160,7 @@ WMObject<WMTexture> GraphicsDeviceContext::CreateTexture(const WMTexture::Desc& 
     bufferDesc.MipLevels = desc.mipLevels;
     bufferDesc.SampleDesc.Count = desc.sampleCount;
     bufferDesc.SampleDesc.Quality = 0;
-    bufferDesc.Format = PixelFormat(desc.format);
+    bufferDesc.Format = FromPixelFormat(desc.format);
 
     switch (desc.type)
     {
@@ -204,8 +207,11 @@ WMObject<WMTexture> GraphicsDeviceContext::CreateTexture(const WMTexture::Desc& 
 
 WMObject<WMRenderPipeline> GraphicsDeviceContext::CreateRenderPipeline(const WMRenderPipelineDescriptor& desc)
 {
+    HRESULT hr = S_OK;
     ComPtr<ID3D12RootSignature> rootSignature;
     CD3DX12_ROOT_PARAMETER slotRootParams[1] = {};
+    slotRootParams[0].InitAsConstantBufferView(0);
+
     auto staticSamplers = GetStaticSampler();
 
     CD3DX12_ROOT_SIGNATURE_DESC rootSigDesc(
@@ -217,13 +223,18 @@ WMObject<WMRenderPipeline> GraphicsDeviceContext::CreateRenderPipeline(const WMR
 
     ComPtr<ID3DBlob> serializeRootSig = nullptr;
     ComPtr<ID3DBlob> errorBlob= nullptr;
-    D3D12SerializeRootSignature(
+    hr = D3D12SerializeRootSignature(
         &rootSigDesc
         , D3D_ROOT_SIGNATURE_VERSION_1
         , serializeRootSig.GetAddressOf()
         , errorBlob.GetAddressOf());
 
-    device->CreateRootSignature(
+    if (errorBlob)
+    {
+        ::OutputDebugStringA((char*)errorBlob->GetBufferPointer());
+    }
+
+    hr = device->CreateRootSignature(
         0
         , serializeRootSig->GetBufferPointer()
         , serializeRootSig->GetBufferSize()
@@ -235,9 +246,67 @@ WMObject<WMRenderPipeline> GraphicsDeviceContext::CreateRenderPipeline(const WMR
 
     std::vector<D3D12_INPUT_ELEMENT_DESC> inputLayout;
     UINT index = 0;
+    inputLayout.reserve(desc.vertexDescriptor.attributes.size());
+    for (const auto& attribute : desc.vertexDescriptor.attributes)
+    {
+        D3D12_INPUT_ELEMENT_DESC desc = {};
+        desc.SemanticName = attribute.semanticName;
+        desc.SemanticIndex = attribute.semanticIndex;
+        desc.Format = FromVertexFormat(attribute.format);
+        desc.AlignedByteOffset = attribute.offset;
+        inputLayout.push_back(desc);
+    }
 
-    //  TODO
+    psoDesc.InputLayout = { inputLayout.data(), static_cast<UINT>(inputLayout.size()) };
+    psoDesc.VS = const_cast<WMObject<WMShader>&>(desc.vertexShader).DynamicCast<Shader>()->ByteCode();
+    psoDesc.PS = const_cast<WMObject<WMShader>&>(desc.fragmentShader).DynamicCast<Shader>()->ByteCode();
+    psoDesc.PrimitiveTopologyType = PrimitiveType(desc.inputPrimitiveTopology);
+    psoDesc.NumRenderTargets = static_cast<ULONG>(desc.colorAttachments.size());
+    psoDesc.BlendState = CD3DX12_BLEND_DESC(D3D12_DEFAULT);
+    for (int i = 0; i < desc.colorAttachments.size(); ++i)
+    {
+        const auto& attachment = desc.colorAttachments[i];
+        psoDesc.RTVFormats[i] = FromPixelFormat(attachment.pixelFormat);
+        psoDesc.BlendState.RenderTarget[i].BlendEnable = attachment.blendEnabled;
+        psoDesc.BlendState.RenderTarget[i].BlendOp = FromBlendOperation(attachment.rgbBlendOperation);
+        psoDesc.BlendState.RenderTarget[i].SrcBlend = FromBlendFactor(attachment.srcRgbBlendFactor);
+        psoDesc.BlendState.RenderTarget[i].DestBlend = FromBlendFactor(attachment.dstRgbBlendFactor);
+        psoDesc.BlendState.RenderTarget[i].BlendOpAlpha = FromBlendOperation(attachment.alphaBlendOperation);
+        psoDesc.BlendState.RenderTarget[i].SrcBlendAlpha = FromBlendFactor(attachment.srcAlphaBlendFactor);
+        psoDesc.BlendState.RenderTarget[i].DestBlendAlpha = FromBlendFactor(attachment.srcAlphaBlendFactor);
+        psoDesc.BlendState.RenderTarget[i].RenderTargetWriteMask = attachment.writeMask;
+    }
 
-    return Object::WMObject<Graphics::WMRenderPipeline>();
+    psoDesc.SampleDesc.Count = desc.sampleCount;
+    psoDesc.DSVFormat = FromPixelFormat(desc.depthStencilPixelFormat);
+    psoDesc.RasterizerState = CD3DX12_RASTERIZER_DESC(D3D12_DEFAULT);
+    psoDesc.DepthStencilState = CD3DX12_DEPTH_STENCIL_DESC(D3D12_DEFAULT);
+    psoDesc.SampleMask = UINT_MAX;
+    device->CreateGraphicsPipelineState(&psoDesc, IID_PPV_ARGS(&pipelineState));
+
+    return new RenderPipeline(pipelineState.Get(), rootSignature.Get());
+}
+
+WMObject<WMShader> GraphicsDeviceContext::CreateShader(const std::vector<uint8_t>& data, const std::string& entry, WMShader::StageType stage)
+{
+    std::string shaderVerName;
+    switch (stage)
+    {
+    case WMShader::StageType::Vertex:
+        shaderVerName = "vs_5_1";
+        break;
+    case WMShader::StageType::Fragment:
+        shaderVerName = "ps_5_1";
+        break;
+    default:
+        WMASSERT_DESC(false, "Unsupported shader stage");
+    }
+
+    UINT compileFlags = 0;
+    ComPtr<ID3DBlob> byteCode;
+    ComPtr<ID3DBlob> errors;
+    HRESULT hr = D3DCompile2(data.data(), data.size(), nullptr, nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, entry.c_str(), shaderVerName.c_str(), compileFlags, 0, 0, 0, 0, &byteCode, &errors);
+
+    return new Shader(byteCode.Get(), stage, entry);
 }
 #endif // _WIN32

@@ -13,6 +13,8 @@
 #include <iostream>
 #include <atomic>
 #include <thread>
+#include <fstream>
+#include <filesystem>
 
 #ifdef WM_DYNAMIC
     #ifdef DLL_EXPORTS

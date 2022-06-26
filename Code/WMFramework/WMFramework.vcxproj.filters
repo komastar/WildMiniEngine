@@ -106,6 +106,10 @@
     <ClCompile Include="Graphics\Private\DX12\CopyCommandEncoder.cpp">
       <Filter>Graphics\Private\DX12</Filter>
     </ClCompile>
+    <ClCompile Include="Graphics\Private\DX12\Shader.cpp">
+      <Filter>Graphics\Private\DX12</Filter>
+    </ClCompile>
+    <ClCompile Include="IO\File\WMFile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application\WMApplication.h">
@@ -268,8 +272,19 @@
     <ClInclude Include="Graphics\WMShader.h">
       <Filter>Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Graphics\WMVertexDescriptor.h" />
-    <ClInclude Include="Graphics\WMBlendState.h" />
+    <ClInclude Include="Graphics\WMBlendState.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\WMVertexDescriptor.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Private\DX12\Shader.h">
+      <Filter>Graphics\Private\DX12</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Private\DX12\Type.h" />
+    <ClInclude Include="IO\File\WMFile.h" />
+    <ClInclude Include="IO\File\Private\FileHandle.h" />
+    <ClInclude Include="IO\File\WMFileHandle.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Application">

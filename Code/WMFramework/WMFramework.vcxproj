@@ -73,7 +73,7 @@
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
-    <CharacterSet>NotSet</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_DLL|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -459,17 +459,22 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClInclude Include="Graphics\Private\DX12\CopyCommandEncoder.h" />
     <ClInclude Include="Graphics\Primitive\WMViewport.h" />
     <ClInclude Include="Graphics\Private\DX12\CommandBuffer.h" />
+    <ClInclude Include="Graphics\Private\DX12\Shader.h" />
+    <ClInclude Include="Graphics\Private\DX12\Type.h" />
     <ClInclude Include="Graphics\WMBlendState.h" />
     <ClInclude Include="Graphics\WMCommandBuffer.h" />
     <ClInclude Include="Graphics\WMRenderCommandEncoder.h" />
     <ClInclude Include="Graphics\WMRenderPipeline.h" />
     <ClInclude Include="Graphics\WMVertexDescriptor.h" />
+    <ClInclude Include="IO\File\Private\FileHandle.h" />
+    <ClInclude Include="IO\File\WMFileHandle.h" />
     <ClInclude Include="Object\WMObject.h" />
     <ClInclude Include="Object\WMRefCounter.h" />
     <ClInclude Include="Graphics\Primitive\WMColor.h" />
     <ClInclude Include="Graphics\Private\DX12\RenderCommandEncoder.h" />
     <ClInclude Include="Graphics\Private\DX12\RenderPipeline.h" />
     <ClInclude Include="Graphics\WMCopyCommandEncoder.h" />
+    <ClInclude Include="IO\File\WMFile.h" />
     <ClInclude Include="WMFramework.h" />
     <ClInclude Include="Graphics\WMGPUBuffer.h" />
     <ClInclude Include="Graphics\WMTexture.h" />
@@ -515,6 +520,7 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClCompile Include="Graphics\Private\DX12\CopyCommandEncoder.cpp" />
     <ClCompile Include="Graphics\Primitive\WMViewport.cpp" />
     <ClCompile Include="Graphics\Private\DX12\CommandBuffer.cpp" />
+    <ClCompile Include="Graphics\Private\DX12\Shader.cpp" />
     <ClCompile Include="Graphics\WMGraphicsDevice.cpp" />
     <ClCompile Include="Object\WMRefCounter.cpp" />
     <ClCompile Include="Graphics\Private\DX12\GPUBuffer.cpp" />
@@ -545,6 +551,7 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClCompile Include="Math\WMVector2Int.cpp" />
     <ClCompile Include="Math\WMVector3Int.cpp" />
     <ClCompile Include="Math\WMVector4Int.cpp" />
+    <ClCompile Include="IO\File\WMFile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

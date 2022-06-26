@@ -11,6 +11,7 @@
 #include "Graphics/WMShader.h"
 #include "Graphics/WMVertexDescriptor.h"
 #include "Graphics/WMBlendState.h"
+#include "Graphics/WMTexture.h"
 
 namespace WildMini::Graphics
 {
@@ -31,7 +32,15 @@ namespace WildMini::Graphics
 
         bool blendEnabled;
 
-        WMBlendOperation
+        WMBlendOperation alphaBlendOperation;
+        WMBlendFactor srcAlphaBlendFactor;
+        WMBlendFactor dstAlphaBlendFactor;
+
+        WMBlendOperation rgbBlendOperation;
+        WMBlendFactor srcRgbBlendFactor;
+        WMBlendFactor dstRgbBlendFactor;
+
+        WMColorWriteMask writeMask = WMColorWriteMask::ColorWriteMaskAll;
     };
 
     struct WMRenderPipelineDescriptor
@@ -41,6 +50,8 @@ namespace WildMini::Graphics
         WildMini::Object::WMObject<WildMini::Graphics::WMShader> fragmentShader;
 
         WMVertexDescriptor vertexDescriptor;
-
+        std::vector<WMRenderPipelineColorAttachmentDescriptor> colorAttachments;
+        WMPixelFormat depthStencilPixelFormat;
+        WMPrimitiveTopologyType inputPrimitiveTopology;
     };
 }

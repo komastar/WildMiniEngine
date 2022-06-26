@@ -14,6 +14,8 @@
 #include "Graphics/WMCommandQueue.h"
 #include "Graphics/WMSwapChain.h"
 #include "Graphics/WMGPUBuffer.h"
+#include "Graphics/WMShader.h"
+#include "Graphics/WMRenderPipeline.h"
 
 class EditorApplication : public WildMini::Application::WMApplication
 {
@@ -36,4 +38,8 @@ private:
     WildMini::Object::WMObject<WildMini::Graphics::WMCommandQueue> commandQueue;
     WildMini::Object::WMObject<WildMini::Graphics::WMSwapChain> swapChain;
     WildMini::Object::WMObject<WildMini::Graphics::WMGPUBuffer> vertexBuffer;
+
+    WildMini::Object::WMObject<WildMini::Graphics::WMShader> vertexShader;
+    WildMini::Object::WMObject<WildMini::Graphics::WMShader> pixelShader;
+    WildMini::Object::WMObject<WildMini::Graphics::WMRenderPipeline> renderPipeline;
 };

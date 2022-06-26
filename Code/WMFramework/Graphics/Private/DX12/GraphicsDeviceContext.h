@@ -28,6 +28,8 @@ namespace WildMini::Graphics::Private
         virtual WildMini::Object::WMObject<WildMini::Graphics::WMTexture> CreateTexture(const WMTexture::Desc& desc) override;
         virtual WildMini::Object::WMObject<WildMini::Graphics::WMRenderPipeline> CreateRenderPipeline(const WMRenderPipelineDescriptor& desc) override;
 
+        virtual WildMini::Object::WMObject<WMShader> CreateShader(const std::vector<uint8_t>& data, const std::string& entry, WMShader::StageType stage) override;
+
     public:
         ID3D12Device* Device() const { return device.Get(); }
         ComPtr<IDXGIFactory4> Factory() const { return dxgiFactory; }

@@ -33,6 +33,8 @@ namespace WildMini::Graphics
         One,
         SrcColor,
         OneMinusSrcColor,
+        SrcAlpha,
+        OnMinusSrcAlpha,
         DstColor,
         OneMinusDstColor,
         DstAlpha,
