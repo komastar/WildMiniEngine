@@ -66,7 +66,6 @@ WMObject<WMFile> WMFile::Open(const std::wstring& path, WMFile::AccessMode acces
     {
         WMFile* file = new WMFile();
         file->impl = new FileHandle(stream);
-        Private::FileHandle* fileHandle = reinterpret_cast<Private::FileHandle*>(file->impl);
         std::filesystem::path fsPath(path.data());
         file->filename = fsPath.filename().c_str();
         file->extension = fsPath.extension().c_str();

@@ -207,7 +207,6 @@ WMObject<WMTexture> GraphicsDeviceContext::CreateTexture(const WMTexture::Desc& 
 
 WMObject<WMRenderPipeline> GraphicsDeviceContext::CreateRenderPipeline(const WMRenderPipelineDescriptor& desc)
 {
-    HRESULT hr = S_OK;
     ComPtr<ID3D12RootSignature> rootSignature;
     CD3DX12_ROOT_PARAMETER slotRootParams[1] = {};
     slotRootParams[0].InitAsConstantBufferView(0);
@@ -223,7 +222,7 @@ WMObject<WMRenderPipeline> GraphicsDeviceContext::CreateRenderPipeline(const WMR
 
     ComPtr<ID3DBlob> serializeRootSig = nullptr;
     ComPtr<ID3DBlob> errorBlob= nullptr;
-    hr = D3D12SerializeRootSignature(
+    D3D12SerializeRootSignature(
         &rootSigDesc
         , D3D_ROOT_SIGNATURE_VERSION_1
         , serializeRootSig.GetAddressOf()
@@ -234,7 +233,7 @@ WMObject<WMRenderPipeline> GraphicsDeviceContext::CreateRenderPipeline(const WMR
         ::OutputDebugStringA((char*)errorBlob->GetBufferPointer());
     }
 
-    hr = device->CreateRootSignature(
+    device->CreateRootSignature(
         0
         , serializeRootSig->GetBufferPointer()
         , serializeRootSig->GetBufferSize()
@@ -245,7 +244,6 @@ WMObject<WMRenderPipeline> GraphicsDeviceContext::CreateRenderPipeline(const WMR
     psoDesc.pRootSignature = rootSignature.Get();
 
     std::vector<D3D12_INPUT_ELEMENT_DESC> inputLayout;
-    UINT index = 0;
     inputLayout.reserve(desc.vertexDescriptor.attributes.size());
     for (const auto& attribute : desc.vertexDescriptor.attributes)
     {
@@ -305,7 +303,7 @@ WMObject<WMShader> GraphicsDeviceContext::CreateShader(const std::vector<uint8_t
     UINT compileFlags = 0;
     ComPtr<ID3DBlob> byteCode;
     ComPtr<ID3DBlob> errors;
-    HRESULT hr = D3DCompile2(data.data(), data.size(), nullptr, nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, entry.c_str(), shaderVerName.c_str(), compileFlags, 0, 0, 0, 0, &byteCode, &errors);
+    D3DCompile2(data.data(), data.size(), nullptr, nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, entry.c_str(), shaderVerName.c_str(), compileFlags, 0, 0, 0, 0, &byteCode, &errors);
 
     return new Shader(byteCode.Get(), stage, entry);
 }
