@@ -31,6 +31,28 @@ void EditorApplication::OnInitialize()
 
     vertexBuffer = device->CreateGPUBuffer(50000, WMGPUBuffer::CPUCacheMode::WRITABLE);
 
+    vertexShader = device->CreateShader(L"Resources/Shader/BasicShader.hlsl", "VS", WMShader::StageType::Vertex);
+    pixelShader = device->CreateShader(L"Resources/Shader/BasicShader.hlsl", "PS", WMShader::StageType::Fragment);
+
+    WMRenderPipelineDescriptor pipelineDesc = {};
+    pipelineDesc.sampleCount = 1;
+    pipelineDesc.vertexShader = vertexShader;
+    pipelineDesc.fragmentShader = pixelShader;
+    pipelineDesc.vertexDescriptor.attributes = {
+        { WMVertexFormat::Float3, "POSITION",   0, 0 },
+        { WMVertexFormat::Float3, "NORMAL",     0, 0 },
+        { WMVertexFormat::Float4, "COLOR",      0, 0 },
+    };
+
+    pipelineDesc.colorAttachments = {
+        { WMPixelFormat::RGBA_8_UNML, false }
+    };
+
+    pipelineDesc.depthStencilPixelFormat = WMPixelFormat::DEPTH_24_UNORM_STENCIL_8;
+    pipelineDesc.inputPrimitiveTopology = WMPrimitiveTopologyType::Triangle;
+
+    renderPipeline = device->CreateRenderPipeline(pipelineDesc);
+
     gameLoop = std::jthread([&](std::stop_token token)
         {
             while (!token.stop_requested())

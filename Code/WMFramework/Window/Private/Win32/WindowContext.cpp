@@ -43,7 +43,7 @@ void WindowContext::Create()
     int width = R.right - R.left;
     int height = R.bottom - R.top;
 
-    hwnd = CreateWindowW(L"MainWnd", L"D3D App", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, width, height, 0, 0, instance, 0);
+    hwnd = CreateWindowW(L"MainWnd", L"WildMini Editor", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, width, height, 0, 0, instance, 0);
 }
 
 void WindowContext::Show()

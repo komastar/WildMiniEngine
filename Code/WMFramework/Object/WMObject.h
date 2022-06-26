@@ -76,7 +76,7 @@ namespace WildMini::Object
         template<class U>
         WMObject<U> DynamicCast()
         {
-            return dynamic_cast<U>(object);
+            return dynamic_cast<U*>(object);
         }
 
         T* operator->()

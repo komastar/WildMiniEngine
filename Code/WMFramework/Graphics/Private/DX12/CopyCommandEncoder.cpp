@@ -8,6 +8,7 @@
 #include "CopyCommandEncoder.h"
 #include "GPUBuffer.h"
 #include "Texture.h"
+#include "Type.h"
 
 using namespace WildMini::Graphics::Private::DX12;
 
