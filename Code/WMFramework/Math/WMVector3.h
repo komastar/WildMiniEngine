@@ -55,6 +55,7 @@ namespace WildMini::Math
         bool operator!=(const WMVector3& value) const;
         WMVector3 operator+(const WMVector3& value) const;
         WMVector3 operator-(const WMVector3& value) const;
+        WMVector3 operator-() const;
         WMVector3 operator*(const float& value) const;
         WMVector3 operator*(const WMMatrix3& value) const;
         WMVector3 operator/(const float& value) const;

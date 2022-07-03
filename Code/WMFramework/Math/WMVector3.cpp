@@ -162,6 +162,11 @@ WMVector3 WMVector3::operator-(const WMVector3& value) const
     return WMVector3(x - value.x, y - value.y, z - value.z);
 }
 
+WMVector3 WMVector3::operator-() const
+{
+    return WMVector3(-x, -y, -z);
+}
+
 WMVector3 WMVector3::operator*(const float& value) const
 {
     return WMVector3(x * value, y * value, z * value);

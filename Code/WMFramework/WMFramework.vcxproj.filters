@@ -112,6 +112,9 @@
     <ClCompile Include="Log\WMLogVariant.cpp">
       <Filter>Log</Filter>
     </ClCompile>
+    <ClCompile Include="Graphics\WMCamera.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WMFramework.h" />
@@ -294,6 +297,9 @@
     </ClInclude>
     <ClInclude Include="Log\WMLogVariant.h">
       <Filter>Log</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\WMCamera.h">
+      <Filter>Graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -475,6 +475,7 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClInclude Include="Graphics\Private\DX12\RenderPipeline.h" />
     <ClInclude Include="Graphics\WMCopyCommandEncoder.h" />
     <ClInclude Include="IO\File\WMFile.h" />
+    <ClInclude Include="Graphics\WMCamera.h" />
     <ClInclude Include="WMFramework.h" />
     <ClInclude Include="Graphics\WMGPUBuffer.h" />
     <ClInclude Include="Graphics\WMTexture.h" />
@@ -552,6 +553,7 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClCompile Include="Math\WMVector3Int.cpp" />
     <ClCompile Include="Math\WMVector4Int.cpp" />
     <ClCompile Include="IO\File\WMFile.cpp" />
+    <ClCompile Include="Graphics\WMCamera.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
