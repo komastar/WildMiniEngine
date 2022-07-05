@@ -115,6 +115,12 @@
     <ClCompile Include="Graphics\WMCamera.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="Graphics\Geometry\WMGeometryFactory.cpp">
+      <Filter>Graphics\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Geometry\WMMesh.cpp">
+      <Filter>Graphics\Geometry</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WMFramework.h" />
@@ -301,6 +307,12 @@
     <ClInclude Include="Graphics\WMCamera.h">
       <Filter>Graphics</Filter>
     </ClInclude>
+    <ClInclude Include="Graphics\Geometry\WMGeometryFactory.h">
+      <Filter>Graphics\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Geometry\WMMesh.h">
+      <Filter>Graphics\Geometry</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
@@ -353,6 +365,9 @@
     </Filter>
     <Filter Include="Log">
       <UniqueIdentifier>{5e3b3d33-a7f4-47d3-b867-6d936e146ad5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\Geometry">
+      <UniqueIdentifier>{00765b46-880f-4bef-a47b-17d1246a2371}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

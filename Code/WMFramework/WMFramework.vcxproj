@@ -456,6 +456,8 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClInclude Include="Application\WMApplicationContext.h" />
     <ClInclude Include="Application\Private\ApplicationContextFactory.h" />
     <ClInclude Include="Application\Private\Win32\ApplicationContext.h" />
+    <ClInclude Include="Graphics\Geometry\WMGeometryFactory.h" />
+    <ClInclude Include="Graphics\Geometry\WMMesh.h" />
     <ClInclude Include="Graphics\Private\DX12\CopyCommandEncoder.h" />
     <ClInclude Include="Graphics\Primitive\WMViewport.h" />
     <ClInclude Include="Graphics\Private\DX12\CommandBuffer.h" />
@@ -518,6 +520,8 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
   <ItemGroup>
     <ClCompile Include="Application\WMApplication.cpp" />
     <ClCompile Include="Application\Private\Win32\ApplicationContext.cpp" />
+    <ClCompile Include="Graphics\Geometry\WMGeometryFactory.cpp" />
+    <ClCompile Include="Graphics\Geometry\WMMesh.cpp" />
     <ClCompile Include="Graphics\Private\DX12\CopyCommandEncoder.cpp" />
     <ClCompile Include="Graphics\Primitive\WMViewport.cpp" />
     <ClCompile Include="Graphics\Private\DX12\CommandBuffer.cpp" />
