@@ -11,11 +11,20 @@
 using namespace WildMini::Graphics::Private::DX12;
 using namespace WildMini::Graphics::Primitive;
 
-RenderCommandEncoder::RenderCommandEncoder(WMCommandBuffer* _commandBuffer, ID3D12GraphicsCommandList* _commandList)
+RenderCommandEncoder::RenderCommandEncoder(RenderPipeline* _renderPipeline, WMCommandBuffer* _commandBuffer, ID3D12GraphicsCommandList* _commandList)
     : commandList(_commandList)
     , commandBuffer(_commandBuffer)
 {
+    commandList->SetGraphicsRootSignature(_renderPipeline->RootSignature());
 }
+
+
+RenderCommandEncoder::~RenderCommandEncoder()
+{
+    commandList = nullptr;
+    commandBuffer = nullptr;
+}
+
 
 void RenderCommandEncoder::SetViewport(const WMViewport& viewport)
 {
@@ -108,7 +117,7 @@ void RenderCommandEncoder::SetRenderTargets(std::vector<const WMTexture*> render
 
 void RenderCommandEncoder::ClearRenderTarget(const WMTexture* renderTarget, const WMColor& color)
 {
-    const Texture* texture = reinterpret_cast<const Texture*>(renderTarget);
+    const Texture* texture = dynamic_cast<const Texture*>(renderTarget);
     TransitionBufferState(texture->Resource(), texture->InitialState(), D3D12_RESOURCE_STATE_RENDER_TARGET);
     commandList->ClearRenderTargetView(
         texture->RenderTargetView()

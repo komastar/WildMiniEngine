@@ -8,15 +8,16 @@
 #pragma once
 #include "d3d12_include.h"
 #include "Graphics/WMRenderCommandEncoder.h"
-#include "Graphics/WMRenderPipeline.h"
-#include "Graphics/WMCommandBuffer.h"
+#include "CommandBuffer.h"
+#include "RenderPipeline.h"
 
 namespace WildMini::Graphics::Private::DX12
 {
     class RenderCommandEncoder : public WMRenderCommandEncoder
     {
     public:
-        RenderCommandEncoder(WMCommandBuffer* _commandBuffer, ID3D12GraphicsCommandList* _commandList);
+        RenderCommandEncoder(RenderPipeline* _renderPipeline, WMCommandBuffer* _commandBuffer, ID3D12GraphicsCommandList* _commandList);
+        ~RenderCommandEncoder();
 
     public:
         virtual void SetViewport(const Primitive::WMViewport& viewport) override;
@@ -33,7 +34,6 @@ namespace WildMini::Graphics::Private::DX12
 
     protected:
         ComPtr<ID3D12GraphicsCommandList> commandList;
-        Object::WMObject<WMRenderPipeline> renderPipeline;
         Object::WMObject<WMCommandBuffer> commandBuffer;
     };
 }

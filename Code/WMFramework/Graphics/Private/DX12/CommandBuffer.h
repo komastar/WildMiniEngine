@@ -19,7 +19,7 @@ namespace WildMini::Graphics::Private::DX12
     public:
         CommandBuffer(CommandQueue*, ID3D12CommandAllocator*, ID3D12GraphicsCommandList*, D3D12_COMMAND_LIST_TYPE);
 
-        virtual Object::WMObject<WMRenderCommandEncoder> CreateRenderCommandEncoder() override;
+        virtual Object::WMObject<WMRenderCommandEncoder> CreateRenderCommandEncoder(WMRenderPipeline* renderPipeline) override;
         virtual void Commit() override;
         void AddEncodedCommandList(ID3D12GraphicsCommandList* commandList);
 

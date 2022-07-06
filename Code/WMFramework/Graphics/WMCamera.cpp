@@ -9,11 +9,11 @@ WMCamera::WMCamera()
 {
 }
 
-void WMCamera::SetView(const WMVector3& pos, const WMVector3& lookat, const WMVector3& up)
+void WMCamera::SetView(const WMVector3& pos, const WMVector3& lookat, const WMVector3& worldUp)
 {
     position = pos;
     WMVector3 forward = (lookat - pos).Normalize();
-    WMVector3 right = WMVector3::Cross(up, forward);
+    WMVector3 right = WMVector3::Cross(worldUp, forward);
     WMVector3 up = WMVector3::Cross(forward, right);
 
     float x = WMVector3::Dot(-pos, right);

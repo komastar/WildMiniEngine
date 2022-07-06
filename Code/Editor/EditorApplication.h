@@ -42,4 +42,6 @@ private:
     WildMini::Object::WMObject<WildMini::Graphics::WMShader> vertexShader;
     WildMini::Object::WMObject<WildMini::Graphics::WMShader> pixelShader;
     WildMini::Object::WMObject<WildMini::Graphics::WMRenderPipeline> renderPipeline;
+
+    WildMini::Object::WMObject<WildMini::Graphics::WMGPUBuffer> constantBuffer;
 };

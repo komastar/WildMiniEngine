@@ -6,6 +6,7 @@
 //
 
 #include "CommandBuffer.h"
+#include "RenderPipeline.h"
 
 using namespace WildMini::Object;
 using namespace WildMini::Graphics;
@@ -19,10 +20,11 @@ CommandBuffer::CommandBuffer(CommandQueue* _commandQueue, ID3D12CommandAllocator
 {
 }
 
-WMObject<WMRenderCommandEncoder> CommandBuffer::CreateRenderCommandEncoder()
+WMObject<WMRenderCommandEncoder> CommandBuffer::CreateRenderCommandEncoder(WMRenderPipeline* _renderPipeline)
 {
-    commandList->Reset(commandAllocator.Get(), nullptr);
-    return new RenderCommandEncoder(this, commandList.Get());
+    RenderPipeline* renderPipeline = dynamic_cast<RenderPipeline*>(_renderPipeline);
+    commandList->Reset(commandAllocator.Get(), renderPipeline->PipelineState());
+    return new RenderCommandEncoder(renderPipeline, this, commandList.Get());
 }
 
 void CommandBuffer::Commit()
@@ -31,6 +33,7 @@ void CommandBuffer::Commit()
     commandQueue->ExecuteCommandLists(1, cmdList);
 }
 
-void CommandBuffer::AddEncodedCommandList(ID3D12GraphicsCommandList* commandList)
+void CommandBuffer::AddEncodedCommandList(ID3D12GraphicsCommandList* _commandList)
 {
+    commandList = _commandList;
 }

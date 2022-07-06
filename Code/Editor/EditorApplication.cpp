@@ -77,7 +77,7 @@ void EditorApplication::Render()
 {
     if (WMObject<WMCommandBuffer> commandBuffer = commandQueue->CreateCommandBuffer())
     {
-        if (WMObject<WMRenderCommandEncoder> renderCommandEncoder = commandBuffer->CreateRenderCommandEncoder())
+        if (WMObject<WMRenderCommandEncoder> renderCommandEncoder = commandBuffer->CreateRenderCommandEncoder(renderPipeline))
         {
             Primitive::WMViewport viewport = { 0, 0, static_cast<float>(window->Width()), static_cast<float>(window->Height()), 0.0f, 1.0f };
             renderCommandEncoder->SetViewport(viewport);
