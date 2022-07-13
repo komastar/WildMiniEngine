@@ -82,6 +82,13 @@ GraphicsDeviceContext::GraphicsDeviceContext()
     : device(nullptr)
     , dxgiFactory(nullptr)
 {
+#if defined(DEBUG) || defined(_DEBUG) 
+    {
+        ComPtr<ID3D12Debug> debugController;
+        D3D12GetDebugInterface(IID_PPV_ARGS(&debugController));
+        debugController->EnableDebugLayer();
+    }
+#endif
     CreateDXGIFactory1(IID_PPV_ARGS(&dxgiFactory));
     D3D12CreateDevice(nullptr, D3D_FEATURE_LEVEL_12_0, IID_PPV_ARGS(&device));
 }

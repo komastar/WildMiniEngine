@@ -30,6 +30,7 @@ CommandQueue::CommandQueue(GraphicsDeviceContext* _graphicsDevice
 
 WMObject<WMCommandBuffer> CommandQueue::CreateCommandBuffer()
 {
+    commandAllocator->Reset();
     return new CommandBuffer(this
         , commandAllocator.Get()
         , commandList.Get()
