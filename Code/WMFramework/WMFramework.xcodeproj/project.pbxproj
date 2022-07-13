@@ -1,0 +1,640 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		746E6A48284DEE4900805558 /* WMApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E69E9284DEE4900805558 /* WMApplication.cpp */; };
+		746E6A49284DEE4900805558 /* WMApplicationContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E69EA284DEE4900805558 /* WMApplicationContext.h */; };
+		746E6A4A284DEE4900805558 /* ApplicationContextFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E69EE284DEE4900805558 /* ApplicationContextFactory.h */; };
+		746E6A4D284DEE4900805558 /* WMApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E69F2284DEE4900805558 /* WMApplication.h */; };
+		746E6A4E284DEE4900805558 /* WMObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E69F4284DEE4900805558 /* WMObject.h */; };
+		746E6A4F284DEE4900805558 /* WMRefCounter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E69F5284DEE4900805558 /* WMRefCounter.cpp */; };
+		746E6A50284DEE4900805558 /* WMRefCounter.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E69F6284DEE4900805558 /* WMRefCounter.h */; };
+		746E6A51284DEE4900805558 /* WMWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E69F8284DEE4900805558 /* WMWindow.h */; };
+		746E6A52284DEE4900805558 /* WindowFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E69FC284DEE4900805558 /* WindowFactory.h */; };
+		746E6A55284DEE4900805558 /* WMMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A01284DEE4900805558 /* WMMath.h */; };
+		746E6A56284DEE4900805558 /* WMMatrix3.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A02284DEE4900805558 /* WMMatrix3.h */; };
+		746E6A57284DEE4900805558 /* WMVector4Int.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A03284DEE4900805558 /* WMVector4Int.cpp */; };
+		746E6A58284DEE4900805558 /* WMVector3.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A04284DEE4900805558 /* WMVector3.h */; };
+		746E6A59284DEE4900805558 /* WMLinearTransform3.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A05284DEE4900805558 /* WMLinearTransform3.h */; };
+		746E6A5A284DEE4900805558 /* WMMatrix4.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A06284DEE4900805558 /* WMMatrix4.h */; };
+		746E6A5B284DEE4900805558 /* WMVector4.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A07284DEE4900805558 /* WMVector4.h */; };
+		746E6A5C284DEE4A00805558 /* WMAffineTransform3.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A08284DEE4900805558 /* WMAffineTransform3.h */; };
+		746E6A5D284DEE4A00805558 /* WMVector2Int.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A09284DEE4900805558 /* WMVector2Int.cpp */; };
+		746E6A5E284DEE4A00805558 /* WMLinearTransform2.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A0A284DEE4900805558 /* WMLinearTransform2.h */; };
+		746E6A5F284DEE4A00805558 /* WMAffineTransform2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A0B284DEE4900805558 /* WMAffineTransform2.cpp */; };
+		746E6A60284DEE4A00805558 /* WMVector4Int.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A0C284DEE4900805558 /* WMVector4Int.h */; };
+		746E6A61284DEE4A00805558 /* WMAffineTransform3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A0D284DEE4900805558 /* WMAffineTransform3.cpp */; };
+		746E6A62284DEE4A00805558 /* WMVector4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A0E284DEE4900805558 /* WMVector4.cpp */; };
+		746E6A63284DEE4A00805558 /* WMLinearTransform3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A0F284DEE4900805558 /* WMLinearTransform3.cpp */; };
+		746E6A64284DEE4A00805558 /* WMLinearTransform2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A10284DEE4900805558 /* WMLinearTransform2.cpp */; };
+		746E6A65284DEE4A00805558 /* WMVector3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A11284DEE4900805558 /* WMVector3.cpp */; };
+		746E6A66284DEE4A00805558 /* WMAffineTransform2.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A12284DEE4900805558 /* WMAffineTransform2.h */; };
+		746E6A67284DEE4A00805558 /* WMVector2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A13284DEE4900805558 /* WMVector2.cpp */; };
+		746E6A68284DEE4A00805558 /* WMMatrix4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A14284DEE4900805558 /* WMMatrix4.cpp */; };
+		746E6A69284DEE4A00805558 /* WMVector2Int.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A15284DEE4900805558 /* WMVector2Int.h */; };
+		746E6A6A284DEE4A00805558 /* WMMatrix2.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A16284DEE4900805558 /* WMMatrix2.h */; };
+		746E6A6B284DEE4A00805558 /* WMMatrix2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A17284DEE4900805558 /* WMMatrix2.cpp */; };
+		746E6A6C284DEE4A00805558 /* WMVector3Int.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A18284DEE4900805558 /* WMVector3Int.cpp */; };
+		746E6A6D284DEE4A00805558 /* WMVector3Int.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A19284DEE4900805558 /* WMVector3Int.h */; };
+		746E6A6E284DEE4A00805558 /* WMMatrix3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A1A284DEE4900805558 /* WMMatrix3.cpp */; };
+		746E6A6F284DEE4A00805558 /* WMVector2.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A1B284DEE4900805558 /* WMVector2.h */; };
+		746E6A70284DEE4A00805558 /* WMLogVariant.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A1D284DEE4900805558 /* WMLogVariant.cpp */; };
+		746E6A71284DEE4A00805558 /* WMLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A1E284DEE4900805558 /* WMLog.h */; };
+		746E6A72284DEE4A00805558 /* WMLog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A1F284DEE4900805558 /* WMLog.cpp */; };
+		746E6A73284DEE4A00805558 /* WMLogVariant.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A20284DEE4900805558 /* WMLogVariant.h */; };
+		746E6A74284DEE4A00805558 /* WMFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A21284DEE4900805558 /* WMFramework.h */; };
+		746E6A75284DEE4A00805558 /* WMTexture.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A23284DEE4900805558 /* WMTexture.h */; };
+		746E6A76284DEE4A00805558 /* WMColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A25284DEE4900805558 /* WMColor.h */; };
+		746E6A77284DEE4A00805558 /* WMRect.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A26284DEE4900805558 /* WMRect.h */; };
+		746E6A78284DEE4A00805558 /* WMPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A27284DEE4900805558 /* WMPoint.h */; };
+		746E6A79284DEE4A00805558 /* WMPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A28284DEE4900805558 /* WMPoint.cpp */; };
+		746E6A7A284DEE4A00805558 /* WMQuad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A29284DEE4900805558 /* WMQuad.cpp */; };
+		746E6A7B284DEE4A00805558 /* WMQuad.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A2A284DEE4900805558 /* WMQuad.h */; };
+		746E6A7C284DEE4A00805558 /* WMSize.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A2B284DEE4900805558 /* WMSize.h */; };
+		746E6A7D284DEE4A00805558 /* WMColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A2C284DEE4900805558 /* WMColor.cpp */; };
+		746E6A7E284DEE4A00805558 /* WMRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A2D284DEE4900805558 /* WMRect.cpp */; };
+		746E6A7F284DEE4A00805558 /* WMSize.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A2E284DEE4900805558 /* WMSize.cpp */; };
+		746E6A82284DEE4A00805558 /* GraphicsDeviceFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A32284DEE4900805558 /* GraphicsDeviceFactory.h */; };
+		746E6A91284DEE4A00805558 /* WMGraphicsDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A44284DEE4900805558 /* WMGraphicsDevice.cpp */; };
+		746E6A92284DEE4A00805558 /* WMGraphicsDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A45284DEE4900805558 /* WMGraphicsDevice.h */; };
+		746E6A93284DEE4A00805558 /* WMSwapChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A46284DEE4900805558 /* WMSwapChain.h */; };
+		746E6A94284DEE4A00805558 /* WMCommandQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A47284DEE4900805558 /* WMCommandQueue.h */; };
+		746E6A9C284DF17200805558 /* ApplicationContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A9B284DF17200805558 /* ApplicationContext.m */; };
+		746E6A9E284DF18100805558 /* ApplicationContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A9D284DF18100805558 /* ApplicationContext.h */; };
+		746E6AA5284DF3D500805558 /* WindowContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6AA4284DF3D500805558 /* WindowContext.h */; };
+		746E6AA7284DF3EA00805558 /* WindowContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 746E6AA6284DF3EA00805558 /* WindowContext.m */; };
+		74DDAA77285778260083C841 /* WMGPUBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 74DDAA73285778260083C841 /* WMGPUBuffer.h */; };
+		74DDAA78285778260083C841 /* WMCommandBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 74DDAA74285778260083C841 /* WMCommandBuffer.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		746B5FF4284CD3D7006D011A /* libWMFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWMFramework.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		746E69E9284DEE4900805558 /* WMApplication.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WMApplication.cpp; sourceTree = "<group>"; };
+		746E69EA284DEE4900805558 /* WMApplicationContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMApplicationContext.h; sourceTree = "<group>"; };
+		746E69EE284DEE4900805558 /* ApplicationContextFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationContextFactory.h; sourceTree = "<group>"; };
+		746E69F2284DEE4900805558 /* WMApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMApplication.h; sourceTree = "<group>"; };
+		746E69F4284DEE4900805558 /* WMObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMObject.h; sourceTree = "<group>"; };
+		746E69F5284DEE4900805558 /* WMRefCounter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WMRefCounter.cpp; sourceTree = "<group>"; };
+		746E69F6284DEE4900805558 /* WMRefCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMRefCounter.h; sourceTree = "<group>"; };
+		746E69F8284DEE4900805558 /* WMWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMWindow.h; sourceTree = "<group>"; };
+		746E69FC284DEE4900805558 /* WindowFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowFactory.h; sourceTree = "<group>"; };
+		746E6A01284DEE4900805558 /* WMMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMMath.h; sourceTree = "<group>"; };
+		746E6A02284DEE4900805558 /* WMMatrix3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMMatrix3.h; sourceTree = "<group>"; };
+		746E6A03284DEE4900805558 /* WMVector4Int.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WMVector4Int.cpp; sourceTree = "<group>"; };
+		746E6A04284DEE4900805558 /* WMVector3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMVector3.h; sourceTree = "<group>"; };
+		746E6A05284DEE4900805558 /* WMLinearTransform3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMLinearTransform3.h; sourceTree = "<group>"; };
+		746E6A06284DEE4900805558 /* WMMatrix4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMMatrix4.h; sourceTree = "<group>"; };
+		746E6A07284DEE4900805558 /* WMVector4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMVector4.h; sourceTree = "<group>"; };
+		746E6A08284DEE4900805558 /* WMAffineTransform3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMAffineTransform3.h; sourceTree = "<group>"; };
+		746E6A09284DEE4900805558 /* WMVector2Int.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WMVector2Int.cpp; sourceTree = "<group>"; };
+		746E6A0A284DEE4900805558 /* WMLinearTransform2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMLinearTransform2.h; sourceTree = "<group>"; };
+		746E6A0B284DEE4900805558 /* WMAffineTransform2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WMAffineTransform2.cpp; sourceTree = "<group>"; };
+		746E6A0C284DEE4900805558 /* WMVector4Int.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMVector4Int.h; sourceTree = "<group>"; };
+		746E6A0D284DEE4900805558 /* WMAffineTransform3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WMAffineTransform3.cpp; sourceTree = "<group>"; };
+		746E6A0E284DEE4900805558 /* WMVector4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WMVector4.cpp; sourceTree = "<group>"; };
+		746E6A0F284DEE4900805558 /* WMLinearTransform3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WMLinearTransform3.cpp; sourceTree = "<group>"; };
+		746E6A10284DEE4900805558 /* WMLinearTransform2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WMLinearTransform2.cpp; sourceTree = "<group>"; };
+		746E6A11284DEE4900805558 /* WMVector3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WMVector3.cpp; sourceTree = "<group>"; };
+		746E6A12284DEE4900805558 /* WMAffineTransform2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMAffineTransform2.h; sourceTree = "<group>"; };
+		746E6A13284DEE4900805558 /* WMVector2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WMVector2.cpp; sourceTree = "<group>"; };
+		746E6A14284DEE4900805558 /* WMMatrix4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WMMatrix4.cpp; sourceTree = "<group>"; };
+		746E6A15284DEE4900805558 /* WMVector2Int.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMVector2Int.h; sourceTree = "<group>"; };
+		746E6A16284DEE4900805558 /* WMMatrix2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMMatrix2.h; sourceTree = "<group>"; };
+		746E6A17284DEE4900805558 /* WMMatrix2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WMMatrix2.cpp; sourceTree = "<group>"; };
+		746E6A18284DEE4900805558 /* WMVector3Int.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WMVector3Int.cpp; sourceTree = "<group>"; };
+		746E6A19284DEE4900805558 /* WMVector3Int.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMVector3Int.h; sourceTree = "<group>"; };
+		746E6A1A284DEE4900805558 /* WMMatrix3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WMMatrix3.cpp; sourceTree = "<group>"; };
+		746E6A1B284DEE4900805558 /* WMVector2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMVector2.h; sourceTree = "<group>"; };
+		746E6A1D284DEE4900805558 /* WMLogVariant.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WMLogVariant.cpp; sourceTree = "<group>"; };
+		746E6A1E284DEE4900805558 /* WMLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMLog.h; sourceTree = "<group>"; };
+		746E6A1F284DEE4900805558 /* WMLog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WMLog.cpp; sourceTree = "<group>"; };
+		746E6A20284DEE4900805558 /* WMLogVariant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMLogVariant.h; sourceTree = "<group>"; };
+		746E6A21284DEE4900805558 /* WMFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMFramework.h; sourceTree = "<group>"; };
+		746E6A23284DEE4900805558 /* WMTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMTexture.h; sourceTree = "<group>"; };
+		746E6A25284DEE4900805558 /* WMColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMColor.h; sourceTree = "<group>"; };
+		746E6A26284DEE4900805558 /* WMRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMRect.h; sourceTree = "<group>"; };
+		746E6A27284DEE4900805558 /* WMPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPoint.h; sourceTree = "<group>"; };
+		746E6A28284DEE4900805558 /* WMPoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WMPoint.cpp; sourceTree = "<group>"; };
+		746E6A29284DEE4900805558 /* WMQuad.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WMQuad.cpp; sourceTree = "<group>"; };
+		746E6A2A284DEE4900805558 /* WMQuad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMQuad.h; sourceTree = "<group>"; };
+		746E6A2B284DEE4900805558 /* WMSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMSize.h; sourceTree = "<group>"; };
+		746E6A2C284DEE4900805558 /* WMColor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WMColor.cpp; sourceTree = "<group>"; };
+		746E6A2D284DEE4900805558 /* WMRect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WMRect.cpp; sourceTree = "<group>"; };
+		746E6A2E284DEE4900805558 /* WMSize.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WMSize.cpp; sourceTree = "<group>"; };
+		746E6A2F284DEE4900805558 /* WMGPUBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMGPUBuffer.h; sourceTree = "<group>"; };
+		746E6A32284DEE4900805558 /* GraphicsDeviceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphicsDeviceFactory.h; sourceTree = "<group>"; };
+		746E6A43284DEE4900805558 /* dummy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dummy; sourceTree = "<group>"; };
+		746E6A44284DEE4900805558 /* WMGraphicsDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WMGraphicsDevice.cpp; sourceTree = "<group>"; };
+		746E6A45284DEE4900805558 /* WMGraphicsDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMGraphicsDevice.h; sourceTree = "<group>"; };
+		746E6A46284DEE4900805558 /* WMSwapChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMSwapChain.h; sourceTree = "<group>"; };
+		746E6A47284DEE4900805558 /* WMCommandQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMCommandQueue.h; sourceTree = "<group>"; };
+		746E6A9B284DF17200805558 /* ApplicationContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplicationContext.m; sourceTree = "<group>"; };
+		746E6A9D284DF18100805558 /* ApplicationContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplicationContext.h; sourceTree = "<group>"; };
+		746E6AA4284DF3D500805558 /* WindowContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowContext.h; sourceTree = "<group>"; };
+		746E6AA6284DF3EA00805558 /* WindowContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WindowContext.m; sourceTree = "<group>"; };
+		74DDAA73285778260083C841 /* WMGPUBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMGPUBuffer.h; sourceTree = "<group>"; };
+		74DDAA74285778260083C841 /* WMCommandBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMCommandBuffer.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		746B5FF2284CD3D7006D011A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		746B5FEB284CD3D7006D011A = {
+			isa = PBXGroup;
+			children = (
+				746E69E8284DEE4900805558 /* Application */,
+				746E6A22284DEE4900805558 /* Graphics */,
+				746E6A1C284DEE4900805558 /* Log */,
+				746E6A00284DEE4900805558 /* Math */,
+				746E69F3284DEE4900805558 /* Object */,
+				746B5FF5284CD3D7006D011A /* Products */,
+				746E69F7284DEE4900805558 /* Window */,
+				746E6A21284DEE4900805558 /* WMFramework.h */,
+			);
+			sourceTree = "<group>";
+		};
+		746B5FF5284CD3D7006D011A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				746B5FF4284CD3D7006D011A /* libWMFramework.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		746E69E8284DEE4900805558 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				746E69E9284DEE4900805558 /* WMApplication.cpp */,
+				746E69EA284DEE4900805558 /* WMApplicationContext.h */,
+				746E69EB284DEE4900805558 /* Private */,
+				746E69F2284DEE4900805558 /* WMApplication.h */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		746E69EB284DEE4900805558 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				746E69EC284DEE4900805558 /* Cocoa */,
+				746E69EE284DEE4900805558 /* ApplicationContextFactory.h */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		746E69EC284DEE4900805558 /* Cocoa */ = {
+			isa = PBXGroup;
+			children = (
+				746E6A9B284DF17200805558 /* ApplicationContext.m */,
+				746E6A9D284DF18100805558 /* ApplicationContext.h */,
+			);
+			path = Cocoa;
+			sourceTree = "<group>";
+		};
+		746E69F3284DEE4900805558 /* Object */ = {
+			isa = PBXGroup;
+			children = (
+				746E69F4284DEE4900805558 /* WMObject.h */,
+				746E69F5284DEE4900805558 /* WMRefCounter.cpp */,
+				746E69F6284DEE4900805558 /* WMRefCounter.h */,
+			);
+			path = Object;
+			sourceTree = "<group>";
+		};
+		746E69F7284DEE4900805558 /* Window */ = {
+			isa = PBXGroup;
+			children = (
+				746E69F8284DEE4900805558 /* WMWindow.h */,
+				746E69F9284DEE4900805558 /* Private */,
+			);
+			path = Window;
+			sourceTree = "<group>";
+		};
+		746E69F9284DEE4900805558 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				746E69FA284DEE4900805558 /* Cocoa */,
+				746E69FC284DEE4900805558 /* WindowFactory.h */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		746E69FA284DEE4900805558 /* Cocoa */ = {
+			isa = PBXGroup;
+			children = (
+				746E6AA4284DF3D500805558 /* WindowContext.h */,
+				746E6AA6284DF3EA00805558 /* WindowContext.m */,
+			);
+			path = Cocoa;
+			sourceTree = "<group>";
+		};
+		746E6A00284DEE4900805558 /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				746E6A01284DEE4900805558 /* WMMath.h */,
+				746E6A02284DEE4900805558 /* WMMatrix3.h */,
+				746E6A03284DEE4900805558 /* WMVector4Int.cpp */,
+				746E6A04284DEE4900805558 /* WMVector3.h */,
+				746E6A05284DEE4900805558 /* WMLinearTransform3.h */,
+				746E6A06284DEE4900805558 /* WMMatrix4.h */,
+				746E6A07284DEE4900805558 /* WMVector4.h */,
+				746E6A08284DEE4900805558 /* WMAffineTransform3.h */,
+				746E6A09284DEE4900805558 /* WMVector2Int.cpp */,
+				746E6A0A284DEE4900805558 /* WMLinearTransform2.h */,
+				746E6A0B284DEE4900805558 /* WMAffineTransform2.cpp */,
+				746E6A0C284DEE4900805558 /* WMVector4Int.h */,
+				746E6A0D284DEE4900805558 /* WMAffineTransform3.cpp */,
+				746E6A0E284DEE4900805558 /* WMVector4.cpp */,
+				746E6A0F284DEE4900805558 /* WMLinearTransform3.cpp */,
+				746E6A10284DEE4900805558 /* WMLinearTransform2.cpp */,
+				746E6A11284DEE4900805558 /* WMVector3.cpp */,
+				746E6A12284DEE4900805558 /* WMAffineTransform2.h */,
+				746E6A13284DEE4900805558 /* WMVector2.cpp */,
+				746E6A14284DEE4900805558 /* WMMatrix4.cpp */,
+				746E6A15284DEE4900805558 /* WMVector2Int.h */,
+				746E6A16284DEE4900805558 /* WMMatrix2.h */,
+				746E6A17284DEE4900805558 /* WMMatrix2.cpp */,
+				746E6A18284DEE4900805558 /* WMVector3Int.cpp */,
+				746E6A19284DEE4900805558 /* WMVector3Int.h */,
+				746E6A1A284DEE4900805558 /* WMMatrix3.cpp */,
+				746E6A1B284DEE4900805558 /* WMVector2.h */,
+			);
+			path = Math;
+			sourceTree = "<group>";
+		};
+		746E6A1C284DEE4900805558 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				746E6A1F284DEE4900805558 /* WMLog.cpp */,
+				746E6A1E284DEE4900805558 /* WMLog.h */,
+				746E6A1D284DEE4900805558 /* WMLogVariant.cpp */,
+				746E6A20284DEE4900805558 /* WMLogVariant.h */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
+		746E6A22284DEE4900805558 /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				746E6A24284DEE4900805558 /* Primitive */,
+				746E6A31284DEE4900805558 /* Private */,
+				74DDAA74285778260083C841 /* WMCommandBuffer.h */,
+				746E6A47284DEE4900805558 /* WMCommandQueue.h */,
+				74DDAA73285778260083C841 /* WMGPUBuffer.h */,
+				746E6A44284DEE4900805558 /* WMGraphicsDevice.cpp */,
+				746E6A45284DEE4900805558 /* WMGraphicsDevice.h */,
+				746E6A46284DEE4900805558 /* WMSwapChain.h */,
+				746E6A23284DEE4900805558 /* WMTexture.h */,
+				746E6A2F284DEE4900805558 /* WMGPUBuffer.h */,
+			);
+			path = Graphics;
+			sourceTree = "<group>";
+		};
+		746E6A24284DEE4900805558 /* Primitive */ = {
+			isa = PBXGroup;
+			children = (
+				746E6A25284DEE4900805558 /* WMColor.h */,
+				746E6A26284DEE4900805558 /* WMRect.h */,
+				746E6A27284DEE4900805558 /* WMPoint.h */,
+				746E6A28284DEE4900805558 /* WMPoint.cpp */,
+				746E6A29284DEE4900805558 /* WMQuad.cpp */,
+				746E6A2A284DEE4900805558 /* WMQuad.h */,
+				746E6A2B284DEE4900805558 /* WMSize.h */,
+				746E6A2C284DEE4900805558 /* WMColor.cpp */,
+				746E6A2D284DEE4900805558 /* WMRect.cpp */,
+				746E6A2E284DEE4900805558 /* WMSize.cpp */,
+			);
+			path = Primitive;
+			sourceTree = "<group>";
+		};
+		746E6A31284DEE4900805558 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				746E6A32284DEE4900805558 /* GraphicsDeviceFactory.h */,
+				746E6A42284DEE4900805558 /* Metal */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		746E6A42284DEE4900805558 /* Metal */ = {
+			isa = PBXGroup;
+			children = (
+				746E6A43284DEE4900805558 /* dummy */,
+			);
+			path = Metal;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		746B5FF0284CD3D7006D011A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				746E6A4A284DEE4900805558 /* ApplicationContextFactory.h in Headers */,
+				746E6A6A284DEE4A00805558 /* WMMatrix2.h in Headers */,
+				746E6A71284DEE4A00805558 /* WMLog.h in Headers */,
+				746E6A56284DEE4900805558 /* WMMatrix3.h in Headers */,
+				746E6A4E284DEE4900805558 /* WMObject.h in Headers */,
+				746E6A69284DEE4A00805558 /* WMVector2Int.h in Headers */,
+				746E6A51284DEE4900805558 /* WMWindow.h in Headers */,
+				74DDAA77285778260083C841 /* WMGPUBuffer.h in Headers */,
+				746E6A55284DEE4900805558 /* WMMath.h in Headers */,
+				746E6A82284DEE4A00805558 /* GraphicsDeviceFactory.h in Headers */,
+				746E6A5C284DEE4A00805558 /* WMAffineTransform3.h in Headers */,
+				746E6A76284DEE4A00805558 /* WMColor.h in Headers */,
+				746E6A93284DEE4A00805558 /* WMSwapChain.h in Headers */,
+				746E6A5A284DEE4900805558 /* WMMatrix4.h in Headers */,
+				746E6A7B284DEE4A00805558 /* WMQuad.h in Headers */,
+				746E6A60284DEE4A00805558 /* WMVector4Int.h in Headers */,
+				746E6A59284DEE4900805558 /* WMLinearTransform3.h in Headers */,
+				746E6A94284DEE4A00805558 /* WMCommandQueue.h in Headers */,
+				746E6A73284DEE4A00805558 /* WMLogVariant.h in Headers */,
+				746E6A4D284DEE4900805558 /* WMApplication.h in Headers */,
+				746E6A77284DEE4A00805558 /* WMRect.h in Headers */,
+				746E6A5E284DEE4A00805558 /* WMLinearTransform2.h in Headers */,
+				746E6A9E284DF18100805558 /* ApplicationContext.h in Headers */,
+				746E6A6F284DEE4A00805558 /* WMVector2.h in Headers */,
+				746E6A74284DEE4A00805558 /* WMFramework.h in Headers */,
+				74DDAA78285778260083C841 /* WMCommandBuffer.h in Headers */,
+				746E6A58284DEE4900805558 /* WMVector3.h in Headers */,
+				746E6A50284DEE4900805558 /* WMRefCounter.h in Headers */,
+				746E6A52284DEE4900805558 /* WindowFactory.h in Headers */,
+				746E6AA5284DF3D500805558 /* WindowContext.h in Headers */,
+				746E6A49284DEE4900805558 /* WMApplicationContext.h in Headers */,
+				746E6A5B284DEE4900805558 /* WMVector4.h in Headers */,
+				746E6A6D284DEE4A00805558 /* WMVector3Int.h in Headers */,
+				746E6A92284DEE4A00805558 /* WMGraphicsDevice.h in Headers */,
+				746E6A75284DEE4A00805558 /* WMTexture.h in Headers */,
+				746E6A78284DEE4A00805558 /* WMPoint.h in Headers */,
+				746E6A7C284DEE4A00805558 /* WMSize.h in Headers */,
+				746E6A66284DEE4A00805558 /* WMAffineTransform2.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		746B5FF3284CD3D7006D011A /* WMFramework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 746B5FFD284CD3D7006D011A /* Build configuration list for PBXNativeTarget "WMFramework" */;
+			buildPhases = (
+				746B5FF0284CD3D7006D011A /* Headers */,
+				746B5FF1284CD3D7006D011A /* Sources */,
+				746B5FF2284CD3D7006D011A /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WMFramework;
+			productName = WMFramework;
+			productReference = 746B5FF4284CD3D7006D011A /* libWMFramework.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		746B5FEC284CD3D7006D011A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					746B5FF3284CD3D7006D011A = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 746B5FEF284CD3D7006D011A /* Build configuration list for PBXProject "WMFramework" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 746B5FEB284CD3D7006D011A;
+			productRefGroup = 746B5FF5284CD3D7006D011A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				746B5FF3284CD3D7006D011A /* WMFramework */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		746B5FF1284CD3D7006D011A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				746E6AA7284DF3EA00805558 /* WindowContext.m in Sources */,
+				746E6A9C284DF17200805558 /* ApplicationContext.m in Sources */,
+				746E6A70284DEE4A00805558 /* WMLogVariant.cpp in Sources */,
+				746E6A65284DEE4A00805558 /* WMVector3.cpp in Sources */,
+				746E6A79284DEE4A00805558 /* WMPoint.cpp in Sources */,
+				746E6A72284DEE4A00805558 /* WMLog.cpp in Sources */,
+				746E6A6B284DEE4A00805558 /* WMMatrix2.cpp in Sources */,
+				746E6A5F284DEE4A00805558 /* WMAffineTransform2.cpp in Sources */,
+				746E6A6E284DEE4A00805558 /* WMMatrix3.cpp in Sources */,
+				746E6A7A284DEE4A00805558 /* WMQuad.cpp in Sources */,
+				746E6A5D284DEE4A00805558 /* WMVector2Int.cpp in Sources */,
+				746E6A7F284DEE4A00805558 /* WMSize.cpp in Sources */,
+				746E6A61284DEE4A00805558 /* WMAffineTransform3.cpp in Sources */,
+				746E6A7D284DEE4A00805558 /* WMColor.cpp in Sources */,
+				746E6A6C284DEE4A00805558 /* WMVector3Int.cpp in Sources */,
+				746E6A64284DEE4A00805558 /* WMLinearTransform2.cpp in Sources */,
+				746E6A4F284DEE4900805558 /* WMRefCounter.cpp in Sources */,
+				746E6A57284DEE4900805558 /* WMVector4Int.cpp in Sources */,
+				746E6A62284DEE4A00805558 /* WMVector4.cpp in Sources */,
+				746E6A68284DEE4A00805558 /* WMMatrix4.cpp in Sources */,
+				746E6A7E284DEE4A00805558 /* WMRect.cpp in Sources */,
+				746E6A67284DEE4A00805558 /* WMVector2.cpp in Sources */,
+				746E6A63284DEE4A00805558 /* WMLinearTransform3.cpp in Sources */,
+				746E6A48284DEE4900805558 /* WMApplication.cpp in Sources */,
+				746E6A91284DEE4A00805558 /* WMGraphicsDevice.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		746B5FFB284CD3D7006D011A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					.,
+					../Thirdparty/fmt/include,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		746B5FFC284CD3D7006D011A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					.,
+					../Thirdparty/fmt/include,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		746B5FFE284CD3D7006D011A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CODE_SIGN_STYLE = Automatic;
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		746B5FFF284CD3D7006D011A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CODE_SIGN_STYLE = Automatic;
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		746B5FEF284CD3D7006D011A /* Build configuration list for PBXProject "WMFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				746B5FFB284CD3D7006D011A /* Debug */,
+				746B5FFC284CD3D7006D011A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		746B5FFD284CD3D7006D011A /* Build configuration list for PBXNativeTarget "WMFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				746B5FFE284CD3D7006D011A /* Debug */,
+				746B5FFF284CD3D7006D011A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 746B5FEC284CD3D7006D011A /* Project object */;
+}

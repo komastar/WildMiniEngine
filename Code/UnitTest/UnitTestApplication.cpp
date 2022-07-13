@@ -1,35 +1,47 @@
+//
+//  File:   UnitTestApplication.cpp
+//  Author: Eugene Kim (komastar.dev@gmail.com)
+//
+//  Copyright (c) 2022 komastar. All rights reserved.
+//
+
 #include "UnitTest.h"
-#include "Application/Application.h"
-#include "Window/IWindow.h"
-#include "Window/WindowContextFactory.h"
+#include "Application/WMApplication.h"
+#include "Window/Private/WindowFactory.h"
+#include "Application/Private/ApplicationContextFactory.h"
+#include "Graphics/Private/GraphicsDeviceFactory.h"
 
-class UnitTestApplication : public Core::Application
+using namespace WildMini::Window;
+
+class UnitTestApplication : public WildMini::Application::WMApplication
 {
-private:
-    Core::IWindow* window;
-
 public:
-    UnitTestApplication() : window(nullptr)
-    {
-    }
+    UnitTestApplication() {}
+    virtual ~UnitTestApplication() {}
 
-    virtual void OnInitialize() override
+    void OnInitialize() override
     {
-        window = Core::WindowContextFactory::Create();
+        window = WindowFactory::Create();
         window->Create();
         window->Show();
         window->Focus();
+
+        device = WildMini::Graphics::Private::GraphicsDeviceFactory::Create();
+
+        context = WildMini::Application::Private::ApplicationContextFactory::Create();
     }
     
-    virtual void OnTerminate() override
+    void OnTerminate() override
     {
-        delete window;
-        window = nullptr;
     }
+
+private:
+    WildMini::Object::WMObject<WildMini::Window::WMWindow> window;
+    WildMini::Object::WMObject<WildMini::Graphics::WMGraphicsDevice> device;
 };
 
 _TEST_(Win32, App, Run)
 {
-    UnitTestApplication testApp;
-    testApp.Run();
+    //UnitTestApplication testApp;
+    //int result = testApp.Run();
 }
