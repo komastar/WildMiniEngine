@@ -20,6 +20,7 @@ using namespace WildMini::Math;
 using namespace WildMini::Object;
 
 EditorApplication::EditorApplication()
+    : mesh(nullptr)
 {
 }
 

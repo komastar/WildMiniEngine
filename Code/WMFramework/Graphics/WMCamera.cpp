@@ -6,6 +6,8 @@ using namespace WildMini::Math;
 WMCamera::WMCamera()
     : nearZ(0.0f)
     , farZ(0.0f)
+    , isPerpective(false)
+    , projMat(WMMatrix4::Identity())
 {
 }
 

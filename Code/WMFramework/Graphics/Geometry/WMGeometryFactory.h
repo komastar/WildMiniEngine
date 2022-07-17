@@ -10,10 +10,7 @@
 
 namespace WildMini::Graphics::Geometry
 {
-    class WMMesh;
     class WMGeometryFactory
     {
-    public:
-        //static WMMesh* MakeBox();
     };
 }
