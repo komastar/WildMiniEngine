@@ -124,7 +124,6 @@ void EditorApplication::Render()
             renderCommandEncoder->SetConstantBuffer(0, constantBuffer);
             renderCommandEncoder->SetVertexBuffer(mesh->vertexBuffer, sizeof(WMVertex));
             renderCommandEncoder->DrawPrimitives(WMRenderCommandEncoder::PrimitiveType::Triangle, (uint32_t)mesh->vertices.size(), 1, 0, 0);
-
             renderCommandEncoder->EndEncoding();
         }
         commandBuffer->Commit();

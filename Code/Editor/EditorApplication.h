@@ -45,7 +45,6 @@ private:
     WildMini::Object::WMObject<WildMini::Graphics::WMRenderPipeline> renderPipeline;
 
     WildMini::Object::WMObject<WildMini::Graphics::WMGPUBuffer> constantBuffer;
-
     WildMini::Graphics::WMCamera camera;
     WildMini::Graphics::Geometry::WMMesh* mesh;
 };
