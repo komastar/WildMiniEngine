@@ -458,6 +458,7 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClInclude Include="Application\Private\Win32\ApplicationContext.h" />
     <ClInclude Include="Graphics\Geometry\WMGeometryFactory.h" />
     <ClInclude Include="Graphics\Geometry\WMMesh.h" />
+    <ClInclude Include="Graphics\Geometry\WMVertex.h" />
     <ClInclude Include="Graphics\Private\DX12\CopyCommandEncoder.h" />
     <ClInclude Include="Graphics\Primitive\WMViewport.h" />
     <ClInclude Include="Graphics\Private\DX12\CommandBuffer.h" />

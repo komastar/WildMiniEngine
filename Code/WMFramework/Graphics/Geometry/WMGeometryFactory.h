@@ -14,6 +14,6 @@ namespace WildMini::Graphics::Geometry
     class WMGeometryFactory
     {
     public:
-        static const WMMesh* MakeBox();
+        //static WMMesh* MakeBox();
     };
 }

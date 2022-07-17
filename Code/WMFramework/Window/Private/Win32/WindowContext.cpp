@@ -71,6 +71,11 @@ uint32_t WindowContext::Height() const
     return height;
 }
 
+float WindowContext::Aspect() const
+{
+    return static_cast<float>(width) / static_cast<float>(height);
+}
+
 void WindowContext::Update()
 {
     UpdateWindow(hwnd);

@@ -313,6 +313,9 @@
     <ClInclude Include="Graphics\Geometry\WMMesh.h">
       <Filter>Graphics\Geometry</Filter>
     </ClInclude>
+    <ClInclude Include="Graphics\Geometry\WMVertex.h">
+      <Filter>Graphics\Geometry</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

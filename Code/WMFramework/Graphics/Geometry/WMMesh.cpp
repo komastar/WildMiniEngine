@@ -9,14 +9,3 @@
 
 using namespace WildMini::Graphics::Geometry;
 using namespace WildMini::Math;
-
-WMMesh::WMMesh(std::vector<WMVector3> v)
-    : vertices(v)
-{
-}
-
-WMMesh::WMMesh(std::vector<WMVector3> v, std::vector<uint32_t> i)
-    : vertices(v)
-    , indices(i)
-{
-}

@@ -21,6 +21,7 @@ namespace WildMini::Window
         virtual void* PlatformHandle() const override;
         virtual uint32_t Width() const override;
         virtual uint32_t Height() const override;
+        virtual float Aspect() const override;
         virtual void Update() override;
         virtual void Focus() override;
 

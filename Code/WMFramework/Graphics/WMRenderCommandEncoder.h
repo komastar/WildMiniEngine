@@ -10,6 +10,7 @@
 #include "Object/WMObject.h"
 #include "Graphics/Primitive/WMViewport.h"
 #include "Graphics/WMTexture.h"
+#include "Graphics/WMGPUBuffer.h"
 #include "Graphics/Primitive/WMColor.h"
 
 namespace WildMini::Graphics
@@ -24,6 +25,15 @@ namespace WildMini::Graphics
             All
         };
 
+        enum class PrimitiveType
+        {
+            Point,
+            Line,
+            LineStrip,
+            Triangle,
+            TriangleStrip
+        };
+
     public:
         virtual void SetViewport(const Primitive::WMViewport& viewport) = 0;
         virtual void SetViewports(const Primitive::WMViewport* viewports, uint32_t count) = 0;
@@ -32,6 +42,9 @@ namespace WildMini::Graphics
         virtual void SetRenderTargets(std::vector<const WMTexture*> renderTargets, const WMTexture* depthStencil) = 0;
         virtual void ClearRenderTarget(const WMTexture* renderTarget, const Primitive::WMColor& color) = 0;
         virtual void ClearDepthStencil(const WMTexture* depthStencil, DepthStencilClearFlag clearFlag, float clearDepth, uint8_t clearStencil) = 0;
+        virtual void SetConstantBuffer(uint32_t index, const WMGPUBuffer* constantBuffer) = 0;
+        virtual void SetVertexBuffer(const WMGPUBuffer* vertexBuffer, uint32_t vertexSize) = 0;
+        virtual void DrawPrimitives(PrimitiveType primitiveType, uint32_t vertexCount, uint32_t instanceCount, uint32_t vertexStart, uint32_t instanceStart) = 0;
         virtual void EndEncoding() = 0;
     };
 }

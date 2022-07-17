@@ -7,6 +7,7 @@
 
 #include "RenderCommandEncoder.h"
 #include "Texture.h"
+#include "GPUBuffer.h"
 
 using namespace WildMini::Graphics::Private::DX12;
 using namespace WildMini::Graphics::Primitive;
@@ -151,6 +152,51 @@ void RenderCommandEncoder::TransitionBufferState(ID3D12Resource* buffer, D3D12_R
         CD3DX12_RESOURCE_BARRIER barrier = CD3DX12_RESOURCE_BARRIER::Transition(buffer, before, after);
         commandList->ResourceBarrier(1, &barrier);
     }
+}
+
+void RenderCommandEncoder::SetPrimitiveType(PrimitiveType primitiveType)
+{
+    switch (primitiveType)
+    {
+    case WildMini::Graphics::WMRenderCommandEncoder::PrimitiveType::Line:
+        commandList->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_LINELIST);
+        break;
+    case WildMini::Graphics::WMRenderCommandEncoder::PrimitiveType::LineStrip:
+        commandList->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_LINESTRIP);
+        break;
+    case WildMini::Graphics::WMRenderCommandEncoder::PrimitiveType::Triangle:
+        commandList->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+        break;
+    case WildMini::Graphics::WMRenderCommandEncoder::PrimitiveType::TriangleStrip:
+        commandList->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
+        break;
+    case WildMini::Graphics::WMRenderCommandEncoder::PrimitiveType::Point:
+        commandList->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_POINTLIST);
+    default:
+        break;
+    }
+}
+
+void RenderCommandEncoder::SetConstantBuffer(uint32_t index, const WMGPUBuffer* constantBuffer)
+{
+    const GPUBuffer* buffer = dynamic_cast<const GPUBuffer*>(constantBuffer);
+    commandList->SetGraphicsRootConstantBufferView(index, buffer->Buffer()->GetGPUVirtualAddress());
+}
+
+void RenderCommandEncoder::SetVertexBuffer(const WMGPUBuffer* vertexBuffer, uint32_t vertexSize)
+{
+    const GPUBuffer* buffer = dynamic_cast<const GPUBuffer*>(vertexBuffer);
+    D3D12_VERTEX_BUFFER_VIEW view;
+    view.BufferLocation = buffer->Buffer()->GetGPUVirtualAddress();
+    view.StrideInBytes = vertexSize;
+    view.SizeInBytes = static_cast<UINT>(buffer->Size());
+    commandList->IASetVertexBuffers(0, 1, &view);
+}
+
+void RenderCommandEncoder::DrawPrimitives(PrimitiveType primitiveType, uint32_t vertexCount, uint32_t instanceCount, uint32_t vertexStart, uint32_t instanceStart)
+{
+    SetPrimitiveType(primitiveType);
+    commandList->DrawInstanced(vertexCount, instanceCount, vertexStart, instanceStart);
 }
 
 void RenderCommandEncoder::EndEncoding()

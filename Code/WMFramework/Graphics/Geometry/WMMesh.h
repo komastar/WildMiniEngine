@@ -7,19 +7,15 @@
 
 #pragma once
 #include "WMFramework.h"
-#include "Math/WMVector3.h"
+#include "Object/WMObject.h"
+#include "Graphics/WMGPUBuffer.h"
+#include "Graphics/Geometry/WMVertex.h"
 
 namespace WildMini::Graphics::Geometry
 {
-    class WMMesh
+    struct WMMesh
     {
-    public:
-        WMMesh() = default;
-        WMMesh(std::vector<WildMini::Math::WMVector3> v);
-        WMMesh(std::vector<WildMini::Math::WMVector3> v, std::vector<uint32_t> i);
-
-    public:
-        std::vector<WildMini::Math::WMVector3> vertices;
-        std::vector<uint32_t> indices;
+        std::vector<WildMini::Graphics::Geometry::WMVertex> vertices;
+        WildMini::Object::WMObject<WildMini::Graphics::WMGPUBuffer> vertexBuffer;
     };
 }
