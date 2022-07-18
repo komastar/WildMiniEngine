@@ -57,10 +57,8 @@ void EditorApplication::OnInitialize()
 
     renderPipeline = device->CreateRenderPipeline(pipelineDesc);
 
-    camera.SetView(WMVector3::back * 5.0f, WMVector3::zero, WMVector3::up);
-    camera.SetPerspective(0.3f * 3.14f
-        , window->Aspect()
-        , 1.0f, 1000.0f);
+    camera.SetView(WMVector3(0.0f, 0.0f, -5.0f), WMVector3(0.0f, 0.0f, 0.0f), WMVector3::up);
+    camera.SetPerspective(45.0f, window->Aspect(), 0.1f, 1000.0f);
 
     struct Constants
     {
@@ -72,13 +70,17 @@ void EditorApplication::OnInitialize()
     constantBuffer = device->CreateGPUBuffer(sizeof(Constants), WMGPUBuffer::CPUCacheMode::WRITABLE);
     constantBuffer->WriteData(&constants, sizeof(Constants));
 
-
+    float v = 1.0f;
     mesh = new WMMesh();
     mesh->vertices = std::vector<WMVertex>
     {
-        WMVertex{WMVector3( 0.0f, 1.0f,  0.0f), WMVector3::back, WMColor::white},
-        WMVertex{WMVector3( 1.0f, 0.0f,  0.0f), WMVector3::back, WMColor::white},
-        WMVertex{WMVector3(-1.0f, 0.0f,  0.0f), WMVector3::back, WMColor::white}
+        WMVertex{WMVector3(-v,  v, -v), WMVector3::back, WMColor::white},
+        WMVertex{WMVector3( v,  v, -v), WMVector3::back, WMColor::white},
+        WMVertex{WMVector3( v, -v, -v), WMVector3::back, WMColor::white},
+        
+        WMVertex{WMVector3(-v,  v,  v), WMVector3::back, WMColor::white},
+        WMVertex{WMVector3( v, -v,  v), WMVector3::back, WMColor::white},
+        WMVertex{WMVector3(-v, -v,  v), WMVector3::back, WMColor::white},
     };
 
     WMObject<WMGPUBuffer> vertexBuffer;

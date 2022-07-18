@@ -27,8 +27,6 @@ namespace WildMini::Graphics::Primitive
 
     public:
         WMColor();
-        WMColor(const WMColor& color) = default;
-        WMColor(WMColor&& color) = default;
         WMColor(float rgba);
         WMColor(float r, float g, float b, float a = 1.0f);
 

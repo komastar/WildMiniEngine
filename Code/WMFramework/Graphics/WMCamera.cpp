@@ -15,8 +15,8 @@ void WMCamera::SetView(const WMVector3& pos, const WMVector3& lookat, const WMVe
 {
     position = pos;
     WMVector3 forward = (lookat - pos).Normalize();
-    WMVector3 right = WMVector3::Cross(worldUp, forward);
-    WMVector3 up = WMVector3::Cross(forward, right);
+    WMVector3 right = WMVector3::Cross(worldUp, forward).Normalize();
+    WMVector3 up = WMVector3::Cross(forward, right).Normalize();
 
     float x = WMVector3::Dot(-pos, right);
     float y = WMVector3::Dot(-pos, up);
@@ -30,10 +30,11 @@ void WMCamera::SetView(const WMVector3& pos, const WMVector3& lookat, const WMVe
     };
 }
 
-void WMCamera::SetPerspective(float fov, float aspect, float nearZ, float farZ)
+void WMCamera::SetPerspective(float fov, float aspect, float nz, float fz)
 {
-    this->nearZ = nearZ;
-    this->farZ = farZ;
+    fov = DegToRad(fov);
+    this->nearZ = nz;
+    this->farZ = fz;
     float f = 1.0f / tanf(fov / 2.0f);
     float scale = nearZ / (nearZ - farZ);
     float bias = -farZ * scale;

@@ -199,15 +199,23 @@ WMObject<WMTexture> GraphicsDeviceContext::CreateTexture(const WMTexture::Desc& 
         initState = D3D12_RESOURCE_STATE_RENDER_TARGET;
     }
 
+    ComPtr<ID3D12Resource> buffer;
+    CD3DX12_HEAP_PROPERTIES heapProp(D3D12_HEAP_TYPE_DEFAULT);
+    D3D12_CLEAR_VALUE clearValue;
     if (desc.usage & WMTexture::USAGE_DEPTH_STENCIL)
     {
         bufferDesc.Flags |= D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL;
         initState = D3D12_RESOURCE_STATE_DEPTH_WRITE;
-    }
+        clearValue.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
+        clearValue.DepthStencil.Depth = 1.0f;
+        clearValue.DepthStencil.Stencil = 0;
 
-    ComPtr<ID3D12Resource> buffer;
-    CD3DX12_HEAP_PROPERTIES heapProp(D3D12_HEAP_TYPE_DEFAULT);
-    device->CreateCommittedResource(&heapProp, D3D12_HEAP_FLAG_NONE, &bufferDesc, initState, nullptr, IID_PPV_ARGS(buffer.GetAddressOf()));
+        device->CreateCommittedResource(&heapProp, D3D12_HEAP_FLAG_NONE, &bufferDesc, initState, &clearValue, IID_PPV_ARGS(buffer.GetAddressOf()));
+    }
+    else
+    {
+        device->CreateCommittedResource(&heapProp, D3D12_HEAP_FLAG_NONE, &bufferDesc, initState, nullptr, IID_PPV_ARGS(buffer.GetAddressOf()));
+    }
 
     return new Texture(buffer.Get(), initState);
 }
@@ -285,6 +293,7 @@ WMObject<WMRenderPipeline> GraphicsDeviceContext::CreateRenderPipeline(const WMR
     psoDesc.SampleDesc.Count = desc.sampleCount;
     psoDesc.DSVFormat = FromPixelFormat(desc.depthStencilPixelFormat);
     psoDesc.RasterizerState = CD3DX12_RASTERIZER_DESC(D3D12_DEFAULT);
+    //psoDesc.RasterizerState.FillMode = D3D12_FILL_MODE_WIREFRAME;
     psoDesc.DepthStencilState = CD3DX12_DEPTH_STENCIL_DESC(D3D12_DEFAULT);
     psoDesc.SampleMask = UINT_MAX;
     device->CreateGraphicsPipelineState(&psoDesc, IID_PPV_ARGS(&pipelineState));

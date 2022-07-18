@@ -40,5 +40,7 @@ namespace WildMini::Graphics::Private::DX12
     protected:
         ComPtr<ID3D12GraphicsCommandList> commandList;
         Object::WMObject<WMCommandBuffer> commandBuffer;
+
+        std::vector<const WMTexture*> renderTargetsTemp;
     };
 }

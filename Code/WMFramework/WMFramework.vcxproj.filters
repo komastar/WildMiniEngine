@@ -118,9 +118,6 @@
     <ClCompile Include="Graphics\Geometry\WMGeometryFactory.cpp">
       <Filter>Graphics\Geometry</Filter>
     </ClCompile>
-    <ClCompile Include="Graphics\Geometry\WMMesh.cpp">
-      <Filter>Graphics\Geometry</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WMFramework.h" />

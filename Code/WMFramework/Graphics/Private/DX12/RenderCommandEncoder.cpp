@@ -78,6 +78,7 @@ void RenderCommandEncoder::SetScissorRects(const Primitive::WMRect* rects, uint3
 
 void RenderCommandEncoder::SetRenderTargets(std::vector<const WMTexture*> renderTargets, const WMTexture* depthStencil)
 {
+    renderTargetsTemp = renderTargets;
     std::vector<D3D12_CPU_DESCRIPTOR_HANDLE> renderTargetHandles;
     renderTargetHandles.reserve(renderTargets.size());
     for (const WMTexture* renderTarget : renderTargets)
@@ -145,7 +146,7 @@ void RenderCommandEncoder::ClearDepthStencil(const WMTexture* depthStencil, Dept
     commandList->ClearDepthStencilView(ds->DepthStencilView(), flag, clearDepth, clearStencil, 0, nullptr);
 }
 
-void RenderCommandEncoder::TransitionBufferState(ID3D12Resource* buffer, D3D12_RESOURCE_STATES after, D3D12_RESOURCE_STATES before)
+void RenderCommandEncoder::TransitionBufferState(ID3D12Resource* buffer, D3D12_RESOURCE_STATES before, D3D12_RESOURCE_STATES after)
 {
     if (before != after)
     {
@@ -196,7 +197,23 @@ void RenderCommandEncoder::SetVertexBuffer(const WMGPUBuffer* vertexBuffer, uint
 void RenderCommandEncoder::DrawPrimitives(PrimitiveType primitiveType, uint32_t vertexCount, uint32_t instanceCount, uint32_t vertexStart, uint32_t instanceStart)
 {
     SetPrimitiveType(primitiveType);
+    for (const WMTexture* renderTarget : renderTargetsTemp)
+    {
+        const Texture* texture = reinterpret_cast<const Texture*>(renderTarget);
+        TransitionBufferState(
+            texture->Resource()
+            , texture->InitialState()
+            , D3D12_RESOURCE_STATE_RENDER_TARGET);
+    }
     commandList->DrawInstanced(vertexCount, instanceCount, vertexStart, instanceStart);
+    for (const WMTexture* renderTarget : renderTargetsTemp)
+    {
+        const Texture* texture = reinterpret_cast<const Texture*>(renderTarget);
+        TransitionBufferState(
+            texture->Resource()
+            , D3D12_RESOURCE_STATE_RENDER_TARGET
+            , texture->InitialState());
+    }
 }
 
 void RenderCommandEncoder::EndEncoding()

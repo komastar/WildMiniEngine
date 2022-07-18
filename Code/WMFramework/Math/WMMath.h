@@ -30,11 +30,11 @@ namespace WildMini::Math
 {
     inline float DegToRad(float degree)
     {
-        return static_cast<float>(degree * M_PI_2);
+        return static_cast<float>(degree * M_PI / 180.0f);
     }
 
     inline float RadToDeg(float radian)
     {
-        return static_cast<float>(radian * 180.0f * M_1_PI);
+        return static_cast<float>(radian * 180.0f / M_PI);
     }
 }

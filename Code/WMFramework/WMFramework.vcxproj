@@ -522,7 +522,6 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClCompile Include="Application\WMApplication.cpp" />
     <ClCompile Include="Application\Private\Win32\ApplicationContext.cpp" />
     <ClCompile Include="Graphics\Geometry\WMGeometryFactory.cpp" />
-    <ClCompile Include="Graphics\Geometry\WMMesh.cpp" />
     <ClCompile Include="Graphics\Private\DX12\CopyCommandEncoder.cpp" />
     <ClCompile Include="Graphics\Primitive\WMViewport.cpp" />
     <ClCompile Include="Graphics\Private\DX12\CommandBuffer.cpp" />
