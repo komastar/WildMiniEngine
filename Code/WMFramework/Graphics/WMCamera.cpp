@@ -32,7 +32,6 @@ void WMCamera::SetView(const WMVector3& pos, const WMVector3& lookat, const WMVe
 
 void WMCamera::SetPerspective(float fov, float aspect, float nz, float fz)
 {
-    fov = DegToRad(fov);
     this->nearZ = nz;
     this->farZ = fz;
     float f = 1.0f / tanf(fov / 2.0f);

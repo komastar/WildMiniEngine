@@ -293,9 +293,10 @@ WMObject<WMRenderPipeline> GraphicsDeviceContext::CreateRenderPipeline(const WMR
     psoDesc.SampleDesc.Count = desc.sampleCount;
     psoDesc.DSVFormat = FromPixelFormat(desc.depthStencilPixelFormat);
     psoDesc.RasterizerState = CD3DX12_RASTERIZER_DESC(D3D12_DEFAULT);
-    //psoDesc.RasterizerState.FillMode = D3D12_FILL_MODE_WIREFRAME;
+    psoDesc.RasterizerState.FillMode = D3D12_FILL_MODE_SOLID;
     psoDesc.DepthStencilState = CD3DX12_DEPTH_STENCIL_DESC(D3D12_DEFAULT);
     psoDesc.SampleMask = UINT_MAX;
+    psoDesc.DepthStencilState.DepthFunc = D3D12_COMPARISON_FUNC_GREATER;
     device->CreateGraphicsPipelineState(&psoDesc, IID_PPV_ARGS(&pipelineState));
 
     return new RenderPipeline(pipelineState.Get(), rootSignature.Get());

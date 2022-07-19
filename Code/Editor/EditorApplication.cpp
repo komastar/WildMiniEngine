@@ -11,6 +11,7 @@
 #include "Graphics/Private/GraphicsDeviceFactory.h"
 #include "Graphics/Primitive/WMColor.h"
 #include "Graphics/Geometry/WMVertex.h"
+#include "Graphics/Geometry/WMGeometryFactory.h"
 
 using namespace WildMini;
 using namespace WildMini::Graphics;
@@ -57,8 +58,8 @@ void EditorApplication::OnInitialize()
 
     renderPipeline = device->CreateRenderPipeline(pipelineDesc);
 
-    camera.SetView(WMVector3(0.0f, 0.0f, -5.0f), WMVector3(0.0f, 0.0f, 0.0f), WMVector3::up);
-    camera.SetPerspective(45.0f, window->Aspect(), 0.1f, 1000.0f);
+    camera.SetView(WMVector3(0.0f, 0.0f, 15.0f), WMVector3(0.0f, 0.0f, 0.0f), WMVector3::up);
+    camera.SetPerspective(0.15f * 3.1415926535f, window->Aspect(), 1.0f, 1000.0f);
 
     struct Constants
     {
@@ -70,23 +71,7 @@ void EditorApplication::OnInitialize()
     constantBuffer = device->CreateGPUBuffer(sizeof(Constants), WMGPUBuffer::CPUCacheMode::WRITABLE);
     constantBuffer->WriteData(&constants, sizeof(Constants));
 
-    float v = 1.0f;
-    mesh = new WMMesh();
-    mesh->vertices = std::vector<WMVertex>
-    {
-        WMVertex{WMVector3(-v,  v, -v), WMVector3::back, WMColor::white},
-        WMVertex{WMVector3( v,  v, -v), WMVector3::back, WMColor::white},
-        WMVertex{WMVector3( v, -v, -v), WMVector3::back, WMColor::white},
-        
-        WMVertex{WMVector3(-v,  v,  v), WMVector3::back, WMColor::white},
-        WMVertex{WMVector3( v, -v,  v), WMVector3::back, WMColor::white},
-        WMVertex{WMVector3(-v, -v,  v), WMVector3::back, WMColor::white},
-    };
-
-    WMObject<WMGPUBuffer> vertexBuffer;
-    vertexBuffer = device->CreateGPUBuffer(mesh->vertices.size() * sizeof(WMVertex), WMGPUBuffer::CPUCacheMode::WRITABLE);
-    vertexBuffer->WriteData(mesh->vertices.data(), mesh->vertices.size() * sizeof(WMVertex));
-    mesh->vertexBuffer = vertexBuffer;
+    mesh = Geometry::WMGeometryFactory::MakeBox(device);
 
     gameLoop = std::jthread([&](std::stop_token token)
         {
@@ -102,6 +87,7 @@ void EditorApplication::OnTerminate()
 {
     gameLoop.request_stop();
     gameLoop.join();
+    FreeConsole();
 }
 
 void EditorApplication::Update(float dt)
@@ -121,7 +107,7 @@ void EditorApplication::Render()
             renderCommandEncoder->ClearRenderTarget(swapChain->RenderTargetTexture(), Primitive::WMColor::black);
             renderCommandEncoder->ClearDepthStencil(swapChain->DepthStencilTexture()
                 , WMRenderCommandEncoder::DepthStencilClearFlag::All
-                , 1.0f
+                , 0.0f
                 , 0);
             renderCommandEncoder->SetRenderTargets({ swapChain->RenderTargetTexture() }, swapChain->DepthStencilTexture());
             renderCommandEncoder->SetConstantBuffer(0, constantBuffer);

@@ -111,7 +111,7 @@ void SwapChain::SetupDepthStencil()
     bufferDesc.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
     D3D12_CLEAR_VALUE clearValue;
     clearValue.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
-    clearValue.DepthStencil.Depth = 1.0f;
+    clearValue.DepthStencil.Depth = 0.0f;
     clearValue.DepthStencil.Stencil = 0;
     device->Device()->CreateCommittedResource(&heapProp, D3D12_HEAP_FLAG_NONE, &bufferDesc, D3D12_RESOURCE_STATE_DEPTH_WRITE, &clearValue, IID_PPV_ARGS(buffer.GetAddressOf()));
 
