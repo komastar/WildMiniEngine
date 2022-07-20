@@ -15,6 +15,7 @@
 #include <thread>
 #include <fstream>
 #include <filesystem>
+#include <chrono>
 
 #ifdef WM_DYNAMIC
     #ifdef DLL_EXPORTS

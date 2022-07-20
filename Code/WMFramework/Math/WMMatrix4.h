@@ -42,7 +42,7 @@ namespace WildMini::Math
         WMMatrix4(const WMMatrix3& m);
 
     public:
-        void Transpose();
+        WMMatrix4 Transpose();
         WMMatrix4 Inverse();
         const WMMatrix4& View(const WMVector3& eye, const WMVector3& lookat, const WMVector3& up);
         const WMMatrix4& Projection(float fov, float aspect, float nearZ, float farZ);

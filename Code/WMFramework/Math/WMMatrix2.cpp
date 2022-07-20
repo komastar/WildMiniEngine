@@ -63,11 +63,12 @@ WMMatrix2::WMMatrix2(const WMMatrix4& m)
     _22 = m._22;
 }
 
-void WMMatrix2::Transpose()
+WMMatrix2 WMMatrix2::Transpose()
 {
-    float t = _12;
-    _12 = _21;
-    _21 = t;
+    return {
+        _11, _21,
+        _12, _22
+    };
 }
 
 WMMatrix2 WMMatrix2::Inverse()

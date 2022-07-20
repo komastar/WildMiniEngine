@@ -12,6 +12,8 @@
 #include "Graphics/Primitive/WMColor.h"
 #include "Graphics/Geometry/WMVertex.h"
 #include "Graphics/Geometry/WMGeometryFactory.h"
+#include "Math/WMAffineTransform2.h"
+#include "Math/WMLinearTransform2.h"
 
 using namespace WildMini;
 using namespace WildMini::Graphics;
@@ -19,6 +21,17 @@ using namespace WildMini::Graphics::Primitive;
 using namespace WildMini::Graphics::Geometry;
 using namespace WildMini::Math;
 using namespace WildMini::Object;
+
+struct Constants
+{
+    WMMatrix4 worldViewProj;
+};
+
+struct MainPassConstants
+{
+    WMVector3 eye;
+    WMVector3 light;
+};
 
 EditorApplication::EditorApplication()
     : mesh(nullptr)
@@ -61,13 +74,14 @@ void EditorApplication::OnInitialize()
     camera.SetView(WMVector3(0.0f, 0.0f, 15.0f), WMVector3(0.0f, 0.0f, 0.0f), WMVector3::up);
     camera.SetPerspective(0.15f * 3.1415926535f, window->Aspect(), 1.0f, 1000.0f);
 
-    struct Constants
-    {
-        WMMatrix4 worldViewProj;
-    };
+    MainPassConstants mainPass;
+    mainPass.eye = camera.Position();
+    mainPass.light = WMVector3(1.0f, 1.0f, 1.0f).Normalize();
+    mainPassBuffer = device->CreateGPUBuffer(sizeof(MainPassConstants), WMGPUBuffer::CPUCacheMode::WRITABLE);
+    mainPassBuffer->WriteData(&mainPass, sizeof(MainPassConstants));
 
     Constants constants;
-    constants.worldViewProj = camera.ViewMatrix() * camera.ProjMatrix();
+    constants.worldViewProj = (camera.ViewMatrix() * camera.ProjMatrix()).Transpose();
     constantBuffer = device->CreateGPUBuffer(sizeof(Constants), WMGPUBuffer::CPUCacheMode::WRITABLE);
     constantBuffer->WriteData(&constants, sizeof(Constants));
 
@@ -75,10 +89,15 @@ void EditorApplication::OnInitialize()
 
     gameLoop = std::jthread([&](std::stop_token token)
         {
+            float deltaTime = 0.0f;
             while (!token.stop_requested())
             {
-                Update(0.0f);
+                auto begin = std::chrono::high_resolution_clock::now();
+                Update(deltaTime);
                 Render();
+                auto end = std::chrono::high_resolution_clock::now();
+                auto dt = std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count();
+                deltaTime = dt * 0.001f;
             }
         });
 }
@@ -92,6 +111,24 @@ void EditorApplication::OnTerminate()
 
 void EditorApplication::Update(float dt)
 {
+    static float worldTime = 0.0f;
+    worldTime += dt;
+    WMAffineTransform2 at2;
+    at2.Translate(0.0f, -1.0f);
+    WMLinearTransform2 lt2;
+    lt2.Rotate(worldTime);
+    at2.Multiply(lt2);
+    WMVector3 camPos = at2.v * 15.0f;
+    camera.SetView(WMVector3(camPos.x, 5.0f, camPos.y), WMVector3(0.0f, 0.0f, 0.0f), WMVector3::up);
+
+    Constants constants;
+    constants.worldViewProj = (camera.ViewMatrix() * camera.ProjMatrix()).Transpose();
+    constantBuffer->WriteData(&constants, sizeof(Constants));
+
+    MainPassConstants mainPass;
+    mainPass.eye = camera.Position();
+    mainPass.light = WMVector3(-1.0f, -1.0f, -1.0f).Normalize();
+    mainPassBuffer->WriteData(&mainPass, sizeof(MainPassConstants));
 }
 
 void EditorApplication::Render()

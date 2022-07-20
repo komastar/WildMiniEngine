@@ -223,13 +223,14 @@ WMObject<WMTexture> GraphicsDeviceContext::CreateTexture(const WMTexture::Desc& 
 WMObject<WMRenderPipeline> GraphicsDeviceContext::CreateRenderPipeline(const WMRenderPipelineDescriptor& desc)
 {
     ComPtr<ID3D12RootSignature> rootSignature;
-    CD3DX12_ROOT_PARAMETER slotRootParams[1] = {};
+    CD3DX12_ROOT_PARAMETER slotRootParams[2] = {};
     slotRootParams[0].InitAsConstantBufferView(0);
+    slotRootParams[1].InitAsConstantBufferView(1);
 
     auto staticSamplers = GetStaticSampler();
 
     CD3DX12_ROOT_SIGNATURE_DESC rootSigDesc(
-        1
+        2
         , slotRootParams
         , static_cast<UINT>(staticSamplers.size())
         , staticSamplers.data()
@@ -320,7 +321,7 @@ WMObject<WMShader> GraphicsDeviceContext::CreateShader(const std::vector<uint8_t
     UINT compileFlags = 0;
     ComPtr<ID3DBlob> byteCode;
     ComPtr<ID3DBlob> errors;
-    D3DCompile2(data.data(), data.size(), nullptr, nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, entry.c_str(), shaderVerName.c_str(), compileFlags, 0, 0, 0, 0, &byteCode, &errors);
+    HRESULT hr = D3DCompile2(data.data(), data.size(), nullptr, nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, entry.c_str(), shaderVerName.c_str(), compileFlags, 0, 0, 0, 0, &byteCode, &errors);
 
     return new Shader(byteCode.Get(), stage, entry);
 }

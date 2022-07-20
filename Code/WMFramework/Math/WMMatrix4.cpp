@@ -50,12 +50,12 @@ WMMatrix4::WMMatrix4()
     _22 = 1.0f;
     _23 = 0.0f;
     _24 = 0.0f;
-    
+
     _31 = 0.0f;
     _32 = 0.0f;
     _33 = 1.0f;
     _34 = 0.0f;
-    
+
     _41 = 0.0f;
     _42 = 0.0f;
     _43 = 0.0f;
@@ -134,17 +134,14 @@ WMMatrix4::WMMatrix4(const WMMatrix3& m)
     _44 = 0.0f;
 }
 
-void WMMatrix4::Transpose()
+WMMatrix4 WMMatrix4::Transpose()
 {
-    for (int y = 0; y < 4; y++)
-    {
-        for (int x = 0; x < 4; x++)
-        {
-            float t = m[y][x];
-            m[y][x] = m[x][y];
-            m[x][y] = t;
-        }
-    }
+    return {
+         _11, _21, _31, _41,
+         _12, _22, _32, _42,
+         _13, _23, _33, _43,
+         _14, _24, _34, _44,
+    };
 }
 
 WMMatrix4 WMMatrix4::Inverse()

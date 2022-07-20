@@ -13,7 +13,6 @@ WMCamera::WMCamera()
 
 void WMCamera::SetView(const WMVector3& pos, const WMVector3& lookat, const WMVector3& worldUp)
 {
-    position = pos;
     WMVector3 forward = (lookat - pos).Normalize();
     WMVector3 right = WMVector3::Cross(worldUp, forward).Normalize();
     WMVector3 up = WMVector3::Cross(forward, right).Normalize();
@@ -28,6 +27,10 @@ void WMCamera::SetView(const WMVector3& pos, const WMVector3& lookat, const WMVe
         right.z,    up.z,   forward.z,  0.0f,
         x,          y,      z,          1.0f
     };
+
+    position.x = x;
+    position.y = y;
+    position.z = z;
 }
 
 void WMCamera::SetPerspective(float fov, float aspect, float nz, float fz)

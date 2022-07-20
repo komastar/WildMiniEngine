@@ -30,8 +30,8 @@ namespace WildMini::Window
         HWND hwnd;
 
     private:
-        const uint32_t width = 1024;
-        const uint32_t height = 768;
+        const uint32_t width = 480;
+        const uint32_t height = 320;
     };
 }
 #endif // _WIN32

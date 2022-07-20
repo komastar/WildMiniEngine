@@ -95,17 +95,13 @@ WMMatrix3::WMMatrix3(const WMMatrix4& m)
     _33 = m._33;
 }
 
-void WMMatrix3::Transpose()
+WMMatrix3 WMMatrix3::Transpose()
 {
-    for (int y = 0; y < 3; ++y)
-    {
-        for (int x = 0; x < 3; ++x)
-        {
-            float t = m[y][x];
-            m[y][x] = m[x][y];
-            m[x][y] = t;
-        }
-    }
+    return {
+        _11, _21, _31,
+        _12, _22, _32,
+        _13, _23, _33
+    };
 }
 
 WMMatrix3 WMMatrix3::Inverse()

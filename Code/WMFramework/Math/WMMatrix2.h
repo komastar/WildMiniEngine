@@ -38,7 +38,7 @@ namespace WildMini::Math
         WMMatrix2(const WMMatrix4& m);
 
     public:
-        void Transpose();
+        WMMatrix2 Transpose();
         WMMatrix2 Inverse();
 
     public:
