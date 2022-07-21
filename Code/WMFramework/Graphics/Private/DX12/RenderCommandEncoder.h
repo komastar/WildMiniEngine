@@ -17,7 +17,7 @@ namespace WildMini::Graphics::Private::DX12
     class RenderCommandEncoder : public WMRenderCommandEncoder
     {
     public:
-        RenderCommandEncoder(RenderPipeline* _renderPipeline, WMCommandBuffer* _commandBuffer, ID3D12GraphicsCommandList* _commandList);
+        RenderCommandEncoder(ID3D12DescriptorHeap*, RenderPipeline* _renderPipeline, WMCommandBuffer* _commandBuffer, ID3D12GraphicsCommandList* _commandList);
         ~RenderCommandEncoder();
 
     public:
@@ -31,6 +31,7 @@ namespace WildMini::Graphics::Private::DX12
         virtual void SetConstantBuffer(uint32_t index, const WMGPUBuffer* constantBuffer) override;
         virtual void SetVertexBuffer(const WMGPUBuffer* vertexBuffer, uint32_t vertexSize) override;
         virtual void DrawPrimitives(PrimitiveType primitiveType, uint32_t vertexCount, uint32_t instanceCount, uint32_t vertexStart, uint32_t instanceStart);
+        virtual void ImguiShowDemoWindow() override;
         virtual void EndEncoding() override;
 
     private:
@@ -42,5 +43,7 @@ namespace WildMini::Graphics::Private::DX12
         Object::WMObject<WMCommandBuffer> commandBuffer;
 
         std::vector<const WMTexture*> renderTargetsTemp;
+
+        ComPtr<ID3D12DescriptorHeap> imguiDescHeap;
     };
 }

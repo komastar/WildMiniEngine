@@ -45,6 +45,9 @@ namespace WildMini::Graphics
         virtual void SetConstantBuffer(uint32_t index, const WMGPUBuffer* constantBuffer) = 0;
         virtual void SetVertexBuffer(const WMGPUBuffer* vertexBuffer, uint32_t vertexSize) = 0;
         virtual void DrawPrimitives(PrimitiveType primitiveType, uint32_t vertexCount, uint32_t instanceCount, uint32_t vertexStart, uint32_t instanceStart) = 0;
+        
+        virtual void ImguiShowDemoWindow() = 0;
+
         virtual void EndEncoding() = 0;
     };
 }

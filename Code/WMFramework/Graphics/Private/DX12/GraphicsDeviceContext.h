@@ -18,6 +18,9 @@ namespace WildMini::Graphics::Private
         GraphicsDeviceContext();
         virtual ~GraphicsDeviceContext();
 
+    public:
+        ComPtr<ID3D12DescriptorHeap> imguiDescHeap;
+
     private:
         ComPtr<IDXGIFactory4> dxgiFactory;
         ComPtr<ID3D12Device> device;
@@ -29,6 +32,9 @@ namespace WildMini::Graphics::Private
         virtual WildMini::Object::WMObject<WildMini::Graphics::WMRenderPipeline> CreateRenderPipeline(const WMRenderPipelineDescriptor& desc) override;
 
         virtual WildMini::Object::WMObject<WMShader> CreateShader(const std::vector<uint8_t>& data, const std::string& entry, WMShader::StageType stage) override;
+
+    public:
+        void CreateImguiDescriptorHeap(uint32_t frameCount);
 
     public:
         ID3D12Device* Device() const { return device.Get(); }

@@ -13,6 +13,8 @@
 #include "Shader.h"
 #include "Type.h"
 #include "RenderPipeline.h"
+#include "UI/imgui/imgui.h"
+#include "UI/imgui/backends/imgui_impl_dx12.h"
 
 using namespace WildMini::Object;
 using namespace WildMini::Graphics;
@@ -81,6 +83,7 @@ static std::array<const CD3DX12_STATIC_SAMPLER_DESC, 6> GetStaticSampler()
 GraphicsDeviceContext::GraphicsDeviceContext()
     : device(nullptr)
     , dxgiFactory(nullptr)
+    , imguiDescHeap(nullptr)
 {
 #if defined(DEBUG) || defined(_DEBUG) 
     {
@@ -325,4 +328,18 @@ WMObject<WMShader> GraphicsDeviceContext::CreateShader(const std::vector<uint8_t
 
     return new Shader(byteCode.Get(), stage, entry);
 }
+
+void GraphicsDeviceContext::CreateImguiDescriptorHeap(uint32_t frameCount)
+{
+    D3D12_DESCRIPTOR_HEAP_DESC desc = {};
+    desc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;
+    desc.NumDescriptors = 1;
+    desc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE;
+    device->CreateDescriptorHeap(&desc, IID_PPV_ARGS(&imguiDescHeap));
+    ImGui_ImplDX12_Init(device.Get(), frameCount,
+        DXGI_FORMAT_R8G8B8A8_UNORM, imguiDescHeap.Get(),
+        imguiDescHeap->GetCPUDescriptorHandleForHeapStart(),
+        imguiDescHeap->GetGPUDescriptorHandleForHeapStart());
+}
+
 #endif // _WIN32

@@ -130,52 +130,52 @@
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)</TargetName>
-    <IncludePath>$(ProjectDir);$(SolutionDir)Thirdparty\fmt\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir);$(SolutionDir)Thirdparty\fmt\include;$(ProjectDir)\UI\imgui;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_DLL|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)</TargetName>
-    <IncludePath>$(ProjectDir);$(SolutionDir)Thirdparty\fmt\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir);$(SolutionDir)Thirdparty\fmt\include;$(ProjectDir)\UI\imgui;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
-    <IncludePath>$(ProjectDir);$(SolutionDir)Thirdparty\fmt\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir);$(SolutionDir)Thirdparty\fmt\include;$(ProjectDir)\UI\imgui;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_DLL|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
-    <IncludePath>$(ProjectDir);$(SolutionDir)Thirdparty\fmt\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir);$(SolutionDir)Thirdparty\fmt\include;$(ProjectDir)\UI\imgui;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)</TargetName>
-    <IncludePath>$(ProjectDir);$(SolutionDir)Thirdparty\fmt\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir);$(SolutionDir)Thirdparty\fmt\include;$(ProjectDir)\UI\imgui;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_DLL|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
     <TargetName>$(ProjectName)</TargetName>
-    <IncludePath>$(ProjectDir);$(SolutionDir)Thirdparty\fmt\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir);$(SolutionDir)Thirdparty\fmt\include;$(ProjectDir)\UI\imgui;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
-    <IncludePath>$(ProjectDir);$(SolutionDir)Thirdparty\fmt\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir);$(SolutionDir)Thirdparty\fmt\include;$(ProjectDir)\UI\imgui;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_DLL|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
-    <IncludePath>$(ProjectDir);$(SolutionDir)Thirdparty\fmt\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir);$(SolutionDir)Thirdparty\fmt\include;$(ProjectDir)\UI\imgui;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -479,6 +479,17 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClInclude Include="Graphics\WMCopyCommandEncoder.h" />
     <ClInclude Include="IO\File\WMFile.h" />
     <ClInclude Include="Graphics\WMCamera.h" />
+    <ClInclude Include="UI\imgui\backends\imgui_impl_dx10.h" />
+    <ClInclude Include="UI\imgui\backends\imgui_impl_dx11.h" />
+    <ClInclude Include="UI\imgui\backends\imgui_impl_dx12.h" />
+    <ClInclude Include="UI\imgui\backends\imgui_impl_dx9.h" />
+    <ClInclude Include="UI\imgui\backends\imgui_impl_win32.h" />
+    <ClInclude Include="UI\imgui\imconfig.h" />
+    <ClInclude Include="UI\imgui\imgui.h" />
+    <ClInclude Include="UI\imgui\imgui_internal.h" />
+    <ClInclude Include="UI\imgui\imstb_rectpack.h" />
+    <ClInclude Include="UI\imgui\imstb_textedit.h" />
+    <ClInclude Include="UI\imgui\imstb_truetype.h" />
     <ClInclude Include="WMFramework.h" />
     <ClInclude Include="Graphics\WMGPUBuffer.h" />
     <ClInclude Include="Graphics\WMTexture.h" />
@@ -545,6 +556,16 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClCompile Include="Graphics\Private\DX12\Texture.cpp" />
     <ClCompile Include="Graphics\Private\DX12\RenderCommandEncoder.cpp" />
     <ClCompile Include="Graphics\Private\DX12\RenderPipeline.cpp" />
+    <ClCompile Include="UI\imgui\backends\imgui_impl_dx10.cpp" />
+    <ClCompile Include="UI\imgui\backends\imgui_impl_dx11.cpp" />
+    <ClCompile Include="UI\imgui\backends\imgui_impl_dx12.cpp" />
+    <ClCompile Include="UI\imgui\backends\imgui_impl_dx9.cpp" />
+    <ClCompile Include="UI\imgui\backends\imgui_impl_win32.cpp" />
+    <ClCompile Include="UI\imgui\imgui.cpp" />
+    <ClCompile Include="UI\imgui\imgui_demo.cpp" />
+    <ClCompile Include="UI\imgui\imgui_draw.cpp" />
+    <ClCompile Include="UI\imgui\imgui_tables.cpp" />
+    <ClCompile Include="UI\imgui\imgui_widgets.cpp" />
     <ClCompile Include="Window\Private\Win32\WindowContext.cpp" />
     <ClCompile Include="Log\WMLog.cpp" />
     <ClCompile Include="Log\WMLogVariant.cpp" />

@@ -17,7 +17,7 @@ namespace WildMini::Graphics::Private::DX12
     class CommandBuffer : public WMCommandBuffer
     {
     public:
-        CommandBuffer(CommandQueue*, ID3D12CommandAllocator*, ID3D12GraphicsCommandList*, D3D12_COMMAND_LIST_TYPE);
+        CommandBuffer(ID3D12DescriptorHeap*, CommandQueue*, ID3D12CommandAllocator*, ID3D12GraphicsCommandList*, D3D12_COMMAND_LIST_TYPE);
 
         virtual Object::WMObject<WMRenderCommandEncoder> CreateRenderCommandEncoder(WMRenderPipeline* renderPipeline) override;
         virtual void Commit() override;
@@ -27,6 +27,8 @@ namespace WildMini::Graphics::Private::DX12
         Object::WMObject<CommandQueue> commandQueue;
         ComPtr<ID3D12GraphicsCommandList> commandList;
         ComPtr<ID3D12CommandAllocator> commandAllocator;
+        ComPtr<ID3D12Device> device;
+        ComPtr<ID3D12DescriptorHeap> imguiDescHeap;
         D3D12_COMMAND_LIST_TYPE type;
     };
 }

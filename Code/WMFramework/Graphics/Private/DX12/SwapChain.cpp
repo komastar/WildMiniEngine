@@ -7,6 +7,9 @@
 
 #include "SwapChain.h"
 #include <Windows.h>
+#include "UI/imgui/imgui.h"
+#include "UI/imgui/backends/imgui_impl_dx12.h"
+#include "UI/imgui/backends/imgui_impl_win32.h"
 
 using namespace WildMini::Graphics;
 using namespace WildMini::Graphics::Private::DX12;
@@ -17,6 +20,7 @@ SwapChain::SwapChain(GraphicsDeviceContext* _device, CommandQueue* _commandQueue
     , swapChain(nullptr)
     , width(_window->Width())
     , height(_window->Height())
+    , imguiDescHeap(nullptr)
 {
     DXGI_SWAP_CHAIN_DESC1 sd{};
     sd.Width = width;
@@ -32,8 +36,9 @@ SwapChain::SwapChain(GraphicsDeviceContext* _device, CommandQueue* _commandQueue
     sd.Flags = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;
 
     ComPtr<IDXGISwapChain1> pSwapChain;
+    HWND hwnd = reinterpret_cast<HWND>(_window->PlatformHandle());
     device->Factory()->CreateSwapChainForHwnd(_commandQueue->Queue()
-        , reinterpret_cast<HWND>(_window->PlatformHandle())
+        , hwnd
         , &sd
         , nullptr
         , nullptr
@@ -44,6 +49,11 @@ SwapChain::SwapChain(GraphicsDeviceContext* _device, CommandQueue* _commandQueue
     swapChainIndex = swapChain->GetCurrentBackBufferIndex();
     SetupRenderTargets();
     SetupDepthStencil();
+
+    ImGui::CreateContext();
+    ImGui::StyleColorsDark();
+    ImGui_ImplWin32_Init(hwnd);
+    device->CreateImguiDescriptorHeap(BUFFER_COUNT);
 }
 
 void SwapChain::Resize(uint32_t width, uint32_t height)

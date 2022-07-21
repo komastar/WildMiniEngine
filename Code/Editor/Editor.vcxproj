@@ -129,49 +129,49 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
-    <IncludePath>..\WMFramework;$(IncludePath)</IncludePath>
+    <IncludePath>..\WMFramework;.\imgui;.\imgui\backends;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_DLL|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
-    <IncludePath>..\WMFramework;$(IncludePath)</IncludePath>
+    <IncludePath>..\WMFramework;.\imgui;.\imgui\backends;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
-    <IncludePath>..\WMFramework;$(IncludePath)</IncludePath>
+    <IncludePath>..\WMFramework;.\imgui;.\imgui\backends;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug_DLL|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
-    <IncludePath>..\WMFramework;$(IncludePath)</IncludePath>
+    <IncludePath>..\WMFramework;.\imgui;.\imgui\backends;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
-    <IncludePath>..\WMFramework;$(IncludePath)</IncludePath>
+    <IncludePath>..\WMFramework;.\imgui;.\imgui\backends;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_DLL|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
-    <IncludePath>..\WMFramework;$(IncludePath)</IncludePath>
+    <IncludePath>..\WMFramework;.\imgui;.\imgui\backends;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
-    <IncludePath>..\WMFramework;$(IncludePath)</IncludePath>
+    <IncludePath>..\WMFramework;.\imgui;.\imgui\backends;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_DLL|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Build\$(Platform)_$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(ProjectName)_$(Platform)_$(Configuration)\</IntDir>
-    <IncludePath>..\WMFramework;$(IncludePath)</IncludePath>
+    <IncludePath>..\WMFramework;.\imgui;.\imgui\backends;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -182,7 +182,6 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -201,7 +200,6 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -220,7 +218,6 @@
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -239,7 +236,6 @@
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;WM_DYNAMIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -260,7 +256,6 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -283,7 +278,6 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -306,7 +300,6 @@
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
@@ -329,7 +322,6 @@
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>

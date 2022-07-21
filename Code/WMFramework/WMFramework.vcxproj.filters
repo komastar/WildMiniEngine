@@ -1,22 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="IO\File\WMFile.cpp">
-      <Filter>IO\File</Filter>
+    <ClCompile Include="UI\imgui\imgui.cpp">
+      <Filter>UI\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="Application\WMApplication.cpp">
-      <Filter>Application</Filter>
+    <ClCompile Include="UI\imgui\imgui_demo.cpp">
+      <Filter>UI\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="Application\Private\Win32\ApplicationContext.cpp">
-      <Filter>Application\Private\Win32</Filter>
+    <ClCompile Include="UI\imgui\imgui_draw.cpp">
+      <Filter>UI\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\imgui\imgui_tables.cpp">
+      <Filter>UI\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\imgui\imgui_widgets.cpp">
+      <Filter>UI\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\imgui\backends\imgui_impl_dx9.cpp">
+      <Filter>UI\imgui\backends</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\imgui\backends\imgui_impl_dx10.cpp">
+      <Filter>UI\imgui\backends</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\imgui\backends\imgui_impl_dx11.cpp">
+      <Filter>UI\imgui\backends</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\imgui\backends\imgui_impl_dx12.cpp">
+      <Filter>UI\imgui\backends</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\imgui\backends\imgui_impl_win32.cpp">
+      <Filter>UI\imgui\backends</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\WMGraphicsDevice.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\WMCamera.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\Private\DX12\CopyCommandEncoder.cpp">
       <Filter>Graphics\Private\DX12</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\Private\DX12\CommandBuffer.cpp">
+      <Filter>Graphics\Private\DX12</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Private\DX12\Shader.cpp">
       <Filter>Graphics\Private\DX12</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\Private\DX12\GPUBuffer.cpp">
@@ -40,9 +67,6 @@
     <ClCompile Include="Graphics\Private\DX12\RenderPipeline.cpp">
       <Filter>Graphics\Private\DX12</Filter>
     </ClCompile>
-    <ClCompile Include="Graphics\Private\DX12\Shader.cpp">
-      <Filter>Graphics\Private\DX12</Filter>
-    </ClCompile>
     <ClCompile Include="Graphics\Primitive\WMViewport.cpp">
       <Filter>Graphics\Primitive</Filter>
     </ClCompile>
@@ -60,6 +84,18 @@
     </ClCompile>
     <ClCompile Include="Graphics\Primitive\WMSize.cpp">
       <Filter>Graphics\Primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Geometry\WMGeometryFactory.cpp">
+      <Filter>Graphics\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="IO\File\WMFile.cpp">
+      <Filter>IO\File</Filter>
+    </ClCompile>
+    <ClCompile Include="Application\WMApplication.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="Application\Private\Win32\ApplicationContext.cpp">
+      <Filter>Application\Private\Win32</Filter>
     </ClCompile>
     <ClCompile Include="Object\WMRefCounter.cpp">
       <Filter>Object</Filter>
@@ -112,38 +148,44 @@
     <ClCompile Include="Log\WMLogVariant.cpp">
       <Filter>Log</Filter>
     </ClCompile>
-    <ClCompile Include="Graphics\WMCamera.cpp">
-      <Filter>Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\Geometry\WMGeometryFactory.cpp">
-      <Filter>Graphics\Geometry</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WMFramework.h" />
-    <ClInclude Include="Graphics\Private\DX12\Type.h">
-      <Filter>Graphics\Private\DX12</Filter>
+    <ClInclude Include="UI\imgui\imconfig.h">
+      <Filter>UI\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="IO\File\WMFile.h">
-      <Filter>IO\File</Filter>
+    <ClInclude Include="UI\imgui\imgui.h">
+      <Filter>UI\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="IO\File\Private\FileHandle.h">
-      <Filter>IO\File\Private</Filter>
+    <ClInclude Include="UI\imgui\imgui_internal.h">
+      <Filter>UI\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="IO\File\WMFileHandle.h">
-      <Filter>IO\File</Filter>
+    <ClInclude Include="UI\imgui\imstb_rectpack.h">
+      <Filter>UI\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="Application\WMApplication.h">
-      <Filter>Application</Filter>
+    <ClInclude Include="UI\imgui\imstb_textedit.h">
+      <Filter>UI\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="Application\WMApplicationContext.h">
-      <Filter>Application</Filter>
+    <ClInclude Include="UI\imgui\imstb_truetype.h">
+      <Filter>UI\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="Application\Private\ApplicationContextFactory.h">
-      <Filter>Application\Private</Filter>
+    <ClInclude Include="UI\imgui\backends\imgui_impl_dx9.h">
+      <Filter>UI\imgui\backends</Filter>
     </ClInclude>
-    <ClInclude Include="Application\Private\Win32\ApplicationContext.h">
-      <Filter>Application\Private\Win32</Filter>
+    <ClInclude Include="UI\imgui\backends\imgui_impl_dx10.h">
+      <Filter>UI\imgui\backends</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\imgui\backends\imgui_impl_dx11.h">
+      <Filter>UI\imgui\backends</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\imgui\backends\imgui_impl_dx12.h">
+      <Filter>UI\imgui\backends</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\imgui\backends\imgui_impl_win32.h">
+      <Filter>UI\imgui\backends</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\WMBlendState.h">
+      <Filter>Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\WMCommandBuffer.h">
       <Filter>Graphics</Filter>
@@ -154,7 +196,13 @@
     <ClInclude Include="Graphics\WMRenderPipeline.h">
       <Filter>Graphics</Filter>
     </ClInclude>
+    <ClInclude Include="Graphics\WMVertexDescriptor.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
     <ClInclude Include="Graphics\WMCopyCommandEncoder.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\WMCamera.h">
       <Filter>Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\WMGPUBuffer.h">
@@ -175,12 +223,6 @@
     <ClInclude Include="Graphics\WMShader.h">
       <Filter>Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Graphics\WMBlendState.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\WMVertexDescriptor.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
     <ClInclude Include="Graphics\Private\GraphicsDeviceFactory.h">
       <Filter>Graphics\Private</Filter>
     </ClInclude>
@@ -188,6 +230,12 @@
       <Filter>Graphics\Private\DX12</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\Private\DX12\CommandBuffer.h">
+      <Filter>Graphics\Private\DX12</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Private\DX12\Shader.h">
+      <Filter>Graphics\Private\DX12</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Private\DX12\Type.h">
       <Filter>Graphics\Private\DX12</Filter>
     </ClInclude>
     <ClInclude Include="Graphics\Private\DX12\RenderCommandEncoder.h">
@@ -217,9 +265,6 @@
     <ClInclude Include="Graphics\Private\DX12\Texture.h">
       <Filter>Graphics\Private\DX12</Filter>
     </ClInclude>
-    <ClInclude Include="Graphics\Private\DX12\Shader.h">
-      <Filter>Graphics\Private\DX12</Filter>
-    </ClInclude>
     <ClInclude Include="Graphics\Primitive\WMViewport.h">
       <Filter>Graphics\Primitive</Filter>
     </ClInclude>
@@ -237,6 +282,36 @@
     </ClInclude>
     <ClInclude Include="Graphics\Primitive\WMSize.h">
       <Filter>Graphics\Primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Geometry\WMGeometryFactory.h">
+      <Filter>Graphics\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Geometry\WMMesh.h">
+      <Filter>Graphics\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Geometry\WMVertex.h">
+      <Filter>Graphics\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="IO\File\WMFileHandle.h">
+      <Filter>IO\File</Filter>
+    </ClInclude>
+    <ClInclude Include="IO\File\WMFile.h">
+      <Filter>IO\File</Filter>
+    </ClInclude>
+    <ClInclude Include="IO\File\Private\FileHandle.h">
+      <Filter>IO\File\Private</Filter>
+    </ClInclude>
+    <ClInclude Include="Application\WMApplication.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="Application\WMApplicationContext.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="Application\Private\ApplicationContextFactory.h">
+      <Filter>Application\Private</Filter>
+    </ClInclude>
+    <ClInclude Include="Application\Private\Win32\ApplicationContext.h">
+      <Filter>Application\Private\Win32</Filter>
     </ClInclude>
     <ClInclude Include="Object\WMObject.h">
       <Filter>Object</Filter>
@@ -301,73 +376,70 @@
     <ClInclude Include="Log\WMLogVariant.h">
       <Filter>Log</Filter>
     </ClInclude>
-    <ClInclude Include="Graphics\WMCamera.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Geometry\WMGeometryFactory.h">
-      <Filter>Graphics\Geometry</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Geometry\WMMesh.h">
-      <Filter>Graphics\Geometry</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Geometry\WMVertex.h">
-      <Filter>Graphics\Geometry</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
   </ItemGroup>
   <ItemGroup>
+    <Filter Include="UI">
+      <UniqueIdentifier>{98f8670d-f42e-4d1d-844e-eeb16b42165b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\imgui">
+      <UniqueIdentifier>{2d683023-4b9d-4423-8df7-c7dfb54c860f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\imgui\backends">
+      <UniqueIdentifier>{37446e9f-ba6a-4f60-96b0-02d9dd626fa0}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Graphics">
-      <UniqueIdentifier>{6d086acf-a8d6-48c9-9b26-f6df0e1f12e9}</UniqueIdentifier>
+      <UniqueIdentifier>{0fd535a8-97b3-474a-96de-87508c462332}</UniqueIdentifier>
     </Filter>
     <Filter Include="Graphics\Private">
-      <UniqueIdentifier>{30ee8ae0-a977-4c3e-b27f-830e0dc0cb6e}</UniqueIdentifier>
+      <UniqueIdentifier>{62fabbe1-bf19-40b9-9600-158f12cb9b15}</UniqueIdentifier>
     </Filter>
     <Filter Include="Graphics\Private\DX12">
-      <UniqueIdentifier>{b2165034-29d3-4de6-8c54-fd9657da2c5a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="IO">
-      <UniqueIdentifier>{b6868f82-850e-4b0b-99e7-af81b305e498}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="IO\File">
-      <UniqueIdentifier>{ee0daa1b-c30e-408d-9062-1ce5fde80a12}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="IO\File\Private">
-      <UniqueIdentifier>{6cae863c-7b77-4de1-ae35-50577c49e9f6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Application">
-      <UniqueIdentifier>{abb50377-6f3a-4428-9c43-46d6a6e008f4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Application\Private">
-      <UniqueIdentifier>{535c5cd7-cfe0-4091-8209-b14f04084ec3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Application\Private\Win32">
-      <UniqueIdentifier>{81cf56eb-eb4a-4baf-8fcc-826a9b22a260}</UniqueIdentifier>
+      <UniqueIdentifier>{2324c42d-7850-4bff-a302-a94e3de4b732}</UniqueIdentifier>
     </Filter>
     <Filter Include="Graphics\Primitive">
-      <UniqueIdentifier>{c6d73968-3c3c-4453-ba77-6058e211a601}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Object">
-      <UniqueIdentifier>{4e718eda-9313-41e2-8488-6539b68d6c37}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Math">
-      <UniqueIdentifier>{cd014e00-c1fa-4bcd-b9d3-856ab508b8b3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Window">
-      <UniqueIdentifier>{f121e5d8-ce84-496b-bf86-66f840170a9b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Window\Private">
-      <UniqueIdentifier>{20aa05ce-1c94-4ede-9851-b8305ebebc9f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Window\Private\Win32">
-      <UniqueIdentifier>{98f24945-de46-45af-aad3-bd38b22d059f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Log">
-      <UniqueIdentifier>{5e3b3d33-a7f4-47d3-b867-6d936e146ad5}</UniqueIdentifier>
+      <UniqueIdentifier>{01afa2c0-4967-43e6-bf18-b9c262dcabf2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Graphics\Geometry">
-      <UniqueIdentifier>{00765b46-880f-4bef-a47b-17d1246a2371}</UniqueIdentifier>
+      <UniqueIdentifier>{28e2573c-d0d9-4398-8345-aa39f963bd64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IO">
+      <UniqueIdentifier>{a5657915-7976-41b6-a5f9-2e94449daeb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IO\File">
+      <UniqueIdentifier>{591f5c6f-574d-47f0-8c23-61824b062596}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IO\File\Private">
+      <UniqueIdentifier>{44cf0787-42fd-4d01-aa4f-090cde2dbf28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application">
+      <UniqueIdentifier>{e36fbbbd-fae4-4f69-a5c7-613aeb59c48b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Private">
+      <UniqueIdentifier>{9f596e07-5884-4e2a-aea2-573516f7765c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Private\Win32">
+      <UniqueIdentifier>{a2d63803-aeec-4be6-8be3-1133663929fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object">
+      <UniqueIdentifier>{49bd97f2-500e-498b-ac68-d8c32190406d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{13474e8f-df3c-4f10-8f7d-b10ed7c49653}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window">
+      <UniqueIdentifier>{980b38e6-dca4-4fc7-8f23-e3c726904aff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window\Private">
+      <UniqueIdentifier>{f4deb859-26cb-4365-a009-3ac0a2019c1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window\Private\Win32">
+      <UniqueIdentifier>{ecc7993b-f751-4ea3-8271-ffb10b39fc9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Log">
+      <UniqueIdentifier>{c9c3a7e0-e6fd-45c8-9b56-1b0e25f84ade}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

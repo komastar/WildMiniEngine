@@ -8,15 +8,23 @@
 #include "RenderCommandEncoder.h"
 #include "Texture.h"
 #include "GPUBuffer.h"
+#include "imgui.h"
+#include "backends/imgui_impl_dx12.h"
+#include "backends/imgui_impl_win32.h"
 
 using namespace WildMini::Graphics::Private::DX12;
 using namespace WildMini::Graphics::Primitive;
 
-RenderCommandEncoder::RenderCommandEncoder(RenderPipeline* _renderPipeline, WMCommandBuffer* _commandBuffer, ID3D12GraphicsCommandList* _commandList)
+RenderCommandEncoder::RenderCommandEncoder(ID3D12DescriptorHeap* _imguiDescHeap, RenderPipeline* _renderPipeline, WMCommandBuffer* _commandBuffer, ID3D12GraphicsCommandList* _commandList)
     : commandList(_commandList)
     , commandBuffer(_commandBuffer)
+    , imguiDescHeap(_imguiDescHeap)
 {
     commandList->SetGraphicsRootSignature(_renderPipeline->RootSignature());
+
+    ImGui_ImplDX12_NewFrame();
+    ImGui_ImplWin32_NewFrame();
+    ImGui::NewFrame();
 }
 
 
@@ -216,8 +224,20 @@ void RenderCommandEncoder::DrawPrimitives(PrimitiveType primitiveType, uint32_t 
     }
 }
 
+void RenderCommandEncoder::ImguiShowDemoWindow()
+{
+    static bool isShowDemo = true;
+    if (isShowDemo)
+    {
+        ImGui::ShowDemoWindow(&isShowDemo);
+    }
+    ImGui::Render();
+}
+
 void RenderCommandEncoder::EndEncoding()
 {
+    commandList->SetDescriptorHeaps(1, imguiDescHeap.GetAddressOf());
+    ImGui_ImplDX12_RenderDrawData(ImGui::GetDrawData(), commandList.Get());
     commandList->Close();
     commandList = nullptr;
 }

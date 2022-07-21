@@ -12,8 +12,9 @@ using namespace WildMini::Object;
 using namespace WildMini::Graphics;
 using namespace WildMini::Graphics::Private::DX12;
 
-CommandBuffer::CommandBuffer(CommandQueue* _commandQueue, ID3D12CommandAllocator* _commandAllocator, ID3D12GraphicsCommandList* _commandList, D3D12_COMMAND_LIST_TYPE _type)
+CommandBuffer::CommandBuffer(ID3D12DescriptorHeap* _imguiDescHeap, CommandQueue* _commandQueue, ID3D12CommandAllocator* _commandAllocator, ID3D12GraphicsCommandList* _commandList, D3D12_COMMAND_LIST_TYPE _type)
     : type(_type)
+    , imguiDescHeap(_imguiDescHeap)
     , commandQueue(_commandQueue)
     , commandList(_commandList)
     , commandAllocator(_commandAllocator)
@@ -24,7 +25,7 @@ WMObject<WMRenderCommandEncoder> CommandBuffer::CreateRenderCommandEncoder(WMRen
 {
     RenderPipeline* renderPipeline = dynamic_cast<RenderPipeline*>(_renderPipeline);
     commandList->Reset(commandAllocator.Get(), renderPipeline->PipelineState());
-    return new RenderCommandEncoder(renderPipeline, this, commandList.Get());
+    return new RenderCommandEncoder(imguiDescHeap.Get(), renderPipeline, this, commandList.Get());
 }
 
 void CommandBuffer::Commit()

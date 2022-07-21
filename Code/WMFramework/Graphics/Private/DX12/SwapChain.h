@@ -46,6 +46,8 @@ namespace WildMini::Graphics::Private::DX12
         mutable Object::WMObject<Texture> renderTargets[BUFFER_COUNT];
         mutable Object::WMObject<Texture> depthStencilTexture;
 
+        ComPtr<ID3D12DescriptorHeap> imguiDescHeap;
+
     private:
         void SetupRenderTargets();
         void SetupDepthStencil();
