@@ -7,11 +7,19 @@
 
 #ifdef _WIN32
 #include "WindowContext.h"
+#include "imgui.h"
 
 using namespace WildMini::Window;
 
+extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
+
 LRESULT WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
+    if (ImGui_ImplWin32_WndProcHandler(hwnd, message, wParam, lParam))
+    {
+        return true;
+    }
+
     switch (message)
     {
     case WM_DESTROY:
