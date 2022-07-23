@@ -15,11 +15,11 @@ using namespace WildMini::Graphics;
 using namespace WildMini::Graphics::Private::DX12;
 using namespace WildMini::Window;
 
-SwapChain::SwapChain(GraphicsDeviceContext* _device, CommandQueue* _commandQueue, const WMWindow* _window)
+SwapChain::SwapChain(GraphicsDeviceContext* _device, CommandQueue* _commandQueue, WindowContext* _window)
     : device(_device)
     , swapChain(nullptr)
-    , width(_window->Width())
-    , height(_window->Height())
+    , width(_window->width)
+    , height(_window->height)
     , imguiDescHeap(nullptr)
 {
     DXGI_SWAP_CHAIN_DESC1 sd{};
@@ -62,8 +62,15 @@ void SwapChain::Resize(uint32_t width, uint32_t height)
     this->height = height;
 
     DXGI_SWAP_CHAIN_DESC desc;
-    swapChain->GetDesc(&desc);
-    swapChain->ResizeBuffers(BUFFER_COUNT, width, height, desc.BufferDesc.Format, 0);
+    HRESULT hr = swapChain->GetDesc(&desc);
+    for (int i = 0; i < BUFFER_COUNT; ++i)
+    {
+        renderTargets[i] = nullptr;
+    }
+    hr = swapChain->ResizeBuffers(BUFFER_COUNT, this->width, this->height, desc.BufferDesc.Format, desc.Flags);
+    swapChainIndex = swapChain->GetCurrentBackBufferIndex();
+    SetupRenderTargets();
+    SetupDepthStencil();
 }
 
 uint32_t SwapChain::Width()
@@ -82,6 +89,7 @@ void SwapChain::SetupRenderTargets()
     {
         ComPtr<ID3D12Resource> buffer;
         swapChain->GetBuffer(i, IID_PPV_ARGS(&buffer));
+        D3D12_RESOURCE_DESC desc = buffer->GetDesc();
         renderTargets[i] = new Texture(buffer.Get(), D3D12_RESOURCE_STATE_PRESENT);
 
         D3D12_DESCRIPTOR_HEAP_DESC heapDesc{};

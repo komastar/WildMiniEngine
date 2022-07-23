@@ -14,9 +14,9 @@ namespace WildMini::Window
     class WindowFactory
     {
     public:
-        static WMWindow* Create()
+        static WMWindow* Create(uint32_t width, uint32_t height)
         {
-            return new WindowContext();
+            return new WindowContext(width, height);
         }
     };
 }

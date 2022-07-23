@@ -7,7 +7,7 @@
 
 #pragma once
 #include "d3d12_include.h"
-#include "Window/WMWindow.h"
+#include "Window/Private/Win32/WindowContext.h"
 #include "Graphics/WMSwapChain.h"
 #include "Graphics/WMTexture.h"
 
@@ -20,7 +20,7 @@ namespace WildMini::Graphics::Private::DX12
     class SwapChain : public WMSwapChain
     {
     public:
-        SwapChain(GraphicsDeviceContext*, CommandQueue*, const Window::WMWindow*);
+        SwapChain(GraphicsDeviceContext*, CommandQueue*, Window::WindowContext*);
 
         enum { BUFFER_COUNT = 2 };
 

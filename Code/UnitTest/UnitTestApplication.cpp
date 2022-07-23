@@ -21,7 +21,7 @@ public:
 
     void OnInitialize() override
     {
-        window = WindowFactory::Create();
+        window = WindowFactory::Create(800, 600);
         window->Create();
         window->Show();
         window->Focus();

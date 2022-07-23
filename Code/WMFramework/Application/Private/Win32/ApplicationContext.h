@@ -8,6 +8,7 @@
 #pragma once
 #ifdef _WIN32
 #include <Windows.h>
+#include "WMFramework.h"
 #include "Application/WMApplicationContext.h"
 #include "Graphics/WMGraphicsDevice.h"
 #include "Object/WMObject.h"

@@ -8,6 +8,7 @@
 #include "CommandQueue.h"
 #include "SwapChain.h"
 #include "CommandBuffer.h"
+#include "Window/Private/Win32/WindowContext.h"
 
 using namespace WildMini::Window;
 using namespace WildMini::Object;
@@ -38,9 +39,9 @@ WMObject<WMCommandBuffer> CommandQueue::CreateCommandBuffer()
         , D3D12_COMMAND_LIST_TYPE_DIRECT);
 }
 
-WMObject<WMSwapChain> CommandQueue::CreateSwapChain(const WMWindow* window)
+WMObject<WMSwapChain> CommandQueue::CreateSwapChain(WMWindow* window)
 {
-    return new SwapChain(device, this, window);
+    return new SwapChain(device, this, static_cast<WindowContext*>(window));
 }
 
 void CommandQueue::WaitComplete()

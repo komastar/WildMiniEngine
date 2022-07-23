@@ -18,7 +18,7 @@ namespace WildMini::Graphics::Private::DX12
     public:
         CommandQueue(GraphicsDeviceContext*, ID3D12CommandQueue*, ID3D12CommandAllocator*, ID3D12GraphicsCommandList*, ID3D12Fence*);
 
-        virtual Object::WMObject<Graphics::WMSwapChain> CreateSwapChain(const Window::WMWindow*) override;
+        virtual Object::WMObject<Graphics::WMSwapChain> CreateSwapChain(Window::WMWindow*) override;
         virtual Object::WMObject<WMCommandBuffer> CreateCommandBuffer() override;
 
         void WaitComplete() override;

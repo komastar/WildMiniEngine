@@ -18,6 +18,7 @@
 #include "Graphics/WMRenderPipeline.h"
 #include "Graphics/WMCamera.h"
 #include "Graphics/Geometry/WMMesh.h"
+#include "Common/WMThread.h"
 
 class EditorApplication : public WildMini::Application::WMApplication
 {
@@ -32,11 +33,13 @@ private:
     void Update(float dt);
     void Render();
 
+    void OnResize(uint32_t width, uint32_t height);
+
 private:
     WildMini::Object::WMObject<WildMini::Window::WMWindow> window;
     WildMini::Object::WMObject<WildMini::Graphics::WMGraphicsDevice> device;
 
-    std::jthread gameLoop;
+    WildMini::Object::WMObject<WildMini::Common::WMThread> gameThread;
     WildMini::Object::WMObject<WildMini::Graphics::WMCommandQueue> commandQueue;
     WildMini::Object::WMObject<WildMini::Graphics::WMSwapChain> swapChain;
 
@@ -48,4 +51,6 @@ private:
     WildMini::Object::WMObject<WildMini::Graphics::WMGPUBuffer> mainPassBuffer;
     WildMini::Graphics::WMCamera camera;
     WildMini::Graphics::Geometry::WMMesh* mesh;
+
+    std::atomic_bool needResize;
 };

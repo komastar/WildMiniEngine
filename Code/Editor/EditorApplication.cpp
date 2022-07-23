@@ -15,12 +15,16 @@
 #include "Math/WMAffineTransform2.h"
 #include "Math/WMLinearTransform2.h"
 
+#include <Windows.h>
+#include <processthreadsapi.h>
+
 using namespace WildMini;
 using namespace WildMini::Graphics;
 using namespace WildMini::Graphics::Primitive;
 using namespace WildMini::Graphics::Geometry;
 using namespace WildMini::Math;
 using namespace WildMini::Object;
+using namespace WildMini::Common;
 
 struct Constants
 {
@@ -35,15 +39,17 @@ struct MainPassConstants
 
 EditorApplication::EditorApplication()
     : mesh(nullptr)
+    , needResize(false)
 {
 }
 
 void EditorApplication::OnInitialize()
 {
-    window = Window::WindowFactory::Create();
+    window = Window::WindowFactory::Create(1280, 720);
     window->Create();
     window->Show();
     window->Focus();
+    window->AddResizeCallback(std::bind(&EditorApplication::OnResize, this, std::placeholders::_1, std::placeholders::_2));
 
     device = Graphics::Private::GraphicsDeviceFactory::Create();
     commandQueue = device->CreateCommandQueue();
@@ -72,7 +78,7 @@ void EditorApplication::OnInitialize()
     renderPipeline = device->CreateRenderPipeline(pipelineDesc);
 
     camera.SetView(WMVector3(0.0f, 0.0f, 15.0f), WMVector3(0.0f, 0.0f, 0.0f), WMVector3::up);
-    camera.SetPerspective(0.15f * 3.1415926535f, window->Aspect(), 1.0f, 1000.0f);
+    camera.SetPerspective(0.15f * 3.1415926535f, window->GetAspect(), 1.0f, 1000.0f);
 
     MainPassConstants mainPass;
     mainPass.eye = camera.Position();
@@ -87,25 +93,23 @@ void EditorApplication::OnInitialize()
 
     mesh = Geometry::WMGeometryFactory::MakeBox(device);
 
-    gameLoop = std::jthread([&](std::stop_token token)
+    float deltaTime = 0.0f;
+    gameThread = WMThread::Create(L"Editor");
+    gameThread->Initialize([&]()
         {
-            float deltaTime = 0.0f;
-            while (!token.stop_requested())
-            {
-                auto begin = std::chrono::high_resolution_clock::now();
-                Update(deltaTime);
-                Render();
-                auto end = std::chrono::high_resolution_clock::now();
-                auto dt = std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count();
-                deltaTime = dt * 0.001f;
-            }
+            auto begin = std::chrono::high_resolution_clock::now();
+            Update(deltaTime);
+            Render();
+            auto end = std::chrono::high_resolution_clock::now();
+            auto dt = std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count();
+            deltaTime = dt * 0.001f;
         });
+    gameThread->Run();
 }
 
 void EditorApplication::OnTerminate()
 {
-    gameLoop.request_stop();
-    gameLoop.join();
+    gameThread->Terminate();
     FreeConsole();
 }
 
@@ -133,13 +137,20 @@ void EditorApplication::Update(float dt)
 
 void EditorApplication::Render()
 {
+    if (needResize)
+    {
+        needResize.store(false);
+        swapChain->Resize(window->width, window->height);
+        camera.SetPerspective(0.15f * static_cast<float>(M_PI), window->GetAspect(), 1.0f, 1000.0f);
+    }
+
     if (WMObject<WMCommandBuffer> commandBuffer = commandQueue->CreateCommandBuffer())
     {
         if (WMObject<WMRenderCommandEncoder> renderCommandEncoder = commandBuffer->CreateRenderCommandEncoder(renderPipeline))
         {
-            Primitive::WMViewport viewport = { 0, 0, static_cast<float>(window->Width()), static_cast<float>(window->Height()), 0.0f, 1.0f };
+            Primitive::WMViewport viewport = { 0, 0, window->GetWidth(), window->GetHeight(), 0.0f, 1.0f };
             renderCommandEncoder->SetViewport(viewport);
-            Primitive::WMRect scissorRect = { 0, 0, static_cast<float>(window->Width()), static_cast<float>(window->Height()) };
+            Primitive::WMRect scissorRect = { 0, 0, window->GetWidth(), window->GetHeight() };
             renderCommandEncoder->SetScissorRect(scissorRect);
             renderCommandEncoder->ClearRenderTarget(swapChain->RenderTargetTexture(), Primitive::WMColor::black);
             renderCommandEncoder->ClearDepthStencil(swapChain->DepthStencilTexture()
@@ -158,4 +169,9 @@ void EditorApplication::Render()
 
     swapChain->Present();
     commandQueue->WaitComplete();
+}
+
+void EditorApplication::OnResize(uint32_t width, uint32_t height)
+{
+    needResize.store(true);
 }

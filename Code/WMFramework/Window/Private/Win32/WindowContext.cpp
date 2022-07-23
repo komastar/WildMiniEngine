@@ -13,21 +13,39 @@ using namespace WildMini::Window;
 
 extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
-LRESULT WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
+LRESULT WindowContext::WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     if (ImGui_ImplWin32_WndProcHandler(hwnd, message, wParam, lParam))
     {
         return true;
     }
 
+    WindowContext* window = reinterpret_cast<WindowContext*>(::GetWindowLongPtrW(hwnd, GWLP_USERDATA));
     switch (message)
     {
+    case WM_SIZE:
+    {
+        uint32_t width = LOWORD(lParam);
+        uint32_t height = HIWORD(lParam);
+        window->SetSize(width, height);
+        return 0;
+    }
     case WM_DESTROY:
+    {
         PostQuitMessage(0);
-        break;
+        return 0;
+    }
     }
 
     return DefWindowProcW(hwnd, message, wParam, lParam);
+}
+
+WindowContext::WindowContext(uint32_t _width, uint32_t _height)
+    : WMWindow(_width, _height)
+    , cacheWidth(static_cast<float>(width))
+    , cacheHeight(static_cast<float>(height))
+    , cacheAspect(cacheWidth / cacheHeight)
+{
 }
 
 void WindowContext::Create()
@@ -52,6 +70,7 @@ void WindowContext::Create()
     int height = R.bottom - R.top;
 
     hwnd = CreateWindowW(L"MainWnd", L"WildMini Editor", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, width, height, 0, 0, instance, 0);
+    SetWindowLongPtrW(hwnd, GWLP_USERDATA, (LONG_PTR)this);
 }
 
 void WindowContext::Show()
@@ -69,19 +88,39 @@ void* WindowContext::PlatformHandle() const
     return hwnd;
 }
 
-uint32_t WindowContext::Width() const
+float WindowContext::GetWidth() const
 {
-    return width;
+    return cacheWidth;
 }
 
-uint32_t WindowContext::Height() const
+float WindowContext::GetHeight() const
 {
-    return height;
+    return cacheHeight;
 }
 
-float WindowContext::Aspect() const
+void WindowContext::SetWidth(uint32_t _width)
 {
-    return static_cast<float>(width) / static_cast<float>(height);
+    width = _width;
+    cacheWidth = static_cast<float>(width);
+}
+
+void WindowContext::SetHeight(uint32_t _height)
+{
+    height = _height;
+    cacheHeight = static_cast<float>(height);
+}
+
+float WindowContext::GetAspect() const
+{
+    return cacheAspect;
+}
+
+void WindowContext::OnResize()
+{
+    for (auto iter = resizeCallbackList.begin(); iter != resizeCallbackList.end(); ++iter)
+    {
+        (*iter)(width, height);
+    }
 }
 
 void WindowContext::Update()
@@ -92,5 +131,24 @@ void WindowContext::Update()
 void WindowContext::Focus()
 {
     SetFocus(hwnd);
+}
+void WindowContext::SetTitle(const wchar_t* title)
+{
+    SetWindowTextW(hwnd, title);
+}
+
+void WindowContext::SetSize(uint32_t _width, uint32_t _height)
+{
+    width = _width;
+    height = _height;
+    cacheWidth = static_cast<float>(width);
+    cacheHeight = static_cast<float>(height);
+    cacheAspect = cacheWidth / cacheHeight;
+    OnResize();
+}
+
+void WindowContext::AddResizeCallback(std::function<void(uint32_t, uint32_t)> callback)
+{
+    resizeCallbackList.push_back(callback);
 }
 #endif // _WIN32

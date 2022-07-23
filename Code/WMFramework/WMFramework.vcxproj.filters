@@ -1,6 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <ClCompile Include="Common\WMThread.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\Private\Win32\ThreadContext.cpp">
+      <Filter>Common\Private\Win32</Filter>
+    </ClCompile>
     <ClCompile Include="UI\imgui\imgui.cpp">
       <Filter>UI\imgui</Filter>
     </ClCompile>
@@ -16,9 +22,6 @@
     <ClCompile Include="UI\imgui\imgui_widgets.cpp">
       <Filter>UI\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="UI\imgui\backends\imgui_impl_dx9.cpp">
-      <Filter>UI\imgui\backends</Filter>
-    </ClCompile>
     <ClCompile Include="UI\imgui\backends\imgui_impl_dx10.cpp">
       <Filter>UI\imgui\backends</Filter>
     </ClCompile>
@@ -26,6 +29,9 @@
       <Filter>UI\imgui\backends</Filter>
     </ClCompile>
     <ClCompile Include="UI\imgui\backends\imgui_impl_dx12.cpp">
+      <Filter>UI\imgui\backends</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\imgui\backends\imgui_impl_dx9.cpp">
       <Filter>UI\imgui\backends</Filter>
     </ClCompile>
     <ClCompile Include="UI\imgui\backends\imgui_impl_win32.cpp">
@@ -151,6 +157,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WMFramework.h" />
+    <ClInclude Include="Common\WMThread.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Private\Win32\ThreadContext.h">
+      <Filter>Common\Private\Win32</Filter>
+    </ClInclude>
     <ClInclude Include="UI\imgui\imconfig.h">
       <Filter>UI\imgui</Filter>
     </ClInclude>
@@ -169,9 +181,6 @@
     <ClInclude Include="UI\imgui\imstb_truetype.h">
       <Filter>UI\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="UI\imgui\backends\imgui_impl_dx9.h">
-      <Filter>UI\imgui\backends</Filter>
-    </ClInclude>
     <ClInclude Include="UI\imgui\backends\imgui_impl_dx10.h">
       <Filter>UI\imgui\backends</Filter>
     </ClInclude>
@@ -179,6 +188,9 @@
       <Filter>UI\imgui\backends</Filter>
     </ClInclude>
     <ClInclude Include="UI\imgui\backends\imgui_impl_dx12.h">
+      <Filter>UI\imgui\backends</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\imgui\backends\imgui_impl_dx9.h">
       <Filter>UI\imgui\backends</Filter>
     </ClInclude>
     <ClInclude Include="UI\imgui\backends\imgui_impl_win32.h">
@@ -381,65 +393,74 @@
     <None Include=".editorconfig" />
   </ItemGroup>
   <ItemGroup>
+    <Filter Include="Common">
+      <UniqueIdentifier>{9ab54041-9fe8-4070-a5d8-aba985581051}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\Private">
+      <UniqueIdentifier>{69fb93dc-b62a-4ca6-b89d-ad118082dc9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\Private\Win32">
+      <UniqueIdentifier>{3791f704-5b06-4057-8bb2-2c9b805a174b}</UniqueIdentifier>
+    </Filter>
     <Filter Include="UI">
-      <UniqueIdentifier>{98f8670d-f42e-4d1d-844e-eeb16b42165b}</UniqueIdentifier>
+      <UniqueIdentifier>{e7c5baf6-b7e8-4b8c-9455-4e7b2629f042}</UniqueIdentifier>
     </Filter>
     <Filter Include="UI\imgui">
-      <UniqueIdentifier>{2d683023-4b9d-4423-8df7-c7dfb54c860f}</UniqueIdentifier>
+      <UniqueIdentifier>{6c1c472a-d6d3-466c-8f19-e79e52e2001a}</UniqueIdentifier>
     </Filter>
     <Filter Include="UI\imgui\backends">
-      <UniqueIdentifier>{37446e9f-ba6a-4f60-96b0-02d9dd626fa0}</UniqueIdentifier>
+      <UniqueIdentifier>{13fe526a-d8ee-47bb-b683-31fb86a2a9e9}</UniqueIdentifier>
     </Filter>
     <Filter Include="Graphics">
-      <UniqueIdentifier>{0fd535a8-97b3-474a-96de-87508c462332}</UniqueIdentifier>
+      <UniqueIdentifier>{2e636919-977f-47ca-864b-79acd3967b5b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Graphics\Private">
-      <UniqueIdentifier>{62fabbe1-bf19-40b9-9600-158f12cb9b15}</UniqueIdentifier>
+      <UniqueIdentifier>{df32e870-7a4e-4821-b920-cfc24846b1fd}</UniqueIdentifier>
     </Filter>
     <Filter Include="Graphics\Private\DX12">
-      <UniqueIdentifier>{2324c42d-7850-4bff-a302-a94e3de4b732}</UniqueIdentifier>
+      <UniqueIdentifier>{b9a55acf-ad2a-4795-8021-db2a639a571c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Graphics\Primitive">
-      <UniqueIdentifier>{01afa2c0-4967-43e6-bf18-b9c262dcabf2}</UniqueIdentifier>
+      <UniqueIdentifier>{d3e5410c-7caf-457f-bbe9-1eeab2a9f766}</UniqueIdentifier>
     </Filter>
     <Filter Include="Graphics\Geometry">
-      <UniqueIdentifier>{28e2573c-d0d9-4398-8345-aa39f963bd64}</UniqueIdentifier>
+      <UniqueIdentifier>{ebf418ef-94fd-44e0-97de-0dbc6d5ec91a}</UniqueIdentifier>
     </Filter>
     <Filter Include="IO">
-      <UniqueIdentifier>{a5657915-7976-41b6-a5f9-2e94449daeb6}</UniqueIdentifier>
+      <UniqueIdentifier>{457db962-8a2d-4088-ae94-939c9f7463e2}</UniqueIdentifier>
     </Filter>
     <Filter Include="IO\File">
-      <UniqueIdentifier>{591f5c6f-574d-47f0-8c23-61824b062596}</UniqueIdentifier>
+      <UniqueIdentifier>{56496a9c-3d65-4fb9-afc6-df9ccd19d1cf}</UniqueIdentifier>
     </Filter>
     <Filter Include="IO\File\Private">
-      <UniqueIdentifier>{44cf0787-42fd-4d01-aa4f-090cde2dbf28}</UniqueIdentifier>
+      <UniqueIdentifier>{ef5cec8d-c94d-4d06-a967-2fbb8f21349d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Application">
-      <UniqueIdentifier>{e36fbbbd-fae4-4f69-a5c7-613aeb59c48b}</UniqueIdentifier>
+      <UniqueIdentifier>{dc727f57-bd58-4e07-9c0b-0c2bdeade3e7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Application\Private">
-      <UniqueIdentifier>{9f596e07-5884-4e2a-aea2-573516f7765c}</UniqueIdentifier>
+      <UniqueIdentifier>{2b492f28-53cf-4b48-835f-78949a4e1641}</UniqueIdentifier>
     </Filter>
     <Filter Include="Application\Private\Win32">
-      <UniqueIdentifier>{a2d63803-aeec-4be6-8be3-1133663929fe}</UniqueIdentifier>
+      <UniqueIdentifier>{f203f7bc-f1ad-4ca5-b363-7fb00143ef04}</UniqueIdentifier>
     </Filter>
     <Filter Include="Object">
-      <UniqueIdentifier>{49bd97f2-500e-498b-ac68-d8c32190406d}</UniqueIdentifier>
+      <UniqueIdentifier>{7b2c1a66-64d3-4790-b3f4-8607370c0dd5}</UniqueIdentifier>
     </Filter>
     <Filter Include="Math">
-      <UniqueIdentifier>{13474e8f-df3c-4f10-8f7d-b10ed7c49653}</UniqueIdentifier>
+      <UniqueIdentifier>{b1abb8f4-834e-41b9-bf5a-f9bbaa251625}</UniqueIdentifier>
     </Filter>
     <Filter Include="Window">
-      <UniqueIdentifier>{980b38e6-dca4-4fc7-8f23-e3c726904aff}</UniqueIdentifier>
+      <UniqueIdentifier>{35abd416-ce8c-4e08-90a8-097ac548e1b3}</UniqueIdentifier>
     </Filter>
     <Filter Include="Window\Private">
-      <UniqueIdentifier>{f4deb859-26cb-4365-a009-3ac0a2019c1b}</UniqueIdentifier>
+      <UniqueIdentifier>{66d64941-7703-400c-9a20-73e599c80298}</UniqueIdentifier>
     </Filter>
     <Filter Include="Window\Private\Win32">
-      <UniqueIdentifier>{ecc7993b-f751-4ea3-8271-ffb10b39fc9e}</UniqueIdentifier>
+      <UniqueIdentifier>{240b8581-67cf-47cb-a19d-b39b469535a7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Log">
-      <UniqueIdentifier>{c9c3a7e0-e6fd-45c8-9b56-1b0e25f84ade}</UniqueIdentifier>
+      <UniqueIdentifier>{500806fc-5077-4711-b4e5-21b3b34508ac}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
