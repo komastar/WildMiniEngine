@@ -31,8 +31,8 @@ namespace WildMini::Graphics::Private::DX12
         virtual void SetConstantBuffer(uint32_t index, const WMGPUBuffer* constantBuffer) override;
         virtual void SetVertexBuffer(const WMGPUBuffer* vertexBuffer, uint32_t vertexSize) override;
         virtual void DrawPrimitives(PrimitiveType primitiveType, uint32_t vertexCount, uint32_t instanceCount, uint32_t vertexStart, uint32_t instanceStart);
-        virtual void ImguiShowDemoWindow() override;
-        virtual void EndEncoding() override;
+        virtual void ImguiRender() override;
+        virtual void EndEncoding(std::vector<const WMTexture*> renderTargets) override;
 
     private:
         void TransitionBufferState(ID3D12Resource* buffer, D3D12_RESOURCE_STATES after, D3D12_RESOURCE_STATES before);

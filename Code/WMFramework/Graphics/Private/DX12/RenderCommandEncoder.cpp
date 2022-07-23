@@ -86,7 +86,6 @@ void RenderCommandEncoder::SetScissorRects(const Primitive::WMRect* rects, uint3
 
 void RenderCommandEncoder::SetRenderTargets(std::vector<const WMTexture*> renderTargets, const WMTexture* depthStencil)
 {
-    renderTargetsTemp = renderTargets;
     std::vector<D3D12_CPU_DESCRIPTOR_HANDLE> renderTargetHandles;
     renderTargetHandles.reserve(renderTargets.size());
     for (const WMTexture* renderTarget : renderTargets)
@@ -113,15 +112,6 @@ void RenderCommandEncoder::SetRenderTargets(std::vector<const WMTexture*> render
             , renderTargetHandles.data()
             , false
             , nullptr);
-    }
-
-    for (const WMTexture* renderTarget : renderTargets)
-    {
-        const Texture* texture = reinterpret_cast<const Texture*>(renderTarget);
-        TransitionBufferState(
-            texture->Resource()
-            , D3D12_RESOURCE_STATE_RENDER_TARGET
-            , texture->InitialState());
     }
 }
 
@@ -205,26 +195,10 @@ void RenderCommandEncoder::SetVertexBuffer(const WMGPUBuffer* vertexBuffer, uint
 void RenderCommandEncoder::DrawPrimitives(PrimitiveType primitiveType, uint32_t vertexCount, uint32_t instanceCount, uint32_t vertexStart, uint32_t instanceStart)
 {
     SetPrimitiveType(primitiveType);
-    for (const WMTexture* renderTarget : renderTargetsTemp)
-    {
-        const Texture* texture = reinterpret_cast<const Texture*>(renderTarget);
-        TransitionBufferState(
-            texture->Resource()
-            , texture->InitialState()
-            , D3D12_RESOURCE_STATE_RENDER_TARGET);
-    }
     commandList->DrawInstanced(vertexCount, instanceCount, vertexStart, instanceStart);
-    for (const WMTexture* renderTarget : renderTargetsTemp)
-    {
-        const Texture* texture = reinterpret_cast<const Texture*>(renderTarget);
-        TransitionBufferState(
-            texture->Resource()
-            , D3D12_RESOURCE_STATE_RENDER_TARGET
-            , texture->InitialState());
-    }
 }
 
-void RenderCommandEncoder::ImguiShowDemoWindow()
+void RenderCommandEncoder::ImguiRender()
 {
     static bool isShowDemo = true;
     if (isShowDemo)
@@ -232,12 +206,21 @@ void RenderCommandEncoder::ImguiShowDemoWindow()
         ImGui::ShowDemoWindow(&isShowDemo);
     }
     ImGui::Render();
-}
 
-void RenderCommandEncoder::EndEncoding()
-{
     commandList->SetDescriptorHeaps(1, imguiDescHeap.GetAddressOf());
     ImGui_ImplDX12_RenderDrawData(ImGui::GetDrawData(), commandList.Get());
+}
+
+void RenderCommandEncoder::EndEncoding(std::vector<const WMTexture*> renderTargets)
+{
+    for (const WMTexture* renderTarget : renderTargets)
+    {
+        const Texture* texture = reinterpret_cast<const Texture*>(renderTarget);
+        TransitionBufferState(
+            texture->Resource()
+            , D3D12_RESOURCE_STATE_RENDER_TARGET
+            , texture->InitialState());
+    }
     commandList->Close();
     commandList = nullptr;
 }
