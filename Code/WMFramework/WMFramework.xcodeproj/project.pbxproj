@@ -22,18 +22,13 @@
 		7455FAB828AA62AF00841662 /* WMBlendState.h in Headers */ = {isa = PBXBuildFile; fileRef = 7455FAB128AA62AF00841662 /* WMBlendState.h */; };
 		7455FAB928AA62AF00841662 /* WMCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7455FAB228AA62AF00841662 /* WMCamera.cpp */; };
 		7455FABA28AA62AF00841662 /* WMCopyCommandEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 7455FAB328AA62AF00841662 /* WMCopyCommandEncoder.h */; };
-		7455FACC28AA62E400841662 /* WMColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 7455FAC028AA62E400841662 /* WMColor.h */; };
 		7455FACD28AA62E400841662 /* WMRect.h in Headers */ = {isa = PBXBuildFile; fileRef = 7455FAC128AA62E400841662 /* WMRect.h */; };
-		7455FACE28AA62E400841662 /* WMPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 7455FAC228AA62E400841662 /* WMPoint.h */; };
 		7455FACF28AA62E400841662 /* WMPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7455FAC328AA62E400841662 /* WMPoint.cpp */; };
 		7455FAD028AA62E400841662 /* WMQuad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7455FAC428AA62E400841662 /* WMQuad.cpp */; };
 		7455FAD128AA62E400841662 /* WMQuad.h in Headers */ = {isa = PBXBuildFile; fileRef = 7455FAC528AA62E400841662 /* WMQuad.h */; };
 		7455FAD228AA62E400841662 /* WMViewport.h in Headers */ = {isa = PBXBuildFile; fileRef = 7455FAC628AA62E400841662 /* WMViewport.h */; };
-		7455FAD328AA62E400841662 /* WMSize.h in Headers */ = {isa = PBXBuildFile; fileRef = 7455FAC728AA62E400841662 /* WMSize.h */; };
 		7455FAD428AA62E400841662 /* WMColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7455FAC828AA62E400841662 /* WMColor.cpp */; };
-		7455FAD528AA62E400841662 /* WMRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7455FAC928AA62E400841662 /* WMRect.cpp */; };
 		7455FAD628AA62E400841662 /* WMViewport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7455FACA28AA62E400841662 /* WMViewport.cpp */; };
-		7455FAD728AA62E400841662 /* WMSize.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7455FACB28AA62E400841662 /* WMSize.cpp */; };
 		746E6A48284DEE4900805558 /* WMApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E69E9284DEE4900805558 /* WMApplication.cpp */; };
 		746E6A49284DEE4900805558 /* WMApplicationContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E69EA284DEE4900805558 /* WMApplicationContext.h */; };
 		746E6A4A284DEE4900805558 /* ApplicationContextFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E69EE284DEE4900805558 /* ApplicationContextFactory.h */; };
@@ -77,13 +72,8 @@
 		746E6A74284DEE4A00805558 /* WMFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A21284DEE4900805558 /* WMFramework.h */; };
 		746E6A75284DEE4A00805558 /* WMTexture.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A23284DEE4900805558 /* WMTexture.h */; };
 		746E6A76284DEE4A00805558 /* WMColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A25284DEE4900805558 /* WMColor.h */; };
-		746E6A77284DEE4A00805558 /* WMRect.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A26284DEE4900805558 /* WMRect.h */; };
 		746E6A78284DEE4A00805558 /* WMPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A27284DEE4900805558 /* WMPoint.h */; };
-		746E6A79284DEE4A00805558 /* WMPoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A28284DEE4900805558 /* WMPoint.cpp */; };
-		746E6A7A284DEE4A00805558 /* WMQuad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A29284DEE4900805558 /* WMQuad.cpp */; };
-		746E6A7B284DEE4A00805558 /* WMQuad.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A2A284DEE4900805558 /* WMQuad.h */; };
 		746E6A7C284DEE4A00805558 /* WMSize.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A2B284DEE4900805558 /* WMSize.h */; };
-		746E6A7D284DEE4A00805558 /* WMColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A2C284DEE4900805558 /* WMColor.cpp */; };
 		746E6A7E284DEE4A00805558 /* WMRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A2D284DEE4900805558 /* WMRect.cpp */; };
 		746E6A7F284DEE4A00805558 /* WMSize.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746E6A2E284DEE4900805558 /* WMSize.cpp */; };
 		746E6A82284DEE4A00805558 /* GraphicsDeviceFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 746E6A32284DEE4900805558 /* GraphicsDeviceFactory.h */; };
@@ -480,20 +470,15 @@
 				746E6A5C284DEE4A00805558 /* WMAffineTransform3.h in Headers */,
 				746E6A76284DEE4A00805558 /* WMColor.h in Headers */,
 				7402988228A019B400933BA1 /* WMThread.h in Headers */,
-				7455FAD328AA62E400841662 /* WMSize.h in Headers */,
 				7455FAB628AA62AF00841662 /* WMRenderPipeline.h in Headers */,
 				746E6A93284DEE4A00805558 /* WMSwapChain.h in Headers */,
-				7455FACE28AA62E400841662 /* WMPoint.h in Headers */,
 				746E6A5A284DEE4900805558 /* WMMatrix4.h in Headers */,
-				746E6A7B284DEE4A00805558 /* WMQuad.h in Headers */,
 				7455FAB428AA62AF00841662 /* WMRenderCommandEncoder.h in Headers */,
 				746E6A60284DEE4A00805558 /* WMVector4Int.h in Headers */,
 				746E6A59284DEE4900805558 /* WMLinearTransform3.h in Headers */,
 				746E6A94284DEE4A00805558 /* WMCommandQueue.h in Headers */,
 				746E6A73284DEE4A00805558 /* WMLogVariant.h in Headers */,
 				746E6A4D284DEE4900805558 /* WMApplication.h in Headers */,
-				746E6A77284DEE4A00805558 /* WMRect.h in Headers */,
-				7455FACC28AA62E400841662 /* WMColor.h in Headers */,
 				746E6A5E284DEE4A00805558 /* WMLinearTransform2.h in Headers */,
 				746E6A9E284DF18100805558 /* ApplicationContext.h in Headers */,
 				746E6A6F284DEE4A00805558 /* WMVector2.h in Headers */,
@@ -584,19 +569,14 @@
 				7455FAA928AA5E4D00841662 /* WMGeometryFactory.cpp in Sources */,
 				746E6A70284DEE4A00805558 /* WMLogVariant.cpp in Sources */,
 				746E6A65284DEE4A00805558 /* WMVector3.cpp in Sources */,
-				7455FAD528AA62E400841662 /* WMRect.cpp in Sources */,
-				7455FAD728AA62E400841662 /* WMSize.cpp in Sources */,
-				746E6A79284DEE4A00805558 /* WMPoint.cpp in Sources */,
 				746E6A72284DEE4A00805558 /* WMLog.cpp in Sources */,
 				746E6A6B284DEE4A00805558 /* WMMatrix2.cpp in Sources */,
 				746E6A5F284DEE4A00805558 /* WMAffineTransform2.cpp in Sources */,
 				746E6A6E284DEE4A00805558 /* WMMatrix3.cpp in Sources */,
-				746E6A7A284DEE4A00805558 /* WMQuad.cpp in Sources */,
 				746E6A5D284DEE4A00805558 /* WMVector2Int.cpp in Sources */,
 				7455FAD028AA62E400841662 /* WMQuad.cpp in Sources */,
 				746E6A7F284DEE4A00805558 /* WMSize.cpp in Sources */,
 				746E6A61284DEE4A00805558 /* WMAffineTransform3.cpp in Sources */,
-				746E6A7D284DEE4A00805558 /* WMColor.cpp in Sources */,
 				7402988A28A01AC200933BA1 /* ThreadContext.mm in Sources */,
 				746E6A6C284DEE4A00805558 /* WMVector3Int.cpp in Sources */,
 				7455FAB928AA62AF00841662 /* WMCamera.cpp in Sources */,
