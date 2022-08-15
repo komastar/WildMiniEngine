@@ -15,9 +15,6 @@
 #include "Math/WMAffineTransform2.h"
 #include "Math/WMLinearTransform2.h"
 
-#include <Windows.h>
-#include <processthreadsapi.h>
-
 using namespace WildMini;
 using namespace WildMini::Graphics;
 using namespace WildMini::Graphics::Primitive;
@@ -40,6 +37,10 @@ struct MainPassConstants
 EditorApplication::EditorApplication()
     : mesh(nullptr)
     , needResize(false)
+{
+}
+
+EditorApplication::~EditorApplication()
 {
 }
 
@@ -110,7 +111,6 @@ void EditorApplication::OnInitialize()
 void EditorApplication::OnTerminate()
 {
     gameThread->Terminate();
-    FreeConsole();
 }
 
 void EditorApplication::Update(float dt)

@@ -24,6 +24,7 @@ class EditorApplication : public WildMini::Application::WMApplication
 {
 public:
     EditorApplication();
+    virtual ~EditorApplication();
 
 public:
     void OnInitialize() override;

@@ -16,6 +16,7 @@ namespace WildMini::Application
     {
     public:
         WMApplication();
+        virtual ~WMApplication();
 
     public:
         virtual void OnInitialize() = 0;

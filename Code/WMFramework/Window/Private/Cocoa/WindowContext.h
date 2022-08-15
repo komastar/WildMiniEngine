@@ -6,7 +6,8 @@
 //
 
 #ifdef __APPLE__
-#include <Cocoa/Cocoa.h>
+#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 #include "Window/WMWindow.h"
 
 namespace WildMini::Window
@@ -14,19 +15,25 @@ namespace WildMini::Window
     class WindowContext : public WMWindow
     {
     public:
-        WindowContext();
+        WindowContext(uint32_t _width, uint32_t _height);
         
     public:
-        virtual void Create() override;
-        virtual void Show() override;
-        virtual void Hide() override;
-        virtual void Update() override;
-        virtual void Focus() override;
-
-        virtual void* PlatformHandle() override;
-
-        virtual uint32_t Width() override;
-        virtual uint32_t Height() override;
+        void Create() override;
+        void Show() override;
+        void Hide() override;
+        void Update() override;
+        void Focus() override;
+        
+        void SetTitle(const wchar_t *title) override;
+        void *PlatformHandle() const override;
+        float GetWidth() const override;
+        float GetHeight() const override;
+        void SetWidth(uint32_t width) override;
+        void SetHeight(uint32_t height) override;
+        void SetSize(uint32_t width, uint32_t height) override;
+        float GetAspect() const override;
+        void OnResize() override;
+        void AddResizeCallback(std::function<void (uint32_t, uint32_t)> callback) override;
         
     private:
         NSWindow* window;

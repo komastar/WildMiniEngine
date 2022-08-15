@@ -18,6 +18,10 @@ WMApplication::WMApplication()
     WMASSERT(context);
 }
 
+WMApplication::~WMApplication()
+{
+}
+
 int WMApplication::Run()
 {
     OnInitialize();

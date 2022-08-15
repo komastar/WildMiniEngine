@@ -8,14 +8,12 @@
 #ifdef __APPLE__
 #include "ApplicationContext.h"
 #include <TargetConditionals.h>
-#include <Cocoa/Cocoa.h>
+#import <Cocoa/Cocoa.h>
 
 using namespace WildMini::Application::Private;
 
 int ApplicationContext::MessageLoop()
 {
-    NSApplication* app = [NSApplication sharedApplication];
-    [app run];
     return 0;
 }
 
