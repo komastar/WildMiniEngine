@@ -7,6 +7,7 @@
 
 #pragma once
 #include "Graphics/Private/DX12/GraphicsDeviceContext.h"
+#include "Graphics/Private/Metal/GraphicsDeviceContext.h"
 
 namespace WildMini::Graphics::Private
 {
@@ -15,11 +16,7 @@ namespace WildMini::Graphics::Private
     public:
         static WMGraphicsDevice* Create()
         {
-#ifdef __APPLE__
-            return nullptr;
-#else
             return new GraphicsDeviceContext();
-#endif // __APPLE__
         }
     };
 }

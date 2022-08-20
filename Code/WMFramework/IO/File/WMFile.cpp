@@ -41,6 +41,8 @@ WMObject<WMFile> WMFile::Open(const std::wstring& path, WMFile::AccessMode acces
     case WMFile::AccessMode::ReadWrite:
         mode = std::ios_base::in | std::ios_base::out;
         break;
+    case AccessMode::ReadOnly:
+        break;
     }
 
     if (WMFile::AccessMode::ReadOnly != accessMode)
@@ -52,6 +54,8 @@ WMObject<WMFile> WMFile::Open(const std::wstring& path, WMFile::AccessMode acces
             break;
         case WMFile::OpenMode::Append:
             mode |= std::ios_base::app;
+            break;
+        case OpenMode::Exisiting:
             break;
         }
     }
@@ -138,6 +142,8 @@ size_t WMFile::Seek(size_t offset, SeekOrigin seekOrigin /*= SeekOrigin::Start*/
     case WMFile::SeekOrigin::End:
         dir = std::ios_base::end;
         break;
+    case SeekOrigin::Start:
+        break;
     }
 
     impl->stream.seekg(offset, dir);
@@ -165,22 +171,22 @@ size_t WMFile::RemainLength() const
     return fileSize - currentPosition;
 }
 
-const std::wstring& WMFile::Filename() const
+const std::string& WMFile::Filename() const
 {
     return filename;
 }
 
-const std::wstring& WMFile::Extension() const
+const std::string& WMFile::Extension() const
 {
     return extension;
 }
 
-const std::wstring& WMFile::RelativePath() const
+const std::string& WMFile::RelativePath() const
 {
     return relativePath;
 }
 
-const std::wstring& WMFile::AbsolutePath() const
+const std::string& WMFile::AbsolutePath() const
 {
     return absolutePath;
 }

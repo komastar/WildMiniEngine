@@ -49,9 +49,9 @@
 			children = (
 				74029875289FE64200933BA1 /* EditorApplication.cpp */,
 				74029876289FE64200933BA1 /* EditorApplication.h */,
+				7402987828A0111F00933BA1 /* Frameworks */,
 				74029860289FE4F600933BA1 /* main.mm */,
 				74029852289FDF5400933BA1 /* Products */,
-				7402987828A0111F00933BA1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
