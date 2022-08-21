@@ -5,6 +5,7 @@
 //  Created by Eugene Kim on 2022/08/20.
 //
 
+#ifdef __APPLE__
 #ifndef GraphicsDeviceContext_h
 #define GraphicsDeviceContext_h
 #include "Graphics/WMGraphicsDevice.h"
@@ -32,3 +33,4 @@ namespace WildMini::Graphics::Private
     };
 }
 #endif /* GraphicsDeviceContext_h */
+#endif // __APPLE__

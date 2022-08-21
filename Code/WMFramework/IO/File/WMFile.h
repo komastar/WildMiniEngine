@@ -53,10 +53,10 @@ namespace WildMini::IO::File
         size_t TotalLength() const;
         size_t RemainLength() const;
 
-        const std::string& Filename() const;
-        const std::string& Extension() const;
-        const std::string& RelativePath() const;
-        const std::string& AbsolutePath() const;
+        const std::wstring& Filename() const;
+        const std::wstring& Extension() const;
+        const std::wstring& RelativePath() const;
+        const std::wstring& AbsolutePath() const;
 
     private:
         WMFile();
@@ -65,9 +65,9 @@ namespace WildMini::IO::File
 
         WMFileHandle* impl;
         size_t fileSize;
-        std::string filename;
-        std::string extension;
-        std::string relativePath;
-        std::string absolutePath;
+        std::wstring filename;
+        std::wstring extension;
+        std::wstring relativePath;
+        std::wstring absolutePath;
     };
 }

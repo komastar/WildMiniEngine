@@ -71,10 +71,10 @@ WMObject<WMFile> WMFile::Open(const std::wstring& path, WMFile::AccessMode acces
         WMFile* file = new WMFile();
         file->impl = new FileHandle(stream);
         std::filesystem::path fsPath(path.data());
-        file->filename = fsPath.filename().c_str();
-        file->extension = fsPath.extension().c_str();
-        file->absolutePath = std::filesystem::canonical(fsPath).c_str();
-        file->relativePath = fsPath.relative_path().c_str();
+        file->filename = fsPath.filename().wstring();
+        file->extension = fsPath.extension().wstring();
+        file->absolutePath = std::filesystem::canonical(fsPath).wstring();
+        file->relativePath = fsPath.relative_path().wstring();
         file->fileSize = std::filesystem::file_size(fsPath);
 
         return file;
@@ -171,22 +171,22 @@ size_t WMFile::RemainLength() const
     return fileSize - currentPosition;
 }
 
-const std::string& WMFile::Filename() const
+const std::wstring& WMFile::Filename() const
 {
     return filename;
 }
 
-const std::string& WMFile::Extension() const
+const std::wstring& WMFile::Extension() const
 {
     return extension;
 }
 
-const std::string& WMFile::RelativePath() const
+const std::wstring& WMFile::RelativePath() const
 {
     return relativePath;
 }
 
-const std::string& WMFile::AbsolutePath() const
+const std::wstring& WMFile::AbsolutePath() const
 {
     return absolutePath;
 }
