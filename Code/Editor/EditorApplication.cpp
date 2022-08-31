@@ -25,7 +25,7 @@ using namespace WildMini::Common;
 
 struct Constants
 {
-    WMMatrix4 worldViewProj;
+    WMMatrix4 worldViewProj[3];
 };
 
 struct MainPassConstants
@@ -88,7 +88,8 @@ void EditorApplication::OnInitialize()
     mainPassBuffer->WriteData(&mainPass, sizeof(MainPassConstants));
 
     Constants constants;
-    constants.worldViewProj = (camera.ViewMatrix() * camera.ProjMatrix()).Transpose();
+    constants.worldViewProj[0] = (camera.ViewMatrix() * camera.ProjMatrix()).Transpose();
+    constants.worldViewProj[1] = (camera.ViewMatrix() * camera.ProjMatrix()).Transpose();
     constantBuffer = device->CreateGPUBuffer(sizeof(Constants), WMGPUBuffer::CPUCacheMode::WRITABLE);
     constantBuffer->WriteData(&constants, sizeof(Constants));
 
@@ -122,12 +123,16 @@ void EditorApplication::Update(float dt)
     WMLinearTransform2 lt2;
     lt2.Rotate(worldTime);
     at2.Multiply(lt2);
-    WMVector3 camPos = at2.v * 15.0f;
+    WMVector3 camPos = at2.v * 55.0f;
     camera.SetView(WMVector3(camPos.x, 5.0f, camPos.y), WMVector3(0.0f, 0.0f, 0.0f), WMVector3::up);
 
     Constants constants;
-    constants.worldViewProj = (camera.ViewMatrix() * camera.ProjMatrix()).Transpose();
-    constantBuffer->WriteData(&constants, sizeof(Constants));
+    constants.worldViewProj[0] = (camera.ViewMatrix() * camera.ProjMatrix()).Transpose();
+    constants.worldViewProj[1] = (camera.ViewMatrix() * camera.ProjMatrix()).Transpose();
+    constants.worldViewProj[1]._14 = 25.0f;
+    constants.worldViewProj[2] = (camera.ViewMatrix() * camera.ProjMatrix()).Transpose();
+    constants.worldViewProj[2]._14 = -25.0f;
+    constantBuffer->WriteData(&constants, sizeof(Constants) * 3);
 
     MainPassConstants mainPass;
     mainPass.eye = camera.Position();
@@ -160,7 +165,7 @@ void EditorApplication::Render()
             renderCommandEncoder->SetRenderTargets({ swapChain->RenderTargetTexture() }, swapChain->DepthStencilTexture());
             renderCommandEncoder->SetConstantBuffer(0, constantBuffer);
             renderCommandEncoder->SetVertexBuffer(mesh->vertexBuffer, sizeof(WMVertex));
-            renderCommandEncoder->DrawPrimitives(WMRenderCommandEncoder::PrimitiveType::Triangle, (uint32_t)mesh->vertices.size(), 1, 0, 0);
+            renderCommandEncoder->DrawPrimitives(WMRenderCommandEncoder::PrimitiveType::Triangle, (uint32_t)mesh->vertices.size(), 3, 0, 0);
             renderCommandEncoder->ImguiRender();
             renderCommandEncoder->EndEncoding({ swapChain->RenderTargetTexture() });
         }

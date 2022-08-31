@@ -1,6 +1,6 @@
 cbuffer cbPerObject : register(b0)
 {
-    float4x4 worldViewProj;
+    float4x4 worldViewProj[2];
 };
 
 cbuffer cbPass : register(b1)
@@ -14,6 +14,7 @@ struct VertexIn
     float3 posL : POSITION;
     float3 normalL : NORMAL;
     float4 color : COLOR;
+    uint instanceId : SV_InstanceID;
 };
 
 struct VertexOut
@@ -26,7 +27,7 @@ struct VertexOut
 VertexOut VS(VertexIn vin)
 {
     VertexOut vout;
-    vout.posH = mul(float4(vin.posL, 1.0f), worldViewProj);
+    vout.posH = mul(float4(vin.posL, 1.0f), worldViewProj[vin.instanceId]);
     vout.normalW = vin.normalL;
     vout.color = vin.color;
     return vout;

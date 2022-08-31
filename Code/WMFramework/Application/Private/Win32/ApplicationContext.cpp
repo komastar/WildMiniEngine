@@ -15,7 +15,7 @@ int ApplicationContext::MessageLoop()
     MSG msg;
     while (true)
     {
-        if (PeekMessageW(&msg, nullptr, 0, 0, PM_REMOVE))
+        if (GetMessageW(&msg, nullptr, 0, 0))
         {
             TranslateMessage(&msg);
             DispatchMessage(&msg);

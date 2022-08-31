@@ -530,6 +530,7 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClInclude Include="Math\WMVector3Int.h" />
     <ClInclude Include="Math\WMVector4Int.h" />
     <ClInclude Include="Graphics\WMShader.h" />
+    <ClInclude Include="UI\WMRectTransform.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application\WMApplication.cpp" />
@@ -583,6 +584,7 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClCompile Include="Math\WMVector4Int.cpp" />
     <ClCompile Include="IO\File\WMFile.cpp" />
     <ClCompile Include="Graphics\WMCamera.cpp" />
+    <ClCompile Include="UI\WMRectTransform.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
