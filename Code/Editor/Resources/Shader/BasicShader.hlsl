@@ -1,6 +1,7 @@
 cbuffer cbPerObject : register(b0)
 {
-    float4x4 worldViewProj[2];
+    float4x4 viewProj;
+    float4x4 world[3];
 };
 
 cbuffer cbPass : register(b1)
@@ -27,8 +28,9 @@ struct VertexOut
 VertexOut VS(VertexIn vin)
 {
     VertexOut vout;
-    vout.posH = mul(float4(vin.posL, 1.0f), worldViewProj[vin.instanceId]);
-    vout.normalW = vin.normalL;
+    float4 pos = mul(float4(vin.posL, 1.0f), world[vin.instanceId]);
+    vout.posH = mul(pos, viewProj);
+    vout.normalW = mul(float4(vin.normalL, 1.0f), world[vin.instanceId]);
     vout.color = vin.color;
     return vout;
 }
@@ -36,7 +38,7 @@ VertexOut VS(VertexIn vin)
 float4 PS(VertexOut pin) : SV_Target
 {
     float4 color = mul(pin.color, 0.9f);
-    float length = max(-dot(pin.normalW, normalize(float3(1.0f, -2.0f, 3.0f))), 0.1f);
+    float length = max(dot(pin.normalW, normalize(light)), 0.1f);
     color = mul(color, length);
     return color;
 }

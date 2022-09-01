@@ -25,7 +25,9 @@ using namespace WildMini::Common;
 
 struct Constants
 {
-    WMMatrix4 worldViewProj[3];
+    WMMatrix4 viewProj;
+    WMMatrix4 world[3];
+
 };
 
 struct MainPassConstants
@@ -88,8 +90,10 @@ void EditorApplication::OnInitialize()
     mainPassBuffer->WriteData(&mainPass, sizeof(MainPassConstants));
 
     Constants constants;
-    constants.worldViewProj[0] = (camera.ViewMatrix() * camera.ProjMatrix()).Transpose();
-    constants.worldViewProj[1] = (camera.ViewMatrix() * camera.ProjMatrix()).Transpose();
+    constants.viewProj = (camera.ViewMatrix() * camera.ProjMatrix()).Transpose();
+    constants.world[0] = WMMatrix4::Identity();
+    constants.world[1] = WMMatrix4::Identity();
+    constants.world[2] = WMMatrix4::Identity();
     constantBuffer = device->CreateGPUBuffer(sizeof(Constants), WMGPUBuffer::CPUCacheMode::WRITABLE);
     constantBuffer->WriteData(&constants, sizeof(Constants));
 
@@ -124,19 +128,24 @@ void EditorApplication::Update(float dt)
     lt2.Rotate(worldTime);
     at2.Multiply(lt2);
     WMVector3 camPos = at2.v * 55.0f;
-    camera.SetView(WMVector3(camPos.x, 5.0f, camPos.y), WMVector3(0.0f, 0.0f, 0.0f), WMVector3::up);
+    camera.SetView(WMVector3(0.0f, 25.0f, 25.0f), WMVector3(0.0f, 0.0f, 0.0f), WMVector3::up);
 
     Constants constants;
-    constants.worldViewProj[0] = (camera.ViewMatrix() * camera.ProjMatrix()).Transpose();
-    constants.worldViewProj[1] = (camera.ViewMatrix() * camera.ProjMatrix()).Transpose();
-    constants.worldViewProj[1]._14 = 25.0f;
-    constants.worldViewProj[2] = (camera.ViewMatrix() * camera.ProjMatrix()).Transpose();
-    constants.worldViewProj[2]._14 = -25.0f;
-    constantBuffer->WriteData(&constants, sizeof(Constants) * 3);
+    constants.viewProj = (camera.ViewMatrix() * camera.ProjMatrix()).Transpose();
+
+    WMLinearTransform3 lt3;
+    lt3.RotateY(worldTime);
+    WMMatrix4 world(lt3.m);
+    constants.world[0] = world;
+    constants.world[0]._14 = -5.0f;
+    constants.world[1] = world;
+    constants.world[2] = world;
+    constants.world[2]._14 = 5.0f;
+    constantBuffer->WriteData(&constants, sizeof(Constants));
 
     MainPassConstants mainPass;
     mainPass.eye = camera.Position();
-    mainPass.light = WMVector3(-1.0f, -1.0f, -1.0f).Normalize();
+    mainPass.light = WMVector3(0.0f, -1.0f, -1.0f).Normalize();
     mainPassBuffer->WriteData(&mainPass, sizeof(MainPassConstants));
 }
 

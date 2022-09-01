@@ -324,7 +324,7 @@ WMObject<WMShader> GraphicsDeviceContext::CreateShader(const std::vector<uint8_t
     UINT compileFlags = 0;
     ComPtr<ID3DBlob> byteCode;
     ComPtr<ID3DBlob> errors;
-    HRESULT hr = D3DCompile2(data.data(), data.size(), nullptr, nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, entry.c_str(), shaderVerName.c_str(), compileFlags, 0, 0, 0, 0, &byteCode, &errors);
+    D3DCompile2(data.data(), data.size(), nullptr, nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, entry.c_str(), shaderVerName.c_str(), compileFlags, 0, 0, 0, 0, &byteCode, &errors);
 
     return new Shader(byteCode.Get(), stage, entry);
 }

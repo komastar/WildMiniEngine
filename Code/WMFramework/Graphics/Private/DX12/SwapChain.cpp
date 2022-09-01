@@ -62,12 +62,12 @@ void SwapChain::Resize(uint32_t width, uint32_t height)
     this->height = height;
 
     DXGI_SWAP_CHAIN_DESC desc;
-    HRESULT hr = swapChain->GetDesc(&desc);
+    swapChain->GetDesc(&desc);
     for (int i = 0; i < BUFFER_COUNT; ++i)
     {
         renderTargets[i] = nullptr;
     }
-    hr = swapChain->ResizeBuffers(BUFFER_COUNT, this->width, this->height, desc.BufferDesc.Format, desc.Flags);
+    swapChain->ResizeBuffers(BUFFER_COUNT, this->width, this->height, desc.BufferDesc.Format, desc.Flags);
     swapChainIndex = swapChain->GetCurrentBackBufferIndex();
     SetupRenderTargets();
     SetupDepthStencil();

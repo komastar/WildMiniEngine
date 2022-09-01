@@ -108,7 +108,7 @@ WMMatrix4::WMMatrix4(const WMMatrix2& m)
     _41 = 0.0f;
     _42 = 0.0f;
     _43 = 0.0f;
-    _44 = 0.0f;
+    _44 = 1.0f;
 }
 
 WMMatrix4::WMMatrix4(const WMMatrix3& m)
@@ -131,7 +131,7 @@ WMMatrix4::WMMatrix4(const WMMatrix3& m)
     _41 = 0.0f;
     _42 = 0.0f;
     _43 = 0.0f;
-    _44 = 0.0f;
+    _44 = 1.0f;
 }
 
 WMMatrix4 WMMatrix4::Transpose()
