@@ -14,7 +14,7 @@ namespace WildMini::Graphics::Geometry
     struct WMVertex
     {
         WildMini::Math::WMVector3 p;
-        WildMini::Math::WMVector3 n;
+        WildMini::Math::WMVector2 t;
         WildMini::Graphics::Primitive::WMColor c;
     };
 }

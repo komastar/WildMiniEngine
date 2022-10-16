@@ -36,8 +36,15 @@ struct MainPassConstants
     WMVector3 light;
 };
 
+struct ProgressConstants 
+{
+    WMMatrix4 viewProj;
+    WMMatrix4 world[16];
+    float ratio[16];
+};
+
 EditorApplication::EditorApplication()
-    : mesh(nullptr)
+    : uiMesh(nullptr)
     , needResize(false)
 {
 }
@@ -58,8 +65,8 @@ void EditorApplication::OnInitialize()
     commandQueue = device->CreateCommandQueue();
     swapChain = commandQueue->CreateSwapChain(window);
 
-    vertexShader = device->CreateShader(L"Resources/Shader/BasicShader.hlsl", "VS", WMShader::StageType::Vertex);
-    pixelShader = device->CreateShader(L"Resources/Shader/BasicShader.hlsl", "PS", WMShader::StageType::Fragment);
+    vertexShader = device->CreateShader(L"Resources/Shader/UIShader.hlsl", "VS", WMShader::StageType::Vertex);
+    pixelShader = device->CreateShader(L"Resources/Shader/UIShader.hlsl", "PS", WMShader::StageType::Fragment);
 
     WMRenderPipelineDescriptor pipelineDesc = {};
     pipelineDesc.sampleCount = 1;
@@ -67,8 +74,8 @@ void EditorApplication::OnInitialize()
     pipelineDesc.fragmentShader = pixelShader;
     pipelineDesc.vertexDescriptor.attributes = {
         { WMVertexFormat::Float3, "POSITION",   0, 0  },
-        { WMVertexFormat::Float3, "NORMAL",     0, 12 },
-        { WMVertexFormat::Float4, "COLOR",      0, 24 },
+        { WMVertexFormat::Float2, "TEXCOORD",   0, 12 },
+        { WMVertexFormat::Float4, "COLOR",      0, 20 },
     };
 
     pipelineDesc.colorAttachments = {
@@ -80,24 +87,21 @@ void EditorApplication::OnInitialize()
 
     renderPipeline = device->CreateRenderPipeline(pipelineDesc);
 
-    camera.SetView(WMVector3(0.0f, 0.0f, 15.0f), WMVector3(0.0f, 0.0f, 0.0f), WMVector3::up);
-    camera.SetPerspective(0.15f * 3.1415926535f, window->GetAspect(), 1.0f, 1000.0f);
+    uiCamera.SetView(WMVector3::back, WMVector3::zero, WMVector3::up);
+    uiCamera.SetOrthographics(window->GetWidth(), window->GetHeight(), 0.0f, 1000.0f);
 
-    MainPassConstants mainPass;
-    mainPass.eye = camera.Position();
-    mainPass.light = WMVector3(1.0f, 1.0f, 1.0f).Normalize();
-    mainPassBuffer = device->CreateGPUBuffer(sizeof(MainPassConstants), WMGPUBuffer::CPUCacheMode::WRITABLE);
-    mainPassBuffer->WriteData(&mainPass, sizeof(MainPassConstants));
+    ProgressConstants progressConst;
+    progressConst.viewProj = (uiCamera.ViewMatrix() * uiCamera.ProjMatrix()).Transpose();
+    progressConst.world[0] = WMMatrix4::Identity();
+    progressConst.world[1] = WMMatrix4::Identity();
+    progressConst.world[2] = WMMatrix4::Identity();
+    progressConst.ratio[0] = 1.0f;
+    progressConst.ratio[1] = 0.5f;
+    progressConst.ratio[2] = 0.15f;
+    progressBuffer = device->CreateGPUBuffer(sizeof(ProgressConstants), WMGPUBuffer::CPUCacheMode::WRITABLE);
+    progressBuffer->WriteData(&progressConst, sizeof(ProgressConstants));
 
-    Constants constants;
-    constants.viewProj = (camera.ViewMatrix() * camera.ProjMatrix()).Transpose();
-    constants.world[0] = WMMatrix4::Identity();
-    constants.world[1] = WMMatrix4::Identity();
-    constants.world[2] = WMMatrix4::Identity();
-    constantBuffer = device->CreateGPUBuffer(sizeof(Constants), WMGPUBuffer::CPUCacheMode::WRITABLE);
-    constantBuffer->WriteData(&constants, sizeof(Constants));
-
-    mesh = Geometry::WMGeometryFactory::MakeBox(device);
+    uiMesh = Geometry::WMGeometryFactory::MakeQuad(device, 100.0f);
 
     float deltaTime = 0.0f;
     gameThread = WMThread::Create(L"Editor");
@@ -120,33 +124,20 @@ void EditorApplication::OnTerminate()
 
 void EditorApplication::Update(float dt)
 {
-    static float worldTime = 0.0f;
-    worldTime += dt;
-    WMAffineTransform2 at2;
-    at2.Translate(0.0f, -1.0f);
-    WMLinearTransform2 lt2;
-    lt2.Rotate(worldTime);
-    at2.Multiply(lt2);
-    WMVector3 camPos = at2.v * 55.0f;
-    camera.SetView(WMVector3(0.0f, 25.0f, 25.0f), WMVector3(0.0f, 0.0f, 0.0f), WMVector3::up);
-
-    Constants constants;
-    constants.viewProj = (camera.ViewMatrix() * camera.ProjMatrix()).Transpose();
-
-    WMLinearTransform3 lt3;
-    lt3.RotateY(worldTime);
-    WMMatrix4 world(lt3.m);
-    constants.world[0] = world;
-    constants.world[0]._14 = -5.0f;
-    constants.world[1] = world;
-    constants.world[2] = world;
-    constants.world[2]._14 = 5.0f;
-    constantBuffer->WriteData(&constants, sizeof(Constants));
-
-    MainPassConstants mainPass;
-    mainPass.eye = camera.Position();
-    mainPass.light = WMVector3(0.0f, -1.0f, -1.0f).Normalize();
-    mainPassBuffer->WriteData(&mainPass, sizeof(MainPassConstants));
+    ProgressConstants progressConst;
+    progressConst.viewProj = (uiCamera.ViewMatrix() * uiCamera.ProjMatrix()).Transpose();
+    progressConst.world[0] = WMMatrix4::Identity();
+    progressConst.world[1] = WMMatrix4::Identity();
+    progressConst.world[1]._41 = -250.0f;
+    progressConst.world[1] = progressConst.world[1].Transpose();
+    progressConst.world[2] = WMMatrix4::Identity();
+    progressConst.world[2]._41 = 250.0f;
+    progressConst.world[2] = progressConst.world[2].Transpose();
+    progressConst.ratio[0] = 1.0f;
+    progressConst.ratio[1] = 0.5f;
+    progressConst.ratio[2] = 0.15f;
+    progressBuffer = device->CreateGPUBuffer(sizeof(ProgressConstants), WMGPUBuffer::CPUCacheMode::WRITABLE);
+    progressBuffer->WriteData(&progressConst, sizeof(ProgressConstants));
 }
 
 void EditorApplication::Render()
@@ -155,7 +146,7 @@ void EditorApplication::Render()
     {
         needResize.store(false);
         swapChain->Resize(window->width, window->height);
-        camera.SetPerspective(0.15f * static_cast<float>(M_PI), window->GetAspect(), 1.0f, 1000.0f);
+        uiCamera.SetOrthographics(window->GetWidth(), window->GetHeight(), 0.0f, 1000.0f);
     }
 
     if (WMObject<WMCommandBuffer> commandBuffer = commandQueue->CreateCommandBuffer())
@@ -172,9 +163,9 @@ void EditorApplication::Render()
                 , 0.0f
                 , 0);
             renderCommandEncoder->SetRenderTargets({ swapChain->RenderTargetTexture() }, swapChain->DepthStencilTexture());
-            renderCommandEncoder->SetConstantBuffer(0, constantBuffer);
-            renderCommandEncoder->SetVertexBuffer(mesh->vertexBuffer, sizeof(WMVertex));
-            renderCommandEncoder->DrawPrimitives(WMRenderCommandEncoder::PrimitiveType::Triangle, (uint32_t)mesh->vertices.size(), 3, 0, 0);
+            renderCommandEncoder->SetConstantBuffer(0, progressBuffer);
+            renderCommandEncoder->SetVertexBuffer(uiMesh->vertexBuffer, sizeof(WMVertex));
+            renderCommandEncoder->DrawPrimitives(WMRenderCommandEncoder::PrimitiveType::Triangle, (uint32_t)uiMesh->vertices.size(), 3, 0, 0);
             renderCommandEncoder->ImguiRender();
             renderCommandEncoder->EndEncoding({ swapChain->RenderTargetTexture() });
         }

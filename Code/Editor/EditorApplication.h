@@ -48,10 +48,9 @@ private:
     WildMini::Object::WMObject<WildMini::Graphics::WMShader> pixelShader;
     WildMini::Object::WMObject<WildMini::Graphics::WMRenderPipeline> renderPipeline;
 
-    WildMini::Object::WMObject<WildMini::Graphics::WMGPUBuffer> constantBuffer;
-    WildMini::Object::WMObject<WildMini::Graphics::WMGPUBuffer> mainPassBuffer;
-    WildMini::Graphics::WMCamera camera;
-    WildMini::Graphics::Geometry::WMMesh* mesh;
+    WildMini::Object::WMObject<WildMini::Graphics::WMGPUBuffer> progressBuffer;
+    WildMini::Graphics::WMCamera uiCamera;
+    WildMini::Graphics::Geometry::WMMesh* uiMesh;
 
     std::atomic_bool needResize;
 };

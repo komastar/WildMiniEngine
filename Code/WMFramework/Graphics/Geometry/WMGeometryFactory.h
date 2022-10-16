@@ -15,6 +15,8 @@ namespace WildMini::Graphics::Geometry
     class WMGeometryFactory
     {
     public:
-        static WMMesh* MakeBox(WildMini::Graphics::WMGraphicsDevice* device);
+        static WMMesh* MakeDefaultBox(WildMini::Graphics::WMGraphicsDevice* device);
+        static WMMesh* MakeBox(WildMini::Graphics::WMGraphicsDevice* device, float size);
+        static WMMesh* MakeQuad(WildMini::Graphics::WMGraphicsDevice* device, float size);
     };
 }
