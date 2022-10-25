@@ -116,14 +116,14 @@ WMMesh* WMGeometryFactory::MakeQuad(WMGraphicsDevice* device, float size)
     };
 
     std::vector<WMVertex> verticies;
-    for (size_t i = 0; i < indicies.size(); ++i)
+    for (size_t i = 0; i < indicies.size(); i += 3)
     {
         WMVector3 p1 = positions[indicies[i]];
-        WMVector3 p2 = positions[indicies[++i]];
-        WMVector3 p3 = positions[indicies[++i]];
+        WMVector3 p2 = positions[indicies[i + 1]];
+        WMVector3 p3 = positions[indicies[i + 2]];
         WMVertex v1 = { p1, texcoords[i], WMColor::white };
-        WMVertex v2 = { p2, texcoords[++i], WMColor::white };
-        WMVertex v3 = { p3, texcoords[++i], WMColor::white };
+        WMVertex v2 = { p2, texcoords[i + 1], WMColor::white };
+        WMVertex v3 = { p3, texcoords[i + 2], WMColor::white };
         verticies.push_back(v1);
         verticies.push_back(v2);
         verticies.push_back(v3);
@@ -132,8 +132,11 @@ WMMesh* WMGeometryFactory::MakeQuad(WMGraphicsDevice* device, float size)
     mesh->vertices = verticies;
 
     WMObject<WMGPUBuffer> vertexBuffer;
-    vertexBuffer = device->CreateGPUBuffer(mesh->vertices.size() * sizeof(WMVertex), WMGPUBuffer::CPUCacheMode::WRITABLE);
-    vertexBuffer->WriteData(mesh->vertices.data(), mesh->vertices.size() * sizeof(WMVertex));
+    vertexBuffer = device->CreateGPUBuffer(
+        mesh->vertices.size() * sizeof(WMVertex)
+        , WMGPUBuffer::CPUCacheMode::WRITABLE);
+    vertexBuffer->WriteData(mesh->vertices.data()
+        , mesh->vertices.size() * sizeof(WMVertex));
     mesh->vertexBuffer = vertexBuffer;
 
     return mesh;
