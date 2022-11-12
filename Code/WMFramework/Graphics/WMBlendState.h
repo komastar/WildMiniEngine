@@ -27,6 +27,27 @@ namespace WildMini::Graphics
         Max
     };
 
+    enum class WMLogicOperation
+    {
+        CLEAR
+        , SET
+        , COPY
+        , COPY_INVERTED
+        , NOOP
+        , INVERT
+        , AND
+        , NAND
+        , OR
+        , NOR
+        , XOR
+        , EQUIV
+        , AND_REVERSE
+        , AND_INVERTED
+        , OR_REVERSE
+        , OR_INVERTED
+        , MAX
+    };
+
     enum class WMBlendFactor
     {
         Zero,
@@ -34,7 +55,7 @@ namespace WildMini::Graphics
         SrcColor,
         OneMinusSrcColor,
         SrcAlpha,
-        OnMinusSrcAlpha,
+        OneMinusSrcAlpha,
         DstColor,
         OneMinusDstColor,
         DstAlpha,

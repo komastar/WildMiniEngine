@@ -78,9 +78,8 @@ void EditorApplication::OnInitialize()
         { WMVertexFormat::Float4, "COLOR",      0, 20 },
     };
 
-    pipelineDesc.colorAttachments = {
-        { WMPixelFormat::RGBA_8_UNML, false }
-    };
+    WMRenderPipelineColorAttachmentDescriptor colorAttach;
+    pipelineDesc.colorAttachments = { colorAttach };
 
     pipelineDesc.depthStencilPixelFormat = WMPixelFormat::DEPTH_24_UNORM_STENCIL_8;
     pipelineDesc.inputPrimitiveTopology = WMPrimitiveTopologyType::Triangle;
@@ -101,7 +100,7 @@ void EditorApplication::OnInitialize()
     progressBuffer = device->CreateGPUBuffer(sizeof(ProgressConstants), WMGPUBuffer::CPUCacheMode::WRITABLE);
     progressBuffer->WriteData(&progressConst, sizeof(ProgressConstants));
 
-    uiMesh = Geometry::WMGeometryFactory::MakeQuad(device, 100.0f);
+    uiMesh = Geometry::WMGeometryFactory::MakeQuad(device, 100.0f, WMColor(1.0f, 0.0f, 0.0f, 0.25f));
 
     float deltaTime = 0.0f;
     gameThread = WMThread::Create(L"Editor");

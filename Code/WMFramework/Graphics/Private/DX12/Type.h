@@ -123,6 +123,48 @@ namespace WildMini::Graphics::Private::DX12
         return D3D12_BLEND_OP_ADD;
     }
 
+    using LogicOperation = WildMini::Graphics::WMLogicOperation;
+    inline D3D12_LOGIC_OP FromLogicOperation(LogicOperation logicOp)
+    {
+        switch (logicOp)
+        {
+        case LogicOperation::CLEAR:
+            return D3D12_LOGIC_OP_CLEAR;
+        case LogicOperation::SET:
+            return D3D12_LOGIC_OP_SET;
+        case LogicOperation::COPY:
+            return D3D12_LOGIC_OP_COPY;
+        case LogicOperation::COPY_INVERTED:
+            return D3D12_LOGIC_OP_COPY_INVERTED;
+        case LogicOperation::NOOP:
+            return D3D12_LOGIC_OP_NOOP;
+        case LogicOperation::INVERT:
+            return D3D12_LOGIC_OP_INVERT;
+        case LogicOperation::AND:
+            return D3D12_LOGIC_OP_AND;
+        case LogicOperation::NAND:
+            return D3D12_LOGIC_OP_NAND;
+        case LogicOperation::OR:
+            return D3D12_LOGIC_OP_OR;
+        case LogicOperation::NOR:
+            return D3D12_LOGIC_OP_NOR;
+        case LogicOperation::XOR:
+            return D3D12_LOGIC_OP_XOR;
+        case LogicOperation::EQUIV:
+            return D3D12_LOGIC_OP_EQUIV;
+        case LogicOperation::AND_REVERSE:
+            return D3D12_LOGIC_OP_AND_REVERSE;
+        case LogicOperation::AND_INVERTED:
+            return D3D12_LOGIC_OP_AND_INVERTED;
+        case LogicOperation::OR_REVERSE:
+            return D3D12_LOGIC_OP_OR_REVERSE;
+        case LogicOperation::OR_INVERTED:
+            return D3D12_LOGIC_OP_OR_INVERTED;
+        default:
+            return D3D12_LOGIC_OP_NOOP;
+        }
+    }
+
     using BlendFactor = WildMini::Graphics::WMBlendFactor;
     inline D3D12_BLEND FromBlendFactor(BlendFactor blendFactor)
     {
@@ -138,7 +180,7 @@ namespace WildMini::Graphics::Private::DX12
             return D3D12_BLEND_INV_SRC_COLOR;
         case BlendFactor::SrcAlpha:
             return D3D12_BLEND_SRC_ALPHA;
-        case BlendFactor::OnMinusSrcAlpha:
+        case BlendFactor::OneMinusSrcAlpha:
             return D3D12_BLEND_INV_SRC_ALPHA;
         case BlendFactor::DstColor:
             return D3D12_BLEND_DEST_COLOR;

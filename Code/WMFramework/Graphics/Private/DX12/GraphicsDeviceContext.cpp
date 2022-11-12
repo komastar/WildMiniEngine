@@ -290,7 +290,9 @@ WMObject<WMRenderPipeline> GraphicsDeviceContext::CreateRenderPipeline(const WMR
         psoDesc.BlendState.RenderTarget[i].DestBlend = FromBlendFactor(attachment.dstRgbBlendFactor);
         psoDesc.BlendState.RenderTarget[i].BlendOpAlpha = FromBlendOperation(attachment.alphaBlendOperation);
         psoDesc.BlendState.RenderTarget[i].SrcBlendAlpha = FromBlendFactor(attachment.srcAlphaBlendFactor);
-        psoDesc.BlendState.RenderTarget[i].DestBlendAlpha = FromBlendFactor(attachment.srcAlphaBlendFactor);
+        psoDesc.BlendState.RenderTarget[i].DestBlendAlpha = FromBlendFactor(attachment.dstAlphaBlendFactor);
+        psoDesc.BlendState.RenderTarget[i].LogicOpEnable = attachment.logicEnabled;
+        psoDesc.BlendState.RenderTarget[i].LogicOp = FromLogicOperation(attachment.logicOperation);
         psoDesc.BlendState.RenderTarget[i].RenderTargetWriteMask = attachment.writeMask;
     }
 

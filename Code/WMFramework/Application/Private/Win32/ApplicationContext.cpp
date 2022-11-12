@@ -20,6 +20,11 @@ int ApplicationContext::MessageLoop()
             TranslateMessage(&msg);
             DispatchMessage(&msg);
         }
+        else
+        {
+            Update();
+            Render();
+        }
 
         if (WM_QUIT == msg.message)
         {
@@ -28,5 +33,11 @@ int ApplicationContext::MessageLoop()
     }
 
     return static_cast<int>(msg.wParam);
+}
+void WildMini::Application::Private::ApplicationContext::Update()
+{
+}
+void WildMini::Application::Private::ApplicationContext::Render()
+{
 }
 #endif // _WIN32

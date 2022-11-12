@@ -28,17 +28,20 @@ namespace WildMini::Graphics
 
     struct WMRenderPipelineColorAttachmentDescriptor
     {
-        WMPixelFormat pixelFormat;
+        WMPixelFormat pixelFormat = WMPixelFormat::RGBA_8_UNML;
 
-        bool blendEnabled;
+        bool blendEnabled = true;
+        bool logicEnabled = false;
 
-        WMBlendOperation alphaBlendOperation;
-        WMBlendFactor srcAlphaBlendFactor;
-        WMBlendFactor dstAlphaBlendFactor;
+        WMBlendOperation alphaBlendOperation = WMBlendOperation::Add;
+        WMBlendFactor srcAlphaBlendFactor = WMBlendFactor::SrcAlpha;
+        WMBlendFactor dstAlphaBlendFactor = WMBlendFactor::OneMinusSrcAlpha;
 
-        WMBlendOperation rgbBlendOperation;
-        WMBlendFactor srcRgbBlendFactor;
-        WMBlendFactor dstRgbBlendFactor;
+        WMBlendOperation rgbBlendOperation = WMBlendOperation::Add;
+        WMBlendFactor srcRgbBlendFactor = WMBlendFactor::One;
+        WMBlendFactor dstRgbBlendFactor = WMBlendFactor::Zero;
+
+        WMLogicOperation logicOperation = WMLogicOperation::NOOP;
 
         WMColorWriteMask writeMask = WMColorWriteMask::ColorWriteMaskAll;
     };

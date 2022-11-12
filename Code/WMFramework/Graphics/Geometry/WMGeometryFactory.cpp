@@ -7,17 +7,17 @@
 
 #include "WMGeometryFactory.h"
 #include "Object/WMObject.h"
-#include "WMVertex.h"
-#include "Graphics/Primitive/WMColor.h"
+#include "Graphics/Geometry/WMVertex.h"
 #include "Graphics/WMGPUBuffer.h"
 #include "Math/WMVector3.h"
 
 using namespace WildMini::Object;
+using namespace WildMini::Graphics;
 using namespace WildMini::Graphics::Geometry;
 using namespace WildMini::Graphics::Primitive;
 using namespace WildMini::Math;
 
-WMMesh* WMGeometryFactory::MakeDefaultBox(WildMini::Graphics::WMGraphicsDevice* device)
+WMMesh* WMGeometryFactory::MakeDefaultBox(WMGraphicsDevice* device)
 {
     static WMMesh* mesh = nullptr;
     if (nullptr == mesh)
@@ -28,7 +28,7 @@ WMMesh* WMGeometryFactory::MakeDefaultBox(WildMini::Graphics::WMGraphicsDevice* 
     return mesh;
 }
 
-WMMesh* WMGeometryFactory::MakeBox(WildMini::Graphics::WMGraphicsDevice* device, float size)
+WMMesh* WMGeometryFactory::MakeBox(WMGraphicsDevice* device, float size)
 {
     WMMesh* mesh = new WMMesh();
     std::vector<WMVector3> positions =
@@ -90,7 +90,7 @@ WMMesh* WMGeometryFactory::MakeBox(WildMini::Graphics::WMGraphicsDevice* device,
     return mesh;
 }
 
-WMMesh* WMGeometryFactory::MakeQuad(WMGraphicsDevice* device, float size)
+WMMesh* WMGeometryFactory::MakeQuad(WMGraphicsDevice* device, float size, const WMColor& color)
 {
     WMMesh* mesh = new WMMesh();
     std::vector<WMVector3> positions =
@@ -121,9 +121,9 @@ WMMesh* WMGeometryFactory::MakeQuad(WMGraphicsDevice* device, float size)
         WMVector3 p1 = positions[indicies[i]];
         WMVector3 p2 = positions[indicies[i + 1]];
         WMVector3 p3 = positions[indicies[i + 2]];
-        WMVertex v1 = { p1, texcoords[i], WMColor::white };
-        WMVertex v2 = { p2, texcoords[i + 1], WMColor::white };
-        WMVertex v3 = { p3, texcoords[i + 2], WMColor::white };
+        WMVertex v1 = { p1, texcoords[indicies[i]], color };
+        WMVertex v2 = { p2, texcoords[indicies[i + 1]], color };
+        WMVertex v3 = { p3, texcoords[indicies[i + 2]], color };
         verticies.push_back(v1);
         verticies.push_back(v2);
         verticies.push_back(v3);
