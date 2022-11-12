@@ -31,16 +31,16 @@ namespace WildMini::Graphics
         WMPixelFormat pixelFormat = WMPixelFormat::RGBA_8_UNML;
 
         bool blendEnabled = true;
-        bool logicEnabled = false;
-
-        WMBlendOperation alphaBlendOperation = WMBlendOperation::Add;
-        WMBlendFactor srcAlphaBlendFactor = WMBlendFactor::SrcAlpha;
-        WMBlendFactor dstAlphaBlendFactor = WMBlendFactor::OneMinusSrcAlpha;
 
         WMBlendOperation rgbBlendOperation = WMBlendOperation::Add;
-        WMBlendFactor srcRgbBlendFactor = WMBlendFactor::One;
-        WMBlendFactor dstRgbBlendFactor = WMBlendFactor::Zero;
+        WMBlendFactor srcRgbBlendFactor = WMBlendFactor::SrcAlpha;
+        WMBlendFactor dstRgbBlendFactor = WMBlendFactor::OneMinusSrcAlpha;
 
+        WMBlendOperation alphaBlendOperation = WMBlendOperation::Add;
+        WMBlendFactor srcAlphaBlendFactor = WMBlendFactor::One;
+        WMBlendFactor dstAlphaBlendFactor = WMBlendFactor::Zero;
+
+        bool logicEnabled = false;
         WMLogicOperation logicOperation = WMLogicOperation::NOOP;
 
         WMColorWriteMask writeMask = WMColorWriteMask::ColorWriteMaskAll;
