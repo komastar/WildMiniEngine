@@ -83,6 +83,8 @@ namespace WildMini::Graphics::Private::DX12
             return DXGI_FORMAT_R32G32B32_FLOAT;
         case VertexFormat::Float4:
             return DXGI_FORMAT_R32G32B32A32_FLOAT;
+        case VertexFormat::Uint:
+            return DXGI_FORMAT_R32_UINT;
         }
         return DXGI_FORMAT_UNKNOWN;
     }

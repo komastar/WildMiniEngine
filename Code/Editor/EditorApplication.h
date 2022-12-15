@@ -49,6 +49,7 @@ private:
     WildMini::Object::WMObject<WildMini::Graphics::WMRenderPipeline> renderPipeline;
 
     WildMini::Object::WMObject<WildMini::Graphics::WMGPUBuffer> progressBuffer;
+    WildMini::Object::WMObject<WildMini::Graphics::WMGPUBuffer> progressBuffer2;
     WildMini::Graphics::WMCamera uiCamera;
     WildMini::Graphics::Geometry::WMMesh* uiMesh;
 

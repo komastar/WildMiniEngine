@@ -457,6 +457,8 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClInclude Include="Application\Private\ApplicationContextFactory.h" />
     <ClInclude Include="Application\Private\Win32\ApplicationContext.h" />
     <ClInclude Include="Common\Private\Win32\ThreadContext.h" />
+    <ClInclude Include="Common\WMBase.h" />
+    <ClInclude Include="Common\WMComponent.h" />
     <ClInclude Include="Common\WMThread.h" />
     <ClInclude Include="Graphics\Geometry\WMGeometryFactory.h" />
     <ClInclude Include="Graphics\Geometry\WMMesh.h" />
@@ -471,6 +473,7 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClInclude Include="Graphics\WMRenderCommandEncoder.h" />
     <ClInclude Include="Graphics\WMRenderPipeline.h" />
     <ClInclude Include="Graphics\WMVertexDescriptor.h" />
+    <ClInclude Include="IO\Data\WMSerializable.h" />
     <ClInclude Include="IO\File\Private\FileHandle.h" />
     <ClInclude Include="IO\File\WMFileHandle.h" />
     <ClInclude Include="Object\WMObject.h" />
@@ -536,6 +539,7 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClCompile Include="Application\WMApplication.cpp" />
     <ClCompile Include="Application\Private\Win32\ApplicationContext.cpp" />
     <ClCompile Include="Common\Private\Win32\ThreadContext.cpp" />
+    <ClCompile Include="Common\WMBase.cpp" />
     <ClCompile Include="Common\WMThread.cpp" />
     <ClCompile Include="Graphics\Geometry\WMGeometryFactory.cpp" />
     <ClCompile Include="Graphics\Private\DX12\CopyCommandEncoder.cpp" />

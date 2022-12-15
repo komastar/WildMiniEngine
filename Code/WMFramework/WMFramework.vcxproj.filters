@@ -157,6 +157,7 @@
     <ClCompile Include="UI\WMRectTransform.cpp">
       <Filter>UI</Filter>
     </ClCompile>
+    <ClCompile Include="Common\WMBase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WMFramework.h" />
@@ -394,6 +395,9 @@
     <ClInclude Include="UI\WMRectTransform.h">
       <Filter>UI</Filter>
     </ClInclude>
+    <ClInclude Include="IO\Data\WMSerializable.h" />
+    <ClInclude Include="Common\WMComponent.h" />
+    <ClInclude Include="Common\WMBase.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

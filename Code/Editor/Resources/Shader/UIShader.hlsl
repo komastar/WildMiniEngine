@@ -24,7 +24,7 @@ VertexOut VS(VertexIn vin)
 {
     VertexOut vout;
     float4 pos = mul(float4(vin.posL, 1.0f), world[vin.instanceId]);
-    vout.posH = mul(pos, viewProj);
+    vout.posH = mul(float4(pos.x, pos.y + vin.instanceId * 100.0f, pos.z, pos.w), viewProj);
     vout.texCoord = vin.texCoord;
     vout.color = vin.color;
     return vout;

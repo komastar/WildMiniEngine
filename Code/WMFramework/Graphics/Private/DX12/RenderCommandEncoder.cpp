@@ -182,14 +182,14 @@ void RenderCommandEncoder::SetConstantBuffer(uint32_t index, const WMGPUBuffer* 
     commandList->SetGraphicsRootConstantBufferView(index, buffer->Buffer()->GetGPUVirtualAddress());
 }
 
-void RenderCommandEncoder::SetVertexBuffer(const WMGPUBuffer* vertexBuffer, uint32_t vertexSize)
+void RenderCommandEncoder::SetVertexBuffer(const WMGPUBuffer* vertexBuffer, const uint32_t vertexSize, const uint32_t slot/* = 0*/, const uint32_t numViews/* = 1*/)
 {
     const GPUBuffer* buffer = dynamic_cast<const GPUBuffer*>(vertexBuffer);
     D3D12_VERTEX_BUFFER_VIEW view;
     view.BufferLocation = buffer->Buffer()->GetGPUVirtualAddress();
     view.StrideInBytes = vertexSize;
     view.SizeInBytes = static_cast<UINT>(buffer->Size());
-    commandList->IASetVertexBuffers(0, 1, &view);
+    commandList->IASetVertexBuffers(slot, numViews, &view);
 }
 
 void RenderCommandEncoder::DrawPrimitives(PrimitiveType primitiveType, uint32_t vertexCount, uint32_t instanceCount, uint32_t vertexStart, uint32_t instanceStart)

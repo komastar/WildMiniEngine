@@ -16,7 +16,8 @@ namespace WildMini::Graphics
         Float,
         Float2,
         Float3,
-        Float4
+        Float4,
+        Uint
     };
 
     struct WMVertexAttributeDescriptor

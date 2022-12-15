@@ -73,9 +73,10 @@ void EditorApplication::OnInitialize()
     pipelineDesc.vertexShader = vertexShader;
     pipelineDesc.fragmentShader = pixelShader;
     pipelineDesc.vertexDescriptor.attributes = {
-        { WMVertexFormat::Float3, "POSITION",   0, 0  },
-        { WMVertexFormat::Float2, "TEXCOORD",   0, 12 },
-        { WMVertexFormat::Float4, "COLOR",      0, 20 },
+        { WMVertexFormat::Float3, "POSITION",       0, 0  },
+        { WMVertexFormat::Float2, "TEXCOORD",       0, 12 },
+        { WMVertexFormat::Float4, "COLOR",          0, 20 },
+        { WMVertexFormat::Uint,   "SV_InstanceID",  0, 28 },
     };
 
     WMRenderPipelineColorAttachmentDescriptor colorAttach;
@@ -125,17 +126,16 @@ void EditorApplication::Update(float dt)
 {
     ProgressConstants progressConst;
     progressConst.viewProj = (uiCamera.ViewMatrix() * uiCamera.ProjMatrix()).Transpose();
-    progressConst.world[0] = WMMatrix4::Identity();
-    progressConst.world[1] = WMMatrix4::Identity();
+    progressConst.world[0]._41 = -500.0f;
+    progressConst.world[0] = progressConst.world[0].Transpose();
     progressConst.world[1]._41 = -250.0f;
     progressConst.world[1] = progressConst.world[1].Transpose();
-    progressConst.world[2] = WMMatrix4::Identity();
     progressConst.world[2]._41 = 250.0f;
-    progressConst.world[2] = progressConst.world[2].Transpose();
-    progressConst.ratio[0] = 1.0f;
-    progressConst.ratio[1] = 0.5f;
-    progressConst.ratio[2] = 0.15f;
-    progressBuffer = device->CreateGPUBuffer(sizeof(ProgressConstants), WMGPUBuffer::CPUCacheMode::WRITABLE);
+    progressConst.world[2] = progressConst.world[0].Transpose();
+    progressConst.world[3]._41 = 500.0f;
+    progressConst.world[3] = progressConst.world[1].Transpose();
+    progressConst.world[4]._41 = 750.0f;
+    progressConst.world[4] = progressConst.world[2].Transpose();
     progressBuffer->WriteData(&progressConst, sizeof(ProgressConstants));
 }
 
@@ -152,19 +152,20 @@ void EditorApplication::Render()
     {
         if (WMObject<WMRenderCommandEncoder> renderCommandEncoder = commandBuffer->CreateRenderCommandEncoder(renderPipeline))
         {
-            Primitive::WMViewport viewport = { 0, 0, window->GetWidth(), window->GetHeight(), 0.0f, 1.0f };
-            renderCommandEncoder->SetViewport(viewport);
-            Primitive::WMRect scissorRect = { 0, 0, window->GetWidth(), window->GetHeight() };
-            renderCommandEncoder->SetScissorRect(scissorRect);
             renderCommandEncoder->ClearRenderTarget(swapChain->RenderTargetTexture(), Primitive::WMColor::black);
             renderCommandEncoder->ClearDepthStencil(swapChain->DepthStencilTexture()
                 , WMRenderCommandEncoder::DepthStencilClearFlag::All
                 , 0.0f
                 , 0);
+            Primitive::WMViewport viewport = { 0, 0, window->GetWidth(), window->GetHeight(), 0.0f, 1.0f };
+            renderCommandEncoder->SetViewport(viewport);
+            Primitive::WMRect scissorRect = { 0, 0, window->GetWidth(), window->GetHeight() };
+            renderCommandEncoder->SetScissorRect(scissorRect);
             renderCommandEncoder->SetRenderTargets({ swapChain->RenderTargetTexture() }, swapChain->DepthStencilTexture());
             renderCommandEncoder->SetConstantBuffer(0, progressBuffer);
             renderCommandEncoder->SetVertexBuffer(uiMesh->vertexBuffer, sizeof(WMVertex));
-            renderCommandEncoder->DrawPrimitives(WMRenderCommandEncoder::PrimitiveType::Triangle, (uint32_t)uiMesh->vertices.size(), 3, 0, 0);
+            renderCommandEncoder->DrawPrimitives(WMRenderCommandEncoder::PrimitiveType::Triangle, (uint32_t)uiMesh->vertices.size(), 2, 0, 2);
+            //renderCommandEncoder->DrawPrimitives(WMRenderCommandEncoder::PrimitiveType::Triangle, (uint32_t)uiMesh->vertices.size(), 2, 0, 0);
             renderCommandEncoder->ImguiRender();
             renderCommandEncoder->EndEncoding({ swapChain->RenderTargetTexture() });
         }
