@@ -7,7 +7,7 @@
 
 #pragma once
 #include "WMFramework.h"
-#include "Object/WMObject.h"
+#include "WMSharedPtr.h"
 
 namespace WildMini::Graphics
 {
@@ -23,7 +23,7 @@ namespace WildMini::Graphics
         DEPTH_24_UNORM_STENCIL_8
     };
 
-    class WM_API WMTexture : public WildMini::Object::WMRefCounter
+    class WM_API WMTexture : public WildMini::WMRefCounter
     {
     public:
         enum Type

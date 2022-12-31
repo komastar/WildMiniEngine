@@ -7,12 +7,12 @@
 
 #pragma once
 #include "WMFramework.h"
-#include "Object/WMObject.h"
+#include "WMSharedPtr.h"
 #include "WMApplicationContext.h"
 
 namespace WildMini::Application
 {
-    class WM_API WMApplication : public WildMini::Object::WMRefCounter
+    class WM_API WMApplication : public WildMini::WMRefCounter
     {
     public:
         WMApplication();
@@ -24,7 +24,7 @@ namespace WildMini::Application
         int Run();
 
     protected:
-        WildMini::Object::WMObject<WMApplicationContext> context;
+        WildMini::WMSharedPtr<WMApplicationContext> context;
     };
 }
 #pragma once

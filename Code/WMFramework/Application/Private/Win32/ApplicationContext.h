@@ -11,7 +11,7 @@
 #include "WMFramework.h"
 #include "Application/WMApplicationContext.h"
 #include "Graphics/WMGraphicsDevice.h"
-#include "Object/WMObject.h"
+#include "WMSharedPtr.h"
 #include "Window/WMWindow.h"
 
 namespace WildMini::Application::Private

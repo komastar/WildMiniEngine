@@ -10,7 +10,7 @@
 #include "IO/File/WMFile.h"
 
 using namespace WildMini::Graphics;
-using namespace WildMini::Object;
+using namespace WildMini;
 using namespace WildMini::IO::File;
 
 WMGraphicsDevice* WMGraphicsDevice::CreateGraphicsDevice()
@@ -18,9 +18,9 @@ WMGraphicsDevice* WMGraphicsDevice::CreateGraphicsDevice()
     return WildMini::Graphics::Private::GraphicsDeviceFactory::Create();
 }
 
-WMObject<WMShader> WMGraphicsDevice::CreateShader(const std::wstring& path, const std::string& entry, WMShader::StageType stage)
+WMSharedPtr<WMShader> WMGraphicsDevice::CreateShader(const std::wstring& path, const std::string& entry, WMShader::StageType stage)
 {
-    WMObject<WMFile> file = WMFile::OpenBinary(path, WMFile::AccessMode::ReadOnly, WMFile::OpenMode::Exisiting);
+    WMSharedPtr<WMFile> file = WMFile::OpenBinary(path, WMFile::AccessMode::ReadOnly, WMFile::OpenMode::Exisiting);
     if (file)
     {
         size_t fileLength = file->TotalLength();

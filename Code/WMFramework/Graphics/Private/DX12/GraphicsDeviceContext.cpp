@@ -16,7 +16,7 @@
 #include "UI/imgui/imgui.h"
 #include "UI/imgui/backends/imgui_impl_dx12.h"
 
-using namespace WildMini::Object;
+using namespace WildMini;
 using namespace WildMini::Graphics;
 using namespace WildMini::Graphics::Private;
 using namespace WildMini::Graphics::Private::DX12;
@@ -100,7 +100,7 @@ GraphicsDeviceContext::~GraphicsDeviceContext()
 {
 }
 
-WMObject<WMCommandQueue> GraphicsDeviceContext::CreateCommandQueue()
+WMSharedPtr<WMCommandQueue> GraphicsDeviceContext::CreateCommandQueue()
 {
     ComPtr<ID3D12CommandQueue> commandQueue;
     D3D12_COMMAND_QUEUE_DESC commandQueueDesc = {};
@@ -121,7 +121,7 @@ WMObject<WMCommandQueue> GraphicsDeviceContext::CreateCommandQueue()
     return new CommandQueue(this, commandQueue.Get(), commandAllocator.Get(), commandList.Get(), fence.Get());
 }
 
-WMObject<WMGPUBuffer> GraphicsDeviceContext::CreateGPUBuffer(size_t size, WMGPUBuffer::CPUCacheMode mode)
+WMSharedPtr<WMGPUBuffer> GraphicsDeviceContext::CreateGPUBuffer(size_t size, WMGPUBuffer::CPUCacheMode mode)
 {
     D3D12_HEAP_PROPERTIES heapProp = {};
     D3D12_RESOURCE_STATES initBufferState = {};
@@ -161,7 +161,7 @@ WMObject<WMGPUBuffer> GraphicsDeviceContext::CreateGPUBuffer(size_t size, WMGPUB
     return new GPUBuffer(buffer.Get(), mode, initBufferState);
 }
 
-WMObject<WMTexture> GraphicsDeviceContext::CreateTexture(const WMTexture::Desc& desc)
+WMSharedPtr<WMTexture> GraphicsDeviceContext::CreateTexture(const WMTexture::Desc& desc)
 {
     D3D12_RESOURCE_DESC bufferDesc = {};
     bufferDesc.Width = desc.width;
@@ -223,7 +223,7 @@ WMObject<WMTexture> GraphicsDeviceContext::CreateTexture(const WMTexture::Desc& 
     return new Texture(buffer.Get(), initState);
 }
 
-WMObject<WMRenderPipeline> GraphicsDeviceContext::CreateRenderPipeline(const WMRenderPipelineDescriptor& desc)
+WMSharedPtr<WMRenderPipeline> GraphicsDeviceContext::CreateRenderPipeline(const WMRenderPipelineDescriptor& desc)
 {
     ComPtr<ID3D12RootSignature> rootSignature;
     CD3DX12_ROOT_PARAMETER slotRootParams[2] = {};
@@ -275,8 +275,8 @@ WMObject<WMRenderPipeline> GraphicsDeviceContext::CreateRenderPipeline(const WMR
     }
 
     psoDesc.InputLayout = { inputLayout.data(), static_cast<UINT>(inputLayout.size()) };
-    psoDesc.VS = const_cast<WMObject<WMShader>&>(desc.vertexShader).DynamicCast<Shader>()->ByteCode();
-    psoDesc.PS = const_cast<WMObject<WMShader>&>(desc.fragmentShader).DynamicCast<Shader>()->ByteCode();
+    psoDesc.VS = const_cast<WMSharedPtr<WMShader>&>(desc.vertexShader).DynamicCast<Shader>()->ByteCode();
+    psoDesc.PS = const_cast<WMSharedPtr<WMShader>&>(desc.fragmentShader).DynamicCast<Shader>()->ByteCode();
     psoDesc.PrimitiveTopologyType = PrimitiveType(desc.inputPrimitiveTopology);
     psoDesc.NumRenderTargets = static_cast<ULONG>(desc.colorAttachments.size());
     psoDesc.BlendState = CD3DX12_BLEND_DESC(D3D12_DEFAULT);
@@ -308,7 +308,7 @@ WMObject<WMRenderPipeline> GraphicsDeviceContext::CreateRenderPipeline(const WMR
     return new RenderPipeline(pipelineState.Get(), rootSignature.Get());
 }
 
-WMObject<WMShader> GraphicsDeviceContext::CreateShader(const std::vector<uint8_t>& data, const std::string& entry, WMShader::StageType stage)
+WMSharedPtr<WMShader> GraphicsDeviceContext::CreateShader(const std::vector<uint8_t>& data, const std::string& entry, WMShader::StageType stage)
 {
     std::string shaderVerName;
     switch (stage)

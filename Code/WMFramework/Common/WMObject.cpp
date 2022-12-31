@@ -5,20 +5,21 @@
 //  Copyright (c) 2022 komastar. All rights reserved.
 //
 
-#include "WMBase.h"
+#include "Common/WMObject.h"
+#include "Component/WMComponent.h"
 
-using namespace WildMini;
+using namespace WildMini::Common;
 
 template<typename T>
-T* WMBase::AddComponent()
+T* WMObject::AddComponent()
 {
-    T* comp = new T();
+    T* comp = new T(this);
     components.push_back(comp);
     return comp;
 }
 
 template<typename T>
-T* WMBase::GetComponent()
+T* WMObject::GetComponent()
 {
     for (auto& component : components)
     {

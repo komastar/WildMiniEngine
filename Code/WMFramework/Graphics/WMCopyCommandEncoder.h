@@ -7,13 +7,13 @@
 
 #pragma once
 #include "WMFramework.h"
-#include "Object/WMRefCounter.h"
+#include "WMRefCounter.h"
 #include "Graphics/WMGPUBuffer.h"
 #include "Graphics/WMTexture.h"
 
 namespace WildMini::Graphics
 {
-    class WM_API WMCopyCommandEncoder : public Object::WMRefCounter
+    class WM_API WMCopyCommandEncoder : public WildMini::WMRefCounter
     {
     public:
         struct TextureArea

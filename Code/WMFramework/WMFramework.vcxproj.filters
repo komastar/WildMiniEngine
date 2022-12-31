@@ -1,11 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <ClCompile Include="Common\WMObject.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
     <ClCompile Include="Common\WMThread.cpp">
       <Filter>Common</Filter>
     </ClCompile>
     <ClCompile Include="Common\Private\Win32\ThreadContext.cpp">
       <Filter>Common\Private\Win32</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\WMComponentBase.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="IO\File\WMFile.cpp">
+      <Filter>IO\File</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\WMRectTransform.cpp">
+      <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="UI\imgui\imgui.cpp">
       <Filter>UI\imgui</Filter>
@@ -94,17 +106,11 @@
     <ClCompile Include="Graphics\Geometry\WMGeometryFactory.cpp">
       <Filter>Graphics\Geometry</Filter>
     </ClCompile>
-    <ClCompile Include="IO\File\WMFile.cpp">
-      <Filter>IO\File</Filter>
-    </ClCompile>
     <ClCompile Include="Application\WMApplication.cpp">
       <Filter>Application</Filter>
     </ClCompile>
     <ClCompile Include="Application\Private\Win32\ApplicationContext.cpp">
       <Filter>Application\Private\Win32</Filter>
-    </ClCompile>
-    <ClCompile Include="Object\WMRefCounter.cpp">
-      <Filter>Object</Filter>
     </ClCompile>
     <ClCompile Include="Math\WMAffineTransform2.cpp">
       <Filter>Math</Filter>
@@ -154,18 +160,40 @@
     <ClCompile Include="Log\WMLogVariant.cpp">
       <Filter>Log</Filter>
     </ClCompile>
-    <ClCompile Include="UI\WMRectTransform.cpp">
-      <Filter>UI</Filter>
-    </ClCompile>
-    <ClCompile Include="Common\WMBase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WMFramework.h" />
+    <ClInclude Include="WMSharedPtr.h" />
+    <ClInclude Include="WMRefCounter.h" />
+    <ClInclude Include="Common\WMObject.h">
+      <Filter>Common</Filter>
+    </ClInclude>
     <ClInclude Include="Common\WMThread.h">
       <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="Common\Private\Win32\ThreadContext.h">
       <Filter>Common\Private\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\WMComponent.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\WMComponentBase.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="IO\Data\WMSerializable.h">
+      <Filter>IO\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="IO\File\WMFileHandle.h">
+      <Filter>IO\File</Filter>
+    </ClInclude>
+    <ClInclude Include="IO\File\WMFile.h">
+      <Filter>IO\File</Filter>
+    </ClInclude>
+    <ClInclude Include="IO\File\Private\FileHandle.h">
+      <Filter>IO\File\Private</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\WMRectTransform.h">
+      <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="UI\imgui\imconfig.h">
       <Filter>UI\imgui</Filter>
@@ -308,15 +336,6 @@
     <ClInclude Include="Graphics\Geometry\WMVertex.h">
       <Filter>Graphics\Geometry</Filter>
     </ClInclude>
-    <ClInclude Include="IO\File\WMFileHandle.h">
-      <Filter>IO\File</Filter>
-    </ClInclude>
-    <ClInclude Include="IO\File\WMFile.h">
-      <Filter>IO\File</Filter>
-    </ClInclude>
-    <ClInclude Include="IO\File\Private\FileHandle.h">
-      <Filter>IO\File\Private</Filter>
-    </ClInclude>
     <ClInclude Include="Application\WMApplication.h">
       <Filter>Application</Filter>
     </ClInclude>
@@ -328,12 +347,6 @@
     </ClInclude>
     <ClInclude Include="Application\Private\Win32\ApplicationContext.h">
       <Filter>Application\Private\Win32</Filter>
-    </ClInclude>
-    <ClInclude Include="Object\WMObject.h">
-      <Filter>Object</Filter>
-    </ClInclude>
-    <ClInclude Include="Object\WMRefCounter.h">
-      <Filter>Object</Filter>
     </ClInclude>
     <ClInclude Include="Math\WMAffineTransform2.h">
       <Filter>Math</Filter>
@@ -392,85 +405,82 @@
     <ClInclude Include="Log\WMLogVariant.h">
       <Filter>Log</Filter>
     </ClInclude>
-    <ClInclude Include="UI\WMRectTransform.h">
-      <Filter>UI</Filter>
-    </ClInclude>
-    <ClInclude Include="IO\Data\WMSerializable.h" />
-    <ClInclude Include="Common\WMComponent.h" />
-    <ClInclude Include="Common\WMBase.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
-      <UniqueIdentifier>{9ab54041-9fe8-4070-a5d8-aba985581051}</UniqueIdentifier>
+      <UniqueIdentifier>{fc3f966e-4b36-4291-80d0-2f73a8bea9bd}</UniqueIdentifier>
     </Filter>
     <Filter Include="Common\Private">
-      <UniqueIdentifier>{69fb93dc-b62a-4ca6-b89d-ad118082dc9a}</UniqueIdentifier>
+      <UniqueIdentifier>{104ea71d-9a5a-47ba-9376-b019445bb78a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Common\Private\Win32">
-      <UniqueIdentifier>{3791f704-5b06-4057-8bb2-2c9b805a174b}</UniqueIdentifier>
+      <UniqueIdentifier>{da6cfe66-8fb6-4458-a60c-b328f75c82b8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="UI">
-      <UniqueIdentifier>{e7c5baf6-b7e8-4b8c-9455-4e7b2629f042}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UI\imgui">
-      <UniqueIdentifier>{6c1c472a-d6d3-466c-8f19-e79e52e2001a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UI\imgui\backends">
-      <UniqueIdentifier>{13fe526a-d8ee-47bb-b683-31fb86a2a9e9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Graphics">
-      <UniqueIdentifier>{2e636919-977f-47ca-864b-79acd3967b5b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Graphics\Private">
-      <UniqueIdentifier>{df32e870-7a4e-4821-b920-cfc24846b1fd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Graphics\Private\DX12">
-      <UniqueIdentifier>{b9a55acf-ad2a-4795-8021-db2a639a571c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Graphics\Primitive">
-      <UniqueIdentifier>{d3e5410c-7caf-457f-bbe9-1eeab2a9f766}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Graphics\Geometry">
-      <UniqueIdentifier>{ebf418ef-94fd-44e0-97de-0dbc6d5ec91a}</UniqueIdentifier>
+    <Filter Include="Component">
+      <UniqueIdentifier>{5e665ed2-733e-4881-80d1-b922c8a33a4d}</UniqueIdentifier>
     </Filter>
     <Filter Include="IO">
-      <UniqueIdentifier>{457db962-8a2d-4088-ae94-939c9f7463e2}</UniqueIdentifier>
+      <UniqueIdentifier>{c9ecf85d-e20d-42e4-9e6f-428cc3675c8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IO\Data">
+      <UniqueIdentifier>{2303e486-f4c1-4959-83b9-e4b3af37dc9c}</UniqueIdentifier>
     </Filter>
     <Filter Include="IO\File">
-      <UniqueIdentifier>{56496a9c-3d65-4fb9-afc6-df9ccd19d1cf}</UniqueIdentifier>
+      <UniqueIdentifier>{587787d6-6895-4662-a43c-d8bae11b3bd8}</UniqueIdentifier>
     </Filter>
     <Filter Include="IO\File\Private">
-      <UniqueIdentifier>{ef5cec8d-c94d-4d06-a967-2fbb8f21349d}</UniqueIdentifier>
+      <UniqueIdentifier>{7cbe24e2-74e9-4f6e-a2e8-3d6f6efc95ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{0e493658-0e11-4dc9-9d16-74ad5059f3cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\imgui">
+      <UniqueIdentifier>{6494c861-b8bb-40ca-8366-19eefb14524d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\imgui\backends">
+      <UniqueIdentifier>{21981dec-dc9e-4e6f-86e7-78f98aa97077}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics">
+      <UniqueIdentifier>{323aaad0-1ecb-4895-b782-033c4778e660}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\Private">
+      <UniqueIdentifier>{bd5468d0-9b2c-4b94-bc2f-38d642b68772}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\Private\DX12">
+      <UniqueIdentifier>{2170c087-7717-442c-a208-fd0441cc4ce5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\Primitive">
+      <UniqueIdentifier>{e4205730-561f-450d-9b79-fd4c5988338f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\Geometry">
+      <UniqueIdentifier>{975fcb72-77f0-4e04-8e21-c4bb7c392762}</UniqueIdentifier>
     </Filter>
     <Filter Include="Application">
-      <UniqueIdentifier>{dc727f57-bd58-4e07-9c0b-0c2bdeade3e7}</UniqueIdentifier>
+      <UniqueIdentifier>{8cd64809-af4f-41ce-9351-5c06716c1edf}</UniqueIdentifier>
     </Filter>
     <Filter Include="Application\Private">
-      <UniqueIdentifier>{2b492f28-53cf-4b48-835f-78949a4e1641}</UniqueIdentifier>
+      <UniqueIdentifier>{7267ced7-0e43-4a70-95d9-6ff4ca1ac90a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Application\Private\Win32">
-      <UniqueIdentifier>{f203f7bc-f1ad-4ca5-b363-7fb00143ef04}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Object">
-      <UniqueIdentifier>{7b2c1a66-64d3-4790-b3f4-8607370c0dd5}</UniqueIdentifier>
+      <UniqueIdentifier>{f533f2aa-d7a0-4127-9a64-5763f118d090}</UniqueIdentifier>
     </Filter>
     <Filter Include="Math">
-      <UniqueIdentifier>{b1abb8f4-834e-41b9-bf5a-f9bbaa251625}</UniqueIdentifier>
+      <UniqueIdentifier>{abe3b468-6354-4110-aaa7-555831ea3591}</UniqueIdentifier>
     </Filter>
     <Filter Include="Window">
-      <UniqueIdentifier>{35abd416-ce8c-4e08-90a8-097ac548e1b3}</UniqueIdentifier>
+      <UniqueIdentifier>{3e83d7ca-a6cc-4497-9ea5-df73985211e2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Window\Private">
-      <UniqueIdentifier>{66d64941-7703-400c-9a20-73e599c80298}</UniqueIdentifier>
+      <UniqueIdentifier>{5e65b432-2fc5-4e47-9a56-60710426dc03}</UniqueIdentifier>
     </Filter>
     <Filter Include="Window\Private\Win32">
-      <UniqueIdentifier>{240b8581-67cf-47cb-a19d-b39b469535a7}</UniqueIdentifier>
+      <UniqueIdentifier>{2904a576-b1ab-4e26-a5dd-8df6b9b3cd65}</UniqueIdentifier>
     </Filter>
     <Filter Include="Log">
-      <UniqueIdentifier>{500806fc-5077-4711-b4e5-21b3b34508ac}</UniqueIdentifier>
+      <UniqueIdentifier>{7fe67a33-e835-4c8a-949d-857045ff1559}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

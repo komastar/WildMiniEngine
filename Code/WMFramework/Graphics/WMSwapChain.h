@@ -7,12 +7,12 @@
 
 #pragma once
 #include "WMFramework.h"
-#include "Object/WMObject.h"
+#include "WMSharedPtr.h"
 #include "Graphics/WMTexture.h"
 
 namespace WildMini::Graphics
 {
-    class WM_API WMSwapChain : public WildMini::Object::WMRefCounter
+    class WM_API WMSwapChain : public WildMini::WMRefCounter
     {
     public:
         virtual const WMTexture* RenderTargetTexture() const = 0;

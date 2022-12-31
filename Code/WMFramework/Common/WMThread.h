@@ -1,10 +1,10 @@
 #pragma once
 #include "WMFramework.h"
-#include "Object/WMRefCounter.h"
+#include "WMRefCounter.h"
 
 namespace WildMini::Common
 {
-    class WMThread : public WildMini::Object::WMRefCounter
+    class WMThread : public WildMini::WMRefCounter
     {
     public:
         static WMThread* Create(const wchar_t* name);

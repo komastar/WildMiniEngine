@@ -7,13 +7,13 @@
 
 #pragma once
 #include "WMFramework.h"
+#include "Common/WMObject.h"
 
 namespace WildMini
 {
-    class WMBase;
     class WM_API WMComponent
     {
     public:
-        virtual WMBase* GetOwner() = 0;
+        virtual WildMini::Common::WMObject* GetOwner() = 0;
     };
 }

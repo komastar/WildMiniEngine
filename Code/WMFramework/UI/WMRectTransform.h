@@ -1,11 +1,11 @@
 #pragma once
-#include "Object/WMRefCounter.h"
+#include "WMRefCounter.h"
 #include "Graphics/Primitive/WMPoint.h"
 #include "Graphics/Primitive/WMSize.h"
 
 namespace WildMini::UI
 {
-    class WMRectTransform : public WildMini::Object::WMRefCounter
+    class WMRectTransform : public WildMini::WMRefCounter
     {
     public:
         WMRectTransform();

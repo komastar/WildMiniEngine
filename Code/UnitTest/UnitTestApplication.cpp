@@ -36,8 +36,8 @@ public:
     }
 
 private:
-    WildMini::Object::WMObject<WildMini::Window::WMWindow> window;
-    WildMini::Object::WMObject<WildMini::Graphics::WMGraphicsDevice> device;
+    WildMini::WMSharedPtr<WildMini::Window::WMWindow> window;
+    WildMini::WMSharedPtr<WildMini::Graphics::WMGraphicsDevice> device;
 };
 
 _TEST_(Win32, App, Run)

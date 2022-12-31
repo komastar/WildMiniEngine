@@ -7,16 +7,16 @@
 
 #pragma once
 #include "WMFramework.h"
-#include "Object/WMObject.h"
+#include "WMSharedPtr.h"
 #include "Graphics/WMRenderCommandEncoder.h"
 #include "Graphics/WMRenderPipeline.h"
 
 namespace WildMini::Graphics
 {
-    class WM_API WMCommandBuffer : public WildMini::Object::WMRefCounter
+    class WM_API WMCommandBuffer : public WildMini::WMRefCounter
     {
     public:
-        virtual WildMini::Object::WMObject<WMRenderCommandEncoder> CreateRenderCommandEncoder(WMRenderPipeline* renderPipeline) = 0;
+        virtual WildMini::WMSharedPtr<WMRenderCommandEncoder> CreateRenderCommandEncoder(WMRenderPipeline* renderPipeline) = 0;
         virtual void Commit() = 0;
     };
 }

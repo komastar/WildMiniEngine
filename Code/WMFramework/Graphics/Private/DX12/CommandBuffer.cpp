@@ -8,7 +8,7 @@
 #include "CommandBuffer.h"
 #include "RenderPipeline.h"
 
-using namespace WildMini::Object;
+using namespace WildMini;
 using namespace WildMini::Graphics;
 using namespace WildMini::Graphics::Private::DX12;
 
@@ -21,7 +21,7 @@ CommandBuffer::CommandBuffer(ID3D12DescriptorHeap* _imguiDescHeap, CommandQueue*
 {
 }
 
-WMObject<WMRenderCommandEncoder> CommandBuffer::CreateRenderCommandEncoder(WMRenderPipeline* _renderPipeline)
+WMSharedPtr<WMRenderCommandEncoder> CommandBuffer::CreateRenderCommandEncoder(WMRenderPipeline* _renderPipeline)
 {
     RenderPipeline* renderPipeline = dynamic_cast<RenderPipeline*>(_renderPipeline);
     commandList->Reset(commandAllocator.Get(), renderPipeline->PipelineState());

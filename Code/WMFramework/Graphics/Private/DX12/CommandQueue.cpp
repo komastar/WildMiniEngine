@@ -10,8 +10,8 @@
 #include "CommandBuffer.h"
 #include "Window/Private/Win32/WindowContext.h"
 
+using namespace WildMini;
 using namespace WildMini::Window;
-using namespace WildMini::Object;
 using namespace WildMini::Graphics;
 using namespace WildMini::Graphics::Private::DX12;
 
@@ -29,7 +29,7 @@ CommandQueue::CommandQueue(GraphicsDeviceContext* _graphicsDevice
 {
 }
 
-WMObject<WMCommandBuffer> CommandQueue::CreateCommandBuffer()
+WMSharedPtr<WMCommandBuffer> CommandQueue::CreateCommandBuffer()
 {
     commandAllocator->Reset();
     return new CommandBuffer(device->imguiDescHeap.Get()
@@ -39,7 +39,7 @@ WMObject<WMCommandBuffer> CommandQueue::CreateCommandBuffer()
         , D3D12_COMMAND_LIST_TYPE_DIRECT);
 }
 
-WMObject<WMSwapChain> CommandQueue::CreateSwapChain(WMWindow* window)
+WMSharedPtr<WMSwapChain> CommandQueue::CreateSwapChain(WMWindow* window)
 {
     return new SwapChain(device, this, static_cast<WindowContext*>(window));
 }

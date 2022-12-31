@@ -8,7 +8,7 @@
 #include "WMFile.h"
 #include "IO/File/Private/FileHandle.h"
 
-using namespace WildMini::Object;
+using namespace WildMini;
 using namespace WildMini::IO::File;
 using namespace WildMini::IO::File::Private;
 
@@ -30,7 +30,7 @@ WMFile::~WMFile()
     }
 }
 
-WMObject<WMFile> WMFile::Open(const std::wstring& path, WMFile::AccessMode accessMode, WMFile::OpenMode openMode, bool binary)
+WMSharedPtr<WMFile> WMFile::Open(const std::wstring& path, WMFile::AccessMode accessMode, WMFile::OpenMode openMode, bool binary)
 {
     std::ios_base::openmode mode = std::ios_base::in;
     switch (accessMode)
@@ -82,12 +82,12 @@ WMObject<WMFile> WMFile::Open(const std::wstring& path, WMFile::AccessMode acces
     return nullptr;
 }
 
-WMObject<WMFile> WMFile::OpenText(const std::wstring& path, AccessMode accessMode, OpenMode openMode)
+WMSharedPtr<WMFile> WMFile::OpenText(const std::wstring& path, AccessMode accessMode, OpenMode openMode)
 {
     return WMFile::Open(path, accessMode, openMode, false);
 }
 
-WMObject<WMFile> WMFile::OpenBinary(const std::wstring& path, AccessMode accessMode, OpenMode openMode)
+WMSharedPtr<WMFile> WMFile::OpenBinary(const std::wstring& path, AccessMode accessMode, OpenMode openMode)
 {
     return WMFile::Open(path, accessMode, openMode, true);
 }

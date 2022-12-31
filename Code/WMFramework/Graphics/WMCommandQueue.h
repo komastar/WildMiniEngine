@@ -7,18 +7,18 @@
 
 #pragma once
 #include "WMFramework.h"
-#include "Object/WMObject.h"
+#include "WMSharedPtr.h"
 #include "Window/WMWindow.h"
 #include "Graphics/WMSwapChain.h"
 #include "Graphics/WMCommandBuffer.h"
 
 namespace WildMini::Graphics
 {
-    class WM_API WMCommandQueue : public WildMini::Object::WMRefCounter
+    class WM_API WMCommandQueue : public WildMini::WMRefCounter
     {
     public:
-        virtual WildMini::Object::WMObject<WMSwapChain> CreateSwapChain(Window::WMWindow*) = 0;
-        virtual WildMini::Object::WMObject<WMCommandBuffer> CreateCommandBuffer() = 0;
+        virtual WildMini::WMSharedPtr<WMSwapChain> CreateSwapChain(Window::WMWindow*) = 0;
+        virtual WildMini::WMSharedPtr<WMCommandBuffer> CreateCommandBuffer() = 0;
 
         virtual void WaitComplete() = 0;
     };

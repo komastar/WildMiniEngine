@@ -16,12 +16,11 @@
 #include "Math/WMLinearTransform2.h"
 
 using namespace WildMini;
+using namespace WildMini::Common;
 using namespace WildMini::Graphics;
 using namespace WildMini::Graphics::Primitive;
 using namespace WildMini::Graphics::Geometry;
 using namespace WildMini::Math;
-using namespace WildMini::Object;
-using namespace WildMini::Common;
 
 struct Constants
 {
@@ -148,9 +147,9 @@ void EditorApplication::Render()
         uiCamera.SetOrthographics(window->GetWidth(), window->GetHeight(), 0.0f, 1000.0f);
     }
 
-    if (WMObject<WMCommandBuffer> commandBuffer = commandQueue->CreateCommandBuffer())
+    if (WMSharedPtr<WMCommandBuffer> commandBuffer = commandQueue->CreateCommandBuffer())
     {
-        if (WMObject<WMRenderCommandEncoder> renderCommandEncoder = commandBuffer->CreateRenderCommandEncoder(renderPipeline))
+        if (WMSharedPtr<WMRenderCommandEncoder> renderCommandEncoder = commandBuffer->CreateRenderCommandEncoder(renderPipeline))
         {
             renderCommandEncoder->ClearRenderTarget(swapChain->RenderTargetTexture(), Primitive::WMColor::black);
             renderCommandEncoder->ClearDepthStencil(swapChain->DepthStencilTexture()

@@ -8,36 +8,36 @@
 #pragma once
 #include "WMRefCounter.h"
 
-namespace WildMini::Object
+namespace WildMini
 {
     template<class T>
-    class WMObject
+    class WMSharedPtr
     {
     public:
-        WMObject(T* p = nullptr)
+        WMSharedPtr(T* p = nullptr)
             : object(p)
         {
             InternalAddRef();
         }
 
-        WMObject(const WMObject& obj)
+        WMSharedPtr(const WMSharedPtr& obj)
             : object(obj.object)
         {
             InternalAddRef();
         }
 
-        WMObject(const WMObject&& obj) noexcept
+        WMSharedPtr(const WMSharedPtr&& obj) noexcept
             : object(obj)
         {
             InternalAddRef();
         }
 
-        ~WMObject() noexcept
+        ~WMSharedPtr() noexcept
         {
             InternalRelease();
         }
 
-        WMObject& operator=(T* obj)
+        WMSharedPtr& operator=(T* obj)
         {
             if (object != obj)
             {
@@ -49,7 +49,7 @@ namespace WildMini::Object
             return *this;
         }
 
-        WMObject& operator=(const WMObject& obj) noexcept
+        WMSharedPtr& operator=(const WMSharedPtr& obj) noexcept
         {
             if (object != obj.object)
             {
@@ -61,7 +61,7 @@ namespace WildMini::Object
             return *this;
         }
 
-        WMObject& operator=(WMObject&& obj) noexcept
+        WMSharedPtr& operator=(WMSharedPtr&& obj) noexcept
         {
             if (object != obj.object)
             {
@@ -74,7 +74,7 @@ namespace WildMini::Object
         }
 
         template<class U>
-        WMObject<U> DynamicCast()
+        WMSharedPtr<U> DynamicCast()
         {
             return dynamic_cast<U*>(object);
         }

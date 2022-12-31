@@ -7,12 +7,12 @@
 
 #pragma once
 #include "WMFramework.h"
-#include "Object/WMRefCounter.h"
-#include "Common/WMComponent.h"
+#include "WMRefCounter.h"
 
-namespace WildMini
+namespace WildMini::Common
 {
-    class WM_API WMBase : public Object::WMRefCounter
+    class WMComponent;
+    class WM_API WMObject : public WildMini::WMRefCounter
     {
     public:
         template<typename T>

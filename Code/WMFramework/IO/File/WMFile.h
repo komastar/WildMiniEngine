@@ -7,12 +7,12 @@
 
 #pragma once
 #include "WMFramework.h"
-#include "Object/WMObject.h"
+#include "WMSharedPtr.h"
 #include "IO/File/WMFileHandle.h"
 
 namespace WildMini::IO::File
 {
-    class WM_API WMFile : public WildMini::Object::WMRefCounter
+    class WM_API WMFile : public WildMini::WMRefCounter
     {
     public:
         enum class OpenMode
@@ -36,9 +36,9 @@ namespace WildMini::IO::File
             Current
         };
 
-        static WildMini::Object::WMObject<WMFile> Open(const std::wstring& path, WMFile::AccessMode accessMode, WMFile::OpenMode openMode, bool binary);
-        static WildMini::Object::WMObject<WMFile> OpenText(const std::wstring& path, WMFile::AccessMode accessMode, WMFile::OpenMode openMode);
-        static WildMini::Object::WMObject<WMFile> OpenBinary(const std::wstring& path, WMFile::AccessMode accessMode, WMFile::OpenMode openMode);
+        static WildMini::WMSharedPtr<WMFile> Open(const std::wstring& path, WMFile::AccessMode accessMode, WMFile::OpenMode openMode, bool binary);
+        static WildMini::WMSharedPtr<WMFile> OpenText(const std::wstring& path, WMFile::AccessMode accessMode, WMFile::OpenMode openMode);
+        static WildMini::WMSharedPtr<WMFile> OpenBinary(const std::wstring& path, WMFile::AccessMode accessMode, WMFile::OpenMode openMode);
 
         static bool Delete(const std::wstring& path);
         static bool IsExist(const std::wstring& path);

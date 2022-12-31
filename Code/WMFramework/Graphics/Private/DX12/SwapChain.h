@@ -37,14 +37,14 @@ namespace WildMini::Graphics::Private::DX12
     private:
         ComPtr<IDXGISwapChain3> swapChain;
 
-        Object::WMObject<GraphicsDeviceContext> device;
+        WildMini::WMSharedPtr<GraphicsDeviceContext> device;
 
         uint32_t width;
         uint32_t height;
         UINT swapChainIndex = 0;
 
-        mutable Object::WMObject<Texture> renderTargets[BUFFER_COUNT];
-        mutable Object::WMObject<Texture> depthStencilTexture;
+        mutable WildMini::WMSharedPtr<Texture> renderTargets[BUFFER_COUNT];
+        mutable WildMini::WMSharedPtr<Texture> depthStencilTexture;
 
         ComPtr<ID3D12DescriptorHeap> imguiDescHeap;
 

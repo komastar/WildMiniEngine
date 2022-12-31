@@ -6,12 +6,12 @@
 //
 
 #include "WMGeometryFactory.h"
-#include "Object/WMObject.h"
+#include "WMSharedPtr.h"
 #include "Graphics/Geometry/WMVertex.h"
 #include "Graphics/WMGPUBuffer.h"
 #include "Math/WMVector3.h"
 
-using namespace WildMini::Object;
+using namespace WildMini;
 using namespace WildMini::Graphics;
 using namespace WildMini::Graphics::Geometry;
 using namespace WildMini::Graphics::Primitive;
@@ -82,7 +82,7 @@ WMMesh* WMGeometryFactory::MakeBox(WMGraphicsDevice* device, float size)
 
     mesh->vertices = verticies;
 
-    WMObject<WMGPUBuffer> vertexBuffer;
+    WMSharedPtr<WMGPUBuffer> vertexBuffer;
     vertexBuffer = device->CreateGPUBuffer(mesh->vertices.size() * sizeof(WMVertex), WMGPUBuffer::CPUCacheMode::WRITABLE);
     vertexBuffer->WriteData(mesh->vertices.data(), mesh->vertices.size() * sizeof(WMVertex));
     mesh->vertexBuffer = vertexBuffer;
@@ -131,7 +131,7 @@ WMMesh* WMGeometryFactory::MakeQuad(WMGraphicsDevice* device, float size, const 
 
     mesh->vertices = verticies;
 
-    WMObject<WMGPUBuffer> vertexBuffer;
+    WMSharedPtr<WMGPUBuffer> vertexBuffer;
     vertexBuffer = device->CreateGPUBuffer(
         mesh->vertices.size() * sizeof(WMVertex)
         , WMGPUBuffer::CPUCacheMode::WRITABLE);

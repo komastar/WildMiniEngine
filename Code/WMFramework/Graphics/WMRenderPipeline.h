@@ -7,7 +7,7 @@
 
 #pragma once
 #include "WMFramework.h"
-#include "Object/WMObject.h"
+#include "WMSharedPtr.h"
 #include "Graphics/WMShader.h"
 #include "Graphics/WMVertexDescriptor.h"
 #include "Graphics/WMBlendState.h"
@@ -15,7 +15,7 @@
 
 namespace WildMini::Graphics
 {
-    class WM_API WMRenderPipeline : public Object::WMRefCounter
+    class WM_API WMRenderPipeline : public WildMini::WMRefCounter
     {
     };
 
@@ -49,8 +49,8 @@ namespace WildMini::Graphics
     struct WMRenderPipelineDescriptor
     {
         uint32_t sampleCount;
-        WildMini::Object::WMObject<WildMini::Graphics::WMShader> vertexShader;
-        WildMini::Object::WMObject<WildMini::Graphics::WMShader> fragmentShader;
+        WildMini::WMSharedPtr<WildMini::Graphics::WMShader> vertexShader;
+        WildMini::WMSharedPtr<WildMini::Graphics::WMShader> fragmentShader;
 
         WMVertexDescriptor vertexDescriptor;
         std::vector<WMRenderPipelineColorAttachmentDescriptor> colorAttachments;

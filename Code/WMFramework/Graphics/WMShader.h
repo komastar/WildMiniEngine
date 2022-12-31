@@ -7,11 +7,11 @@
 
 #pragma once
 #include "WMFramework.h"
-#include "Object/WMRefCounter.h"
+#include "WMRefCounter.h"
 
 namespace WildMini::Graphics
 {
-    class WM_API WMShader : public WildMini::Object::WMRefCounter
+    class WM_API WMShader : public WildMini::WMRefCounter
     {
     public:
         enum class StageType

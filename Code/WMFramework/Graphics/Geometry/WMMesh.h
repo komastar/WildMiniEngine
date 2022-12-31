@@ -7,7 +7,7 @@
 
 #pragma once
 #include "WMFramework.h"
-#include "Object/WMObject.h"
+#include "WMSharedPtr.h"
 #include "Graphics/WMGPUBuffer.h"
 #include "Graphics/Geometry/WMVertex.h"
 
@@ -16,6 +16,6 @@ namespace WildMini::Graphics::Geometry
     struct WMMesh
     {
         std::vector<WildMini::Graphics::Geometry::WMVertex> vertices;
-        WildMini::Object::WMObject<WildMini::Graphics::WMGPUBuffer> vertexBuffer;
+        WildMini::WMSharedPtr<WildMini::Graphics::WMGPUBuffer> vertexBuffer;
     };
 }

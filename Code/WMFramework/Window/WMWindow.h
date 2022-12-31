@@ -7,11 +7,11 @@
 
 #pragma once
 #include "WMFramework.h"
-#include "Object/WMRefCounter.h"
+#include "WMRefCounter.h"
 
 namespace WildMini::Window
 {
-    class WM_API WMWindow : public WildMini::Object::WMRefCounter
+    class WM_API WMWindow : public WildMini::WMRefCounter
     {
     public:
         WMWindow(uint32_t _width, uint32_t _height) : width(_width), height(_height) {}

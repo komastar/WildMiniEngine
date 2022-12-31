@@ -6,13 +6,13 @@
 //
 
 #pragma once
-#include "Object/WMObject.h"
+#include "WMSharedPtr.h"
 #include "Window/WMWindow.h"
 #include "Graphics/WMGraphicsDevice.h"
 
 namespace WildMini::Application
 {
-    class WM_API WMApplicationContext : public WildMini::Object::WMRefCounter
+    class WM_API WMApplicationContext : public WildMini::WMRefCounter
     {
     public:
         virtual int MessageLoop() = 0;
