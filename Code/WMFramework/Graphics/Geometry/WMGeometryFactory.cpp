@@ -95,10 +95,10 @@ WMMesh* WMGeometryFactory::MakeQuad(WMGraphicsDevice* device, float size, const 
     WMMesh* mesh = new WMMesh();
     std::vector<WMVector3> positions =
     {
-        WMVector3   { -size,  size, 0.0f } //  0
-        , WMVector3 {  size,  size, 0.0f } //  1
-        , WMVector3 {  size, -size, 0.0f } //  2
-        , WMVector3 { -size, -size, 0.0f } //  3
+        WMVector3   { -size,  size, 0.5f } //  0
+        , WMVector3 {  size,  size, 0.5f } //  1
+        , WMVector3 {  size, -size, 0.5f } //  2
+        , WMVector3 { -size, -size, 0.5f } //  3
     };
 
     std::vector<WMVector2> texcoords =

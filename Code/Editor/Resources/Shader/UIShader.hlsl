@@ -1,8 +1,8 @@
 cbuffer cbPerObject : register(b0)
 {
     float4x4 viewProj;
-    float4x4 world[16];
-    float ratio[16];
+    //float4x4 world[16];
+    //float ratio[16];
 };
 
 struct VertexIn
@@ -23,8 +23,9 @@ struct VertexOut
 VertexOut VS(VertexIn vin)
 {
     VertexOut vout;
-    float4 pos = mul(float4(vin.posL, 1.0f), world[vin.instanceId]);
-    vout.posH = mul(float4(pos.x, pos.y + vin.instanceId * 100.0f, pos.z, pos.w), viewProj);
+    //float4 pos = mul(float4(vin.posL, 1.0f), world[vin.instanceId]);
+    //vout.posH = mul(float4(pos.x, pos.y + vin.instanceId * 100.0f, pos.z, pos.w), viewProj);
+    vout.posH = mul(float4(vin.posL, 1.0f), viewProj);
     vout.texCoord = vin.texCoord;
     vout.color = vin.color;
     return vout;

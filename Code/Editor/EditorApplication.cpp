@@ -89,18 +89,18 @@ void EditorApplication::OnInitialize()
     uiCamera.SetView(WMVector3::back, WMVector3::zero, WMVector3::up);
     uiCamera.SetOrthographics(window->GetWidth(), window->GetHeight(), 0.0f, 1000.0f);
 
-    ProgressConstants progressConst;
-    progressConst.viewProj = (uiCamera.ViewMatrix() * uiCamera.ProjMatrix()).Transpose();
-    progressConst.world[0] = WMMatrix4::Identity();
-    progressConst.world[1] = WMMatrix4::Identity();
-    progressConst.world[2] = WMMatrix4::Identity();
-    progressConst.ratio[0] = 1.0f;
-    progressConst.ratio[1] = 0.5f;
-    progressConst.ratio[2] = 0.15f;
-    progressBuffer = device->CreateGPUBuffer(sizeof(ProgressConstants), WMGPUBuffer::CPUCacheMode::WRITABLE);
-    progressBuffer->WriteData(&progressConst, sizeof(ProgressConstants));
+    //ProgressConstants progressConst;
+    //progressConst.viewProj = (uiCamera.ViewMatrix() * uiCamera.ProjMatrix()).Transpose();
+    //progressConst.world[0] = WMMatrix4::Identity();
+    //progressConst.world[1] = WMMatrix4::Identity();
+    //progressConst.world[2] = WMMatrix4::Identity();
+    //progressConst.ratio[0] = 1.0f;
+    //progressConst.ratio[1] = 0.5f;
+    //progressConst.ratio[2] = 0.15f;
+    progressBuffer = device->CreateGPUBuffer(sizeof(float) * 16, WMGPUBuffer::CPUCacheMode::WRITABLE);
+    //progressBuffer->WriteData(&progressConst, sizeof(ProgressConstants));
 
-    uiMesh = Geometry::WMGeometryFactory::MakeQuad(device, 100.0f, WMColor(1.0f, 0.0f, 0.0f, 0.25f));
+    uiMesh = Geometry::WMGeometryFactory::MakeQuad(device, 1.0f, WMColor(1.0f, 0.0f, 0.0f, 1.0f));
 
     float deltaTime = 0.0f;
     gameThread = WMThread::Create(L"Editor");
@@ -135,7 +135,14 @@ void EditorApplication::Update(float dt)
     progressConst.world[3] = progressConst.world[1].Transpose();
     progressConst.world[4]._41 = 750.0f;
     progressConst.world[4] = progressConst.world[2].Transpose();
-    progressBuffer->WriteData(&progressConst, sizeof(ProgressConstants));
+    float matrix[16]
+    {
+        0.5f, 0.0f, 0.0f, 0.0f,
+        0.0f, 0.5f, 0.0f, 0.0f,
+        0.0f, 0.0f, 1.0f, 0.0f,
+        0.0f, 0.0f, 0.0f, 1.0f
+    };
+    progressBuffer->WriteData(&matrix, sizeof(float) * 16);
 }
 
 void EditorApplication::Render()
