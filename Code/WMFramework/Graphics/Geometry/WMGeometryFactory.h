@@ -19,5 +19,6 @@ namespace WildMini::Graphics::Geometry
         static WMMesh* MakeDefaultBox(WMGraphicsDevice* device);
         static WMMesh* MakeBox(WMGraphicsDevice* device, float size);
         static WMMesh* MakeQuad(WMGraphicsDevice* device, float size, const Primitive::WMColor& color);
+        static WMMesh* MakePlane(WMGraphicsDevice* device, float size, const Primitive::WMColor& color);
     };
 }

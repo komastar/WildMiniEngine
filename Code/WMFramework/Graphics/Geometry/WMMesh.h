@@ -16,6 +16,14 @@ namespace WildMini::Graphics::Geometry
     struct WMMesh
     {
         std::vector<WildMini::Graphics::Geometry::WMVertex> vertices;
+        std::vector<size_t> indices;
         WildMini::WMSharedPtr<WildMini::Graphics::WMGPUBuffer> vertexBuffer;
+        WildMini::WMSharedPtr<WildMini::Graphics::WMGPUBuffer> indexBuffer;
+
+        WMMesh()
+            : vertexBuffer(nullptr)
+            , indexBuffer(nullptr)
+        {
+        }
     };
 }

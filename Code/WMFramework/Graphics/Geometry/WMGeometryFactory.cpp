@@ -141,3 +141,83 @@ WMMesh* WMGeometryFactory::MakeQuad(WMGraphicsDevice* device, float size, const 
 
     return mesh;
 }
+
+WMMesh* WMGeometryFactory::MakePlane(WMGraphicsDevice* device, float size, const WMColor& color)
+{
+    WMMesh* mesh = new WMMesh();
+
+    size_t count = static_cast<size_t>(size);
+    size_t faceCount = count * count;
+
+    std::vector<WMVertex> verticies;
+    verticies.reserve(count);
+    float invSize = 1.0f / size;
+    for (size_t i = 0; i < count + 1; ++i)
+    {
+        for (size_t j = 0; j < count + 1; ++j)
+        {
+            float x = static_cast<float>(j);
+            float z = static_cast<float>(i);
+            WMVector3 p = { x, 0.0f, z };
+            float u = x * invSize;
+            float v = z * invSize;
+            WMVector2 t = { u, v };
+            WMColor c = color;
+            WMVertex vertex = { p, t, c };
+            verticies.emplace_back(vertex);
+        }
+    }
+
+    /*
+    face = 1
+    0 1
+    2 3
+
+    face = 2
+    0 1 2
+    3 4 5
+    6 7 8
+
+    face = 3
+    0 1 2 3
+    4 5 6 7
+    8 9 1011
+    12131415
+    */
+    std::vector<size_t> indices;
+    indices.reserve(faceCount * 6);
+    for (size_t i = 0; i < count; ++i)
+    {
+        for (size_t j = 0; j < count; ++j)
+        {
+            size_t index = j + i * count;
+            indices.emplace_back(index);
+            indices.emplace_back(index + 1);
+            indices.emplace_back(index + count + 2);
+            indices.emplace_back(index);
+            indices.emplace_back(index + count + 2);
+            indices.emplace_back(index + count + 1);
+        }
+    }
+
+    mesh->vertices = verticies;
+    mesh->indices = indices;
+
+    WMSharedPtr<WMGPUBuffer> vertexBuffer;
+    vertexBuffer = device->CreateGPUBuffer(
+        mesh->vertices.size() * sizeof(WMVertex)
+        , WMGPUBuffer::CPUCacheMode::WRITABLE);
+    vertexBuffer->WriteData(mesh->vertices.data()
+        , mesh->vertices.size() * sizeof(WMVertex));
+
+    WMSharedPtr<WMGPUBuffer> indexBuffer;
+    indexBuffer = device->CreateGPUBuffer(
+        mesh->indices.size() * sizeof(size_t)
+        , WMGPUBuffer::CPUCacheMode::WRITABLE);
+    indexBuffer->WriteData(mesh->indices.data()
+        , mesh->indices.size() * sizeof(size_t));
+    mesh->vertexBuffer = vertexBuffer;
+    mesh->indexBuffer = indexBuffer;
+
+    return mesh;
+}
