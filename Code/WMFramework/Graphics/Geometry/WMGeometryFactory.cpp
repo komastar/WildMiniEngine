@@ -158,7 +158,7 @@ WMMesh* WMGeometryFactory::MakePlane(WMGraphicsDevice* device, float size, const
         {
             float x = static_cast<float>(j);
             float z = static_cast<float>(i);
-            WMVector3 p = { x, 0.0f, z };
+            WMVector3 p = { x, 0.0f, -z };
             float u = x * invSize;
             float v = z * invSize;
             WMVector2 t = { u, v };
@@ -184,13 +184,13 @@ WMMesh* WMGeometryFactory::MakePlane(WMGraphicsDevice* device, float size, const
     8 9 1011
     12131415
     */
-    std::vector<size_t> indices;
+    std::vector<uint32_t> indices;
     indices.reserve(faceCount * 6);
     for (size_t i = 0; i < count; ++i)
     {
         for (size_t j = 0; j < count; ++j)
         {
-            size_t index = j + i * count;
+            uint32_t index = j + i * (count + 1);
             indices.emplace_back(index);
             indices.emplace_back(index + 1);
             indices.emplace_back(index + count + 2);
@@ -212,10 +212,10 @@ WMMesh* WMGeometryFactory::MakePlane(WMGraphicsDevice* device, float size, const
 
     WMSharedPtr<WMGPUBuffer> indexBuffer;
     indexBuffer = device->CreateGPUBuffer(
-        mesh->indices.size() * sizeof(size_t)
+        mesh->indices.size() * sizeof(uint32_t)
         , WMGPUBuffer::CPUCacheMode::WRITABLE);
     indexBuffer->WriteData(mesh->indices.data()
-        , mesh->indices.size() * sizeof(size_t));
+        , mesh->indices.size() * sizeof(uint32_t));
     mesh->vertexBuffer = vertexBuffer;
     mesh->indexBuffer = indexBuffer;
 

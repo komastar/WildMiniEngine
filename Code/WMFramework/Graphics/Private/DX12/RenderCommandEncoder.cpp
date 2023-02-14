@@ -192,10 +192,26 @@ void RenderCommandEncoder::SetVertexBuffer(const WMGPUBuffer* vertexBuffer, cons
     commandList->IASetVertexBuffers(slot, numViews, &view);
 }
 
+void RenderCommandEncoder::SetIndexBuffer(const WMGPUBuffer* indexBuffer)
+{
+    const GPUBuffer* buffer = dynamic_cast<const GPUBuffer*>(indexBuffer);
+    D3D12_INDEX_BUFFER_VIEW view;
+    view.BufferLocation = buffer->Buffer()->GetGPUVirtualAddress();
+    view.Format = DXGI_FORMAT_R32_UINT;
+    view.SizeInBytes = static_cast<UINT>(buffer->Size());
+    commandList->IASetIndexBuffer(&view);
+}
+
 void RenderCommandEncoder::DrawPrimitives(PrimitiveType primitiveType, uint32_t vertexCount, uint32_t instanceCount, uint32_t vertexStart, uint32_t instanceStart)
 {
     SetPrimitiveType(primitiveType);
     commandList->DrawInstanced(vertexCount, instanceCount, vertexStart, instanceStart);
+}
+
+void RenderCommandEncoder::DrawPrimitivesIndexed(PrimitiveType primitiveType, uint32_t indexCount, uint32_t instanceCount, uint32_t indexStart, uint32_t vertexStart, uint32_t instanceStart)
+{
+    SetPrimitiveType(primitiveType);
+    commandList->DrawIndexedInstanced(indexCount, instanceCount, indexStart, vertexStart, instanceStart);
 }
 
 void RenderCommandEncoder::ImguiRender()

@@ -30,7 +30,9 @@ namespace WildMini::Graphics::Private::DX12
         virtual void ClearDepthStencil(const WMTexture* depthStencil, DepthStencilClearFlag clearFlag, float clearDepth, uint8_t clearStencil) override;
         virtual void SetConstantBuffer(uint32_t index, const WMGPUBuffer* constantBuffer) override;
         virtual void SetVertexBuffer(const WMGPUBuffer* vertexBuffer, const uint32_t vertexSize, const uint32_t slot = 0, const uint32_t numViews = 1) override;
+        virtual void SetIndexBuffer(const WMGPUBuffer* indexBuffer) override;
         virtual void DrawPrimitives(PrimitiveType primitiveType, uint32_t vertexCount, uint32_t instanceCount, uint32_t vertexStart, uint32_t instanceStart);
+        virtual void DrawPrimitivesIndexed(PrimitiveType primitiveType, uint32_t indexCount, uint32_t instanceCount = 1, uint32_t indexStart = 0, uint32_t startVertex = 0, uint32_t instanceStart = 0);
         virtual void ImguiRender() override;
         virtual void EndEncoding(std::vector<const WMTexture*> renderTargets) override;
 
