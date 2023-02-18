@@ -98,13 +98,17 @@ namespace WildMini
     template<class... Args>
     void WMLogDebug(const char* format, Args&&... args)
     {
+#ifdef _DEBUG
         LogFormat<WMLogLevel::Debug>(format, std::forward<Args>(args)...);
+#endif // _DEBUG
     }
 
     template<class... Args>
     void WMLogDebug(const wchar_t* format, Args&&... args)
     {
+#ifdef _DEBUG
         LogFormat<WMLogLevel::Debug>(format, std::forward<Args>(args)...);
+#endif // _DEBUG
     }
 
     template<class... Args>
