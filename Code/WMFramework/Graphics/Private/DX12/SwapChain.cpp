@@ -11,16 +11,17 @@
 #include "UI/imgui/backends/imgui_impl_dx12.h"
 #include "UI/imgui/backends/imgui_impl_win32.h"
 
+using namespace WildMini;
 using namespace WildMini::Graphics;
 using namespace WildMini::Graphics::Private::DX12;
 using namespace WildMini::Window;
 
-SwapChain::SwapChain(GraphicsDeviceContext* _device, CommandQueue* _commandQueue, WindowContext* _window)
+SwapChain::SwapChain(WMSharedPtr<GraphicsDeviceContext> _device, CommandQueue* _commandQueue, WindowContext* _window)
     : device(_device)
     , swapChain(nullptr)
     , width(_window->width)
     , height(_window->height)
-    , imguiDescHeap(nullptr)
+    //, imguiDescHeap(nullptr)
 {
     DXGI_SWAP_CHAIN_DESC1 sd{};
     sd.Width = width;
@@ -50,10 +51,14 @@ SwapChain::SwapChain(GraphicsDeviceContext* _device, CommandQueue* _commandQueue
     SetupRenderTargets();
     SetupDepthStencil();
 
-    ImGui::CreateContext();
-    ImGui::StyleColorsDark();
-    ImGui_ImplWin32_Init(hwnd);
-    device->CreateImguiDescriptorHeap(BUFFER_COUNT);
+    //ImGui::CreateContext();
+    //ImGui::StyleColorsDark();
+    //ImGui_ImplWin32_Init(hwnd);
+    //device->CreateImguiDescriptorHeap(BUFFER_COUNT);
+}
+
+SwapChain::~SwapChain()
+{
 }
 
 void SwapChain::Resize(uint32_t width, uint32_t height)

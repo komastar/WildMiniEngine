@@ -10,7 +10,7 @@
 using namespace WildMini::Graphics;
 using namespace WildMini::Graphics::Private::DX12;
 
-GPUBuffer::GPUBuffer(ID3D12Resource* buffer, WMGPUBuffer::CPUCacheMode mode, D3D12_RESOURCE_STATES state)
+GPUBuffer::GPUBuffer(ComPtr<ID3D12Resource> buffer, WMGPUBuffer::CPUCacheMode mode, D3D12_RESOURCE_STATES state)
     : buffer(buffer)
     , state(state)
     , writable(WMGPUBuffer::CPUCacheMode::WRITABLE == mode)
@@ -18,6 +18,10 @@ GPUBuffer::GPUBuffer(ID3D12Resource* buffer, WMGPUBuffer::CPUCacheMode mode, D3D
 {
     WMASSERT(buffer);
     size = buffer->GetDesc().Width;
+}
+
+GPUBuffer::~GPUBuffer()
+{
 }
 
 size_t GPUBuffer::Size() const

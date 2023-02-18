@@ -17,6 +17,7 @@ namespace WildMini::Graphics::Private::DX12
     {
     public:
         CommandQueue(GraphicsDeviceContext*, ID3D12CommandQueue*, ID3D12CommandAllocator*, ID3D12GraphicsCommandList*, ID3D12Fence*);
+        virtual ~CommandQueue();
 
         virtual WildMini::WMSharedPtr<Graphics::WMSwapChain> CreateSwapChain(Window::WMWindow*) override;
         virtual WildMini::WMSharedPtr<WMCommandBuffer> CreateCommandBuffer() override;

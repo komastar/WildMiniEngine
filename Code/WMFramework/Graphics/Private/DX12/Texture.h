@@ -14,7 +14,8 @@ namespace WildMini::Graphics::Private::DX12
     class Texture : public WMTexture
     {
     public:
-        Texture(ID3D12Resource* buffer, D3D12_RESOURCE_STATES state);
+        Texture(ComPtr<ID3D12Resource> buffer, D3D12_RESOURCE_STATES state);
+        virtual ~Texture();
 
     public:
         virtual size_t Size() const override;

@@ -17,8 +17,8 @@ namespace WildMini::Graphics::Private::DX12
     class RenderCommandEncoder : public WMRenderCommandEncoder
     {
     public:
-        RenderCommandEncoder(ID3D12DescriptorHeap*, RenderPipeline* _renderPipeline, WMCommandBuffer* _commandBuffer, ID3D12GraphicsCommandList* _commandList);
-        ~RenderCommandEncoder();
+        RenderCommandEncoder(/*ID3D12DescriptorHeap*, */RenderPipeline* _renderPipeline, WMCommandBuffer* _commandBuffer, ID3D12GraphicsCommandList* _commandList);
+        virtual ~RenderCommandEncoder();
 
     public:
         virtual void SetViewport(const Primitive::WMViewport& viewport) override;
@@ -46,6 +46,6 @@ namespace WildMini::Graphics::Private::DX12
 
         std::vector<const WMTexture*> renderTargetsTemp;
 
-        ComPtr<ID3D12DescriptorHeap> imguiDescHeap;
+        //ComPtr<ID3D12DescriptorHeap> imguiDescHeap;
     };
 }

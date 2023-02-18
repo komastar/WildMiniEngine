@@ -14,6 +14,7 @@
 #include "Graphics/Geometry/WMGeometryFactory.h"
 #include "Math/WMAffineTransform2.h"
 #include "Math/WMLinearTransform2.h"
+#include "Log/WMLog.h"
 
 using namespace WildMini;
 using namespace WildMini::Common;
@@ -87,14 +88,12 @@ void EditorApplication::OnInitialize()
 
     uiCamera.SetView(WMVector3{ 400.0f, 200.0f, -400.0f }, WMVector3::zero, WMVector3::up);
     uiCamera.SetPerspective(0.25f, window->GetAspect(), 1.0f, 1000.0f);
-    //uiCamera.SetOrthographics(window->GetWidth(), window->GetHeight(), 1.0f, 1000.0f);
 
     ProgressConstants progressConst;
     progressConst.viewProj = (uiCamera.ViewMatrix() * uiCamera.ProjMatrix()).Transpose();
     progressBuffer = device->CreateGPUBuffer(sizeof(ProgressConstants), WMGPUBuffer::CPUCacheMode::WRITABLE);
     progressBuffer->WriteData(&progressConst, sizeof(ProgressConstants));
 
-    //uiMesh = Geometry::WMGeometryFactory::MakeQuad(device, 100.0f, WMColor(1.0f, 0.0f, 0.0f, 0.25f));
     uiMesh = Geometry::WMGeometryFactory::MakePlane(device, 100.f, WMColor(1.0f, 0.0f, 0.0f, 1.0f));
 
     float deltaTime = 0.0f;
@@ -113,7 +112,27 @@ void EditorApplication::OnInitialize()
 
 void EditorApplication::OnTerminate()
 {
-    gameThread->Terminate();
+    if (gameThread)
+    {
+        gameThread->Terminate();
+    }
+
+    if (uiMesh)
+    {
+        delete uiMesh;
+        uiMesh = nullptr;
+    }
+
+    progressBuffer = nullptr;
+    progressBuffer2 = nullptr;
+    commandQueue = nullptr;
+    swapChain = nullptr;
+    vertexShader = nullptr;
+    pixelShader = nullptr;
+    renderPipeline = nullptr;
+    gameThread = nullptr;
+    device = nullptr;
+    window = nullptr;
 }
 
 void EditorApplication::Update(float dt)
@@ -166,7 +185,6 @@ void EditorApplication::Render()
             {
                 renderCommandEncoder->DrawPrimitives(WMRenderCommandEncoder::PrimitiveType::Triangle, (uint32_t)uiMesh->vertices.size(), 2, 0, 2);
             }
-            renderCommandEncoder->ImguiRender();
             renderCommandEncoder->EndEncoding({ swapChain->RenderTargetTexture() });
         }
         commandBuffer->Commit();

@@ -15,6 +15,7 @@ namespace WildMini::Graphics::Private::DX12
     {
     public:
         RenderPipeline(ID3D12PipelineState* pipelineState, ID3D12RootSignature* rootSignature);
+        virtual ~RenderPipeline();
 
     public:
         ID3D12PipelineState* PipelineState() const { return pipelineState.Get(); }

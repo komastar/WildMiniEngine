@@ -25,5 +25,11 @@ namespace WildMini::Graphics::Geometry
             , indexBuffer(nullptr)
         {
         }
+
+        virtual ~WMMesh()
+        {
+            vertexBuffer = nullptr;
+            indexBuffer = nullptr;
+        }
     };
 }

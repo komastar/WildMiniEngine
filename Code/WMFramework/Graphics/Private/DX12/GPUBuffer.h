@@ -14,7 +14,8 @@ namespace WildMini::Graphics::Private::DX12
     class GPUBuffer : public WildMini::Graphics::WMGPUBuffer
     {
     public:
-        GPUBuffer(ID3D12Resource* buffer, WildMini::Graphics::WMGPUBuffer::CPUCacheMode mode, D3D12_RESOURCE_STATES state);
+        GPUBuffer(ComPtr<ID3D12Resource> buffer, WildMini::Graphics::WMGPUBuffer::CPUCacheMode mode, D3D12_RESOURCE_STATES state);
+        virtual ~GPUBuffer();
 
     public:
         virtual size_t Size() const override;

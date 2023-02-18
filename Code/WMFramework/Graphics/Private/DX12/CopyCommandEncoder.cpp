@@ -18,6 +18,10 @@ CopyCommandEncoder::CopyCommandEncoder(CommandBuffer* _commandBuffer, ID3D12Grap
 {
 }
 
+CopyCommandEncoder::~CopyCommandEncoder()
+{
+}
+
 void CopyCommandEncoder::CopyBufferToBuffer(WMGPUBuffer* src, size_t srcOffset, WMGPUBuffer* dest, size_t destOffset, size_t copySize)
 {
     GPUBuffer* srcBuffer = dynamic_cast<GPUBuffer*>(src);

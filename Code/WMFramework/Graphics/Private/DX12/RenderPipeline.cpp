@@ -14,3 +14,7 @@ RenderPipeline::RenderPipeline(ID3D12PipelineState* _pipelineState, ID3D12RootSi
     , rootSignature(_rootSignature)
 {
 }
+
+RenderPipeline::~RenderPipeline()
+{
+}

@@ -16,6 +16,10 @@ Shader::Shader(ID3DBlob* _byteCode, WMShader::StageType _stage, const std::strin
 {
 }
 
+Shader::~Shader()
+{
+}
+
 D3D12_SHADER_BYTECODE Shader::ByteCode() const
 {
     return { reinterpret_cast<BYTE*>(byteCode->GetBufferPointer()), byteCode->GetBufferSize() };

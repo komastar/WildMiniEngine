@@ -15,6 +15,7 @@ namespace WildMini::Graphics::Private::DX12
     {
     public:
         Shader(ID3DBlob* _byteCode, WMShader::StageType _stage, const std::string& _entry);
+        virtual ~Shader();
 
         D3D12_SHADER_BYTECODE ByteCode() const;
 

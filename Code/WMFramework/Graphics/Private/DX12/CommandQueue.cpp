@@ -29,6 +29,10 @@ CommandQueue::CommandQueue(GraphicsDeviceContext* _graphicsDevice
 {
 }
 
+CommandQueue::~CommandQueue()
+{
+}
+
 WMSharedPtr<WMCommandBuffer> CommandQueue::CreateCommandBuffer()
 {
     commandAllocator->Reset();

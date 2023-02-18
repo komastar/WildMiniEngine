@@ -11,7 +11,7 @@
 using namespace WildMini::Graphics;
 using namespace WildMini::Graphics::Private::DX12;
 
-Texture::Texture(ID3D12Resource* buffer, D3D12_RESOURCE_STATES state)
+Texture::Texture(ComPtr<ID3D12Resource> buffer, D3D12_RESOURCE_STATES state)
     : buffer(buffer)
     , state(state)
 {
@@ -20,6 +20,10 @@ Texture::Texture(ID3D12Resource* buffer, D3D12_RESOURCE_STATES state)
     height = static_cast<uint32_t>(desc.Height);
     format = ToPixelFormat(desc.Format);
     size = AlignTextureRowPitch(width * PixelFormatSize(format)) * height;
+}
+
+Texture::~Texture()
+{
 }
 
 size_t Texture::Size() const

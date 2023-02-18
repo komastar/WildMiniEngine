@@ -16,6 +16,7 @@ namespace WildMini::Graphics::Private::DX12
     {
     public:
         CopyCommandEncoder(CommandBuffer* _commandBuffer, ID3D12GraphicsCommandList* _commandList);
+        virtual ~CopyCommandEncoder();
 
     public:
         virtual void CopyBufferToBuffer(WMGPUBuffer* src, size_t srcOffset, WMGPUBuffer* dest, size_t destOffset, size_t copySize) override;
