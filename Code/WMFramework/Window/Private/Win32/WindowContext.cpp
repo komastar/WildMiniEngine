@@ -8,6 +8,7 @@
 #ifdef _WIN32
 #include "WindowContext.h"
 #include "imgui.h"
+#include "Log/WMLog.h"
 
 using namespace WildMini::Window;
 
@@ -23,6 +24,35 @@ LRESULT WindowContext::WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lP
     WindowContext* window = reinterpret_cast<WindowContext*>(::GetWindowLongPtrW(hwnd, GWLP_USERDATA));
     switch (message)
     {
+    case WM_MOUSEMOVE:
+    {
+        auto x = (float)GET_X_LPARAM(lParam);
+        auto y = (float)GET_Y_LPARAM(lParam);
+        WMLogDebug("Mouse Move : {}, {}", x, y);
+        break;
+    }
+    case WM_LBUTTONDOWN:
+    case WM_LBUTTONDBLCLK:
+    {
+        SetCapture(hwnd);
+        auto x = (float)GET_X_LPARAM(lParam);
+        auto y = (float)GET_Y_LPARAM(lParam);
+        WMLogDebug("Mouse LButton Down : {}, {}", x, y);
+        break;
+    }
+    case WM_RBUTTONDOWN:
+    case WM_RBUTTONDBLCLK:
+    {
+        auto x = (float)GET_X_LPARAM(lParam);
+        auto y = (float)GET_Y_LPARAM(lParam);
+        WMLogDebug("Mouse RButton Down : {}, {}", x, y);
+        break;
+    }
+    case WM_LBUTTONUP:
+    {
+        ReleaseCapture();
+        break;
+    }
     case WM_SIZE:
     {
         uint32_t width = LOWORD(lParam);

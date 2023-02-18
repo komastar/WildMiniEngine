@@ -8,6 +8,7 @@
 #pragma once
 #ifdef _WIN32
 #include <Windows.h>
+#include <windowsx.h>
 #include "WMFramework.h"
 #include "Window/WMWindow.h"
 
