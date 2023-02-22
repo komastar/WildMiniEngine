@@ -74,8 +74,13 @@ WindowContext::WindowContext(uint32_t _width, uint32_t _height)
     : WMWindow(_width, _height)
     , cacheWidth(static_cast<float>(width))
     , cacheHeight(static_cast<float>(height))
-    , cacheAspect(cacheWidth / cacheHeight)
+    , cacheAspect(1.0f)
+    , hwnd(nullptr)
+    , instance(nullptr)
 {
+    cacheAspect = cacheWidth / cacheWidth;
+    resizeCallbackList.reserve(4);
+    mouseEventHandler.reserve(4);
 }
 
 void WindowContext::Create()
@@ -180,5 +185,10 @@ void WindowContext::SetSize(uint32_t _width, uint32_t _height)
 void WindowContext::AddResizeCallback(std::function<void(uint32_t, uint32_t)> callback)
 {
     resizeCallbackList.push_back(callback);
+}
+WMWindow* WindowContext::AddMouseEventHandler(std::function<bool(WMMouseEvent)> handler)
+{
+    mouseEventHandler.emplace_back(handler);
+    return this;
 }
 #endif // _WIN32

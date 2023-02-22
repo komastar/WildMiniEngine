@@ -11,6 +11,10 @@
 
 namespace WildMini::Window
 {
+    struct WMMouseEvent 
+    {
+    };
+
     class WM_API WMWindow : public WildMini::WMRefCounter
     {
     public:
@@ -35,6 +39,8 @@ namespace WildMini::Window
 
         virtual void OnResize() = 0;
         virtual void AddResizeCallback(std::function<void(uint32_t, uint32_t)> callback) = 0;
+
+        virtual WMWindow* AddMouseEventHandler(std::function<bool(WMMouseEvent)> handler) = 0;
 
     public:
         uint32_t width;

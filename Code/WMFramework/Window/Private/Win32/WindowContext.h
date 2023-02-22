@@ -38,6 +38,8 @@ namespace WildMini::Window
         virtual void OnResize() override;
         virtual void AddResizeCallback(std::function<void(uint32_t, uint32_t)> callback) override;
 
+        virtual WMWindow* AddMouseEventHandler(std::function<bool(WMMouseEvent)> handler) override;
+
     protected:
         static LRESULT WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 
@@ -51,6 +53,8 @@ namespace WildMini::Window
         float cacheHeight;
 
         std::vector<std::function<void(uint32_t, uint32_t)>> resizeCallbackList;
+
+        std::vector<std::function<bool(WMMouseEvent)>> mouseEventHandler;
     };
 }
 #endif // _WIN32
