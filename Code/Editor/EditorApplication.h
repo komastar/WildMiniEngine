@@ -28,6 +28,7 @@ public:
 
 public:
     void OnInitialize() override;
+    void CreateRenderPipeline();
     void OnTerminate() override;
 
 private:
@@ -49,9 +50,9 @@ private:
     WildMini::WMSharedPtr<WildMini::Graphics::WMRenderPipeline> renderPipeline;
 
     WildMini::WMSharedPtr<WildMini::Graphics::WMGPUBuffer> progressBuffer;
-    WildMini::WMSharedPtr<WildMini::Graphics::WMGPUBuffer> progressBuffer2;
     WildMini::Graphics::WMCamera uiCamera;
     WildMini::Graphics::Geometry::WMMesh* uiMesh;
 
     std::atomic_bool needResize;
+    std::atomic_bool needShaderCompile;
 };

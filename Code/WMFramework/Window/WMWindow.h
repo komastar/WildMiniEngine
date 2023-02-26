@@ -11,8 +11,20 @@
 
 namespace WildMini::Window
 {
+    enum class WMKey
+    {
+        NONE = 0,
+        RETURN,
+        MAX
+    };
+
     struct WMMouseEvent 
     {
+    };
+
+    struct WMKeyboardEvent
+    {
+        WMKey keycode;
     };
 
     class WM_API WMWindow : public WildMini::WMRefCounter
@@ -40,7 +52,8 @@ namespace WildMini::Window
         virtual void OnResize() = 0;
         virtual void AddResizeCallback(std::function<void(uint32_t, uint32_t)> callback) = 0;
 
-        virtual WMWindow* AddMouseEventHandler(std::function<bool(WMMouseEvent)> handler) = 0;
+        virtual WMWindow* AddMouseEventHandler(std::function<void(WMMouseEvent)> handler) = 0;
+        virtual WMWindow* AddKeyboardEventHandler(std::function<void(WMKeyboardEvent)> handler) = 0;
 
     public:
         uint32_t width;

@@ -17,6 +17,7 @@
 #include "Log/WMLog.h"
 
 using namespace WildMini;
+using namespace WildMini::Window;
 using namespace WildMini::Common;
 using namespace WildMini::Graphics;
 using namespace WildMini::Graphics::Primitive;
@@ -27,7 +28,6 @@ struct Constants
 {
     WMMatrix4 viewProj;
     WMMatrix4 world[3];
-
 };
 
 struct MainPassConstants
@@ -45,6 +45,7 @@ struct ProgressConstants
 EditorApplication::EditorApplication()
     : uiMesh(nullptr)
     , needResize(false)
+    , needShaderCompile(false)
 {
 }
 
@@ -59,32 +60,19 @@ void EditorApplication::OnInitialize()
     window->Show();
     window->Focus();
     window->AddResizeCallback(std::bind(&EditorApplication::OnResize, this, std::placeholders::_1, std::placeholders::_2));
+    window->AddKeyboardEventHandler([&](WMKeyboardEvent keyboardEvent)
+        {
+            if (WMKey::RETURN == keyboardEvent.keycode)
+            {
+                needShaderCompile = true;
+            }
+        });
 
     device = Graphics::Private::GraphicsDeviceFactory::Create();
     commandQueue = device->CreateCommandQueue();
     swapChain = commandQueue->CreateSwapChain(window);
 
-    vertexShader = device->CreateShader(L"Resources/Shader/UIShader.hlsl", "VS", WMShader::StageType::Vertex);
-    pixelShader = device->CreateShader(L"Resources/Shader/UIShader.hlsl", "PS", WMShader::StageType::Fragment);
-
-    WMRenderPipelineDescriptor pipelineDesc = {};
-    pipelineDesc.sampleCount = 1;
-    pipelineDesc.vertexShader = vertexShader;
-    pipelineDesc.fragmentShader = pixelShader;
-    pipelineDesc.vertexDescriptor.attributes = {
-        { WMVertexFormat::Float3, "POSITION",       0, 0  },
-        { WMVertexFormat::Float2, "TEXCOORD",       0, 12 },
-        { WMVertexFormat::Float4, "COLOR",          0, 20 },
-        { WMVertexFormat::Uint,   "SV_InstanceID",  0, 28 },
-    };
-
-    WMRenderPipelineColorAttachmentDescriptor colorAttach;
-    pipelineDesc.colorAttachments = { colorAttach };
-
-    pipelineDesc.depthStencilPixelFormat = WMPixelFormat::DEPTH_24_UNORM_STENCIL_8;
-    pipelineDesc.inputPrimitiveTopology = WMPrimitiveTopologyType::Triangle;
-
-    renderPipeline = device->CreateRenderPipeline(pipelineDesc);
+    CreateRenderPipeline();
 
     uiCamera.SetView(WMVector3{ 400.0f, 200.0f, -400.0f }, WMVector3::zero, WMVector3::up);
     uiCamera.SetPerspective(0.25f, window->GetAspect(), 1.0f, 1000.0f);
@@ -110,6 +98,31 @@ void EditorApplication::OnInitialize()
     gameThread->Run();
 }
 
+void EditorApplication::CreateRenderPipeline()
+{
+    vertexShader = device->CreateShader(L"Resources/Shader/UIShader.hlsl", "VS", WMShader::StageType::Vertex);
+    pixelShader = device->CreateShader(L"Resources/Shader/UIShader.hlsl", "PS", WMShader::StageType::Fragment);
+
+    WMRenderPipelineDescriptor pipelineDesc = {};
+    pipelineDesc.sampleCount = 1;
+    pipelineDesc.vertexShader = vertexShader;
+    pipelineDesc.fragmentShader = pixelShader;
+    pipelineDesc.vertexDescriptor.attributes = {
+        { WMVertexFormat::Float3, "POSITION",       0, 0  },
+        { WMVertexFormat::Float2, "TEXCOORD",       0, 12 },
+        { WMVertexFormat::Float4, "COLOR",          0, 20 },
+        { WMVertexFormat::Uint,   "SV_InstanceID",  0, 28 },
+    };
+
+    WMRenderPipelineColorAttachmentDescriptor colorAttach;
+    pipelineDesc.colorAttachments = { colorAttach };
+
+    pipelineDesc.depthStencilPixelFormat = WMPixelFormat::DEPTH_24_UNORM_STENCIL_8;
+    pipelineDesc.inputPrimitiveTopology = WMPrimitiveTopologyType::Triangle;
+
+    renderPipeline = device->CreateRenderPipeline(pipelineDesc);
+}
+
 void EditorApplication::OnTerminate()
 {
     if (gameThread)
@@ -124,7 +137,6 @@ void EditorApplication::OnTerminate()
     }
 
     progressBuffer = nullptr;
-    progressBuffer2 = nullptr;
     commandQueue = nullptr;
     swapChain = nullptr;
     vertexShader = nullptr;
@@ -149,10 +161,16 @@ void EditorApplication::Render()
 {
     if (needResize)
     {
-        needResize.store(false);
+        needResize = false;
         swapChain->Resize(window->width, window->height);
         //uiCamera.SetOrthographics(window->GetWidth(), window->GetHeight(), 0.0f, 1000.0f);
         uiCamera.SetPerspective(0.25f, window->GetAspect(), 1.0f, 1000.0f);
+    }
+
+    if (needShaderCompile)
+    {
+        needShaderCompile = false;
+        CreateRenderPipeline();
     }
 
     if (WMSharedPtr<WMCommandBuffer> commandBuffer = commandQueue->CreateCommandBuffer())

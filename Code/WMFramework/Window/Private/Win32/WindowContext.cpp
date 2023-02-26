@@ -53,6 +53,16 @@ LRESULT WindowContext::WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lP
         ReleaseCapture();
         break;
     }
+    case WM_KEYDOWN:
+    {
+        WMKey keycode;
+        if (wParam == VK_RETURN)
+        {
+            keycode = WMKey::RETURN;
+        }
+        window->PostKeyboardEvent({ keycode });
+        break;
+    }
     case WM_SIZE:
     {
         uint32_t width = LOWORD(lParam);
@@ -186,9 +196,30 @@ void WindowContext::AddResizeCallback(std::function<void(uint32_t, uint32_t)> ca
 {
     resizeCallbackList.push_back(callback);
 }
-WMWindow* WindowContext::AddMouseEventHandler(std::function<bool(WMMouseEvent)> handler)
+WMWindow* WindowContext::AddMouseEventHandler(std::function<void(WMMouseEvent)> handler)
 {
     mouseEventHandler.emplace_back(handler);
     return this;
+}
+WMWindow* WindowContext::AddKeyboardEventHandler(std::function<void(WMKeyboardEvent)> handler)
+{
+    keyboardEventHandler.emplace_back(handler);
+    return this;
+}
+
+void WindowContext::PostMouseEvent(WMMouseEvent mouseEvent)
+{
+    for (auto iter = mouseEventHandler.begin(); mouseEventHandler.end() != iter; iter++)
+    {
+        (*iter)(mouseEvent);
+    }
+}
+
+void WindowContext::PostKeyboardEvent(WMKeyboardEvent keyboardEvent)
+{
+    for (auto iter = keyboardEventHandler.begin(); keyboardEventHandler.end() != iter; iter++)
+    {
+        (*iter)(keyboardEvent);
+    }
 }
 #endif // _WIN32

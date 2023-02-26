@@ -38,10 +38,15 @@ namespace WildMini::Window
         virtual void OnResize() override;
         virtual void AddResizeCallback(std::function<void(uint32_t, uint32_t)> callback) override;
 
-        virtual WMWindow* AddMouseEventHandler(std::function<bool(WMMouseEvent)> handler) override;
+        virtual WMWindow* AddMouseEventHandler(std::function<void(WMMouseEvent)> handler) override;
+        virtual WMWindow* AddKeyboardEventHandler(std::function<void(WMKeyboardEvent)> handler) override;
 
     protected:
         static LRESULT WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
+
+    private:
+        void PostMouseEvent(WMMouseEvent);
+        void PostKeyboardEvent(WMKeyboardEvent);
 
     protected:
         HINSTANCE instance;
@@ -54,7 +59,8 @@ namespace WildMini::Window
 
         std::vector<std::function<void(uint32_t, uint32_t)>> resizeCallbackList;
 
-        std::vector<std::function<bool(WMMouseEvent)>> mouseEventHandler;
+        std::vector<std::function<void(WMMouseEvent)>> mouseEventHandler;
+        std::vector<std::function<void(WMKeyboardEvent)>> keyboardEventHandler;
     };
 }
 #endif // _WIN32
