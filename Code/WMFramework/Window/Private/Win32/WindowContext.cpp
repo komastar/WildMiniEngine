@@ -28,16 +28,17 @@ LRESULT WindowContext::WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lP
     {
         auto x = (float)GET_X_LPARAM(lParam);
         auto y = (float)GET_Y_LPARAM(lParam);
-        WMLogDebug("Mouse Move : {}, {}", x, y);
         break;
     }
-    case WM_LBUTTONDOWN:
     case WM_LBUTTONDBLCLK:
+    {
+        WMLogDebug("DBL CLICK");
+    }
+    case WM_LBUTTONDOWN:
     {
         SetCapture(hwnd);
         auto x = (float)GET_X_LPARAM(lParam);
         auto y = (float)GET_Y_LPARAM(lParam);
-        WMLogDebug("Mouse LButton Down : {}, {}", x, y);
         break;
     }
     case WM_RBUTTONDOWN:
@@ -45,7 +46,6 @@ LRESULT WindowContext::WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lP
     {
         auto x = (float)GET_X_LPARAM(lParam);
         auto y = (float)GET_Y_LPARAM(lParam);
-        WMLogDebug("Mouse RButton Down : {}, {}", x, y);
         break;
     }
     case WM_LBUTTONUP:
@@ -55,7 +55,7 @@ LRESULT WindowContext::WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lP
     }
     case WM_KEYDOWN:
     {
-        WMKey keycode;
+        WMKey keycode = WMKey::NONE;
         if (wParam == VK_RETURN)
         {
             keycode = WMKey::RETURN;
@@ -96,7 +96,7 @@ WindowContext::WindowContext(uint32_t _width, uint32_t _height)
 void WindowContext::Create()
 {
     WNDCLASSW wc = {};
-    wc.style = CS_HREDRAW | CS_VREDRAW;
+    wc.style = CS_HREDRAW | CS_VREDRAW | CS_DBLCLKS;
     wc.lpfnWndProc = WndProc;
     wc.cbClsExtra = 0;
     wc.cbWndExtra = 0;
