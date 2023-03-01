@@ -9,6 +9,7 @@
 #include "WildMini.h"
 #include "WMContainer.h"
 #include "WMAssert.h"
+#include "WMLock.h"
 
 #include <cstdint>
 #include <iostream>

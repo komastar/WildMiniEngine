@@ -61,6 +61,8 @@ namespace WildMini
         Vector<std::function<void(uint32_t, uint32_t)>> resizeCallbackList;
         Vector<std::function<void(WMMouseEvent)>> mouseEventHandler;
         Vector<std::function<void(WMKeyboardEvent)>> keyboardEventHandler;
+
+        WMMutex keyboardEventLock;
     };
 }
 #endif // _WIN32

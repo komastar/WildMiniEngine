@@ -39,7 +39,6 @@ struct ProgressConstants
 EditorApplication::EditorApplication()
     : uiMesh(nullptr)
     , needResize(false)
-    , needShaderCompile(false)
 {
 }
 
@@ -58,7 +57,7 @@ void EditorApplication::OnInitialize()
         {
             if (WMKey::RETURN == keyboardEvent.keycode)
             {
-                needShaderCompile = true;
+                CreateRenderPipeline();
             }
         });
 
@@ -159,12 +158,6 @@ void EditorApplication::Render()
         swapChain->Resize(window->width, window->height);
         //uiCamera.SetOrthographics(window->GetWidth(), window->GetHeight(), 0.0f, 1000.0f);
         uiCamera.SetPerspective(0.25f, window->GetAspect(), 1.0f, 1000.0f);
-    }
-
-    if (needShaderCompile)
-    {
-        needShaderCompile = false;
-        CreateRenderPipeline();
     }
 
     if (WMSharedPtr<WMCommandBuffer> commandBuffer = commandQueue->CreateCommandBuffer())

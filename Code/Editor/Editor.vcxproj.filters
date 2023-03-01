@@ -5,6 +5,22 @@
     <ClCompile Include="EditorApplication.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <FxCompile Include="Resources\Shader\BasicShader.hlsl">
+      <Filter>Resources\Shader</Filter>
+    </FxCompile>
+    <FxCompile Include="Resources\Shader\UIShader.hlsl">
+      <Filter>Resources\Shader</Filter>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{72dd4bb0-6cd0-49d6-a037-d5a53abdcf51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Shader">
+      <UniqueIdentifier>{593bdd33-3d95-4c13-a6d9-8278dcd1ab7f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
     <ClInclude Include="EditorApplication.h" />
   </ItemGroup>
   <ItemGroup>

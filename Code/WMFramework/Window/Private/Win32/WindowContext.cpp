@@ -211,6 +211,7 @@ void WindowContext::PostMouseEvent(WMMouseEvent mouseEvent)
 
 void WindowContext::PostKeyboardEvent(WMKeyboardEvent keyboardEvent)
 {
+    WMLockGuard<WMMutex> lockGuard(keyboardEventLock);
     for (auto iter = keyboardEventHandler.begin(); keyboardEventHandler.end() != iter; iter++)
     {
         (*iter)(keyboardEvent);

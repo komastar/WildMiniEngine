@@ -56,6 +56,5 @@ namespace WildMini
         WMMesh* uiMesh;
 
         std::atomic_bool needResize;
-        std::atomic_bool needShaderCompile;
     };
 }
