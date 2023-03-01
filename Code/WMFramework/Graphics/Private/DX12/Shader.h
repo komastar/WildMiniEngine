@@ -9,9 +9,9 @@
 #include "d3d12_include.h"
 #include "Graphics/WMShader.h"
 
-namespace WildMini::Graphics::Private::DX12
+namespace WildMini
 {
-    class Shader : public WildMini::Graphics::WMShader
+    class Shader : public WMShader
     {
     public:
         Shader(ID3DBlob* _byteCode, WMShader::StageType _stage, const std::string& _entry);

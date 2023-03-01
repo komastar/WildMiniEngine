@@ -9,7 +9,7 @@
 #include "WMFramework.h"
 #include "Math/WMMath.h"
 
-namespace WildMini::Graphics
+namespace WildMini
 {
     class WM_API WMCamera
     {
@@ -17,7 +17,7 @@ namespace WildMini::Graphics
         WMCamera();
 
     public:
-        void SetView(const WildMini::Math::WMVector3& pos, const WildMini::Math::WMVector3& lookat, const WildMini::Math::WMVector3& up);
+        void SetView(const WMVector3& pos, const WMVector3& lookat, const WMVector3& up);
 
         void SetPerspective(float fov, float aspect, float nearZ, float farZ);
         void SetOrthographics(float width, float height, float nearZ, float farZ);
@@ -26,16 +26,16 @@ namespace WildMini::Graphics
 
         float NearZ() const;
         float FarZ() const;
-        WildMini::Math::WMVector3 Position() const;
-        WildMini::Math::WMMatrix4 ViewMatrix() const;
-        WildMini::Math::WMMatrix4 ProjMatrix() const;
+        WMVector3 Position() const;
+        WMMatrix4 ViewMatrix() const;
+        WMMatrix4 ProjMatrix() const;
 
     private:
         bool isPerpective;
         float nearZ;
         float farZ;
-        WildMini::Math::WMVector3 position;
-        WildMini::Math::WMMatrix4 viewMat;
-        WildMini::Math::WMMatrix4 projMat;
+        WMVector3 position;
+        WMMatrix4 viewMat;
+        WMMatrix4 projMat;
     };
 }

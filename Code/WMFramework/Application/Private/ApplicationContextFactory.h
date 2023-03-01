@@ -12,7 +12,7 @@
 #include "Window/WMWindow.h"
 #include "Graphics/WMGraphicsDevice.h"
 
-namespace WildMini::Application::Private
+namespace WildMini
 {
     class ApplicationContextFactory
     {

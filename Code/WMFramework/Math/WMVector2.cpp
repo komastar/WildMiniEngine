@@ -11,7 +11,7 @@
 #include "WMVector4.h"
 #include "WMMatrix2.h"
 
-using namespace WildMini::Math;
+using namespace WildMini;
 
 const WMVector2 WMVector2::one = WMVector2(1.0f, 1.0f);
 const WMVector2 WMVector2::zero = WMVector2(0.0f, 0.0f);

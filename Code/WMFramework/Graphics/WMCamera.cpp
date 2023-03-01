@@ -1,7 +1,6 @@
 #include "WMCamera.h"
 
-using namespace WildMini::Graphics;
-using namespace WildMini::Math;
+using namespace WildMini;
 
 WMCamera::WMCamera()
     : nearZ(0.0f)

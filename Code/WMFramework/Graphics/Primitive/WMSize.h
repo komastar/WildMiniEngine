@@ -8,7 +8,7 @@
 #pragma once
 #include "Math/WMMath.h"
 
-namespace WildMini::Graphics::Primitive
+namespace WildMini
 {
     class WMSize
     {

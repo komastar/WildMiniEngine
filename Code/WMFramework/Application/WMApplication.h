@@ -10,9 +10,9 @@
 #include "WMSharedPtr.h"
 #include "WMApplicationContext.h"
 
-namespace WildMini::Application
+namespace WildMini
 {
-    class WM_API WMApplication : public WildMini::WMRefCounter
+    class WM_API WMApplication : public WMRefCounter
     {
     public:
         WMApplication();
@@ -24,7 +24,7 @@ namespace WildMini::Application
         int Run();
 
     protected:
-        WildMini::WMSharedPtr<WMApplicationContext> context;
+        WMSharedPtr<WMApplicationContext> context;
     };
 }
 #pragma once

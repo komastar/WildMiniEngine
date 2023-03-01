@@ -10,9 +10,9 @@
 #include "WMSharedPtr.h"
 #include "Graphics/WMTexture.h"
 
-namespace WildMini::Graphics
+namespace WildMini
 {
-    class WM_API WMSwapChain : public WildMini::WMRefCounter
+    class WM_API WMSwapChain : public WMRefCounter
     {
     public:
         virtual const WMTexture* RenderTargetTexture() const = 0;

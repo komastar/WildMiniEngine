@@ -9,7 +9,7 @@
 #include "Graphics/Private/DX12/GraphicsDeviceContext.h"
 #include "Graphics/Private/Metal/GraphicsDeviceContext.h"
 
-namespace WildMini::Graphics::Private
+namespace WildMini
 {
     class GraphicsDeviceFactory
     {

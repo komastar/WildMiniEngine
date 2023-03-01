@@ -10,7 +10,7 @@
 #include "WMMatrix3.h"
 #include "WMMatrix4.h"
 
-using namespace WildMini::Math;
+using namespace WildMini;
 
 WMMatrix2 WMMatrix2::Inversed(WMMatrix2& m)
 {

@@ -9,7 +9,7 @@
 #include "Math/WMMath.h"
 #include "Math/WMVector2.h"
 
-using namespace WildMini::Math;
+using namespace WildMini;
 
 _TEST_(Core, Math, Vector2_one)
 {

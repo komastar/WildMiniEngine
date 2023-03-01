@@ -1,6 +1,6 @@
 #include "WMRectTransform.h"
 
-using namespace WildMini::UI;
+using namespace WildMini;
 
 WMRectTransform::WMRectTransform()
 {

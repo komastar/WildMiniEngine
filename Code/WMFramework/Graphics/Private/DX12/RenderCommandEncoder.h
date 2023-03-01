@@ -12,20 +12,20 @@
 #include "RenderPipeline.h"
 #include "Graphics/WMGPUBuffer.h"
 
-namespace WildMini::Graphics::Private::DX12
+namespace WildMini
 {
     class RenderCommandEncoder : public WMRenderCommandEncoder
     {
     public:
-        RenderCommandEncoder(/*ID3D12DescriptorHeap*, */RenderPipeline* _renderPipeline, WMCommandBuffer* _commandBuffer, ID3D12GraphicsCommandList* _commandList);
+        RenderCommandEncoder(RenderPipeline* _renderPipeline, WMCommandBuffer* _commandBuffer, ID3D12GraphicsCommandList* _commandList);
         virtual ~RenderCommandEncoder();
 
     public:
-        virtual void SetViewport(const Primitive::WMViewport& viewport) override;
-        virtual void SetScissorRect(const Primitive::WMRect& rect) override;
-        virtual void ClearRenderTarget(const WMTexture* renderTarget, const Primitive::WMColor& color) override;
-        virtual void SetViewports(const Primitive::WMViewport* viewports, uint32_t count) override;
-        virtual void SetScissorRects(const Primitive::WMRect* rects, uint32_t count) override;
+        virtual void SetViewport(const WMViewport& viewport) override;
+        virtual void SetScissorRect(const WMRect& rect) override;
+        virtual void ClearRenderTarget(const WMTexture* renderTarget, const WMColor& color) override;
+        virtual void SetViewports(const WMViewport* viewports, uint32_t count) override;
+        virtual void SetScissorRects(const WMRect* rects, uint32_t count) override;
         virtual void SetRenderTargets(std::vector<const WMTexture*> renderTargets, const WMTexture* depthStencil) override;
         virtual void ClearDepthStencil(const WMTexture* depthStencil, DepthStencilClearFlag clearFlag, float clearDepth, uint8_t clearStencil) override;
         virtual void SetConstantBuffer(uint32_t index, const WMGPUBuffer* constantBuffer) override;
@@ -42,10 +42,8 @@ namespace WildMini::Graphics::Private::DX12
 
     protected:
         ComPtr<ID3D12GraphicsCommandList> commandList;
-        WildMini::WMSharedPtr<WMCommandBuffer> commandBuffer;
+        WMSharedPtr<WMCommandBuffer> commandBuffer;
 
         std::vector<const WMTexture*> renderTargetsTemp;
-
-        //ComPtr<ID3D12DescriptorHeap> imguiDescHeap;
     };
 }

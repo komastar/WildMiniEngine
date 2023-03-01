@@ -7,7 +7,7 @@
 
 #include "WMColor.h"
 
-using namespace WildMini::Graphics::Primitive;
+using namespace WildMini;
 
 const WMColor WMColor::transparent =    { 0.0f, 0.0f, 0.0f, 1.0f };
 const WMColor WMColor::white =          { 1.0f, 1.0f, 1.0f, 1.0f };

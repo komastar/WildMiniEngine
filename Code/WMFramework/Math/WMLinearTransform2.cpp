@@ -8,7 +8,7 @@
 #include "WMLinearTransform2.h"
 #include "WMMath.h"
 
-using namespace WildMini::Math;
+using namespace WildMini;
 
 WMLinearTransform2::WMLinearTransform2() : m()
 {

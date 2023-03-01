@@ -6,7 +6,7 @@
 //
 
 #pragma once
-namespace WildMini::Math
+namespace WildMini
 {
     class WMVector3;
     class WMVector4;

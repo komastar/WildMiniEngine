@@ -6,7 +6,7 @@
 //
 
 #pragma once
-namespace WildMini::Graphics
+namespace WildMini
 {
     enum WMColorWriteMask
     {

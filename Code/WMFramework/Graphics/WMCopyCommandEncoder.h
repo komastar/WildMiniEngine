@@ -11,9 +11,9 @@
 #include "Graphics/WMGPUBuffer.h"
 #include "Graphics/WMTexture.h"
 
-namespace WildMini::Graphics
+namespace WildMini
 {
-    class WM_API WMCopyCommandEncoder : public WildMini::WMRefCounter
+    class WM_API WMCopyCommandEncoder : public WMRefCounter
     {
     public:
         struct TextureArea

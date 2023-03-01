@@ -9,7 +9,7 @@
 #include "d3d12_include.h"
 #include "Graphics/WMTexture.h"
 
-namespace WildMini::Graphics::Private::DX12
+namespace WildMini
 {
     class Texture : public WMTexture
     {

@@ -13,14 +13,9 @@
 #include "Shader.h"
 #include "Type.h"
 #include "RenderPipeline.h"
-//#include "UI/imgui/imgui.h"
-//#include "UI/imgui/backends/imgui_impl_dx12.h"
 #include "Log/WMLog.h"
 
 using namespace WildMini;
-using namespace WildMini::Graphics;
-using namespace WildMini::Graphics::Private;
-using namespace WildMini::Graphics::Private::DX12;
 
 static std::array<const CD3DX12_STATIC_SAMPLER_DESC, 6> GetStaticSampler()
 {
@@ -129,15 +124,15 @@ WMSharedPtr<WMGPUBuffer> GraphicsDeviceContext::CreateGPUBuffer(size_t size, WMG
 
     switch (mode)
     {
-    case WildMini::Graphics::WMGPUBuffer::CPUCacheMode::NONE:
+    case WMGPUBuffer::CPUCacheMode::NONE:
         heapProp = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_DEFAULT);
         initBufferState = D3D12_RESOURCE_STATE_GENERIC_READ;
         break;
-    case WildMini::Graphics::WMGPUBuffer::CPUCacheMode::WRITABLE:
+    case WMGPUBuffer::CPUCacheMode::WRITABLE:
         heapProp = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD);
         initBufferState = D3D12_RESOURCE_STATE_GENERIC_READ;
         break;
-    case WildMini::Graphics::WMGPUBuffer::CPUCacheMode::READABLE:
+    case WMGPUBuffer::CPUCacheMode::READABLE:
         heapProp = CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_READBACK);
         initBufferState = D3D12_RESOURCE_STATE_COPY_DEST;
         break;

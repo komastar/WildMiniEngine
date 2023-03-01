@@ -11,7 +11,7 @@
 
 #include "GraphicsDeviceContext.h"
 
-namespace WildMini::Graphics::Private::DX12
+namespace WildMini
 {
     class CommandQueue : public WMCommandQueue
     {
@@ -19,8 +19,8 @@ namespace WildMini::Graphics::Private::DX12
         CommandQueue(GraphicsDeviceContext*, ID3D12CommandQueue*, ID3D12CommandAllocator*, ID3D12GraphicsCommandList*, ID3D12Fence*);
         virtual ~CommandQueue();
 
-        virtual WildMini::WMSharedPtr<Graphics::WMSwapChain> CreateSwapChain(Window::WMWindow*) override;
-        virtual WildMini::WMSharedPtr<WMCommandBuffer> CreateCommandBuffer() override;
+        virtual WMSharedPtr<WMSwapChain> CreateSwapChain(WMWindow*) override;
+        virtual WMSharedPtr<WMCommandBuffer> CreateCommandBuffer() override;
 
         void WaitComplete() override;
 
@@ -29,7 +29,7 @@ namespace WildMini::Graphics::Private::DX12
         uint64_t ExecuteCommandLists(uint32_t numCommandLists, ID3D12CommandList* const* commandLists);
 
     private:
-        WildMini::WMSharedPtr<GraphicsDeviceContext> device;
+        WMSharedPtr<GraphicsDeviceContext> device;
         ComPtr<ID3D12CommandQueue> commandQueue;
         ComPtr<ID3D12Fence> fence;
         ComPtr<ID3D12CommandAllocator> commandAllocator;

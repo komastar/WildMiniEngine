@@ -9,12 +9,12 @@
 #include "Math/WMVector3.h"
 #include "Graphics/Primitive/WMColor.h"
 
-namespace WildMini::Graphics::Geometry
+namespace WildMini
 {
     struct WMVertex
     {
-        WildMini::Math::WMVector3 p;
-        WildMini::Math::WMVector2 t;
-        WildMini::Graphics::Primitive::WMColor c;
+        WMVector3 p;
+        WMVector2 t;
+        WMColor c;
     };
 }

@@ -12,7 +12,7 @@
 #include "WMFramework.h"
 #include "Window/WMWindow.h"
 
-namespace WildMini::Window
+namespace WildMini
 {
     class WindowContext : public WMWindow
     {

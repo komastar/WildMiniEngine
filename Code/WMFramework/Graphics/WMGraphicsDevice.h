@@ -13,9 +13,9 @@
 #include "WMTexture.h"
 #include "WMRenderPipeline.h"
 
-namespace WildMini::Graphics
+namespace WildMini
 {
-    class WM_API WMGraphicsDevice : public WildMini::WMRefCounter
+    class WM_API WMGraphicsDevice : public WMRefCounter
     {
     public:
         static WMGraphicsDevice* CreateGraphicsDevice();

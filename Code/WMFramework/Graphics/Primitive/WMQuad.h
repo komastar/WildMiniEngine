@@ -8,10 +8,10 @@
 #pragma once
 #include "Math/WMVector2.h"
 
-using Vector2 = WildMini::Math::WMVector2;
 
-namespace WildMini::Graphics::Primitive
+namespace WildMini
 {
+    using Vector2 = WildMini::WMVector2;
     class WMQuad
     {
     public:

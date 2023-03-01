@@ -2,9 +2,9 @@
 #include "WMFramework.h"
 #include "WMRefCounter.h"
 
-namespace WildMini::Common
+namespace WildMini
 {
-    class WMThread : public WildMini::WMRefCounter
+    class WMThread : public WMRefCounter
     {
     public:
         static WMThread* Create(const wchar_t* name);

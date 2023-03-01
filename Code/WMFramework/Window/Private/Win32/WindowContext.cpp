@@ -7,20 +7,14 @@
 
 #ifdef _WIN32
 #include "WindowContext.h"
-//#include "imgui.h"
 #include "Log/WMLog.h"
 
-using namespace WildMini::Window;
+using namespace WildMini;
 
 //extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 LRESULT WindowContext::WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-    //if (ImGui_ImplWin32_WndProcHandler(hwnd, message, wParam, lParam))
-    //{
-    //    return true;
-    //}
-
     WindowContext* window = reinterpret_cast<WindowContext*>(::GetWindowLongPtrW(hwnd, GWLP_USERDATA));
     switch (message)
     {

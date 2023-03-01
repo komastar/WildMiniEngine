@@ -7,7 +7,7 @@
 
 #include "WMPoint.h"
 
-using namespace WildMini::Graphics::Primitive;
+using namespace WildMini;
 
 const WMPoint WMPoint::zero = { 0.0f, 0.0f };
 const WMPoint WMPoint::one = { 1.0f, 1.0f };
@@ -28,7 +28,7 @@ WMPoint::WMPoint(float _x, float _y)
 
 }
 
-WMPoint::WMPoint(const WildMini::Math::WMVector2& v)
+WMPoint::WMPoint(const WildMini::WMVector2& v)
     : x(v.x)
     , y(v.y)
 {

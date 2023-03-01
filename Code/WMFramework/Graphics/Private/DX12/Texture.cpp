@@ -8,8 +8,7 @@
 #include "Texture.h"
 #include "Type.h"
 
-using namespace WildMini::Graphics;
-using namespace WildMini::Graphics::Private::DX12;
+using namespace WildMini;
 
 Texture::Texture(ComPtr<ID3D12Resource> buffer, D3D12_RESOURCE_STATES state)
     : buffer(buffer)

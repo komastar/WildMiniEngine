@@ -14,7 +14,7 @@
 #include "WMSharedPtr.h"
 #include "Window/WMWindow.h"
 
-namespace WildMini::Application::Private
+namespace WildMini
 {
     class ApplicationContext : public WMApplicationContext
     {

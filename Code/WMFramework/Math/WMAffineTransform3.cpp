@@ -7,7 +7,7 @@
 
 #include "WMAffineTransform3.h"
 
-using namespace WildMini::Math;
+using namespace WildMini;
 
 WMAffineTransform3::WMAffineTransform3()
 {

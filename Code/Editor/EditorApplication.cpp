@@ -17,12 +17,6 @@
 #include "Log/WMLog.h"
 
 using namespace WildMini;
-using namespace WildMini::Window;
-using namespace WildMini::Common;
-using namespace WildMini::Graphics;
-using namespace WildMini::Graphics::Primitive;
-using namespace WildMini::Graphics::Geometry;
-using namespace WildMini::Math;
 
 struct Constants
 {
@@ -55,7 +49,7 @@ EditorApplication::~EditorApplication()
 
 void EditorApplication::OnInitialize()
 {
-    window = Window::WindowFactory::Create(1280, 720);
+    window = WindowFactory::Create(1280, 720);
     window->Create();
     window->Show();
     window->Focus();
@@ -68,7 +62,7 @@ void EditorApplication::OnInitialize()
             }
         });
 
-    device = Graphics::Private::GraphicsDeviceFactory::Create();
+    device = GraphicsDeviceFactory::Create();
     commandQueue = device->CreateCommandQueue();
     swapChain = commandQueue->CreateSwapChain(window);
 
@@ -82,7 +76,7 @@ void EditorApplication::OnInitialize()
     progressBuffer = device->CreateGPUBuffer(sizeof(ProgressConstants), WMGPUBuffer::CPUCacheMode::WRITABLE);
     progressBuffer->WriteData(&progressConst, sizeof(ProgressConstants));
 
-    uiMesh = Geometry::WMGeometryFactory::MakePlane(device, 100.f, WMColor(1.0f, 0.0f, 0.0f, 1.0f));
+    uiMesh = WMGeometryFactory::MakePlane(device, 100.f, WMColor(1.0f, 0.0f, 0.0f, 1.0f));
 
     float deltaTime = 0.0f;
     gameThread = WMThread::Create(L"Editor");
@@ -177,14 +171,14 @@ void EditorApplication::Render()
     {
         if (WMSharedPtr<WMRenderCommandEncoder> renderCommandEncoder = commandBuffer->CreateRenderCommandEncoder(renderPipeline))
         {
-            renderCommandEncoder->ClearRenderTarget(swapChain->RenderTargetTexture(), Primitive::WMColor::black);
+            renderCommandEncoder->ClearRenderTarget(swapChain->RenderTargetTexture(), WMColor::black);
             renderCommandEncoder->ClearDepthStencil(swapChain->DepthStencilTexture()
                 , WMRenderCommandEncoder::DepthStencilClearFlag::All
                 , 0.0f
                 , 0);
-            Primitive::WMViewport viewport = { 0, 0, window->GetWidth(), window->GetHeight(), 0.0f, 1.0f };
+            WMViewport viewport = { 0, 0, window->GetWidth(), window->GetHeight(), 0.0f, 1.0f };
             renderCommandEncoder->SetViewport(viewport);
-            Primitive::WMRect scissorRect = { 0, 0, window->GetWidth(), window->GetHeight() };
+            WMRect scissorRect = { 0, 0, window->GetWidth(), window->GetHeight() };
             renderCommandEncoder->SetScissorRect(scissorRect);
             renderCommandEncoder->SetRenderTargets({ swapChain->RenderTargetTexture() }, swapChain->DepthStencilTexture());
             renderCommandEncoder->SetConstantBuffer(0, progressBuffer);

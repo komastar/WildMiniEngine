@@ -11,14 +11,14 @@
 #include "Graphics/Primitive/WMColor.h"
 #include "Graphics/Geometry/WMMesh.h"
 
-namespace WildMini::Graphics::Geometry
+namespace WildMini
 {
     class WMGeometryFactory
     {
     public:
         static WMMesh* MakeDefaultBox(WMGraphicsDevice* device);
         static WMMesh* MakeBox(WMGraphicsDevice* device, float size);
-        static WMMesh* MakeQuad(WMGraphicsDevice* device, float size, const Primitive::WMColor& color);
-        static WMMesh* MakePlane(WMGraphicsDevice* device, float size, const Primitive::WMColor& color);
+        static WMMesh* MakeQuad(WMGraphicsDevice* device, float size, const WMColor& color);
+        static WMMesh* MakePlane(WMGraphicsDevice* device, float size, const WMColor& color);
     };
 }

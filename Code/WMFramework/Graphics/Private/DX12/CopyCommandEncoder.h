@@ -10,7 +10,7 @@
 #include "Graphics/WMCopyCommandEncoder.h"
 #include "CommandBuffer.h"
 
-namespace WildMini::Graphics::Private::DX12
+namespace WildMini
 {
     class CopyCommandEncoder : public WMCopyCommandEncoder
     {
@@ -27,7 +27,7 @@ namespace WildMini::Graphics::Private::DX12
     private:
         void TransitionBufferState(ID3D12Resource* buffer, D3D12_RESOURCE_STATES after, D3D12_RESOURCE_STATES before);
 
-        WildMini::WMSharedPtr<CommandBuffer> commandBuffer;
+        WMSharedPtr<CommandBuffer> commandBuffer;
         ComPtr<ID3D12GraphicsCommandList> commandList;
     };
 }

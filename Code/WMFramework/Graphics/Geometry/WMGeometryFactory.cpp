@@ -12,10 +12,6 @@
 #include "Math/WMVector3.h"
 
 using namespace WildMini;
-using namespace WildMini::Graphics;
-using namespace WildMini::Graphics::Geometry;
-using namespace WildMini::Graphics::Primitive;
-using namespace WildMini::Math;
 
 WMMesh* WMGeometryFactory::MakeDefaultBox(WMGraphicsDevice* device)
 {
@@ -146,15 +142,15 @@ WMMesh* WMGeometryFactory::MakePlane(WMGraphicsDevice* device, float size, const
 {
     WMMesh* mesh = new WMMesh();
 
-    size_t count = static_cast<size_t>(size);
-    size_t faceCount = count * count;
+    uint32_t count = static_cast<uint32_t>(size);
+    uint32_t faceCount = count * count;
 
     std::vector<WMVertex> verticies;
     verticies.reserve(count);
     float invSize = 1.0f / size;
-    for (size_t i = 0; i < count + 1; ++i)
+    for (uint32_t i = 0; i < count + 1; ++i)
     {
-        for (size_t j = 0; j < count + 1; ++j)
+        for (uint32_t j = 0; j < count + 1; ++j)
         {
             float x = static_cast<float>(j);
             float z = static_cast<float>(i);
@@ -186,9 +182,9 @@ WMMesh* WMGeometryFactory::MakePlane(WMGraphicsDevice* device, float size, const
     */
     std::vector<uint32_t> indices;
     indices.reserve(faceCount * 6);
-    for (size_t i = 0; i < count; ++i)
+    for (uint32_t i = 0; i < count; ++i)
     {
-        for (size_t j = 0; j < count; ++j)
+        for (uint32_t j = 0; j < count; ++j)
         {
             uint32_t index = j + i * (count + 1);
             indices.emplace_back(index);

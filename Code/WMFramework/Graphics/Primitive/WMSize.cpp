@@ -7,7 +7,7 @@
 
 #include "WMSize.h"
 
-using namespace WildMini::Graphics::Primitive;
+using namespace WildMini;
 
 const WMSize WMSize::zero = { 0.0f, 0.0f };
 const WMSize WMSize::one = { 1.0f, 1.0f };

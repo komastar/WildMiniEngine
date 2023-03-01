@@ -8,7 +8,7 @@
 #pragma once
 #include "WMFramework.h"
 
-namespace WildMini::Graphics
+namespace WildMini
 {
     enum class WMVertexFormat
     {

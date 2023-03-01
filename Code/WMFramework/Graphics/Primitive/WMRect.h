@@ -9,7 +9,7 @@
 #include "WMPoint.h"
 #include "WMSize.h"
 
-namespace WildMini::Graphics::Primitive
+namespace WildMini
 {
     class WMRect
     {

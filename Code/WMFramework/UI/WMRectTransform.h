@@ -3,9 +3,9 @@
 #include "Graphics/Primitive/WMPoint.h"
 #include "Graphics/Primitive/WMSize.h"
 
-namespace WildMini::UI
+namespace WildMini
 {
-    class WMRectTransform : public WildMini::WMRefCounter
+    class WMRectTransform : public WMRefCounter
     {
     public:
         WMRectTransform();
@@ -13,11 +13,11 @@ namespace WildMini::UI
 
     private:
     protected:
-        WildMini::Graphics::Primitive::WMPoint position;
-        WildMini::Graphics::Primitive::WMSize size;
-        WildMini::Graphics::Primitive::WMPoint anchorMin;
-        WildMini::Graphics::Primitive::WMPoint anchorMax;
-        WildMini::Graphics::Primitive::WMPoint pivot;
+        WMPoint position;
+        WMSize size;
+        WMPoint anchorMin;
+        WMPoint anchorMax;
+        WMPoint pivot;
 
     public:
         float GetX();

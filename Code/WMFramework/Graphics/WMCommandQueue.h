@@ -12,13 +12,13 @@
 #include "Graphics/WMSwapChain.h"
 #include "Graphics/WMCommandBuffer.h"
 
-namespace WildMini::Graphics
+namespace WildMini
 {
-    class WM_API WMCommandQueue : public WildMini::WMRefCounter
+    class WM_API WMCommandQueue : public WMRefCounter
     {
     public:
-        virtual WildMini::WMSharedPtr<WMSwapChain> CreateSwapChain(Window::WMWindow*) = 0;
-        virtual WildMini::WMSharedPtr<WMCommandBuffer> CreateCommandBuffer() = 0;
+        virtual WMSharedPtr<WMSwapChain> CreateSwapChain(WMWindow*) = 0;
+        virtual WMSharedPtr<WMCommandBuffer> CreateCommandBuffer() = 0;
 
         virtual void WaitComplete() = 0;
     };

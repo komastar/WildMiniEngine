@@ -9,7 +9,7 @@
 #include "Math/WMMath.h"
 #include "Math/WMVector2.h"
 
-namespace WildMini::Graphics::Primitive
+namespace WildMini
 {
     class WMPoint
     {
@@ -30,7 +30,7 @@ namespace WildMini::Graphics::Primitive
         WMPoint(const WMPoint& point) = default;
         WMPoint(WMPoint&& point) = default;
         WMPoint(float _x, float _y);
-        WMPoint(const WildMini::Math::WMVector2& v);
+        WMPoint(const WildMini::WMVector2& v);
 
     public:
         static const WMPoint zero;

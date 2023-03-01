@@ -12,7 +12,7 @@
 #include "RenderCommandEncoder.h"
 #include "CommandQueue.h"
 
-namespace WildMini::Graphics::Private::DX12
+namespace WildMini
 {
     class CommandBuffer : public WMCommandBuffer
     {

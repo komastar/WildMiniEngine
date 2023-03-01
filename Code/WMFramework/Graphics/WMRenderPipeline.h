@@ -13,9 +13,9 @@
 #include "Graphics/WMBlendState.h"
 #include "Graphics/WMTexture.h"
 
-namespace WildMini::Graphics
+namespace WildMini
 {
-    class WM_API WMRenderPipeline : public WildMini::WMRefCounter
+    class WM_API WMRenderPipeline : public WMRefCounter
     {
     };
 
@@ -49,8 +49,8 @@ namespace WildMini::Graphics
     struct WMRenderPipelineDescriptor
     {
         uint32_t sampleCount;
-        WildMini::WMSharedPtr<WildMini::Graphics::WMShader> vertexShader;
-        WildMini::WMSharedPtr<WildMini::Graphics::WMShader> fragmentShader;
+        WMSharedPtr<WMShader> vertexShader;
+        WMSharedPtr<WMShader> fragmentShader;
 
         WMVertexDescriptor vertexDescriptor;
         std::vector<WMRenderPipelineColorAttachmentDescriptor> colorAttachments;

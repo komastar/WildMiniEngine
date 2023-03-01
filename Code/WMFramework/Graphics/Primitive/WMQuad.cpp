@@ -7,8 +7,7 @@
 
 #include "WMQuad.h"
 
-using namespace WildMini::Math;
-using namespace WildMini::Graphics::Primitive;
+using namespace WildMini;
 
 const WMQuad WMQuad::zero = { Vector2::zero, Vector2::zero, Vector2::zero, Vector2::zero };
 const WMQuad WMQuad::one = { Vector2::zero, Vector2::right, Vector2::up, Vector2::one };

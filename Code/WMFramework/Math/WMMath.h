@@ -26,7 +26,7 @@
 #include "WMLinearTransform2.h"
 #include "WMLinearTransform3.h"
 
-namespace WildMini::Math
+namespace WildMini
 {
     inline float DegToRad(float degree)
     {

@@ -1,7 +1,7 @@
 #include "ThreadContext.h"
 #include <Windows.h>
 
-using namespace WildMini::Common::Thread;
+using namespace WildMini;
 
 ThreadContext::ThreadContext(const wchar_t* name)
     : threadName(L"")

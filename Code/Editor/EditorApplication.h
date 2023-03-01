@@ -20,39 +20,42 @@
 #include "Graphics/Geometry/WMMesh.h"
 #include "Common/WMThread.h"
 
-class EditorApplication : public WildMini::Application::WMApplication
+namespace WildMini
 {
-public:
-    EditorApplication();
-    virtual ~EditorApplication();
+    class EditorApplication : public WMApplication
+    {
+    public:
+        EditorApplication();
+        virtual ~EditorApplication();
 
-public:
-    void OnInitialize() override;
-    void CreateRenderPipeline();
-    void OnTerminate() override;
+    public:
+        void OnInitialize() override;
+        void CreateRenderPipeline();
+        void OnTerminate() override;
 
-private:
-    void Update(float dt);
-    void Render();
+    private:
+        void Update(float dt);
+        void Render();
 
-    void OnResize(uint32_t width, uint32_t height);
+        void OnResize(uint32_t width, uint32_t height);
 
-private:
-    WildMini::WMSharedPtr<WildMini::Window::WMWindow> window;
-    WildMini::WMSharedPtr<WildMini::Graphics::WMGraphicsDevice> device;
+    private:
+        WMSharedPtr<WMWindow> window;
+        WMSharedPtr<WMGraphicsDevice> device;
 
-    WildMini::WMSharedPtr<WildMini::Common::WMThread> gameThread;
-    WildMini::WMSharedPtr<WildMini::Graphics::WMCommandQueue> commandQueue;
-    WildMini::WMSharedPtr<WildMini::Graphics::WMSwapChain> swapChain;
+        WMSharedPtr<WMThread> gameThread;
+        WMSharedPtr<WMCommandQueue> commandQueue;
+        WMSharedPtr<WMSwapChain> swapChain;
 
-    WildMini::WMSharedPtr<WildMini::Graphics::WMShader> vertexShader;
-    WildMini::WMSharedPtr<WildMini::Graphics::WMShader> pixelShader;
-    WildMini::WMSharedPtr<WildMini::Graphics::WMRenderPipeline> renderPipeline;
+        WMSharedPtr<WMShader> vertexShader;
+        WMSharedPtr<WMShader> pixelShader;
+        WMSharedPtr<WMRenderPipeline> renderPipeline;
 
-    WildMini::WMSharedPtr<WildMini::Graphics::WMGPUBuffer> progressBuffer;
-    WildMini::Graphics::WMCamera uiCamera;
-    WildMini::Graphics::Geometry::WMMesh* uiMesh;
+        WMSharedPtr<WMGPUBuffer> progressBuffer;
+        WMCamera uiCamera;
+        WMMesh* uiMesh;
 
-    std::atomic_bool needResize;
-    std::atomic_bool needShaderCompile;
-};
+        std::atomic_bool needResize;
+        std::atomic_bool needShaderCompile;
+    };
+}

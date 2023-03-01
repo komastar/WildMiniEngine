@@ -14,6 +14,6 @@ namespace WildMini
     class WM_API WMComponent
     {
     public:
-        virtual WildMini::Common::WMObject* GetOwner() = 0;
+        virtual WMObject* GetOwner() = 0;
     };
 }

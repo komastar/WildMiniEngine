@@ -8,7 +8,7 @@
 #pragma once
 #include "WMRect.h"
 
-namespace WildMini::Graphics::Primitive
+namespace WildMini
 {
     class WMViewport
     {

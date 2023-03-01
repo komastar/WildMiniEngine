@@ -8,7 +8,7 @@
 #pragma once
 #include "WMFramework.h"
 
-namespace WildMini::IO::File
+namespace WildMini
 {
     struct WMFileHandle
     {

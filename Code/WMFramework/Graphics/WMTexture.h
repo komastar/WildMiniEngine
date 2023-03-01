@@ -9,7 +9,7 @@
 #include "WMFramework.h"
 #include "WMSharedPtr.h"
 
-namespace WildMini::Graphics
+namespace WildMini
 {
     enum WMPixelFormat
     {
@@ -23,7 +23,7 @@ namespace WildMini::Graphics
         DEPTH_24_UNORM_STENCIL_8
     };
 
-    class WM_API WMTexture : public WildMini::WMRefCounter
+    class WM_API WMTexture : public WMRefCounter
     {
     public:
         enum Type

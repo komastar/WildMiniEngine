@@ -11,7 +11,7 @@
 #include "WMVector3.h"
 #include "WMMatrix4.h"
 
-using namespace WildMini::Math;
+using namespace WildMini;
 
 const WMVector4 WMVector4::one = { 1.0f, 1.0f, 1.0f, 1.0f };
 const WMVector4 WMVector4::zero = { 0.0f, 0.0f, 0.0f, 1.0f };

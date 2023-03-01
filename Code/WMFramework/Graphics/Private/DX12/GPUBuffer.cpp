@@ -7,8 +7,7 @@
 
 #include "GPUBuffer.h"
 
-using namespace WildMini::Graphics;
-using namespace WildMini::Graphics::Private::DX12;
+using namespace WildMini;
 
 GPUBuffer::GPUBuffer(ComPtr<ID3D12Resource> buffer, WMGPUBuffer::CPUCacheMode mode, D3D12_RESOURCE_STATES state)
     : buffer(buffer)

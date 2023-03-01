@@ -9,8 +9,6 @@
 #include "IO/File/Private/FileHandle.h"
 
 using namespace WildMini;
-using namespace WildMini::IO::File;
-using namespace WildMini::IO::File::Private;
 
 WMFile::WMFile()
     : fileSize(0)
@@ -22,7 +20,7 @@ WMFile::~WMFile()
 {
     if (impl)
     {
-        auto handle = reinterpret_cast<Private::FileHandle*>(impl);
+        auto handle = reinterpret_cast<FileHandle*>(impl);
         handle->stream.close();
 
         delete impl;

@@ -9,13 +9,11 @@
 #include "Graphics/Private/GraphicsDeviceFactory.h"
 #include "IO/File/WMFile.h"
 
-using namespace WildMini::Graphics;
 using namespace WildMini;
-using namespace WildMini::IO::File;
 
 WMGraphicsDevice* WMGraphicsDevice::CreateGraphicsDevice()
 {
-    return WildMini::Graphics::Private::GraphicsDeviceFactory::Create();
+    return GraphicsDeviceFactory::Create();
 }
 
 WMSharedPtr<WMShader> WMGraphicsDevice::CreateShader(const std::wstring& path, const std::string& entry, WMShader::StageType stage)

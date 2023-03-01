@@ -9,9 +9,9 @@
 #include "WMFramework.h"
 #include "WMRefCounter.h"
 
-namespace WildMini::Graphics
+namespace WildMini
 {
-    class WM_API WMShader : public WildMini::WMRefCounter
+    class WM_API WMShader : public WMRefCounter
     {
     public:
         enum class StageType

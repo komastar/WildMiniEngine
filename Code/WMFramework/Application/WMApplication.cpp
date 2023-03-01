@@ -8,8 +8,7 @@
 #include "Application/WMApplication.h"
 #include "Application/Private/ApplicationContextFactory.h"
 
-using namespace WildMini::Application;
-using namespace WildMini::Application::Private;
+using namespace WildMini;
 
 WMApplication::WMApplication()
     : context(nullptr)

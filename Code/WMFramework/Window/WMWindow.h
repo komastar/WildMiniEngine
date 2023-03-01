@@ -8,8 +8,9 @@
 #pragma once
 #include "WMFramework.h"
 #include "WMRefCounter.h"
+#include "Math/WMVector2.h"
 
-namespace WildMini::Window
+namespace WildMini
 {
     enum class WMKey
     {
@@ -18,8 +19,19 @@ namespace WildMini::Window
         MAX
     };
 
+    enum class WMMouseEventType
+    {
+        NONE = 0,
+        DOWN,
+        UP,
+        DBL_CLICK,
+        MAX
+    };
+
     struct WMMouseEvent 
     {
+        WMMouseEventType type;
+        WMVector2 position;
     };
 
     struct WMKeyboardEvent
@@ -27,7 +39,7 @@ namespace WildMini::Window
         WMKey keycode;
     };
 
-    class WM_API WMWindow : public WildMini::WMRefCounter
+    class WM_API WMWindow : public WMRefCounter
     {
     public:
         WMWindow(uint32_t _width, uint32_t _height) : width(_width), height(_height) {}

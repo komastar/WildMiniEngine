@@ -10,7 +10,7 @@
 #include "Texture.h"
 #include "Type.h"
 
-using namespace WildMini::Graphics::Private::DX12;
+using namespace WildMini;
 
 CopyCommandEncoder::CopyCommandEncoder(CommandBuffer* _commandBuffer, ID3D12GraphicsCommandList* _commandList)
     : commandBuffer(_commandBuffer)

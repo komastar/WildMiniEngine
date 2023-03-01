@@ -7,7 +7,7 @@
 
 #include "Shader.h"
 
-using namespace WildMini::Graphics::Private::DX12;
+using namespace WildMini;
 
 Shader::Shader(ID3DBlob* _byteCode, WMShader::StageType _stage, const std::string& _entry)
     : byteCode(_byteCode)

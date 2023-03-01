@@ -7,7 +7,7 @@
 
 #include "WMViewport.h"
 
-using namespace WildMini::Graphics::Primitive;
+using namespace WildMini;
 
 WMViewport::WMViewport()
     : origin(WMPoint::zero)

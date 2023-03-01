@@ -8,23 +8,14 @@
 #include "RenderCommandEncoder.h"
 #include "Texture.h"
 #include "GPUBuffer.h"
-//#include "imgui.h"
-//#include "backends/imgui_impl_dx12.h"
-//#include "backends/imgui_impl_win32.h"
 
-using namespace WildMini::Graphics::Private::DX12;
-using namespace WildMini::Graphics::Primitive;
+using namespace WildMini;
 
-RenderCommandEncoder::RenderCommandEncoder(/*ID3D12DescriptorHeap* _imguiDescHeap, */RenderPipeline* _renderPipeline, WMCommandBuffer* _commandBuffer, ID3D12GraphicsCommandList* _commandList)
+RenderCommandEncoder::RenderCommandEncoder(RenderPipeline* _renderPipeline, WMCommandBuffer* _commandBuffer, ID3D12GraphicsCommandList* _commandList)
     : commandList(_commandList)
     , commandBuffer(_commandBuffer)
-    //, imguiDescHeap(_imguiDescHeap)
 {
     commandList->SetGraphicsRootSignature(_renderPipeline->RootSignature());
-
-    //ImGui_ImplDX12_NewFrame();
-    //ImGui_ImplWin32_NewFrame();
-    //ImGui::NewFrame();
 }
 
 
@@ -43,7 +34,7 @@ void RenderCommandEncoder::SetViewport(const WMViewport& viewport)
     commandList->RSSetViewports(1, &vp);
 }
 
-void RenderCommandEncoder::SetViewports(const Primitive::WMViewport* viewports, uint32_t count)
+void RenderCommandEncoder::SetViewports(const WMViewport* viewports, uint32_t count)
 {
     std::vector<D3D12_VIEWPORT> viewportList(count);
     for (uint32_t i = 0; i < count; ++i)
@@ -69,7 +60,7 @@ void RenderCommandEncoder::SetScissorRect(const WMRect& rect)
     commandList->RSSetScissorRects(1, &scissorRect);
 }
 
-void RenderCommandEncoder::SetScissorRects(const Primitive::WMRect* rects, uint32_t count)
+void RenderCommandEncoder::SetScissorRects(const WMRect* rects, uint32_t count)
 {
     std::vector<D3D12_RECT> rectList(count);
     for (uint32_t i = 0; i < count; ++i)
@@ -155,19 +146,19 @@ void RenderCommandEncoder::SetPrimitiveType(PrimitiveType primitiveType)
 {
     switch (primitiveType)
     {
-    case WildMini::Graphics::WMRenderCommandEncoder::PrimitiveType::Line:
+    case WMRenderCommandEncoder::PrimitiveType::Line:
         commandList->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_LINELIST);
         break;
-    case WildMini::Graphics::WMRenderCommandEncoder::PrimitiveType::LineStrip:
+    case WMRenderCommandEncoder::PrimitiveType::LineStrip:
         commandList->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_LINESTRIP);
         break;
-    case WildMini::Graphics::WMRenderCommandEncoder::PrimitiveType::Triangle:
+    case WMRenderCommandEncoder::PrimitiveType::Triangle:
         commandList->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
         break;
-    case WildMini::Graphics::WMRenderCommandEncoder::PrimitiveType::TriangleStrip:
+    case WMRenderCommandEncoder::PrimitiveType::TriangleStrip:
         commandList->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLESTRIP);
         break;
-    case WildMini::Graphics::WMRenderCommandEncoder::PrimitiveType::Point:
+    case WMRenderCommandEncoder::PrimitiveType::Point:
         commandList->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_POINTLIST);
     default:
         break;

@@ -8,7 +8,7 @@
 #include "Common/WMObject.h"
 #include "Component/WMComponent.h"
 
-using namespace WildMini::Common;
+using namespace WildMini;
 
 template<typename T>
 T* WMObject::AddComponent()

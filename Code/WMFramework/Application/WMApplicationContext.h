@@ -10,9 +10,9 @@
 #include "Window/WMWindow.h"
 #include "Graphics/WMGraphicsDevice.h"
 
-namespace WildMini::Application
+namespace WildMini
 {
-    class WM_API WMApplicationContext : public WildMini::WMRefCounter
+    class WM_API WMApplicationContext : public WMRefCounter
     {
     public:
         virtual int MessageLoop() = 0;
@@ -20,7 +20,7 @@ namespace WildMini::Application
         virtual void Render() = 0;
 
     protected:
-        WildMini::Graphics::WMGraphicsDevice* device;
-        WildMini::Window::WMWindow* window;
+        WMGraphicsDevice* device;
+        WMWindow* window;
     };
 }

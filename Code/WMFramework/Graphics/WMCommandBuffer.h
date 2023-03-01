@@ -11,12 +11,12 @@
 #include "Graphics/WMRenderCommandEncoder.h"
 #include "Graphics/WMRenderPipeline.h"
 
-namespace WildMini::Graphics
+namespace WildMini
 {
-    class WM_API WMCommandBuffer : public WildMini::WMRefCounter
+    class WM_API WMCommandBuffer : public WMRefCounter
     {
     public:
-        virtual WildMini::WMSharedPtr<WMRenderCommandEncoder> CreateRenderCommandEncoder(WMRenderPipeline* renderPipeline) = 0;
+        virtual WMSharedPtr<WMRenderCommandEncoder> CreateRenderCommandEncoder(WMRenderPipeline* renderPipeline) = 0;
         virtual void Commit() = 0;
     };
 }

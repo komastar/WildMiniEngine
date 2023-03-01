@@ -11,7 +11,7 @@
 #include "WMMatrix2.h"
 #include "WMMatrix3.h"
 
-using namespace WildMini::Math;
+using namespace WildMini;
 
 WMMatrix4 WMMatrix4::Inversed(WMMatrix4& m)
 {
@@ -200,7 +200,7 @@ const WMMatrix4& WMMatrix4::View(const WMVector3& eye, const WMVector3& lookat, 
 
 const WMMatrix4& WMMatrix4::Projection(float fov, float aspect, float nearZ, float farZ)
 {
-    fov = WildMini::Math::DegToRad(fov) * 0.5f;
+    fov = WildMini::DegToRad(fov) * 0.5f;
     float sy = cosf(fov) / sinf(fov);
     float sx = sy / aspect;
     m[0][0] = sx;

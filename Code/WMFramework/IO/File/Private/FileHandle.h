@@ -6,9 +6,9 @@
 //
 
 #pragma once
-namespace WildMini::IO::File::Private
+namespace WildMini
 {
-    struct FileHandle : public WildMini::IO::File::WMFileHandle
+    struct FileHandle : public WMFileHandle
     {
         FileHandle(std::fstream& _stream)
         {

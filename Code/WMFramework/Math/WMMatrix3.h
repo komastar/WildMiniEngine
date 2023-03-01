@@ -6,7 +6,7 @@
 //
 
 #pragma once
-namespace WildMini::Math
+namespace WildMini
 {
     class WMMatrix2;
     class WMMatrix4;

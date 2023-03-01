@@ -11,9 +11,6 @@
 #include "Window/Private/Win32/WindowContext.h"
 
 using namespace WildMini;
-using namespace WildMini::Window;
-using namespace WildMini::Graphics;
-using namespace WildMini::Graphics::Private::DX12;
 
 CommandQueue::CommandQueue(GraphicsDeviceContext* _graphicsDevice
     , ID3D12CommandQueue* _commandQueue

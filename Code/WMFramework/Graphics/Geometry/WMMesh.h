@@ -11,14 +11,14 @@
 #include "Graphics/WMGPUBuffer.h"
 #include "Graphics/Geometry/WMVertex.h"
 
-namespace WildMini::Graphics::Geometry
+namespace WildMini
 {
     struct WMMesh
     {
-        std::vector<WildMini::Graphics::Geometry::WMVertex> vertices;
+        std::vector<WMVertex> vertices;
         std::vector<uint32_t> indices;
-        WildMini::WMSharedPtr<WildMini::Graphics::WMGPUBuffer> vertexBuffer;
-        WildMini::WMSharedPtr<WildMini::Graphics::WMGPUBuffer> indexBuffer;
+        WMSharedPtr<WMGPUBuffer> vertexBuffer;
+        WMSharedPtr<WMGPUBuffer> indexBuffer;
 
         WMMesh()
             : vertexBuffer(nullptr)

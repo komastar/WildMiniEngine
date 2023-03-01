@@ -9,7 +9,7 @@
 #include "WMVector2.h"
 #include "WMMatrix2.h"
 
-namespace WildMini::Math
+namespace WildMini
 {
     class WMVector2;
     class WMMatrix2;

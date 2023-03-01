@@ -12,18 +12,18 @@
 #include "Graphics/WMBlendState.h"
 #include "Graphics/WMVertexDescriptor.h"
 
-namespace WildMini::Graphics::Private::DX12
+namespace WildMini
 {
-    using PixelFormat = WildMini::Graphics::WMPixelFormat;
+    using PixelFormat = WMPixelFormat;
     inline uint32_t PixelFormatSize(PixelFormat format)
     {
         switch (format)
         {
-        case WildMini::Graphics::RGBA_8_UNML:
-        case WildMini::Graphics::RGBA_8_SNML:
-        case WildMini::Graphics::RGBA_8_UINT:
-        case WildMini::Graphics::RGBA_8_SINT:
-        case WildMini::Graphics::DEPTH_24_UNORM_STENCIL_8:
+        case PixelFormat::RGBA_8_UNML:
+        case PixelFormat::RGBA_8_SNML:
+        case PixelFormat::RGBA_8_UINT:
+        case PixelFormat::RGBA_8_SINT:
+        case PixelFormat::DEPTH_24_UNORM_STENCIL_8:
             return 4;
         default:
             break;
@@ -37,15 +37,15 @@ namespace WildMini::Graphics::Private::DX12
         switch (format)
         {
         case DXGI_FORMAT_R8G8B8A8_UNORM:
-            return WildMini::Graphics::WMPixelFormat::RGBA_8_UNML;
+            return WMPixelFormat::RGBA_8_UNML;
         case DXGI_FORMAT_R8G8B8A8_SNORM:
-            return WildMini::Graphics::WMPixelFormat::RGBA_8_SNML;
+            return WMPixelFormat::RGBA_8_SNML;
         case DXGI_FORMAT_R8G8B8A8_UINT:
-            return WildMini::Graphics::WMPixelFormat::RGBA_8_UINT;
+            return WMPixelFormat::RGBA_8_UINT;
         case DXGI_FORMAT_R8G8B8A8_SINT:
-            return WildMini::Graphics::WMPixelFormat::RGBA_8_SINT;
+            return WMPixelFormat::RGBA_8_SINT;
         case DXGI_FORMAT_D24_UNORM_S8_UINT:
-            return WildMini::Graphics::WMPixelFormat::DEPTH_24_UNORM_STENCIL_8;
+            return WMPixelFormat::DEPTH_24_UNORM_STENCIL_8;
         }
 
         return WMPixelFormat::NONE;
@@ -70,7 +70,7 @@ namespace WildMini::Graphics::Private::DX12
         return DXGI_FORMAT_UNKNOWN;
     }
 
-    using VertexFormat = WildMini::Graphics::WMVertexFormat;
+    using VertexFormat = WMVertexFormat;
     inline DXGI_FORMAT FromVertexFormat(VertexFormat format)
     {
         switch (format)
@@ -89,7 +89,7 @@ namespace WildMini::Graphics::Private::DX12
         return DXGI_FORMAT_UNKNOWN;
     }
 
-    using PrimitiveTopology = WildMini::Graphics::WMPrimitiveTopologyType;
+    using PrimitiveTopology = WMPrimitiveTopologyType;
     inline D3D12_PRIMITIVE_TOPOLOGY_TYPE PrimitiveType(WMPrimitiveTopologyType type)
     {
         switch (type)
@@ -104,7 +104,7 @@ namespace WildMini::Graphics::Private::DX12
         return D3D12_PRIMITIVE_TOPOLOGY_TYPE_UNDEFINED;
     }
 
-    using BlendOperation = WildMini::Graphics::WMBlendOperation;
+    using BlendOperation = WMBlendOperation;
     inline D3D12_BLEND_OP FromBlendOperation(BlendOperation blendOp)
     {
         switch (blendOp)
@@ -125,7 +125,7 @@ namespace WildMini::Graphics::Private::DX12
         return D3D12_BLEND_OP_ADD;
     }
 
-    using LogicOperation = WildMini::Graphics::WMLogicOperation;
+    using LogicOperation = WMLogicOperation;
     inline D3D12_LOGIC_OP FromLogicOperation(LogicOperation logicOp)
     {
         switch (logicOp)
@@ -167,7 +167,7 @@ namespace WildMini::Graphics::Private::DX12
         }
     }
 
-    using BlendFactor = WildMini::Graphics::WMBlendFactor;
+    using BlendFactor = WMBlendFactor;
     inline D3D12_BLEND FromBlendFactor(BlendFactor blendFactor)
     {
         switch (blendFactor)

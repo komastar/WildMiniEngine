@@ -8,7 +8,7 @@
 #ifdef _WIN32
 #include "Application/Private/Win32/ApplicationContext.h"
 
-using namespace WildMini::Application::Private;
+using namespace WildMini;
 
 int ApplicationContext::MessageLoop()
 {
@@ -34,10 +34,10 @@ int ApplicationContext::MessageLoop()
 
     return static_cast<int>(msg.wParam);
 }
-void WildMini::Application::Private::ApplicationContext::Update()
+void WildMini::ApplicationContext::Update()
 {
 }
-void WildMini::Application::Private::ApplicationContext::Render()
+void WildMini::ApplicationContext::Render()
 {
 }
 #endif // _WIN32

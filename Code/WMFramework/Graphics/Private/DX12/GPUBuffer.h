@@ -9,12 +9,12 @@
 #include "d3d12_include.h"
 #include "Graphics/WMGPUBuffer.h"
 
-namespace WildMini::Graphics::Private::DX12
+namespace WildMini
 {
-    class GPUBuffer : public WildMini::Graphics::WMGPUBuffer
+    class GPUBuffer : public WMGPUBuffer
     {
     public:
-        GPUBuffer(ComPtr<ID3D12Resource> buffer, WildMini::Graphics::WMGPUBuffer::CPUCacheMode mode, D3D12_RESOURCE_STATES state);
+        GPUBuffer(ComPtr<ID3D12Resource> buffer, WMGPUBuffer::CPUCacheMode mode, D3D12_RESOURCE_STATES state);
         virtual ~GPUBuffer();
 
     public:

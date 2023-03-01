@@ -2,9 +2,9 @@
 #ifdef _WIN32
 #include "Common/WMThread.h"
 
-namespace WildMini::Common::Thread
+namespace WildMini
 {
-    class ThreadContext : public WildMini::Common::WMThread
+    class ThreadContext : public WMThread
     {
     public:
         ThreadContext(const wchar_t* name);

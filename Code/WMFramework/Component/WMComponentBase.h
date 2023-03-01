@@ -8,18 +8,18 @@
 #pragma once
 #include "Component/WMComponent.h"
 
-namespace WildMini::Component
+namespace WildMini
 {
-    class WMComponentBase : public WildMini::WMComponent
+    class WMComponentBase : public WMComponent
     {
     public:
-        WMComponentBase(WildMini::Common::WMObject*);
+        WMComponentBase(WMObject*);
 
     protected:
-        WildMini::Common::WMObject* owner;
+        WMObject* owner;
 
     public:
-        virtual WildMini::Common::WMObject* GetOwner() override;
+        virtual WMObject* GetOwner() override;
     };
 }
 

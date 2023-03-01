@@ -7,7 +7,7 @@
 
 #include "WMRect.h"
 
-using namespace WildMini::Graphics::Primitive;
+using namespace WildMini;
 
 const WMRect WMRect::zero = { WMPoint::zero, WMSize::zero };
 const WMRect WMRect::one = { WMPoint::zero, WMSize::one };

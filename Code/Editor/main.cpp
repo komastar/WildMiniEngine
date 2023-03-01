@@ -13,6 +13,8 @@
 #include <wrl/client.h>
 #include "Log/WMLog.h"
 
+using namespace WildMini;
+
 int main(int argc, char** argv)
 {
     EditorApplication app;
@@ -23,14 +25,14 @@ int main(int argc, char** argv)
     HMODULE dxgiDebugDll = GetModuleHandleW(L"dxgidebug.dll");
     if (nullptr == dxgiDebugDll)
     {
-        WildMini::WMLogDebug("GetModuleHandle failed : dxgidebug.dll");
+        WMLogDebug("GetModuleHandle failed : dxgidebug.dll");
         return -1;
     }
 
     decltype(&DXGIGetDebugInterface) GetDebugInterface = reinterpret_cast<decltype(&DXGIGetDebugInterface)>(GetProcAddress(dxgiDebugDll, "DXGIGetDebugInterface"));
     if (nullptr == GetDebugInterface)
     {
-        WildMini::WMLogDebug("GetProcAddress failed : DXGIGetDebugInterface");
+        WMLogDebug("GetProcAddress failed : DXGIGetDebugInterface");
         return -1;
     }
 

@@ -10,7 +10,7 @@
 #include "d3d12_include.h"
 #include "Graphics/WMGraphicsDevice.h"
 
-namespace WildMini::Graphics::Private
+namespace WildMini
 {
     class GraphicsDeviceContext : public WMGraphicsDevice
     {
@@ -26,12 +26,12 @@ namespace WildMini::Graphics::Private
         ComPtr<ID3D12Device> device;
 
     public:
-        virtual WildMini::WMSharedPtr<WildMini::Graphics::WMCommandQueue> CreateCommandQueue() override;
-        virtual WildMini::WMSharedPtr<WildMini::Graphics::WMGPUBuffer> CreateGPUBuffer(size_t size, WMGPUBuffer::CPUCacheMode mode) override;
-        virtual WildMini::WMSharedPtr<WildMini::Graphics::WMTexture> CreateTexture(const WMTexture::Desc& desc) override;
-        virtual WildMini::WMSharedPtr<WildMini::Graphics::WMRenderPipeline> CreateRenderPipeline(const WMRenderPipelineDescriptor& desc) override;
+        virtual WMSharedPtr<WMCommandQueue> CreateCommandQueue() override;
+        virtual WMSharedPtr<WMGPUBuffer> CreateGPUBuffer(size_t size, WMGPUBuffer::CPUCacheMode mode) override;
+        virtual WMSharedPtr<WMTexture> CreateTexture(const WMTexture::Desc& desc) override;
+        virtual WMSharedPtr<WMRenderPipeline> CreateRenderPipeline(const WMRenderPipelineDescriptor& desc) override;
 
-        virtual WildMini::WMSharedPtr<WMShader> CreateShader(const std::vector<uint8_t>& data, const std::string& entry, WMShader::StageType stage) override;
+        virtual WMSharedPtr<WMShader> CreateShader(const std::vector<uint8_t>& data, const std::string& entry, WMShader::StageType stage) override;
 
     public:
         void CreateImguiDescriptorHeap(uint32_t frameCount);

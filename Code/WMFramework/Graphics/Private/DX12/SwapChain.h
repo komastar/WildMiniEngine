@@ -15,12 +15,12 @@
 #include "CommandQueue.h"
 #include "Texture.h"
 
-namespace WildMini::Graphics::Private::DX12
+namespace WildMini
 {
     class SwapChain : public WMSwapChain
     {
     public:
-        SwapChain(WildMini::WMSharedPtr<GraphicsDeviceContext>, CommandQueue*, Window::WindowContext*);
+        SwapChain(WMSharedPtr<GraphicsDeviceContext>, CommandQueue*, WindowContext*);
         virtual ~SwapChain();
 
         enum { BUFFER_COUNT = 2 };
@@ -46,8 +46,6 @@ namespace WildMini::Graphics::Private::DX12
 
         mutable WildMini::WMSharedPtr<Texture> renderTargets[BUFFER_COUNT];
         mutable WildMini::WMSharedPtr<Texture> depthStencilTexture;
-
-        //ComPtr<ID3D12DescriptorHeap> imguiDescHeap;
 
     private:
         void SetupRenderTargets();

@@ -9,10 +9,10 @@
 #include "WMFramework.h"
 #include "WMRefCounter.h"
 
-namespace WildMini::Common
+namespace WildMini
 {
     class WMComponent;
-    class WM_API WMObject : public WildMini::WMRefCounter
+    class WM_API WMObject : public WMRefCounter
     {
     public:
         template<typename T>

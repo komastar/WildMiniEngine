@@ -11,9 +11,9 @@
 #include "Application/Private/ApplicationContextFactory.h"
 #include "Graphics/Private/GraphicsDeviceFactory.h"
 
-using namespace WildMini::Window;
+using namespace WildMini;
 
-class UnitTestApplication : public WildMini::Application::WMApplication
+class UnitTestApplication : public WMApplication
 {
 public:
     UnitTestApplication() {}
@@ -26,9 +26,9 @@ public:
         window->Show();
         window->Focus();
 
-        device = WildMini::Graphics::Private::GraphicsDeviceFactory::Create();
+        device = GraphicsDeviceFactory::Create();
 
-        context = WildMini::Application::Private::ApplicationContextFactory::Create();
+        context = ApplicationContextFactory::Create();
     }
     
     void OnTerminate() override
@@ -36,8 +36,8 @@ public:
     }
 
 private:
-    WildMini::WMSharedPtr<WildMini::Window::WMWindow> window;
-    WildMini::WMSharedPtr<WildMini::Graphics::WMGraphicsDevice> device;
+    WMSharedPtr<WMWindow> window;
+    WMSharedPtr<WMGraphicsDevice> device;
 };
 
 _TEST_(Win32, App, Run)
