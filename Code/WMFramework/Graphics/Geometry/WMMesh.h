@@ -10,13 +10,14 @@
 #include "WMSharedPtr.h"
 #include "Graphics/WMGPUBuffer.h"
 #include "Graphics/Geometry/WMVertex.h"
+#include "WMContainer.h"
 
 namespace WildMini
 {
     struct WMMesh
     {
-        std::vector<WMVertex> vertices;
-        std::vector<uint32_t> indices;
+        Vector<WMVertex> vertices;
+        Vector<uint32_t> indices;
         WMSharedPtr<WMGPUBuffer> vertexBuffer;
         WMSharedPtr<WMGPUBuffer> indexBuffer;
 

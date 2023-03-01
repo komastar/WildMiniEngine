@@ -31,7 +31,7 @@ namespace WildMini
         virtual WMSharedPtr<WMTexture> CreateTexture(const WMTexture::Desc& desc) override;
         virtual WMSharedPtr<WMRenderPipeline> CreateRenderPipeline(const WMRenderPipelineDescriptor& desc) override;
 
-        virtual WMSharedPtr<WMShader> CreateShader(const std::vector<uint8_t>& data, const std::string& entry, WMShader::StageType stage) override;
+        virtual WMSharedPtr<WMShader> CreateShader(const Vector<uint8_t>& data, const std::string& entry, WMShader::StageType stage) override;
 
     public:
         void CreateImguiDescriptorHeap(uint32_t frameCount);

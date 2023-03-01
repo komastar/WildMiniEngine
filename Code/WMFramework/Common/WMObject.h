@@ -24,6 +24,6 @@ namespace WildMini
     private:
         std::wstring name;
         std::wstring uuid;
-        std::vector<WMComponent*> components;
+        Vector<WMComponent*> components;
     };
 }

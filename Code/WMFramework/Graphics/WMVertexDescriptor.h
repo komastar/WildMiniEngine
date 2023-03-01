@@ -7,6 +7,7 @@
 
 #pragma once
 #include "WMFramework.h"
+#include "WMContainer.h"
 
 namespace WildMini
 {
@@ -30,6 +31,6 @@ namespace WildMini
 
     struct WMVertexDescriptor
     {
-        std::vector<WMVertexAttributeDescriptor> attributes;
+        Vector<WMVertexAttributeDescriptor> attributes;
     };
 }

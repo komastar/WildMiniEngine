@@ -10,6 +10,7 @@
 #include <Windows.h>
 #include <windowsx.h>
 #include "WMFramework.h"
+#include "WMContainer.h"
 #include "Window/WMWindow.h"
 
 namespace WildMini
@@ -57,10 +58,9 @@ namespace WildMini
         float cacheWidth;
         float cacheHeight;
 
-        std::vector<std::function<void(uint32_t, uint32_t)>> resizeCallbackList;
-
-        std::vector<std::function<void(WMMouseEvent)>> mouseEventHandler;
-        std::vector<std::function<void(WMKeyboardEvent)>> keyboardEventHandler;
+        Vector<std::function<void(uint32_t, uint32_t)>> resizeCallbackList;
+        Vector<std::function<void(WMMouseEvent)>> mouseEventHandler;
+        Vector<std::function<void(WMKeyboardEvent)>> keyboardEventHandler;
     };
 }
 #endif // _WIN32

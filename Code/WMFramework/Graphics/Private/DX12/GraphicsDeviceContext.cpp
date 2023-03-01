@@ -258,7 +258,7 @@ WMSharedPtr<WMRenderPipeline> GraphicsDeviceContext::CreateRenderPipeline(const 
     D3D12_GRAPHICS_PIPELINE_STATE_DESC psoDesc = {};
     psoDesc.pRootSignature = rootSignature.Get();
 
-    std::vector<D3D12_INPUT_ELEMENT_DESC> inputLayout;
+    Vector<D3D12_INPUT_ELEMENT_DESC> inputLayout;
     inputLayout.reserve(desc.vertexDescriptor.attributes.size());
     for (const auto& attribute : desc.vertexDescriptor.attributes)
     {
@@ -304,7 +304,7 @@ WMSharedPtr<WMRenderPipeline> GraphicsDeviceContext::CreateRenderPipeline(const 
     return new RenderPipeline(pipelineState.Get(), rootSignature.Get());
 }
 
-WMSharedPtr<WMShader> GraphicsDeviceContext::CreateShader(const std::vector<uint8_t>& data, const std::string& entry, WMShader::StageType stage)
+WMSharedPtr<WMShader> GraphicsDeviceContext::CreateShader(const Vector<uint8_t>& data, const std::string& entry, WMShader::StageType stage)
 {
     std::string shaderVerName;
     switch (stage)

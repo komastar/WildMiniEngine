@@ -405,6 +405,9 @@
     <ClInclude Include="Log\WMLogVariant.h">
       <Filter>Log</Filter>
     </ClInclude>
+    <ClInclude Include="WMContainer.h" />
+    <ClInclude Include="WMAssert.h" />
+    <ClInclude Include="WildMini.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

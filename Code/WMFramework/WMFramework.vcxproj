@@ -476,6 +476,9 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClInclude Include="IO\Data\WMSerializable.h" />
     <ClInclude Include="IO\File\Private\FileHandle.h" />
     <ClInclude Include="IO\File\WMFileHandle.h" />
+    <ClInclude Include="WildMini.h" />
+    <ClInclude Include="WMAssert.h" />
+    <ClInclude Include="WMContainer.h" />
     <ClInclude Include="WMSharedPtr.h" />
     <ClInclude Include="WMRefCounter.h" />
     <ClInclude Include="Graphics\Primitive\WMColor.h" />

@@ -36,7 +36,7 @@ void RenderCommandEncoder::SetViewport(const WMViewport& viewport)
 
 void RenderCommandEncoder::SetViewports(const WMViewport* viewports, uint32_t count)
 {
-    std::vector<D3D12_VIEWPORT> viewportList(count);
+    Vector<D3D12_VIEWPORT> viewportList(count);
     for (uint32_t i = 0; i < count; ++i)
     {
         viewportList[i].TopLeftX = viewports[i].x;
@@ -62,7 +62,7 @@ void RenderCommandEncoder::SetScissorRect(const WMRect& rect)
 
 void RenderCommandEncoder::SetScissorRects(const WMRect* rects, uint32_t count)
 {
-    std::vector<D3D12_RECT> rectList(count);
+    Vector<D3D12_RECT> rectList(count);
     for (uint32_t i = 0; i < count; ++i)
     {
         rectList[i].left = static_cast<LONG>(rects[i].x);
@@ -73,9 +73,9 @@ void RenderCommandEncoder::SetScissorRects(const WMRect* rects, uint32_t count)
     commandList->RSSetScissorRects(count, rectList.data());
 }
 
-void RenderCommandEncoder::SetRenderTargets(std::vector<const WMTexture*> renderTargets, const WMTexture* depthStencil)
+void RenderCommandEncoder::SetRenderTargets(Vector<const WMTexture*> renderTargets, const WMTexture* depthStencil)
 {
-    std::vector<D3D12_CPU_DESCRIPTOR_HANDLE> renderTargetHandles;
+    Vector<D3D12_CPU_DESCRIPTOR_HANDLE> renderTargetHandles;
     renderTargetHandles.reserve(renderTargets.size());
     for (const WMTexture* renderTarget : renderTargets)
     {
@@ -216,7 +216,7 @@ void RenderCommandEncoder::ImguiRender()
     //ImGui_ImplDX12_RenderDrawData(ImGui::GetDrawData(), commandList.Get());
 }
 
-void RenderCommandEncoder::EndEncoding(std::vector<const WMTexture*> renderTargets)
+void RenderCommandEncoder::EndEncoding(Vector<const WMTexture*> renderTargets)
 {
     for (const WMTexture* renderTarget : renderTargets)
     {

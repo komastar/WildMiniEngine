@@ -7,6 +7,7 @@
 
 #pragma once
 #include "WMFramework.h"
+#include "WMContainer.h"
 #include "WMSharedPtr.h"
 #include "Graphics/Primitive/WMViewport.h"
 #include "Graphics/WMTexture.h"
@@ -39,7 +40,7 @@ namespace WildMini
         virtual void SetViewports(const WMViewport* viewports, uint32_t count) = 0;
         virtual void SetScissorRect(const WMRect& rect) = 0;
         virtual void SetScissorRects(const WMRect* rect, uint32_t count) = 0;
-        virtual void SetRenderTargets(std::vector<const WMTexture*> renderTargets, const WMTexture* depthStencil) = 0;
+        virtual void SetRenderTargets(Vector<const WMTexture*> renderTargets, const WMTexture* depthStencil) = 0;
         virtual void ClearRenderTarget(const WMTexture* renderTarget, const WMColor& color) = 0;
         virtual void ClearDepthStencil(const WMTexture* depthStencil, DepthStencilClearFlag clearFlag, float clearDepth, uint8_t clearStencil) = 0;
         virtual void SetConstantBuffer(uint32_t index, const WMGPUBuffer* constantBuffer) = 0;
@@ -50,6 +51,6 @@ namespace WildMini
         
         virtual void ImguiRender() = 0;
 
-        virtual void EndEncoding(std::vector<const WMTexture*> renderTargets) = 0;
+        virtual void EndEncoding(Vector<const WMTexture*> renderTargets) = 0;
     };
 }

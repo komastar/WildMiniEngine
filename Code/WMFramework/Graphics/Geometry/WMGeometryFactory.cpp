@@ -10,6 +10,7 @@
 #include "Graphics/Geometry/WMVertex.h"
 #include "Graphics/WMGPUBuffer.h"
 #include "Math/WMVector3.h"
+#include "WMContainer.h"
 
 using namespace WildMini;
 
@@ -27,7 +28,7 @@ WMMesh* WMGeometryFactory::MakeDefaultBox(WMGraphicsDevice* device)
 WMMesh* WMGeometryFactory::MakeBox(WMGraphicsDevice* device, float size)
 {
     WMMesh* mesh = new WMMesh();
-    std::vector<WMVector3> positions =
+    Vector<WMVector3> positions =
     {
         WMVector3   { -size,  size,  size } //  0
         , WMVector3 {  size,  size,  size } //  1
@@ -39,7 +40,7 @@ WMMesh* WMGeometryFactory::MakeBox(WMGraphicsDevice* device, float size)
         , WMVector3 { -size, -size, -size } //  7
     };
 
-    std::vector<uint32_t> indicies =
+    Vector<uint32_t> indicies =
     {
         //  top
         0, 1, 2,
@@ -61,7 +62,7 @@ WMMesh* WMGeometryFactory::MakeBox(WMGraphicsDevice* device, float size)
         5, 7, 6
     };
 
-    std::vector<WMVertex> verticies;
+    Vector<WMVertex> verticies;
     for (size_t i = 0; i < indicies.size(); ++i)
     {
         WMVector3 p1 = positions[indicies[i]];
@@ -89,7 +90,7 @@ WMMesh* WMGeometryFactory::MakeBox(WMGraphicsDevice* device, float size)
 WMMesh* WMGeometryFactory::MakeQuad(WMGraphicsDevice* device, float size, const WMColor& color)
 {
     WMMesh* mesh = new WMMesh();
-    std::vector<WMVector3> positions =
+    Vector<WMVector3> positions =
     {
         WMVector3   { -size,  size, 0.0f } //  0
         , WMVector3 {  size,  size, 0.0f } //  1
@@ -97,7 +98,7 @@ WMMesh* WMGeometryFactory::MakeQuad(WMGraphicsDevice* device, float size, const 
         , WMVector3 { -size, -size, 0.0f } //  3
     };
 
-    std::vector<WMVector2> texcoords =
+    Vector<WMVector2> texcoords =
     {
         WMVector2   { 0.0f, 0.0f }
         , WMVector2 { 1.0f, 0.0f }
@@ -105,13 +106,13 @@ WMMesh* WMGeometryFactory::MakeQuad(WMGraphicsDevice* device, float size, const 
         , WMVector2 { 0.0f, 1.0f }
     };
 
-    std::vector<uint32_t> indicies =
+    Vector<uint32_t> indicies =
     {
         0, 1, 2,
         0, 2, 3
     };
 
-    std::vector<WMVertex> verticies;
+    Vector<WMVertex> verticies;
     for (size_t i = 0; i < indicies.size(); i += 3)
     {
         WMVector3 p1 = positions[indicies[i]];
@@ -145,7 +146,7 @@ WMMesh* WMGeometryFactory::MakePlane(WMGraphicsDevice* device, float size, const
     uint32_t count = static_cast<uint32_t>(size);
     uint32_t faceCount = count * count;
 
-    std::vector<WMVertex> verticies;
+    Vector<WMVertex> verticies;
     verticies.reserve(count);
     float invSize = 1.0f / size;
     for (uint32_t i = 0; i < count + 1; ++i)
@@ -180,7 +181,7 @@ WMMesh* WMGeometryFactory::MakePlane(WMGraphicsDevice* device, float size, const
     8 9 1011
     12131415
     */
-    std::vector<uint32_t> indices;
+    Vector<uint32_t> indices;
     indices.reserve(faceCount * 6);
     for (uint32_t i = 0; i < count; ++i)
     {

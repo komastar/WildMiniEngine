@@ -22,7 +22,7 @@ WMSharedPtr<WMShader> WMGraphicsDevice::CreateShader(const std::wstring& path, c
     if (file)
     {
         size_t fileLength = file->TotalLength();
-        std::vector<uint8_t> code(fileLength);
+        Vector<uint8_t> code(fileLength);
         file->Read(code.data(), fileLength);
         return CreateShader(code, entry, stage);
     }

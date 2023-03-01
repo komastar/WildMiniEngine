@@ -7,6 +7,7 @@
 
 #pragma once
 #include "WMFramework.h"
+#include "WMContainer.h"
 #include "WMSharedPtr.h"
 #include "Graphics/WMShader.h"
 #include "Graphics/WMVertexDescriptor.h"
@@ -53,7 +54,7 @@ namespace WildMini
         WMSharedPtr<WMShader> fragmentShader;
 
         WMVertexDescriptor vertexDescriptor;
-        std::vector<WMRenderPipelineColorAttachmentDescriptor> colorAttachments;
+        Vector<WMRenderPipelineColorAttachmentDescriptor> colorAttachments;
         WMPixelFormat depthStencilPixelFormat;
         WMPrimitiveTopologyType inputPrimitiveTopology;
     };
