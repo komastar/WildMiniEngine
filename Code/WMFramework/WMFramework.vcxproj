@@ -478,8 +478,10 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClInclude Include="IO\File\WMFileHandle.h" />
     <ClInclude Include="WildMini.h" />
     <ClInclude Include="WMAssert.h" />
+    <ClInclude Include="UI\Component\WMButtonComponent.h" />
     <ClInclude Include="WMContainer.h" />
     <ClInclude Include="WMLock.h" />
+    <ClInclude Include="Renderer\WMRenderer.h" />
     <ClInclude Include="WMSharedPtr.h" />
     <ClInclude Include="WMRefCounter.h" />
     <ClInclude Include="Graphics\Primitive\WMColor.h" />
@@ -538,7 +540,7 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClInclude Include="Math\WMVector3Int.h" />
     <ClInclude Include="Math\WMVector4Int.h" />
     <ClInclude Include="Graphics\WMShader.h" />
-    <ClInclude Include="UI\WMRectTransform.h" />
+    <ClInclude Include="UI\Component\WMRectTransform.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application\WMApplication.cpp" />
@@ -579,6 +581,7 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClCompile Include="UI\imgui\imgui_draw.cpp" />
     <ClCompile Include="UI\imgui\imgui_tables.cpp" />
     <ClCompile Include="UI\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="Component\WMRenderComponent.h" />
     <ClCompile Include="Window\Private\Win32\WindowContext.cpp" />
     <ClCompile Include="Log\WMLog.cpp" />
     <ClCompile Include="Log\WMLogVariant.cpp" />
@@ -592,8 +595,10 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClCompile Include="Math\WMVector4Int.cpp" />
     <ClCompile Include="IO\File\WMFile.cpp" />
     <ClCompile Include="Graphics\WMCamera.cpp" />
-    <ClCompile Include="UI\WMRectTransform.cpp" />
+    <ClCompile Include="UI\Component\WMRectTransform.cpp" />
     <ClCompile Include="Component\WMComponentBase.cpp" />
+    <ClCompile Include="UI\Component\WMButtonComponent.cpp" />
+    <ClCompile Include="Renderer\WMRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

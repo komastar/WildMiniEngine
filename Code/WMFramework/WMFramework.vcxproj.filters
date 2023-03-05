@@ -4,7 +4,7 @@
     <ClCompile Include="IO\File\WMFile.cpp">
       <Filter>IO\File</Filter>
     </ClCompile>
-    <ClCompile Include="UI\WMRectTransform.cpp">
+    <ClCompile Include="UI\Component\WMRectTransform.cpp">
       <Filter>UI</Filter>
     </ClCompile>
     <ClCompile Include="UI\imgui\imgui.cpp">
@@ -160,6 +160,9 @@
     <ClCompile Include="Application\Private\Win32\ApplicationContext.cpp">
       <Filter>Application\Private\Win32</Filter>
     </ClCompile>
+    <ClCompile Include="UI\Component\WMButtonComponent.cpp" />
+    <ClCompile Include="Component\WMRenderComponent.h" />
+    <ClCompile Include="Renderer\WMRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WMLock.h" />
@@ -181,7 +184,7 @@
     <ClInclude Include="IO\File\Private\FileHandle.h">
       <Filter>IO\File\Private</Filter>
     </ClInclude>
-    <ClInclude Include="UI\WMRectTransform.h">
+    <ClInclude Include="UI\Component\WMRectTransform.h">
       <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="UI\imgui\imconfig.h">
@@ -409,6 +412,8 @@
     <ClInclude Include="Application\Private\Win32\ApplicationContext.h">
       <Filter>Application\Private\Win32</Filter>
     </ClInclude>
+    <ClInclude Include="UI\Component\WMButtonComponent.h" />
+    <ClInclude Include="Renderer\WMRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
