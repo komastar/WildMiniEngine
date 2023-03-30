@@ -10,9 +10,16 @@
 
 using namespace WildMini;
 
+namespace Private
+{
+    WMSharedPtr<WMApplication> application;
+}
+
 WMApplication::WMApplication()
     : context(nullptr)
 {
+    WMASSERT(!Private::application);
+    Private::application = this;
     context = ApplicationContextFactory::Create();
     WMASSERT(context);
 }
@@ -28,4 +35,10 @@ int WMApplication::Run()
     int msg = context->MessageLoop();
     OnTerminate();
     return msg;
+}
+
+WMSharedPtr<WMApplication> WMApplication::GlobalApp()
+{
+    WMASSERT(!Private::application);
+    return Private::application;
 }

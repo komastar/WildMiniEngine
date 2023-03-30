@@ -22,4 +22,3 @@ namespace WildMini
         virtual WMObject* GetOwner() override;
     };
 }
-

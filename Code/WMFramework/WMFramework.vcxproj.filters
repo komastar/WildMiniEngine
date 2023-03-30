@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <ClCompile Include="UI\WMCanvas.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
     <ClCompile Include="IO\File\WMFile.cpp">
       <Filter>IO\File</Filter>
     </ClCompile>
@@ -160,15 +163,21 @@
     <ClCompile Include="Application\Private\Win32\ApplicationContext.cpp">
       <Filter>Application\Private\Win32</Filter>
     </ClCompile>
+    <ClCompile Include="Component\Render\Private\MeshRenderComponent.cpp" />
+    <ClCompile Include="Component\Render\WMRenderComponent.cpp" />
+    <ClCompile Include="Component\Render\Private\SpriteRenderComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="WMLock.h" />
-    <ClInclude Include="WMAssert.h" />
-    <ClInclude Include="WMFramework.h" />
     <ClInclude Include="WildMini.h" />
-    <ClInclude Include="WMRefCounter.h" />
+    <ClInclude Include="WMAssert.h" />
     <ClInclude Include="WMContainer.h" />
+    <ClInclude Include="WMLock.h" />
     <ClInclude Include="WMSharedPtr.h" />
+    <ClInclude Include="WMRefCounter.h" />
+    <ClInclude Include="WMFramework.h" />
+    <ClInclude Include="UI\WMCanvas.h">
+      <Filter>UI</Filter>
+    </ClInclude>
     <ClInclude Include="IO\Data\WMSerializable.h">
       <Filter>IO\Data</Filter>
     </ClInclude>
@@ -409,82 +418,87 @@
     <ClInclude Include="Application\Private\Win32\ApplicationContext.h">
       <Filter>Application\Private\Win32</Filter>
     </ClInclude>
+    <ClInclude Include="Component\Render\Private\MeshRenderComponent.h" />
+    <ClInclude Include="Component\Render\Private\SpriteRenderComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
+    <None Include="Component\Render\WMRenderComponent.h">
+      <Filter>Component</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <Filter Include="UI">
+      <UniqueIdentifier>{6554d51e-bc96-4886-914d-b1fd360a2b39}</UniqueIdentifier>
+    </Filter>
     <Filter Include="IO">
-      <UniqueIdentifier>{725f01e0-d80f-4a98-a8fb-5a9ff346191f}</UniqueIdentifier>
+      <UniqueIdentifier>{ada0ee23-6f6b-4551-97bf-7794512435bc}</UniqueIdentifier>
     </Filter>
     <Filter Include="IO\Data">
-      <UniqueIdentifier>{c4f28ad2-4b37-4cb4-a5e5-5ad3d7d37ca1}</UniqueIdentifier>
+      <UniqueIdentifier>{165fb9ce-8dda-4452-92ba-a8eb5a20d845}</UniqueIdentifier>
     </Filter>
     <Filter Include="IO\File">
-      <UniqueIdentifier>{98afa291-5cb4-4815-a8e6-cb0a3dd5c588}</UniqueIdentifier>
+      <UniqueIdentifier>{1a34b925-65b9-4914-aec8-adc90587415d}</UniqueIdentifier>
     </Filter>
     <Filter Include="IO\File\Private">
-      <UniqueIdentifier>{96fbf717-c177-4283-aa55-3d636beebd1e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UI">
-      <UniqueIdentifier>{b32c9afc-ba47-419d-b201-58ab49c6c643}</UniqueIdentifier>
+      <UniqueIdentifier>{34c7913d-c1f1-48f9-a035-37bc06bb80c7}</UniqueIdentifier>
     </Filter>
     <Filter Include="UI\imgui">
-      <UniqueIdentifier>{5e847f9c-4909-4be1-9669-289bfe495f5d}</UniqueIdentifier>
+      <UniqueIdentifier>{502eae18-7edf-406d-b229-237808a06ce9}</UniqueIdentifier>
     </Filter>
     <Filter Include="UI\imgui\backends">
-      <UniqueIdentifier>{386c726c-0a86-458b-a61c-8e4ac25f6e77}</UniqueIdentifier>
+      <UniqueIdentifier>{85780be5-3051-4415-8497-acdf535751ba}</UniqueIdentifier>
     </Filter>
     <Filter Include="Log">
-      <UniqueIdentifier>{332eaf13-253f-4524-b121-222cd04fb1f6}</UniqueIdentifier>
+      <UniqueIdentifier>{dd001970-d3ba-41ee-8b63-bb061cbc7589}</UniqueIdentifier>
     </Filter>
     <Filter Include="Math">
-      <UniqueIdentifier>{aebfb3b5-2d76-4797-867b-c27f8ae51365}</UniqueIdentifier>
+      <UniqueIdentifier>{9e727723-584a-4ee6-ae82-0d155c3a9a03}</UniqueIdentifier>
     </Filter>
     <Filter Include="Common">
-      <UniqueIdentifier>{4f069c52-2641-4f1e-8862-07fbe8a6dac9}</UniqueIdentifier>
+      <UniqueIdentifier>{cc7f9b75-f8a1-4447-af34-2cb5f655695d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Common\Private">
-      <UniqueIdentifier>{c8a06660-7387-4ada-a105-3b60f578d68f}</UniqueIdentifier>
+      <UniqueIdentifier>{eb7f6790-84ed-4e2b-a6ef-ac41f7792d29}</UniqueIdentifier>
     </Filter>
     <Filter Include="Common\Private\Win32">
-      <UniqueIdentifier>{8d27c421-3804-4de7-bce2-1da071292d91}</UniqueIdentifier>
+      <UniqueIdentifier>{76aa5e2f-c723-443c-b6e3-c1dacc1058c4}</UniqueIdentifier>
     </Filter>
     <Filter Include="Window">
-      <UniqueIdentifier>{d1bc69eb-6662-456a-93ab-de47487c74b3}</UniqueIdentifier>
+      <UniqueIdentifier>{2f9b054d-d83e-4bce-af4e-8f34cb8c77df}</UniqueIdentifier>
     </Filter>
     <Filter Include="Window\Private">
-      <UniqueIdentifier>{d03c3759-fd8f-410a-9a02-d9f59a38a845}</UniqueIdentifier>
+      <UniqueIdentifier>{f0015b2e-10b9-49d7-9256-30b902a055f6}</UniqueIdentifier>
     </Filter>
     <Filter Include="Window\Private\Win32">
-      <UniqueIdentifier>{6529fc90-96ec-4821-985e-96c8d65ee69e}</UniqueIdentifier>
+      <UniqueIdentifier>{4fdbecfd-a5ae-4bdd-a11f-c23ddfdecd95}</UniqueIdentifier>
     </Filter>
     <Filter Include="Graphics">
-      <UniqueIdentifier>{e240f3fb-eda1-4877-82fd-b40751c47c6a}</UniqueIdentifier>
+      <UniqueIdentifier>{3bf36b0b-d12e-421d-bd62-f4edaebf9a2f}</UniqueIdentifier>
     </Filter>
     <Filter Include="Graphics\Private">
-      <UniqueIdentifier>{7fddeef6-45d0-430d-b993-a45bfb240356}</UniqueIdentifier>
+      <UniqueIdentifier>{f6b279c2-f49d-4096-a660-a270fc7fd011}</UniqueIdentifier>
     </Filter>
     <Filter Include="Graphics\Private\DX12">
-      <UniqueIdentifier>{a6fe08ec-c5bb-452f-91c0-56f96534adb2}</UniqueIdentifier>
+      <UniqueIdentifier>{7648927c-e24f-4a24-9c0d-164f1cc5585e}</UniqueIdentifier>
     </Filter>
     <Filter Include="Graphics\Geometry">
-      <UniqueIdentifier>{21cd7c5a-308e-4ff6-9ad6-f1edae8b708a}</UniqueIdentifier>
+      <UniqueIdentifier>{fdd90008-f8e9-4129-85bb-7a6b28d5207a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Graphics\Primitive">
-      <UniqueIdentifier>{05457465-5fcf-4d00-8b85-ed0292138c6a}</UniqueIdentifier>
+      <UniqueIdentifier>{ae64482a-4135-4c1f-bcf6-d634495c9fce}</UniqueIdentifier>
     </Filter>
     <Filter Include="Component">
-      <UniqueIdentifier>{81cd0be4-ee99-442d-804d-d74c3d0c140b}</UniqueIdentifier>
+      <UniqueIdentifier>{8f6ac390-64d4-4b06-a178-1c5759939141}</UniqueIdentifier>
     </Filter>
     <Filter Include="Application">
-      <UniqueIdentifier>{eb34ae1e-0d23-43c1-b1ec-f5536e14d731}</UniqueIdentifier>
+      <UniqueIdentifier>{b58de428-5792-44af-81d2-0ecc261e4fc2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Application\Private">
-      <UniqueIdentifier>{67bb2db6-0f1d-460a-b6c3-22a3d10b83a3}</UniqueIdentifier>
+      <UniqueIdentifier>{b0bbc5cc-1390-470b-97f0-c097e65c6389}</UniqueIdentifier>
     </Filter>
     <Filter Include="Application\Private\Win32">
-      <UniqueIdentifier>{9113059c-4bf0-4933-b304-a1d724fdede2}</UniqueIdentifier>
+      <UniqueIdentifier>{5886e256-a8ae-4e79-9528-7353b365ddf8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

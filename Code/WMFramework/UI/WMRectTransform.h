@@ -1,3 +1,10 @@
+//
+//  File:   WMRectTransform.h
+//  Author: Eugene Kim (komastar.dev@gmail.com)
+//
+//  Copyright (c) 2023 komastar. All rights reserved.
+//
+
 #pragma once
 #include "WMRefCounter.h"
 #include "Graphics/Primitive/WMPoint.h"

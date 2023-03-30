@@ -15,6 +15,9 @@ namespace WildMini
     class WM_API WMApplication : public WMRefCounter
     {
     public:
+        static WMSharedPtr<WMApplication> GlobalApp();
+
+    public:
         WMApplication();
         virtual ~WMApplication();
 

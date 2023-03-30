@@ -34,10 +34,10 @@ int ApplicationContext::MessageLoop()
 
     return static_cast<int>(msg.wParam);
 }
-void WildMini::ApplicationContext::Update()
+void ApplicationContext::Update()
 {
 }
-void WildMini::ApplicationContext::Render()
+void ApplicationContext::Render()
 {
 }
 #endif // _WIN32
