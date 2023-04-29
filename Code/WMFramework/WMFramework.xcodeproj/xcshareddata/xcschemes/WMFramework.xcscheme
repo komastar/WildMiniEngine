@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1340"
+   LastUpgradeVersion = "1430"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "74234C44284CD8E100D2632D"
+               BlueprintIdentifier = "74029850289FDF5400933BA1"
                BuildableName = "Editor"
                BlueprintName = "Editor"
                ReferencedContainer = "container:../Editor/Editor.xcodeproj">

@@ -62,7 +62,7 @@ void WindowContext::Focus()
 
 void WindowContext::SetTitle(const wchar_t* title)
 {
-    NSString* titleStr = [[NSString alloc] initWithBytes:title length:wcslen(title)*sizeof(*title) encoding:NSUTF32LittleEndianStringEncoding];
+    NSString* titleStr = [[[NSString alloc] initWithBytes:title length:wcslen(title)*sizeof(*title) encoding:NSUTF32LittleEndianStringEncoding] autorelease];
     [window setTitle: titleStr];
 }
 

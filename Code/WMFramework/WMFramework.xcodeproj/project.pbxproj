@@ -11,8 +11,6 @@
 		74B2C57628B078FD0009BBF4 /* GraphicsDeviceContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B2C57528B078FD0009BBF4 /* GraphicsDeviceContext.h */; };
 		74B2C57828B079C30009BBF4 /* GraphicsDeviceContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B2C57728B079C30009BBF4 /* GraphicsDeviceContext.m */; };
 		74B579D029FCF60E00A4686D /* WMThread.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B579C529FCF60E00A4686D /* WMThread.h */; };
-		74B579D129FCF60E00A4686D /* ThreadContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B579C829FCF60E00A4686D /* ThreadContext.h */; };
-		74B579D229FCF60E00A4686D /* ThreadContext.mm in Sources */ = {isa = PBXBuildFile; fileRef = 74B579C929FCF60E00A4686D /* ThreadContext.mm */; };
 		74B579D529FCF60E00A4686D /* WMObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B579CD29FCF60E00A4686D /* WMObject.h */; };
 		74B579D629FCF60E00A4686D /* WMObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74B579CE29FCF60E00A4686D /* WMObject.cpp */; };
 		74B579D729FCF60E00A4686D /* WMThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74B579CF29FCF60E00A4686D /* WMThread.cpp */; };
@@ -101,10 +99,8 @@
 		74E01F5128B0739A005F8564 /* WMFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74E01EA528B07399005F8564 /* WMFile.cpp */; };
 		74E01F5228B0739A005F8564 /* FileHandle.h in Headers */ = {isa = PBXBuildFile; fileRef = 74E01EA728B07399005F8564 /* FileHandle.h */; };
 		74E01F5328B0739A005F8564 /* WMFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 74E01EA828B07399005F8564 /* WMFile.h */; };
-		74E01F5428B0739A005F8564 /* WMThread.h in Headers */ = {isa = PBXBuildFile; fileRef = 74E01EAA28B07399005F8564 /* WMThread.h */; };
 		74E01F5528B0739A005F8564 /* ThreadContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 74E01EAD28B07399005F8564 /* ThreadContext.h */; };
 		74E01F5628B0739A005F8564 /* ThreadContext.mm in Sources */ = {isa = PBXBuildFile; fileRef = 74E01EAE28B07399005F8564 /* ThreadContext.mm */; };
-		74E01F5928B0739A005F8564 /* WMThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74E01EB228B07399005F8564 /* WMThread.cpp */; };
 		74E01F5D28B0739A005F8564 /* WMLogVariant.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74E01EB828B07399005F8564 /* WMLogVariant.cpp */; };
 		74E01F5E28B0739A005F8564 /* WMLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 74E01EB928B07399005F8564 /* WMLog.h */; };
 		74E01F5F28B0739A005F8564 /* WMLog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74E01EBA28B07399005F8564 /* WMLog.cpp */; };
@@ -113,9 +109,9 @@
 
 /* Begin PBXFileReference section */
 		746E6A21284DEE4900805558 /* WMFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMFramework.h; sourceTree = "<group>"; };
+		749C2F4F29FDB017000D769B /* libWMFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWMFramework.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		74B2C57528B078FD0009BBF4 /* GraphicsDeviceContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GraphicsDeviceContext.h; sourceTree = "<group>"; };
 		74B2C57728B079C30009BBF4 /* GraphicsDeviceContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GraphicsDeviceContext.m; sourceTree = "<group>"; };
-		74B579C329FCF51B00A4686D /* libWMFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libWMFramework.a; path = /Users/komastar/dev/WildMiniEngine/Code/WMFramework/build/Debug/libWMFramework.a; sourceTree = "<absolute>"; };
 		74B579C529FCF60E00A4686D /* WMThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMThread.h; sourceTree = "<group>"; };
 		74B579C829FCF60E00A4686D /* ThreadContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadContext.h; sourceTree = "<group>"; };
 		74B579C929FCF60E00A4686D /* ThreadContext.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ThreadContext.mm; sourceTree = "<group>"; };
@@ -241,6 +237,7 @@
 				74E01E3728B07399005F8564 /* UI */,
 				74E01DE328B07399005F8564 /* Window */,
 				746E6A21284DEE4900805558 /* WMFramework.h */,
+				749C2F4F29FDB017000D769B /* libWMFramework.a */,
 			);
 			sourceTree = "<group>";
 		};
@@ -545,7 +542,6 @@
 				74E01F3928B0739A005F8564 /* WMLinearTransform3.h in Headers */,
 				74E01EFE28B07399005F8564 /* WMCopyCommandEncoder.h in Headers */,
 				74E01EBC28B07399005F8564 /* WMWindow.h in Headers */,
-				74B579D129FCF60E00A4686D /* ThreadContext.h in Headers */,
 				74E01F5328B0739A005F8564 /* WMFile.h in Headers */,
 				74E01F3828B0739A005F8564 /* WMVector3.h in Headers */,
 				74E01EFF28B07399005F8564 /* WMCommandQueue.h in Headers */,
@@ -588,7 +584,6 @@
 				74E01F0028B07399005F8564 /* WMCommandBuffer.h in Headers */,
 				74B579EF29FD058600A4686D /* SwapChain.h in Headers */,
 				746E6A74284DEE4A00805558 /* WMFramework.h in Headers */,
-				74E01F5428B0739A005F8564 /* WMThread.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,7 +604,7 @@
 			);
 			name = WMFramework;
 			productName = WMFramework;
-			productReference = 74B579C329FCF51B00A4686D /* libWMFramework.a */;
+			productReference = 749C2F4F29FDB017000D769B /* libWMFramework.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -619,7 +614,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastUpgradeCheck = 1340;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					746B5FF3284CD3D7006D011A = {
 						CreatedOnToolsVersion = 13.4.1;
@@ -667,14 +662,12 @@
 				74B579F529FD0A4200A4686D /* RenderCommandEncoder.m in Sources */,
 				74E01ED828B07399005F8564 /* WMViewport.cpp in Sources */,
 				74E01F5628B0739A005F8564 /* ThreadContext.mm in Sources */,
-				74E01F5928B0739A005F8564 /* WMThread.cpp in Sources */,
 				74E01EC428B07399005F8564 /* ApplicationContext.mm in Sources */,
 				74B579F129FD05CE00A4686D /* SwapChain.m in Sources */,
 				74E01F4428B0739A005F8564 /* WMLinearTransform2.cpp in Sources */,
 				74E01F5D28B0739A005F8564 /* WMLogVariant.cpp in Sources */,
 				74E01F5128B0739A005F8564 /* WMFile.cpp in Sources */,
 				74E01ED128B07399005F8564 /* WMPoint.cpp in Sources */,
-				74B579D229FCF60E00A4686D /* ThreadContext.mm in Sources */,
 				74E01F4728B0739A005F8564 /* WMVector2.cpp in Sources */,
 				74E01F3D28B0739A005F8564 /* WMVector2Int.cpp in Sources */,
 				74E01F4128B0739A005F8564 /* WMAffineTransform3.cpp in Sources */,
