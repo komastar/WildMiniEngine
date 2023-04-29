@@ -10,7 +10,7 @@
 #include <TargetConditionals.h>
 #import <Cocoa/Cocoa.h>
 
-using namespace WildMini::Application::Private;
+using namespace WildMini;
 
 int ApplicationContext::MessageLoop()
 {

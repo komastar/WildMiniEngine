@@ -8,7 +8,7 @@
 #ifdef __APPLE__
 #include "WindowContext.h"
 
-using namespace WildMini::Window;
+using namespace WildMini;
 
 WindowContext::WindowContext(uint32_t _width, uint32_t _height)
     : WMWindow(_width, _height)
@@ -95,8 +95,13 @@ void WindowContext::AddResizeCallback(std::function<void (uint32_t, uint32_t)> c
 {
 }
 
+WMWindow* WindowContext::AddMouseEventHandler(std::function<void (WMMouseEvent)> handler)
+{
+    return nullptr;
+}
 
-
-
-
+WMWindow* WindowContext::AddKeyboardEventHandler(std::function<void (WMKeyboardEvent)> handler)
+{
+    return nullptr;
+}
 #endif // __APPLE__

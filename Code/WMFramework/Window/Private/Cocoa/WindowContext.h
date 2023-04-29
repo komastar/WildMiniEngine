@@ -10,7 +10,7 @@
 #import <Foundation/Foundation.h>
 #include "Window/WMWindow.h"
 
-namespace WildMini::Window
+namespace WildMini
 {
     class WindowContext : public WMWindow
     {
@@ -34,6 +34,9 @@ namespace WildMini::Window
         float GetAspect() const override;
         void OnResize() override;
         void AddResizeCallback(std::function<void (uint32_t, uint32_t)> callback) override;
+        
+        WMWindow* AddMouseEventHandler(std::function<void (WMMouseEvent)> handler) override;
+        WMWindow* AddKeyboardEventHandler(std::function<void (WMKeyboardEvent)> handler) override;
         
     private:
         NSWindow* window;

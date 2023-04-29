@@ -15,20 +15,20 @@
 #include "Graphics/WMRenderPipeline.h"
 #include "Graphics/WMShader.h"
 
-namespace WildMini::Graphics::Private
+namespace WildMini
 {
-    class GraphicsDeviceContext : public WildMini::Graphics::WMGraphicsDevice
+    class GraphicsDeviceContext : public WMGraphicsDevice
     {
         
-        WildMini::Object::WMObject<WMCommandQueue> CreateCommandQueue() override;
+        WMSharedPtr<WMCommandQueue> CreateCommandQueue() override;
         
-        WildMini::Object::WMObject<WMGPUBuffer> CreateGPUBuffer(size_t size, WMGPUBuffer::CPUCacheMode mode) override;
+        WMSharedPtr<WMGPUBuffer> CreateGPUBuffer(size_t size, WMGPUBuffer::CPUCacheMode mode) override;
         
-        WildMini::Object::WMObject<WMTexture> CreateTexture(const WMTexture::Desc &desc) override;
+        WMSharedPtr<WMTexture> CreateTexture(const WMTexture::Desc &desc) override;
         
-        WildMini::Object::WMObject<WMRenderPipeline> CreateRenderPipeline(const WildMini::Graphics::WMRenderPipelineDescriptor &desc) override;
+        WMSharedPtr<WMRenderPipeline> CreateRenderPipeline(const WMRenderPipelineDescriptor &desc) override;
         
-        WildMini::Object::WMObject<WMShader> CreateShader(const std::vector<uint8_t> &data, const std::string &entry, WMShader::StageType stage) override;
+        WMSharedPtr<WMShader> CreateShader(const std::vector<uint8_t> &data, const std::string &entry, WMShader::StageType stage) override;
         
     };
 }

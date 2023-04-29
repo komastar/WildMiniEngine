@@ -8,12 +8,14 @@
 #pragma once
 #ifdef __APPLE__
 #include "Application/WMApplicationContext.h"
-namespace WildMini::Application::Private
+namespace WildMini
 {
-    class ApplicationContext : public WildMini::Application::WMApplicationContext
+    class ApplicationContext : public WMApplicationContext
     {
     public:
         int MessageLoop() override;
+        virtual void Update() override {};
+        virtual void Render() override {};
     };
 }
 #endif /* __APPLE__ */

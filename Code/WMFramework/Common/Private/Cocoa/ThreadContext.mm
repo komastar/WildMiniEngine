@@ -7,7 +7,7 @@
 #include "ThreadContext.h"
 #import <Foundation/Foundation.h>
 
-using namespace WildMini::Common::Thread;
+using namespace WildMini;
 
 ThreadContext::ThreadContext(const wchar_t* name)
 {

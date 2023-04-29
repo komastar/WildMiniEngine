@@ -10,7 +10,7 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        EditorApplication app;
+        WildMini::EditorApplication app;
         app.Run();
     }
     
