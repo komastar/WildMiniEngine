@@ -8,6 +8,7 @@
 #ifdef __APPLE__
 #ifndef GraphicsDeviceContext_h
 #define GraphicsDeviceContext_h
+#import <Metal/Metal.h>
 #include "Graphics/WMGraphicsDevice.h"
 #include "Graphics/WMCommandQueue.h"
 #include "Graphics/WMGPUBuffer.h"
@@ -19,17 +20,15 @@ namespace WildMini
 {
     class GraphicsDeviceContext : public WMGraphicsDevice
     {
-        
+    public:
         WMSharedPtr<WMCommandQueue> CreateCommandQueue() override;
-        
         WMSharedPtr<WMGPUBuffer> CreateGPUBuffer(size_t size, WMGPUBuffer::CPUCacheMode mode) override;
-        
         WMSharedPtr<WMTexture> CreateTexture(const WMTexture::Desc &desc) override;
-        
         WMSharedPtr<WMRenderPipeline> CreateRenderPipeline(const WMRenderPipelineDescriptor &desc) override;
-        
         WMSharedPtr<WMShader> CreateShader(const std::vector<uint8_t> &data, const std::string &entry, WMShader::StageType stage) override;
         
+    private:
+        id<MTLDevice> mtlDevice;
     };
 }
 #endif /* GraphicsDeviceContext_h */

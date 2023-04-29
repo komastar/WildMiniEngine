@@ -7,12 +7,14 @@
 
 #import <Foundation/Foundation.h>
 #include "GraphicsDeviceContext.h"
+#include "Graphics/Private/Metal/CommandQueue.h"
 
 using namespace WildMini;
 
 WMSharedPtr<WMCommandQueue> GraphicsDeviceContext::CreateCommandQueue()
 {
-    return nullptr;
+    id<MTLCommandQueue> mtlCommandQueue = [mtlDevice newCommandQueue];
+    return new CommandQueue(this, [mtlCommandQueue autorelease]);
 }
 
 WMSharedPtr<WMGPUBuffer> GraphicsDeviceContext::CreateGPUBuffer(size_t size, WMGPUBuffer::CPUCacheMode mode)

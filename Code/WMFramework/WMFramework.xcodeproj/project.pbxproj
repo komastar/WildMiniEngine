@@ -16,6 +16,14 @@
 		74B579D529FCF60E00A4686D /* WMObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B579CD29FCF60E00A4686D /* WMObject.h */; };
 		74B579D629FCF60E00A4686D /* WMObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74B579CE29FCF60E00A4686D /* WMObject.cpp */; };
 		74B579D729FCF60E00A4686D /* WMThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74B579CF29FCF60E00A4686D /* WMThread.cpp */; };
+		74B579D929FCFC4C00A4686D /* CommandQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B579D829FCFC4C00A4686D /* CommandQueue.h */; };
+		74B579DB29FCFD6E00A4686D /* CommandQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B579DA29FCFD6E00A4686D /* CommandQueue.m */; };
+		74B579EB29FD02AA00A4686D /* CommandBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B579EA29FD02AA00A4686D /* CommandBuffer.h */; };
+		74B579ED29FD02F000A4686D /* CommandBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B579EC29FD02F000A4686D /* CommandBuffer.m */; };
+		74B579EF29FD058600A4686D /* SwapChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B579EE29FD058600A4686D /* SwapChain.h */; };
+		74B579F129FD05CE00A4686D /* SwapChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B579F029FD05CE00A4686D /* SwapChain.m */; };
+		74B579F329FD09E800A4686D /* RenderCommandEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B579F229FD09E800A4686D /* RenderCommandEncoder.h */; };
+		74B579F529FD0A4200A4686D /* RenderCommandEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B579F429FD0A4200A4686D /* RenderCommandEncoder.m */; };
 		74E01EBC28B07399005F8564 /* WMWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 74E01DE428B07399005F8564 /* WMWindow.h */; };
 		74E01EBD28B07399005F8564 /* WindowContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 74E01DE728B07399005F8564 /* WindowContext.h */; };
 		74E01EBE28B07399005F8564 /* WindowContext.mm in Sources */ = {isa = PBXBuildFile; fileRef = 74E01DE828B07399005F8564 /* WindowContext.mm */; };
@@ -110,6 +118,14 @@
 		74B579CD29FCF60E00A4686D /* WMObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMObject.h; sourceTree = "<group>"; };
 		74B579CE29FCF60E00A4686D /* WMObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WMObject.cpp; sourceTree = "<group>"; };
 		74B579CF29FCF60E00A4686D /* WMThread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WMThread.cpp; sourceTree = "<group>"; };
+		74B579D829FCFC4C00A4686D /* CommandQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommandQueue.h; sourceTree = "<group>"; };
+		74B579DA29FCFD6E00A4686D /* CommandQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommandQueue.m; sourceTree = "<group>"; };
+		74B579EA29FD02AA00A4686D /* CommandBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommandBuffer.h; sourceTree = "<group>"; };
+		74B579EC29FD02F000A4686D /* CommandBuffer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommandBuffer.m; sourceTree = "<group>"; };
+		74B579EE29FD058600A4686D /* SwapChain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwapChain.h; sourceTree = "<group>"; };
+		74B579F029FD05CE00A4686D /* SwapChain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwapChain.m; sourceTree = "<group>"; };
+		74B579F229FD09E800A4686D /* RenderCommandEncoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RenderCommandEncoder.h; sourceTree = "<group>"; };
+		74B579F429FD0A4200A4686D /* RenderCommandEncoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RenderCommandEncoder.m; sourceTree = "<group>"; };
 		74E01DE428B07399005F8564 /* WMWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMWindow.h; sourceTree = "<group>"; };
 		74E01DE728B07399005F8564 /* WindowContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowContext.h; sourceTree = "<group>"; };
 		74E01DE828B07399005F8564 /* WindowContext.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WindowContext.mm; sourceTree = "<group>"; };
@@ -364,6 +380,14 @@
 			children = (
 				74B2C57528B078FD0009BBF4 /* GraphicsDeviceContext.h */,
 				74B2C57728B079C30009BBF4 /* GraphicsDeviceContext.m */,
+				74B579D829FCFC4C00A4686D /* CommandQueue.h */,
+				74B579DA29FCFD6E00A4686D /* CommandQueue.m */,
+				74B579EA29FD02AA00A4686D /* CommandBuffer.h */,
+				74B579EC29FD02F000A4686D /* CommandBuffer.m */,
+				74B579EE29FD058600A4686D /* SwapChain.h */,
+				74B579F029FD05CE00A4686D /* SwapChain.m */,
+				74B579F229FD09E800A4686D /* RenderCommandEncoder.h */,
+				74B579F429FD0A4200A4686D /* RenderCommandEncoder.m */,
 			);
 			path = Metal;
 			sourceTree = "<group>";
@@ -515,6 +539,7 @@
 				74E01EFF28B07399005F8564 /* WMCommandQueue.h in Headers */,
 				74E01F5028B0739A005F8564 /* WMFileHandle.h in Headers */,
 				74E01EC628B07399005F8564 /* ApplicationContextFactory.h in Headers */,
+				74B579F329FD09E800A4686D /* RenderCommandEncoder.h in Headers */,
 				74E01F5228B0739A005F8564 /* FileHandle.h in Headers */,
 				74E01F3E28B0739A005F8564 /* WMLinearTransform2.h in Headers */,
 				74E01EBF28B07399005F8564 /* WindowFactory.h in Headers */,
@@ -524,6 +549,7 @@
 				74E01F3A28B0739A005F8564 /* WMMatrix4.h in Headers */,
 				74E01ECD28B07399005F8564 /* WMCamera.h in Headers */,
 				74E01ED328B07399005F8564 /* WMQuad.h in Headers */,
+				74B579EB29FD02AA00A4686D /* CommandBuffer.h in Headers */,
 				74E01F3C28B0739A005F8564 /* WMAffineTransform3.h in Headers */,
 				74E01ECE28B07399005F8564 /* WMColor.h in Headers */,
 				74E01F6028B0739A005F8564 /* WMLogVariant.h in Headers */,
@@ -542,10 +568,12 @@
 				74E01ED428B07399005F8564 /* WMViewport.h in Headers */,
 				74E01EDC28B07399005F8564 /* GraphicsDeviceFactory.h in Headers */,
 				74B2C57628B078FD0009BBF4 /* GraphicsDeviceContext.h in Headers */,
+				74B579D929FCFC4C00A4686D /* CommandQueue.h in Headers */,
 				74E01ECA28B07399005F8564 /* WMTexture.h in Headers */,
 				74E01F4A28B0739A005F8564 /* WMMatrix2.h in Headers */,
 				74E01EFD28B07399005F8564 /* WMVertexDescriptor.h in Headers */,
 				74E01F0028B07399005F8564 /* WMCommandBuffer.h in Headers */,
+				74B579EF29FD058600A4686D /* SwapChain.h in Headers */,
 				746E6A74284DEE4A00805558 /* WMFramework.h in Headers */,
 				74E01F5428B0739A005F8564 /* WMThread.h in Headers */,
 			);
@@ -622,10 +650,12 @@
 				74E01F5F28B0739A005F8564 /* WMLog.cpp in Sources */,
 				74E01F4C28B0739A005F8564 /* WMVector3Int.cpp in Sources */,
 				74E01F3F28B0739A005F8564 /* WMAffineTransform2.cpp in Sources */,
+				74B579F529FD0A4200A4686D /* RenderCommandEncoder.m in Sources */,
 				74E01ED828B07399005F8564 /* WMViewport.cpp in Sources */,
 				74E01F5628B0739A005F8564 /* ThreadContext.mm in Sources */,
 				74E01F5928B0739A005F8564 /* WMThread.cpp in Sources */,
 				74E01EC428B07399005F8564 /* ApplicationContext.mm in Sources */,
+				74B579F129FD05CE00A4686D /* SwapChain.m in Sources */,
 				74E01F4428B0739A005F8564 /* WMLinearTransform2.cpp in Sources */,
 				74E01F5D28B0739A005F8564 /* WMLogVariant.cpp in Sources */,
 				74E01F5128B0739A005F8564 /* WMFile.cpp in Sources */,
@@ -641,7 +671,9 @@
 				74E01EF528B07399005F8564 /* WMGraphicsDevice.cpp in Sources */,
 				74E01F4E28B0739A005F8564 /* WMMatrix3.cpp in Sources */,
 				74E01F4228B0739A005F8564 /* WMVector4.cpp in Sources */,
+				74B579DB29FCFD6E00A4686D /* CommandQueue.m in Sources */,
 				74E01F4328B0739A005F8564 /* WMLinearTransform3.cpp in Sources */,
+				74B579ED29FD02F000A4686D /* CommandBuffer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,6 +803,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
 				EXECUTABLE_PREFIX = lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -782,6 +815,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_STYLE = Automatic;
 				EXECUTABLE_PREFIX = lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";

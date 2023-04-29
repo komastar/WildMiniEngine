@@ -333,3 +333,4 @@ ASALocalRun/
 Code/Editor/imgui.ini
 
 .DS_Store
+*.xcuserstate
