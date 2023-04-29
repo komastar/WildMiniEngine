@@ -331,3 +331,5 @@ ASALocalRun/
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
 Code/Editor/imgui.ini
+
+.DS_Store
