@@ -24,6 +24,10 @@
 		74B579F129FD05CE00A4686D /* SwapChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B579F029FD05CE00A4686D /* SwapChain.m */; };
 		74B579F329FD09E800A4686D /* RenderCommandEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B579F229FD09E800A4686D /* RenderCommandEncoder.h */; };
 		74B579F529FD0A4200A4686D /* RenderCommandEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B579F429FD0A4200A4686D /* RenderCommandEncoder.m */; };
+		74B579F729FD1D2F00A4686D /* GPUBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B579F629FD1D2F00A4686D /* GPUBuffer.h */; };
+		74B579F929FD1DDE00A4686D /* GPUBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B579F829FD1DDE00A4686D /* GPUBuffer.m */; };
+		74B579FB29FD23C500A4686D /* Texture.h in Headers */ = {isa = PBXBuildFile; fileRef = 74B579FA29FD23C500A4686D /* Texture.h */; };
+		74B579FD29FD240D00A4686D /* Texture.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B579FC29FD240D00A4686D /* Texture.m */; };
 		74E01EBC28B07399005F8564 /* WMWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 74E01DE428B07399005F8564 /* WMWindow.h */; };
 		74E01EBD28B07399005F8564 /* WindowContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 74E01DE728B07399005F8564 /* WindowContext.h */; };
 		74E01EBE28B07399005F8564 /* WindowContext.mm in Sources */ = {isa = PBXBuildFile; fileRef = 74E01DE828B07399005F8564 /* WindowContext.mm */; };
@@ -111,7 +115,7 @@
 		746E6A21284DEE4900805558 /* WMFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMFramework.h; sourceTree = "<group>"; };
 		74B2C57528B078FD0009BBF4 /* GraphicsDeviceContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GraphicsDeviceContext.h; sourceTree = "<group>"; };
 		74B2C57728B079C30009BBF4 /* GraphicsDeviceContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GraphicsDeviceContext.m; sourceTree = "<group>"; };
-		74B579C329FCF51B00A4686D /* libWMFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWMFramework.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		74B579C329FCF51B00A4686D /* libWMFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libWMFramework.a; path = /Users/komastar/dev/WildMiniEngine/Code/WMFramework/build/Debug/libWMFramework.a; sourceTree = "<absolute>"; };
 		74B579C529FCF60E00A4686D /* WMThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMThread.h; sourceTree = "<group>"; };
 		74B579C829FCF60E00A4686D /* ThreadContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadContext.h; sourceTree = "<group>"; };
 		74B579C929FCF60E00A4686D /* ThreadContext.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ThreadContext.mm; sourceTree = "<group>"; };
@@ -126,6 +130,10 @@
 		74B579F029FD05CE00A4686D /* SwapChain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwapChain.m; sourceTree = "<group>"; };
 		74B579F229FD09E800A4686D /* RenderCommandEncoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RenderCommandEncoder.h; sourceTree = "<group>"; };
 		74B579F429FD0A4200A4686D /* RenderCommandEncoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RenderCommandEncoder.m; sourceTree = "<group>"; };
+		74B579F629FD1D2F00A4686D /* GPUBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUBuffer.h; sourceTree = "<group>"; };
+		74B579F829FD1DDE00A4686D /* GPUBuffer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUBuffer.m; sourceTree = "<group>"; };
+		74B579FA29FD23C500A4686D /* Texture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
+		74B579FC29FD240D00A4686D /* Texture.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Texture.m; sourceTree = "<group>"; };
 		74E01DE428B07399005F8564 /* WMWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMWindow.h; sourceTree = "<group>"; };
 		74E01DE728B07399005F8564 /* WindowContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WindowContext.h; sourceTree = "<group>"; };
 		74E01DE828B07399005F8564 /* WindowContext.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WindowContext.mm; sourceTree = "<group>"; };
@@ -233,7 +241,6 @@
 				74E01E3728B07399005F8564 /* UI */,
 				74E01DE328B07399005F8564 /* Window */,
 				746E6A21284DEE4900805558 /* WMFramework.h */,
-				74B579C329FCF51B00A4686D /* libWMFramework.a */,
 			);
 			sourceTree = "<group>";
 		};
@@ -388,6 +395,10 @@
 				74B579F029FD05CE00A4686D /* SwapChain.m */,
 				74B579F229FD09E800A4686D /* RenderCommandEncoder.h */,
 				74B579F429FD0A4200A4686D /* RenderCommandEncoder.m */,
+				74B579F629FD1D2F00A4686D /* GPUBuffer.h */,
+				74B579F829FD1DDE00A4686D /* GPUBuffer.m */,
+				74B579FA29FD23C500A4686D /* Texture.h */,
+				74B579FC29FD240D00A4686D /* Texture.m */,
 			);
 			path = Metal;
 			sourceTree = "<group>";
@@ -518,6 +529,7 @@
 			files = (
 				74E01EDB28B07399005F8564 /* WMRenderPipeline.h in Headers */,
 				74E01EF828B07399005F8564 /* WMGeometryFactory.h in Headers */,
+				74B579F729FD1D2F00A4686D /* GPUBuffer.h in Headers */,
 				74E01F5528B0739A005F8564 /* ThreadContext.h in Headers */,
 				74E01F5E28B0739A005F8564 /* WMLog.h in Headers */,
 				74E01ECF28B07399005F8564 /* WMRect.h in Headers */,
@@ -563,6 +575,7 @@
 				74E01EC528B07399005F8564 /* ApplicationContext.h in Headers */,
 				74E01ED028B07399005F8564 /* WMPoint.h in Headers */,
 				74E01ECB28B07399005F8564 /* WMShader.h in Headers */,
+				74B579FB29FD23C500A4686D /* Texture.h in Headers */,
 				74E01EBD28B07399005F8564 /* WindowContext.h in Headers */,
 				74E01EF628B07399005F8564 /* WMGraphicsDevice.h in Headers */,
 				74E01ED428B07399005F8564 /* WMViewport.h in Headers */,
@@ -649,6 +662,7 @@
 				74E01EC228B07399005F8564 /* WMApplication.cpp in Sources */,
 				74E01F5F28B0739A005F8564 /* WMLog.cpp in Sources */,
 				74E01F4C28B0739A005F8564 /* WMVector3Int.cpp in Sources */,
+				74B579FD29FD240D00A4686D /* Texture.m in Sources */,
 				74E01F3F28B0739A005F8564 /* WMAffineTransform2.cpp in Sources */,
 				74B579F529FD0A4200A4686D /* RenderCommandEncoder.m in Sources */,
 				74E01ED828B07399005F8564 /* WMViewport.cpp in Sources */,
@@ -665,6 +679,7 @@
 				74E01F3D28B0739A005F8564 /* WMVector2Int.cpp in Sources */,
 				74E01F4128B0739A005F8564 /* WMAffineTransform3.cpp in Sources */,
 				74B2C57828B079C30009BBF4 /* GraphicsDeviceContext.m in Sources */,
+				74B579F929FD1DDE00A4686D /* GPUBuffer.m in Sources */,
 				74E01EFB28B07399005F8564 /* WMCamera.cpp in Sources */,
 				74B579D629FCF60E00A4686D /* WMObject.cpp in Sources */,
 				74E01ED628B07399005F8564 /* WMColor.cpp in Sources */,

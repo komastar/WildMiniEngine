@@ -8,6 +8,8 @@
 #import <Foundation/Foundation.h>
 #include "GraphicsDeviceContext.h"
 #include "Graphics/Private/Metal/CommandQueue.h"
+#include "Graphics/Private/Metal/GPUBuffer.h"
+#include "Graphics/Private/Metal/Texture.h"
 
 using namespace WildMini;
 
@@ -19,11 +21,38 @@ WMSharedPtr<WMCommandQueue> GraphicsDeviceContext::CreateCommandQueue()
 
 WMSharedPtr<WMGPUBuffer> GraphicsDeviceContext::CreateGPUBuffer(size_t size, WMGPUBuffer::CPUCacheMode mode)
 {
+    if (size > 0)
+    {
+        MTLResourceOptions resourceOption = 0;
+        switch (mode)
+        {
+            case WMGPUBuffer::CPUCacheMode::NONE:
+            case WMGPUBuffer::CPUCacheMode::READABLE:
+                resourceOption |= MTLResourceCPUCacheModeDefaultCache;
+                break;
+            case WMGPUBuffer::CPUCacheMode::WRITABLE:
+                resourceOption |= MTLResourceCPUCacheModeWriteCombined;
+                break;
+        }
+
+        @autoreleasepool {
+            id<MTLBuffer> buffer = [mtlDevice newBufferWithLength:size options:resourceOption];
+            if (buffer) {
+                return new GPUBuffer(buffer);
+            }
+        }
+    }
+
     return nullptr;
 }
 
 WMSharedPtr<WMTexture> GraphicsDeviceContext::CreateTexture(const WMTexture::Desc &desc)
 {
+    @autoreleasepool {
+        MTLTextureDescriptor* texDesc = [[[MTLTextureDescriptor alloc] init] autorelease];
+        id<MTLTexture> texture = [mtlDevice newTextureWithDescriptor:texDesc];
+        return new Texture([texture autorelease]);
+    }
     return nullptr;
 }
 

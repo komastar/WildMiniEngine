@@ -25,7 +25,7 @@ CommandQueue::~CommandQueue()
 
 WMSharedPtr<WMSwapChain> CommandQueue::CreateSwapChain(WMWindow* window)
 {
-    return new SwapChain(this, nullptr);
+    return new SwapChain(this, window);
 }
 
 WMSharedPtr<WMCommandBuffer> CommandQueue::CreateCommandBuffer()
