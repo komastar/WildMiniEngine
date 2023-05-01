@@ -8,6 +8,7 @@
 #ifdef __APPLE__
 #import <Cocoa/Cocoa.h>
 #import <Foundation/Foundation.h>
+#import <AppKit/AppKit.h>
 #include "Window/WMWindow.h"
 
 namespace WildMini

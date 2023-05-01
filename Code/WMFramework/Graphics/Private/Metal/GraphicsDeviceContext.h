@@ -21,6 +21,10 @@ namespace WildMini
     class GraphicsDeviceContext : public WMGraphicsDevice
     {
     public:
+    GraphicsDeviceContext();
+    ~GraphicsDeviceContext();
+    
+    public:
         WMSharedPtr<WMCommandQueue> CreateCommandQueue() override;
         WMSharedPtr<WMGPUBuffer> CreateGPUBuffer(size_t size, WMGPUBuffer::CPUCacheMode mode) override;
         WMSharedPtr<WMTexture> CreateTexture(const WMTexture::Desc &desc) override;

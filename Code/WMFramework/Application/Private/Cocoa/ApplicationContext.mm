@@ -14,6 +14,8 @@ using namespace WildMini;
 
 int ApplicationContext::MessageLoop()
 {
+    NSApplication* app = [NSApplication sharedApplication];
+    [app run];
     return 0;
 }
 

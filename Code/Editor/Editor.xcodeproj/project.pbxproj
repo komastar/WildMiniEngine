@@ -10,6 +10,7 @@
 		7402987A28A0111F00933BA1 /* libWMFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7402987928A0111F00933BA1 /* libWMFramework.a */; };
 		7455FAAB28AA5E9E00841662 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 74029860289FE4F600933BA1 /* main.mm */; };
 		7455FAAC28AA625100841662 /* EditorApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74029875289FE64200933BA1 /* EditorApplication.cpp */; };
+		749C2F5F29FF731C000D769B /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 749C2F5E29FF731C000D769B /* AppKit.framework */; };
 		74B57A0529FD2AB000A4686D /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74B57A0429FD2AB000A4686D /* Metal.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		74029875289FE64200933BA1 /* EditorApplication.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = EditorApplication.cpp; sourceTree = "<group>"; };
 		74029876289FE64200933BA1 /* EditorApplication.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = EditorApplication.h; sourceTree = "<group>"; };
 		7402987928A0111F00933BA1 /* libWMFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libWMFramework.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		749C2F5E29FF731C000D769B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		74B57A0429FD2AB000A4686D /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -39,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				749C2F5F29FF731C000D769B /* AppKit.framework in Frameworks */,
 				74B57A0529FD2AB000A4686D /* Metal.framework in Frameworks */,
 				7402987A28A0111F00933BA1 /* libWMFramework.a in Frameworks */,
 			);
@@ -69,6 +72,7 @@
 		7402987828A0111F00933BA1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				749C2F5E29FF731C000D769B /* AppKit.framework */,
 				74B57A0429FD2AB000A4686D /* Metal.framework */,
 				7402987928A0111F00933BA1 /* libWMFramework.a */,
 			);

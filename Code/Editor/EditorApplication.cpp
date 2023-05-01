@@ -70,13 +70,6 @@ void EditorApplication::OnInitialize()
     uiCamera.SetView(WMVector3{ 400.0f, 200.0f, -400.0f }, WMVector3::zero, WMVector3::up);
     uiCamera.SetPerspective(0.25f, window->GetAspect(), 1.0f, 1000.0f);
 
-    ProgressConstants progressConst;
-    progressConst.viewProj = (uiCamera.ViewMatrix() * uiCamera.ProjMatrix()).Transpose();
-    progressBuffer = device->CreateGPUBuffer(sizeof(ProgressConstants), WMGPUBuffer::CPUCacheMode::WRITABLE);
-    progressBuffer->WriteData(&progressConst, sizeof(ProgressConstants));
-
-    uiMesh = WMGeometryFactory::MakePlane(device, 100.f, WMColor(1.0f, 0.0f, 0.0f, 1.0f));
-
     float deltaTime = 0.0f;
     gameThread = WMThread::Create(L"Editor");
     gameThread->Initialize([&]()
@@ -142,12 +135,6 @@ void EditorApplication::OnTerminate()
 
 void EditorApplication::Update(float dt)
 {
-    ProgressConstants progressConst;
-    progressConst.viewProj = (uiCamera.ViewMatrix() * uiCamera.ProjMatrix()).Transpose();
-    static float worldTime = 0.0f;
-    worldTime += dt;
-    progressConst.time = worldTime;
-    progressBuffer->WriteData(&progressConst, sizeof(ProgressConstants));
 }
 
 void EditorApplication::Render()
@@ -156,7 +143,6 @@ void EditorApplication::Render()
     {
         needResize = false;
         swapChain->Resize(window->width, window->height);
-        //uiCamera.SetOrthographics(window->GetWidth(), window->GetHeight(), 0.0f, 1000.0f);
         uiCamera.SetPerspective(0.25f, window->GetAspect(), 1.0f, 1000.0f);
     }
 
@@ -174,22 +160,6 @@ void EditorApplication::Render()
             WMRect scissorRect = { 0, 0, window->GetWidth(), window->GetHeight() };
             renderCommandEncoder->SetScissorRect(scissorRect);
             renderCommandEncoder->SetRenderTargets({ swapChain->RenderTargetTexture() }, swapChain->DepthStencilTexture());
-            renderCommandEncoder->SetConstantBuffer(0, progressBuffer);
-            renderCommandEncoder->SetVertexBuffer(uiMesh->vertexBuffer, sizeof(WMVertex));
-            if (uiMesh->indexBuffer)
-            {
-                renderCommandEncoder->SetIndexBuffer(uiMesh->indexBuffer);
-                renderCommandEncoder->DrawPrimitivesIndexed(WMRenderCommandEncoder::PrimitiveType::Triangle
-                    , static_cast<uint32_t>(uiMesh->indices.size())
-                    , 1
-                    , 0
-                    , 0
-                    , 0);
-            }
-            else
-            {
-                renderCommandEncoder->DrawPrimitives(WMRenderCommandEncoder::PrimitiveType::Triangle, (uint32_t)uiMesh->vertices.size(), 2, 0, 2);
-            }
             renderCommandEncoder->EndEncoding({ swapChain->RenderTargetTexture() });
         }
         commandBuffer->Commit();

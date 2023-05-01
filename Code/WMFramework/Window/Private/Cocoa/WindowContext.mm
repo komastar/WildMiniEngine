@@ -10,6 +10,16 @@
 
 using namespace WildMini;
 
+@interface WindowDelegate : NSObject<NSWindowDelegate>
+@end
+
+@implementation WindowDelegate
+- (void)windowWillClose:(NSNotification *)notification
+{
+    [NSApp stop:nil];
+}
+@end
+
 WindowContext::WindowContext(uint32_t _width, uint32_t _height)
     : WMWindow(_width, _height)
     , window(nil)
@@ -34,18 +44,19 @@ float WindowContext::GetHeight() const
 
 void WindowContext::Create()
 {
-    //NSRect rect = NSMakeRect(0, 0, width, height);
-    //window = [[NSWindow alloc] initWithContentRect:rect styleMask:NSWindowStyleMaskTitled | NSWindowStyleMaskClosable | NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskResizable backing:NSBackingStoreBuffered defer:NO];
-    //[window setTitle: @"Editor"];
-    //[window setReleasedWhenClosed:YES];
-    
-    //view = [[NSView alloc] initWithFrame:[window backingAlignedRect:rect options:NSAlignAllEdgesOutward]];
-    //[window setContentView:view];
-    //[window setDelegate:[WindowDelegate alloc]];
+    NSRect rect = NSMakeRect(0, 0, width, height);
+    window = [[NSWindow alloc] initWithContentRect:rect styleMask:NSWindowStyleMaskTitled | NSWindowStyleMaskClosable | NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskResizable backing:NSBackingStoreBuffered defer:NO];
+    [window setTitle: @"Editor"];
+    [window setReleasedWhenClosed:YES];
+
+    view = [[NSView alloc] initWithFrame:[window backingAlignedRect:rect options:NSAlignAllEdgesOutward]];
+    [window setContentView:view];
+    [window setDelegate:[WindowDelegate alloc]];
 }
 
 void WindowContext::Show()
 {
+    [window setIsVisible:YES];
 }
 
 void WindowContext::Hide()
@@ -97,11 +108,11 @@ void WindowContext::AddResizeCallback(std::function<void (uint32_t, uint32_t)> c
 
 WMWindow* WindowContext::AddMouseEventHandler(std::function<void (WMMouseEvent)> handler)
 {
-    return nullptr;
+    return this;
 }
 
 WMWindow* WindowContext::AddKeyboardEventHandler(std::function<void (WMKeyboardEvent)> handler)
 {
-    return nullptr;
+    return this;
 }
 #endif // __APPLE__

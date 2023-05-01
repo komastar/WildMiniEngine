@@ -17,7 +17,7 @@ namespace WildMini
     class GPUBuffer : public WMGPUBuffer
     {
     public:
-        GPUBuffer(id<MTLBuffer>);
+        GPUBuffer(id<MTLBuffer>, WMGPUBuffer::CPUCacheMode);
         ~GPUBuffer();
 
     public:
@@ -30,6 +30,7 @@ namespace WildMini
 
     private:
         id<MTLBuffer> mtlBuffer;
+    WMGPUBuffer::CPUCacheMode mode;
     };
 }
 

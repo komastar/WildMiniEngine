@@ -10,9 +10,10 @@
 
 using namespace WildMini;
 
-GPUBuffer::GPUBuffer(id<MTLBuffer> buffer)
+GPUBuffer::GPUBuffer(id<MTLBuffer> buffer, WMGPUBuffer::CPUCacheMode inMode)
 {
     mtlBuffer = [buffer retain];
+    mode = inMode;
 }
 
 GPUBuffer::~GPUBuffer()
@@ -27,12 +28,12 @@ size_t GPUBuffer::Size() const
 
 bool GPUBuffer::IsWritable() const
 {
-    return false;
+    return (mode == WMGPUBuffer::CPUCacheMode::WRITABLE);
 }
 
 bool GPUBuffer::IsReadable() const
 {
-    return false;
+    return (mode == WMGPUBuffer::CPUCacheMode::READABLE);
 }
 
 bool GPUBuffer::WriteData(const void *data, size_t size)
@@ -46,6 +47,6 @@ bool GPUBuffer::WriteDataForTexture(const void *data, uint32_t width, uint32_t h
 }
 
 bool GPUBuffer::ReadData(void *data, size_t size)
-{ 
+{
     return false;
 }

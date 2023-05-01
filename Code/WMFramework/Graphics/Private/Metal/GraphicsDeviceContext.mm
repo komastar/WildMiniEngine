@@ -13,6 +13,18 @@
 
 using namespace WildMini;
 
+GraphicsDeviceContext::GraphicsDeviceContext()
+: mtlDevice(nil) {
+    std::cout << "Init" << std::endl;
+    mtlDevice = MTLCreateSystemDefaultDevice();
+    if (mtlDevice == nil) {
+        std::cout << "Create device failed" << std::endl;
+    }
+}
+
+GraphicsDeviceContext::~GraphicsDeviceContext() {
+}
+
 WMSharedPtr<WMCommandQueue> GraphicsDeviceContext::CreateCommandQueue()
 {
     id<MTLCommandQueue> mtlCommandQueue = [mtlDevice newCommandQueue];
@@ -38,7 +50,7 @@ WMSharedPtr<WMGPUBuffer> GraphicsDeviceContext::CreateGPUBuffer(size_t size, WMG
         @autoreleasepool {
             id<MTLBuffer> buffer = [mtlDevice newBufferWithLength:size options:resourceOption];
             if (buffer) {
-                return new GPUBuffer(buffer);
+                return new GPUBuffer(buffer, mode);
             }
         }
     }

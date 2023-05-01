@@ -21,6 +21,12 @@ namespace WildMini
         void Initialize(std::function<void ()> func) override;
         void Run() override;
         void Terminate() override;
+
+    private:
+    std::function<void()> loop;
+    std::thread thread;
+    std::wstring threadName;
+    std::atomic_bool isRunning;
     };
 }
 #endif /* __APPLE__ */
