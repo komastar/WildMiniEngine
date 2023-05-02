@@ -20,9 +20,6 @@ namespace WildMini
     {
     public:
         virtual int MessageLoop() override;
-
-        virtual void Update() override;
-        virtual void Render() override;
     };
 }
 #endif // _WIN32

@@ -21,10 +21,11 @@ namespace WildMini
         WindowContext(uint32_t _width, uint32_t _height);
 
     public:
-        virtual void Create() override;
+        virtual void Create(const std::wstring&, const std::wstring&) override;
         virtual void Show() override;
         virtual void Hide() override;
-        virtual void Update() override;
+        virtual void Update(const float deltaTime) override;
+        virtual void Render() override;
         virtual void Focus() override;
         virtual void SetTitle(const wchar_t* title) override;
 

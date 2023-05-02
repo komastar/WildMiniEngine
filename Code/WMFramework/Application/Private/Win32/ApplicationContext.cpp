@@ -12,32 +12,23 @@ using namespace WildMini;
 
 int ApplicationContext::MessageLoop()
 {
+    bool isRunning = true;
     MSG msg;
-    while (true)
+    while (isRunning)
     {
-        if (GetMessageW(&msg, nullptr, 0, 0))
+        while (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
         {
             TranslateMessage(&msg);
             DispatchMessage(&msg);
         }
-        else
-        {
-            Update();
-            Render();
-        }
 
         if (WM_QUIT == msg.message)
         {
+            isRunning = false;
             break;
         }
     }
 
     return static_cast<int>(msg.wParam);
-}
-void ApplicationContext::Update()
-{
-}
-void ApplicationContext::Render()
-{
 }
 #endif // _WIN32

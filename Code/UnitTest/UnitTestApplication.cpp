@@ -22,7 +22,7 @@ public:
     void OnInitialize() override
     {
         window = WindowFactory::Create(800, 600);
-        window->Create();
+        window->Create(L"TestWindow", L"TestWindow");
         window->Show();
         window->Focus();
 

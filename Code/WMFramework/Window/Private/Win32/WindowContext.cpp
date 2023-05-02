@@ -87,7 +87,7 @@ WindowContext::WindowContext(uint32_t _width, uint32_t _height)
     mouseEventHandler.reserve(4);
 }
 
-void WindowContext::Create()
+void WindowContext::Create(const std::wstring& name, const std::wstring& title)
 {
     WNDCLASSW wc = {};
     wc.style = CS_HREDRAW | CS_VREDRAW | CS_DBLCLKS;
@@ -99,7 +99,7 @@ void WindowContext::Create()
     wc.hCursor = LoadCursor(0, IDC_ARROW);
     wc.hbrBackground = (HBRUSH)GetStockObject(NULL_BRUSH);
     wc.lpszMenuName = 0;
-    wc.lpszClassName = L"MainWnd";
+    wc.lpszClassName = name.c_str();
 
     RegisterClassW(&wc);
 
@@ -108,7 +108,7 @@ void WindowContext::Create()
     int width = R.right - R.left;
     int height = R.bottom - R.top;
 
-    hwnd = CreateWindowW(L"MainWnd", L"WildMini Editor", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, width, height, 0, 0, instance, 0);
+    hwnd = CreateWindowW(name.c_str(), title.c_str(), WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, width, height, 0, 0, instance, 0);
     SetWindowLongPtrW(hwnd, GWLP_USERDATA, (LONG_PTR)this);
 }
 
@@ -162,9 +162,13 @@ void WindowContext::OnResize()
     }
 }
 
-void WindowContext::Update()
+void WindowContext::Update(const float deltaTime)
 {
-    UpdateWindow(hwnd);
+}
+
+void WindowContext::Render()
+{
+
 }
 
 void WindowContext::Focus()

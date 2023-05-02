@@ -45,10 +45,11 @@ namespace WildMini
         WMWindow(uint32_t _width, uint32_t _height) : width(_width), height(_height) {}
 
     public:
-        virtual void Create() = 0;
+        virtual void Create(const std::wstring&, const std::wstring&) = 0;
         virtual void Show() = 0;
         virtual void Hide() = 0;
-        virtual void Update() = 0;
+        virtual void Update(const float dt) = 0;
+        virtual void Render() = 0;
         virtual void Focus() = 0;
         virtual void SetTitle(const wchar_t* title) = 0;
 

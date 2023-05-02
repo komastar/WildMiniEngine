@@ -16,11 +16,5 @@ namespace WildMini
     {
     public:
         virtual int MessageLoop() = 0;
-        virtual void Update() = 0;
-        virtual void Render() = 0;
-
-    protected:
-        WMGraphicsDevice* device;
-        WMWindow* window;
     };
 }

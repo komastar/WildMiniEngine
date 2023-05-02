@@ -40,8 +40,10 @@ void EditorApplication::OnTerminate()
 
 void EditorApplication::Update(float dt)
 {
+    window->Update(dt);
 }
 
 void EditorApplication::Render()
 {
+    window->Render();
 }
