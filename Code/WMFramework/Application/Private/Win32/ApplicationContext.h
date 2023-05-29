@@ -19,7 +19,8 @@ namespace WildMini
     class ApplicationContext : public WMApplicationContext
     {
     public:
-        virtual int MessageLoop() override;
+        virtual int ApplicationLoop() override;
+        virtual void Tick() override;
     };
 }
 #endif // _WIN32

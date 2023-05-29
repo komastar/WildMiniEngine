@@ -42,8 +42,6 @@ namespace WildMini
     private:
         WMSharedPtr<WMWindow> window;
         WMSharedPtr<WMGraphicsDevice> device;
-
-        WMSharedPtr<WMThread> gameThread;
         WMSharedPtr<WMCommandQueue> commandQueue;
         WMSharedPtr<WMSwapChain> swapChain;
 
@@ -52,8 +50,6 @@ namespace WildMini
         WMSharedPtr<WMRenderPipeline> renderPipeline;
 
         WMSharedPtr<WMGPUBuffer> progressBuffer;
-        WMCamera uiCamera;
-        WMMesh* uiMesh;
 
         std::atomic_bool needResize;
     };

@@ -570,7 +570,10 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClInclude Include="Application\Private\ApplicationContextFactory.h" />
     <ClInclude Include="Application\Private\Win32\ApplicationContext.h" />
     <ClInclude Include="Common\Private\Win32\ThreadContext.h" />
+    <ClInclude Include="Common\Private\Win32\TimerContext.h" />
     <ClInclude Include="Common\WMObject.h" />
+    <ClInclude Include="Common\WMTimer.h" />
+    <ClInclude Include="Common\WMTimerContext.h" />
     <ClInclude Include="Component\Render\Private\MeshRenderComponent.h" />
     <ClInclude Include="Component\Render\Private\SpriteRenderComponent.h" />
     <ClInclude Include="Component\WMComponent.h" />
@@ -591,6 +594,7 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClInclude Include="IO\Data\WMSerializable.h" />
     <ClInclude Include="IO\File\Private\FileHandle.h" />
     <ClInclude Include="IO\File\WMFileHandle.h" />
+    <ClInclude Include="Scene\WMScene.h" />
     <ClInclude Include="UI\WMCanvas.h" />
     <ClInclude Include="WildMini.h" />
     <ClInclude Include="WMAssert.h" />
@@ -660,8 +664,10 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClCompile Include="Application\WMApplication.cpp" />
     <ClCompile Include="Application\Private\Win32\ApplicationContext.cpp" />
     <ClCompile Include="Common\Private\Win32\ThreadContext.cpp" />
+    <ClCompile Include="Common\Private\Win32\TimerContext.cpp" />
     <ClCompile Include="Common\WMObject.cpp" />
     <ClCompile Include="Common\WMThread.cpp" />
+    <ClCompile Include="Common\WMTimer.cpp" />
     <ClCompile Include="Component\Render\Private\MeshRenderComponent.cpp" />
     <ClCompile Include="Component\Render\Private\SpriteRenderComponent.cpp" />
     <ClCompile Include="Component\Render\WMRenderComponent.cpp" />

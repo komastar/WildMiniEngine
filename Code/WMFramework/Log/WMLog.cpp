@@ -24,8 +24,8 @@ std::string Now()
 #else
     localtime_s(&tstruct, &now);
 #endif
-    char buf[80];
-    strftime(buf, sizeof(buf), "%Y-%m-%d.%x", &tstruct);
+    char buf[128];
+    strftime(buf, sizeof(buf), "%Y-%m-%d_%OH:%OM:%OS", &tstruct);
     return buf;
 }
 

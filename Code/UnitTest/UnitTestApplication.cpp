@@ -33,6 +33,7 @@ public:
     
     void Terminate() override
     {
+        window = nullptr;
     }
 
 private:

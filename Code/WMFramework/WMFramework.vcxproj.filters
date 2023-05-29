@@ -166,6 +166,8 @@
     <ClCompile Include="Component\Render\Private\MeshRenderComponent.cpp" />
     <ClCompile Include="Component\Render\WMRenderComponent.cpp" />
     <ClCompile Include="Component\Render\Private\SpriteRenderComponent.cpp" />
+    <ClCompile Include="Common\WMTimer.cpp" />
+    <ClCompile Include="Common\Private\Win32\TimerContext.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WildMini.h" />
@@ -420,6 +422,10 @@
     </ClInclude>
     <ClInclude Include="Component\Render\Private\MeshRenderComponent.h" />
     <ClInclude Include="Component\Render\Private\SpriteRenderComponent.h" />
+    <ClInclude Include="Scene\WMScene.h" />
+    <ClInclude Include="Common\WMTimer.h" />
+    <ClInclude Include="Common\Private\Win32\TimerContext.h" />
+    <ClInclude Include="Common\WMTimerContext.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

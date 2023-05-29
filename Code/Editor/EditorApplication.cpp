@@ -37,8 +37,7 @@ struct ProgressConstants
 };
 
 EditorApplication::EditorApplication()
-    : uiMesh(nullptr)
-    , needResize(false)
+    : needResize(false)
     , window(nullptr)
     , device(nullptr)
     , commandQueue(nullptr)
@@ -99,24 +98,12 @@ void EditorApplication::CreateRenderPipeline()
 
 void EditorApplication::Terminate()
 {
-    if (gameThread)
-    {
-        gameThread->Terminate();
-    }
-
-    if (uiMesh)
-    {
-        delete uiMesh;
-        uiMesh = nullptr;
-    }
-
     progressBuffer = nullptr;
     commandQueue = nullptr;
     swapChain = nullptr;
     vertexShader = nullptr;
     pixelShader = nullptr;
     renderPipeline = nullptr;
-    gameThread = nullptr;
     device = nullptr;
     window = nullptr;
 }
@@ -131,7 +118,6 @@ void EditorApplication::Render()
     {
         needResize = false;
         swapChain->Resize(window->width, window->height);
-        uiCamera.SetPerspective(0.25f, window->GetAspect(), 1.0f, 1000.0f);
     }
 
     if (WMSharedPtr<WMCommandBuffer> commandBuffer = commandQueue->CreateCommandBuffer())
