@@ -29,9 +29,9 @@ namespace WildMini
         virtual ~EditorApplication();
 
     public:
-        void OnInitialize() override;
+        void Initialize() override;
         void CreateRenderPipeline();
-        void OnTerminate() override;
+        void Terminate() override;
 
     private:
         void Update(float dt);

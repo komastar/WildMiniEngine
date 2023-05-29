@@ -22,8 +22,8 @@ namespace WildMini
         virtual ~WMApplication();
 
     public:
-        virtual void OnInitialize() = 0;
-        virtual void OnTerminate() = 0;
+        virtual void Initialize() = 0;
+        virtual void Terminate() = 0;
         int Run();
 
     protected:

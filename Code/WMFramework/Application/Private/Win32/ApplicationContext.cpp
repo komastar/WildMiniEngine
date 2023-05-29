@@ -15,29 +15,22 @@ int ApplicationContext::MessageLoop()
     MSG msg;
     while (true)
     {
-        if (GetMessageW(&msg, nullptr, 0, 0))
+        while (GetMessageW(&msg, nullptr, 0, 0))
         {
             TranslateMessage(&msg);
             DispatchMessage(&msg);
         }
-        else
-        {
-            Update();
-            Render();
-        }
 
-        if (WM_QUIT == msg.message)
+        if (msg.message == WM_QUIT)
         {
             break;
+        }
+        else
+        {
+            Tick();
         }
     }
 
     return static_cast<int>(msg.wParam);
-}
-void ApplicationContext::Update()
-{
-}
-void ApplicationContext::Render()
-{
 }
 #endif // _WIN32

@@ -20,25 +20,29 @@ using namespace WildMini;
 
 struct Constants
 {
-    WMMatrix4 viewProj;
+    WMMatrix4 viewProj{};
     WMMatrix4 world[3];
 };
 
 struct MainPassConstants
 {
-    WMVector3 eye;
-    WMVector3 light;
+    WMVector3 eye{};
+    WMVector3 light{};
 };
 
 struct ProgressConstants
 {
-    WMMatrix4 viewProj;
-    WMVector4 time;
+    WMMatrix4 viewProj{};
+    WMVector4 time{};
 };
 
 EditorApplication::EditorApplication()
     : uiMesh(nullptr)
     , needResize(false)
+    , window(nullptr)
+    , device(nullptr)
+    , commandQueue(nullptr)
+    , swapChain(nullptr)
 {
 }
 
@@ -46,7 +50,7 @@ EditorApplication::~EditorApplication()
 {
 }
 
-void EditorApplication::OnInitialize()
+void EditorApplication::Initialize()
 {
     window = WindowFactory::Create(1280, 720);
     window->Create();
@@ -66,22 +70,6 @@ void EditorApplication::OnInitialize()
     swapChain = commandQueue->CreateSwapChain(window);
 
     CreateRenderPipeline();
-
-    uiCamera.SetView(WMVector3{ 400.0f, 200.0f, -400.0f }, WMVector3::zero, WMVector3::up);
-    uiCamera.SetPerspective(0.25f, window->GetAspect(), 1.0f, 1000.0f);
-
-    float deltaTime = 0.0f;
-    gameThread = WMThread::Create(L"Editor");
-    gameThread->Initialize([&]()
-        {
-            auto begin = std::chrono::high_resolution_clock::now();
-            Update(deltaTime);
-            Render();
-            auto end = std::chrono::high_resolution_clock::now();
-            auto dt = std::chrono::duration_cast<std::chrono::milliseconds>(end - begin).count();
-            deltaTime = dt * 0.001f;
-        });
-    gameThread->Run();
 }
 
 void EditorApplication::CreateRenderPipeline()
@@ -109,7 +97,7 @@ void EditorApplication::CreateRenderPipeline()
     renderPipeline = device->CreateRenderPipeline(pipelineDesc);
 }
 
-void EditorApplication::OnTerminate()
+void EditorApplication::Terminate()
 {
     if (gameThread)
     {

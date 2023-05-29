@@ -19,7 +19,7 @@ public:
     UnitTestApplication() {}
     virtual ~UnitTestApplication() {}
 
-    void OnInitialize() override
+    void Initialize() override
     {
         window = WindowFactory::Create(800, 600);
         window->Create();
@@ -31,7 +31,7 @@ public:
         context = ApplicationContextFactory::Create();
     }
     
-    void OnTerminate() override
+    void Terminate() override
     {
     }
 

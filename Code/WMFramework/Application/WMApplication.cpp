@@ -30,10 +30,10 @@ WMApplication::~WMApplication()
 
 int WMApplication::Run()
 {
-    OnInitialize();
+    Initialize();
     WMASSERT(context);
     int msg = context->MessageLoop();
-    OnTerminate();
+    Terminate();
     return msg;
 }
 
