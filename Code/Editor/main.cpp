@@ -25,14 +25,14 @@ int main(int argc, char** argv)
     HMODULE dxgiDebugDll = GetModuleHandleW(L"dxgidebug.dll");
     if (nullptr == dxgiDebugDll)
     {
-        WMLogDebug("GetModuleHandle failed : dxgidebug.dll");
+        LogDebug("GetModuleHandle failed : dxgidebug.dll");
         return -1;
     }
 
     decltype(&DXGIGetDebugInterface) GetDebugInterface = reinterpret_cast<decltype(&DXGIGetDebugInterface)>(GetProcAddress(dxgiDebugDll, "DXGIGetDebugInterface"));
     if (nullptr == GetDebugInterface)
     {
-        WMLogDebug("GetProcAddress failed : DXGIGetDebugInterface");
+        LogDebug("GetProcAddress failed : DXGIGetDebugInterface");
         return -1;
     }
 

@@ -12,12 +12,14 @@
 
 using namespace WildMini;
 
+using Clock = std::chrono::high_resolution_clock;
+using Duration = std::chrono::duration<WMTick, std::nano>;
+
 int ApplicationContext::ApplicationLoop()
 {
     MSG msg;
     WMTimer timer;
-    const double frameTime = 1.0 / 1.0;
-    const std::chrono::duration<WMTick, std::nano> frame(16 * 1000000);
+    const Duration frame(16 * 1000000);
     while (true)
     {
         if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
@@ -27,11 +29,11 @@ int ApplicationContext::ApplicationLoop()
         }
         else
         {
-            const auto start = std::chrono::high_resolution_clock::now();
+            const auto start = Clock::now();
             Tick();
-            const auto end = std::chrono::high_resolution_clock::now();
-            const std::chrono::duration<WMTick, std::nano> elapsed = end - start;
-            const std::chrono::duration<WMTick, std::nano> remain = frame - elapsed;
+            const auto end = Clock::now();
+            const Duration elapsed = end - start;
+            const Duration remain = frame - elapsed;
             std::this_thread::sleep_for(remain);
         }
 
@@ -46,8 +48,8 @@ int ApplicationContext::ApplicationLoop()
 
 void ApplicationContext::Tick()
 {
-    WMLogDebug("Tick");
-    for (auto& scene : scenes)
+    LogDebug("Tick");
+    for (auto& [key, scene] : scenes)
     {
         scene->Update(0.0f, 0);
         scene->Render();

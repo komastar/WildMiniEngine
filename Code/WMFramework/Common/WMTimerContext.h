@@ -10,7 +10,6 @@
 
 namespace WildMini
 {
-    using WMTick = uint64_t;
     class WMTimerContext
     {
     public:

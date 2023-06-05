@@ -26,7 +26,7 @@ LRESULT WindowContext::WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lP
     }
     case WM_LBUTTONDBLCLK:
     {
-        WMLogDebug("DBL CLICK");
+        LogDebug("DBL CLICK");
     }
     case WM_LBUTTONDOWN:
     {

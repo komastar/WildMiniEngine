@@ -7,10 +7,11 @@
 
 #pragma once
 #include "WMFramework.h"
+#include "WMRefCounter.h"
 
 namespace WildMini
 {
-    class WM_API WMScene
+    class WM_API WMScene : public WMRefCounter
     {
     public:
         virtual void Update(const float dt, const uint64_t tick) = 0;

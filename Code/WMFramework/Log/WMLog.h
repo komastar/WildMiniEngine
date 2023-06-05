@@ -10,12 +10,21 @@
 #include "WMLogVariant.h"
 #include <vector>
 
+#ifdef _DEBUG
+#define LogDebug(format, ...)       WMLogDebug(format, __VA_ARGS__)
+#else
+#define LogDebug(format, ...)       void(0)
+#endif // _DEBUG
+#define LogInfo(format, ...)        WMLogInfo(format, __VA_ARGS__)
+#define LogWarning(format, ...)     WMLogWarning(format, __VA_ARGS__)
+#define LogError(format, ...)       WMLogError(format, __VA_ARGS__)
+
 namespace WildMini
 {
     enum class WMLogLevel
     {
+        Debug = 0,
         Info,
-        Debug,
         Warning,
         Error
     };
