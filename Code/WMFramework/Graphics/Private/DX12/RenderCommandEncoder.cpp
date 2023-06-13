@@ -75,13 +75,15 @@ void RenderCommandEncoder::SetScissorRects(const WMRect* rects, uint32_t count)
 
 void RenderCommandEncoder::SetRenderTargets(Vector<const WMTexture*> renderTargets, const WMTexture* depthStencil)
 {
+    WMASSERT(0 < renderTargets.size());
+    WMASSERT(renderTargets.size() <= D3D12_SIMULTANEOUS_RENDER_TARGET_COUNT);
     Vector<D3D12_CPU_DESCRIPTOR_HANDLE> renderTargetHandles;
     renderTargetHandles.reserve(renderTargets.size());
     for (const WMTexture* renderTarget : renderTargets)
     {
         const Texture* texture = dynamic_cast<const Texture*>(renderTarget);
         D3D12_CPU_DESCRIPTOR_HANDLE renderTargetHandle = texture->RenderTargetView();
-        renderTargetHandles.push_back(renderTargetHandle);
+        renderTargetHandles.emplace_back(renderTargetHandle);
         TransitionBufferState(texture->Resource(), texture->InitialState(), D3D12_RESOURCE_STATE_RENDER_TARGET);
     }
 

@@ -426,6 +426,7 @@
     <ClInclude Include="Common\WMTimer.h" />
     <ClInclude Include="Common\Private\Win32\TimerContext.h" />
     <ClInclude Include="Common\WMTimerContext.h" />
+    <ClInclude Include="Graphics\WMMaterial.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

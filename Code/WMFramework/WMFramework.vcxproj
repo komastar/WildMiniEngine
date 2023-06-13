@@ -918,6 +918,7 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClInclude Include="Graphics\Private\DX12\Type.h" />
     <ClInclude Include="Graphics\WMBlendState.h" />
     <ClInclude Include="Graphics\WMCommandBuffer.h" />
+    <ClInclude Include="Graphics\WMMaterial.h" />
     <ClInclude Include="Graphics\WMRenderCommandEncoder.h" />
     <ClInclude Include="Graphics\WMRenderPipeline.h" />
     <ClInclude Include="Graphics\WMVertexDescriptor.h" />
