@@ -1,11 +1,12 @@
 //
-//  File:   WMObject.h
+//  File:   WMSharedPtr.h
 //  Author: Eugene Kim (komastar.dev@gmail.com)
 //
 //  Copyright (c) 2022 komastar. All rights reserved.
 //
 
 #pragma once
+#include "WMContainer.h"
 #include "WMRefCounter.h"
 
 namespace WildMini

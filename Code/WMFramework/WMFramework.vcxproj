@@ -917,6 +917,7 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClInclude Include="Graphics\Private\DX12\Type.h" />
     <ClInclude Include="Graphics\WMBlendState.h" />
     <ClInclude Include="Graphics\WMCommandBuffer.h" />
+    <ClInclude Include="Graphics\WMImage.h" />
     <ClInclude Include="Graphics\WMMaterial.h" />
     <ClInclude Include="Graphics\WMRenderCommandEncoder.h" />
     <ClInclude Include="Graphics\WMRenderPipeline.h" />
@@ -1050,6 +1051,7 @@ xcopy /YIDS $(OutputPath)\*.pdb $(SolutionDir)Build\Libs</Command>
     <ClCompile Include="Graphics\WMCamera.cpp" />
     <ClCompile Include="UI\WMRectTransform.cpp" />
     <ClCompile Include="Component\WMComponentBase.cpp" />
+    <ClCompile Include="WMImage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
