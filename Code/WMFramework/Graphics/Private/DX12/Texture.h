@@ -11,10 +11,11 @@
 
 namespace WildMini
 {
+    class GPUBuffer;
     class Texture : public WMTexture
     {
     public:
-        Texture(ComPtr<ID3D12Resource> buffer, D3D12_RESOURCE_STATES state);
+        Texture(WMSharedPtr<GPUBuffer> buffer, D3D12_RESOURCE_DESC desc);
         virtual ~Texture();
 
     public:
@@ -22,8 +23,10 @@ namespace WildMini
         virtual uint32_t Width() const override;
         virtual uint32_t Height() const override;
         virtual WMPixelFormat Format() const override;
+        virtual void Write(const void* data) override;
+        virtual const WMGPUBuffer* Buffer() const override;
 
-        ID3D12Resource* Resource() const { return buffer.Get(); }
+        ID3D12Resource* Resource() const;
         D3D12_RESOURCE_STATES InitialState() const { return state; }
 
         void SetRenderTargetViewHeap(ID3D12DescriptorHeap* heap);
@@ -39,8 +42,9 @@ namespace WildMini
         uint32_t width;
         uint32_t height;
         WMPixelFormat format;
-        ComPtr<ID3D12Resource> buffer;
+        WMSharedPtr<WMGPUBuffer> buffer;
         D3D12_RESOURCE_STATES state;
+        ID3D12Resource* resource;
 
         ComPtr<ID3D12DescriptorHeap> renderTargetViewHeap;
         ComPtr<ID3D12DescriptorHeap> depthStencilViewHeap;

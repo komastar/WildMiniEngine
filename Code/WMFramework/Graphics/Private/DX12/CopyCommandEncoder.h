@@ -8,14 +8,14 @@
 #pragma once
 #include "d3d12_include.h"
 #include "Graphics/WMCopyCommandEncoder.h"
-#include "CommandBuffer.h"
+#include "Graphics/WMCommandBuffer.h"
 
 namespace WildMini
 {
     class CopyCommandEncoder : public WMCopyCommandEncoder
     {
     public:
-        CopyCommandEncoder(CommandBuffer* _commandBuffer, ID3D12GraphicsCommandList* _commandList);
+        CopyCommandEncoder(WMCommandBuffer* _commandBuffer, ID3D12GraphicsCommandList* _commandList);
         virtual ~CopyCommandEncoder();
 
     public:
@@ -27,7 +27,7 @@ namespace WildMini
     private:
         void TransitionBufferState(ID3D12Resource* buffer, D3D12_RESOURCE_STATES after, D3D12_RESOURCE_STATES before);
 
-        WMSharedPtr<CommandBuffer> commandBuffer;
+        WMSharedPtr<WMCommandBuffer> commandBuffer;
         ComPtr<ID3D12GraphicsCommandList> commandList;
     };
 }

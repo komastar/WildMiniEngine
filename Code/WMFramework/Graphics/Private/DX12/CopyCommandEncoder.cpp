@@ -6,13 +6,14 @@
 //
 
 #include "CopyCommandEncoder.h"
+#include "Graphics/Private/DX12/CommandBuffer.h"
 #include "GPUBuffer.h"
 #include "Texture.h"
 #include "Type.h"
 
 using namespace WildMini;
 
-CopyCommandEncoder::CopyCommandEncoder(CommandBuffer* _commandBuffer, ID3D12GraphicsCommandList* _commandList)
+CopyCommandEncoder::CopyCommandEncoder(WMCommandBuffer* _commandBuffer, ID3D12GraphicsCommandList* _commandList)
     : commandBuffer(_commandBuffer)
     , commandList(_commandList)
 {
@@ -105,11 +106,11 @@ void CopyCommandEncoder::CopyTextureToBuffer(WMTexture* src, TextureArea srcArea
 void CopyCommandEncoder::EndEncoding()
 {
     commandList->Close();
-    commandBuffer->AddEncodedCommandList(commandList.Get());
+    commandBuffer.DynamicCast<CommandBuffer>()->AddEncodedCommandList(commandList.Get());
     commandList = nullptr;
 }
 
-void CopyCommandEncoder::TransitionBufferState(ID3D12Resource* buffer, D3D12_RESOURCE_STATES after, D3D12_RESOURCE_STATES before)
+void CopyCommandEncoder::TransitionBufferState(ID3D12Resource* buffer, D3D12_RESOURCE_STATES before, D3D12_RESOURCE_STATES after)
 {
     if (before != after)
     {

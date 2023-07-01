@@ -41,6 +41,7 @@ namespace WildMini
         virtual void SetScissorRect(const WMRect& rect) = 0;
         virtual void SetScissorRects(const WMRect* rect, uint32_t count) = 0;
         virtual void SetRenderTargets(Vector<const WMTexture*> renderTargets, const WMTexture* depthStencil) = 0;
+        virtual void SetTexture(const WMTexture* texture, const uint32_t index = 0) = 0;
         virtual void ClearRenderTarget(const WMTexture* renderTarget, const WMColor& color) = 0;
         virtual void ClearDepthStencil(const WMTexture* depthStencil, DepthStencilClearFlag clearFlag, float clearDepth, uint8_t clearStencil) = 0;
         virtual void SetConstantBuffer(uint32_t index, const WMGPUBuffer* constantBuffer) = 0;

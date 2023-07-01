@@ -185,7 +185,7 @@ WMSharedPtr<WMTexture> GraphicsDeviceContext::CreateTexture(const WMTexture::Des
     bufferDesc.Flags = D3D12_RESOURCE_FLAG_NONE;
     if (desc.usage & WMTexture::USAGE_SHADER_READ)
     {
-        initState = D3D12_RESOURCE_STATE_NON_PIXEL_SHADER_RESOURCE | D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE;
+        initState = D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE;
     }
     else
     {
@@ -198,9 +198,10 @@ WMSharedPtr<WMTexture> GraphicsDeviceContext::CreateTexture(const WMTexture::Des
         initState = D3D12_RESOURCE_STATE_RENDER_TARGET;
     }
 
-    ComPtr<ID3D12Resource> buffer;
     CD3DX12_HEAP_PROPERTIES heapProp(D3D12_HEAP_TYPE_DEFAULT);
+    ComPtr<ID3D12Resource> buffer;
     D3D12_CLEAR_VALUE clearValue;
+    HRESULT hr = S_OK;
     if (desc.usage & WMTexture::USAGE_DEPTH_STENCIL)
     {
         bufferDesc.Flags |= D3D12_RESOURCE_FLAG_ALLOW_DEPTH_STENCIL;
@@ -209,14 +210,15 @@ WMSharedPtr<WMTexture> GraphicsDeviceContext::CreateTexture(const WMTexture::Des
         clearValue.DepthStencil.Depth = 1.0f;
         clearValue.DepthStencil.Stencil = 0;
 
-        device->CreateCommittedResource(&heapProp, D3D12_HEAP_FLAG_NONE, &bufferDesc, initState, &clearValue, IID_PPV_ARGS(buffer.GetAddressOf()));
+        hr = device->CreateCommittedResource(&heapProp, D3D12_HEAP_FLAG_NONE, &bufferDesc, initState, &clearValue, IID_PPV_ARGS(buffer.GetAddressOf()));
     }
     else
     {
-        device->CreateCommittedResource(&heapProp, D3D12_HEAP_FLAG_NONE, &bufferDesc, initState, nullptr, IID_PPV_ARGS(buffer.GetAddressOf()));
+        hr = device->CreateCommittedResource(&heapProp, D3D12_HEAP_FLAG_NONE, &bufferDesc, initState, nullptr, IID_PPV_ARGS(buffer.GetAddressOf()));
     }
 
-    return new Texture(buffer.Get(), initState);
+    WMSharedPtr<GPUBuffer> gpuBuffer = new GPUBuffer(buffer, WMGPUBuffer::CPUCacheMode::WRITABLE, initState);
+    return new Texture(gpuBuffer, bufferDesc);
 }
 
 WMSharedPtr<WMRenderPipeline> GraphicsDeviceContext::CreateRenderPipeline(const WMRenderPipelineDescriptor& desc)
@@ -224,7 +226,7 @@ WMSharedPtr<WMRenderPipeline> GraphicsDeviceContext::CreateRenderPipeline(const 
     ComPtr<ID3D12RootSignature> rootSignature;
     CD3DX12_ROOT_PARAMETER slotRootParams[2] = {};
     slotRootParams[0].InitAsConstantBufferView(0);
-    slotRootParams[1].InitAsConstantBufferView(1);
+    slotRootParams[1].InitAsShaderResourceView(0);
 
     auto staticSamplers = GetStaticSampler();
 
@@ -322,7 +324,12 @@ WMSharedPtr<WMShader> GraphicsDeviceContext::CreateShader(const Vector<uint8_t>&
     UINT compileFlags = 0;
     ComPtr<ID3DBlob> byteCode;
     ComPtr<ID3DBlob> errors;
-    D3DCompile2(data.data(), data.size(), nullptr, nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, entry.c_str(), shaderVerName.c_str(), compileFlags, 0, 0, 0, 0, &byteCode, &errors);
+    HRESULT hr = D3DCompile2(data.data(), data.size(), nullptr, nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE, entry.c_str(), shaderVerName.c_str(), compileFlags, 0, 0, 0, 0, &byteCode, &errors);
+
+    if (errors)
+    {
+        ::OutputDebugStringA((char*)errors->GetBufferPointer());
+    }
 
     return new Shader(byteCode.Get(), stage, entry);
 }

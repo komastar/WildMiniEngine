@@ -31,6 +31,12 @@ WMSharedPtr<WMRenderCommandEncoder> CommandBuffer::CreateRenderCommandEncoder(WM
     return new RenderCommandEncoder(/*imguiDescHeap.Get(), */renderPipeline, this, commandList.Get());
 }
 
+WMSharedPtr<WMCopyCommandEncoder> CommandBuffer::CreateCopyCommandEncoder()
+{
+    HRESULT hr = commandList->Reset(commandAllocator.Get(), nullptr);
+    return new CopyCommandEncoder(this, commandList.Get());
+}
+
 void CommandBuffer::Commit()
 {
     ID3D12CommandList* cmdList[] = { commandList.Get() };

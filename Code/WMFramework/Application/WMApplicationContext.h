@@ -43,6 +43,9 @@ namespace WildMini
             scenes.erase(key);
         }
 
+    public:
+        std::function<void()> tick;
+
     protected:
         WMSharedPtr<WMGraphicsDevice> device;
         WMSharedPtr<WMWindow> window;

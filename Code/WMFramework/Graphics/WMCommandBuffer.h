@@ -9,6 +9,7 @@
 #include "WMFramework.h"
 #include "WMSharedPtr.h"
 #include "Graphics/WMRenderCommandEncoder.h"
+#include "Graphics/WMCopyCommandEncoder.h"
 #include "Graphics/WMRenderPipeline.h"
 
 namespace WildMini
@@ -17,6 +18,7 @@ namespace WildMini
     {
     public:
         virtual WMSharedPtr<WMRenderCommandEncoder> CreateRenderCommandEncoder(WMRenderPipeline* renderPipeline) = 0;
+        virtual WMSharedPtr<WMCopyCommandEncoder> CreateCopyCommandEncoder() = 0;
         virtual void Commit() = 0;
     };
 }

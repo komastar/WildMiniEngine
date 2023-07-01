@@ -30,6 +30,7 @@ namespace WildMini
         virtual void SetRenderTargets(Vector<const WMTexture*> renderTargets, const WMTexture* depthStencil) override;
         virtual void ClearDepthStencil(const WMTexture* depthStencil, DepthStencilClearFlag clearFlag, float clearDepth, uint8_t clearStencil) override;
         virtual void SetConstantBuffer(uint32_t index, const WMGPUBuffer* constantBuffer) override;
+        virtual void SetTexture(const WMTexture* texture, const uint32_t index = 0) override;
         virtual void SetVertexBuffer(const WMGPUBuffer* vertexBuffer, const uint32_t vertexSize, const uint32_t slot = 0, const uint32_t numViews = 1) override;
         virtual void SetIndexBuffer(const WMGPUBuffer* indexBuffer) override;
         virtual void DrawPrimitives(PrimitiveType primitiveType, uint32_t vertexCount, uint32_t instanceCount, uint32_t vertexStart, uint32_t instanceStart);

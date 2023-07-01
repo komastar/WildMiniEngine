@@ -11,6 +11,8 @@
 #include "WMAssert.h"
 #include "WMLock.h"
 
+#include <stdio.h>
+
 #include <cstdint>
 #include <iostream>
 #include <atomic>

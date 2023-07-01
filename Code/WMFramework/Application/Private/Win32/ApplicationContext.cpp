@@ -49,6 +49,7 @@ int ApplicationContext::ApplicationLoop()
 void ApplicationContext::Tick()
 {
     LogDebug("Tick");
+    tick();
     for (auto& [key, scene] : scenes)
     {
         scene->Update(0.0f, 0);

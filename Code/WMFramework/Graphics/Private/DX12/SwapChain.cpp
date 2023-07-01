@@ -6,6 +6,7 @@
 //
 
 #include "SwapChain.h"
+#include "Graphics/Private/DX12/GPUBuffer.h"
 #include <Windows.h>
 
 using namespace WildMini;
@@ -88,7 +89,8 @@ void SwapChain::SetupRenderTargets()
         ComPtr<ID3D12Resource> buffer;
         swapChain->GetBuffer(i, IID_PPV_ARGS(&buffer));
         D3D12_RESOURCE_DESC desc = buffer->GetDesc();
-        renderTargets[i] = new Texture(buffer.Get(), D3D12_RESOURCE_STATE_PRESENT);
+        WMSharedPtr<GPUBuffer> gpuBuffer = new GPUBuffer(buffer, WMGPUBuffer::CPUCacheMode::READABLE, D3D12_RESOURCE_STATE_PRESENT);
+        renderTargets[i] = new Texture(gpuBuffer, desc);
 
         D3D12_DESCRIPTOR_HEAP_DESC heapDesc{};
         heapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_RTV;
@@ -143,7 +145,10 @@ void SwapChain::SetupDepthStencil()
     device->Device()->CreateDepthStencilView(buffer.Get()
         , &dsvDesc
         , descHeap->GetCPUDescriptorHandleForHeapStart());
-    depthStencilTexture = new Texture(buffer.Get(), D3D12_RESOURCE_STATE_DEPTH_WRITE);
+
+    WMSharedPtr<GPUBuffer> gpuBuffer = new GPUBuffer(buffer, WMGPUBuffer::CPUCacheMode::READABLE, D3D12_RESOURCE_STATE_DEPTH_WRITE);
+
+    depthStencilTexture = new Texture(gpuBuffer, bufferDesc);
     depthStencilTexture->SetDepthStencilViewHeap(descHeap.Get());
 }
 

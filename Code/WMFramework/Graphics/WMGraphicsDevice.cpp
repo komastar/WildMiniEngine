@@ -11,9 +11,18 @@
 
 using namespace WildMini;
 
-WMGraphicsDevice* WMGraphicsDevice::CreateGraphicsDevice()
+namespace Private
 {
-    return GraphicsDeviceFactory::Create();
+    WMGraphicsDevice* device;
+}
+
+WMGraphicsDevice* WMGraphicsDevice::Get()
+{
+    if (!Private::device)
+    {
+        Private::device = GraphicsDeviceFactory::Create();
+    }
+    return Private::device;
 }
 
 WMSharedPtr<WMShader> WMGraphicsDevice::CreateShader(const std::wstring& path, const std::string& entry, WMShader::StageType stage)

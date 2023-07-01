@@ -15,25 +15,13 @@
 #include "Math/WMAffineTransform2.h"
 #include "Math/WMLinearTransform2.h"
 #include "Log/WMLog.h"
+#include "Graphics/WMImage.h"
 
 using namespace WildMini;
 
 struct Constants
 {
     WMMatrix4 viewProj{};
-    WMMatrix4 world[3];
-};
-
-struct MainPassConstants
-{
-    WMVector3 eye{};
-    WMVector3 light{};
-};
-
-struct ProgressConstants
-{
-    WMMatrix4 viewProj{};
-    WMVector4 time{};
 };
 
 EditorApplication::EditorApplication()
@@ -64,17 +52,29 @@ void EditorApplication::Initialize()
             }
         });
 
-    device = GraphicsDeviceFactory::Create();
+    device = WMGraphicsDevice::Get();
+    image = new WMImage();
+    image->Create(device, L"A:\\WildMiniEngine\\Code\\Editor\\test.png");
     commandQueue = device->CreateCommandQueue();
     swapChain = commandQueue->CreateSwapChain(window);
 
     CreateRenderPipeline();
+
+    camera = new WMCamera();
+    camera->SetView(WMVector3::forward, WMVector3::zero, WMVector3::up);
+    camera->SetOrthographics(window->width, window->height, 0.1f, 1000.0f);
+    mesh = WMGeometryFactory::MakeQuad(device, 1.0f, WMColor::white);
+
+    context->tick = [this]()
+    {
+        Render();
+    };
 }
 
 void EditorApplication::CreateRenderPipeline()
 {
-    vertexShader = device->CreateShader(L"Resources/Shader/UIShader.hlsl", "VS", WMShader::StageType::Vertex);
-    pixelShader = device->CreateShader(L"Resources/Shader/UIShader.hlsl", "PS", WMShader::StageType::Fragment);
+    vertexShader = device->CreateShader(L"Resources/Shader/BasicShader.hlsl", "VS", WMShader::StageType::Vertex);
+    pixelShader = device->CreateShader(L"Resources/Shader/BasicShader.hlsl", "PS", WMShader::StageType::Fragment);
 
     WMRenderPipelineDescriptor pipelineDesc = {};
     pipelineDesc.sampleCount = 1;
@@ -84,12 +84,10 @@ void EditorApplication::CreateRenderPipeline()
         { WMVertexFormat::Float3, "POSITION",       0, 0  },
         { WMVertexFormat::Float2, "TEXCOORD",       0, 12 },
         { WMVertexFormat::Float4, "COLOR",          0, 20 },
-        { WMVertexFormat::Uint,   "SV_InstanceID",  0, 28 },
     };
 
     WMRenderPipelineColorAttachmentDescriptor colorAttach;
     pipelineDesc.colorAttachments = { colorAttach };
-
     pipelineDesc.depthStencilPixelFormat = WMPixelFormat::DEPTH_24_UNORM_STENCIL_8;
     pipelineDesc.inputPrimitiveTopology = WMPrimitiveTopologyType::Triangle;
 
@@ -124,7 +122,7 @@ void EditorApplication::Render()
     {
         if (WMSharedPtr<WMRenderCommandEncoder> renderCommandEncoder = commandBuffer->CreateRenderCommandEncoder(renderPipeline))
         {
-            renderCommandEncoder->ClearRenderTarget(swapChain->RenderTargetTexture(), WMColor::black);
+            renderCommandEncoder->ClearRenderTarget(swapChain->RenderTargetTexture(), WMColor::cyan);
             renderCommandEncoder->ClearDepthStencil(swapChain->DepthStencilTexture()
                 , WMRenderCommandEncoder::DepthStencilClearFlag::All
                 , 0.0f

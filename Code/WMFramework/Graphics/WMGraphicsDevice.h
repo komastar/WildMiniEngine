@@ -18,7 +18,7 @@ namespace WildMini
     class WM_API WMGraphicsDevice : public WMRefCounter
     {
     public:
-        static WMGraphicsDevice* CreateGraphicsDevice();
+        static WMGraphicsDevice* Get();
 
     public:
         virtual WMSharedPtr<WMCommandQueue> CreateCommandQueue() = 0;

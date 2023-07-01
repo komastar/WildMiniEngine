@@ -59,7 +59,8 @@ bool GPUBuffer::WriteDataForTexture(const void* data, uint32_t width, uint32_t h
 {
     BYTE* mappedGPUdata = nullptr;
     D3D12_RANGE readRange(0, 0);
-    if (SUCCEEDED(buffer->Map(0, &readRange, reinterpret_cast<void**>(&mappedGPUdata))))
+    HRESULT hr = buffer->Map(0, &readRange, reinterpret_cast<void**>(&mappedGPUdata));
+    if (SUCCEEDED(hr))
     {
         size_t rowPitch = width * formatSize;
         size_t alignedRowPitch = AlignTextureRowPitch(rowPitch);

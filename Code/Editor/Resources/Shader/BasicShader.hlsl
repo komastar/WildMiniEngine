@@ -1,44 +1,31 @@
-cbuffer cbPerObject : register(b0)
-{
-    float4x4 viewProj;
-    float4x4 world[3];
-};
-
-cbuffer cbPass : register(b1)
-{
-    float3 light;
-    float3 eye;
-};
+Texture2D mainTex : register(t0);
+SamplerState mainSampler : register(s0);
 
 struct VertexIn
 {
-    float3 posL : POSITION;
-    float3 normalL : NORMAL;
+    float3 pos : POSITION;
+    float2 uv : TEXCOORD;
     float4 color : COLOR;
-    uint instanceId : SV_InstanceID;
 };
 
 struct VertexOut
 {
-    float4 posH : SV_POSITION;
-    float3 normalW : NORMAL;
+    float4 pos : SV_POSITION;
+    float2 uv : TEXCOORD;
     float4 color : COLOR;
 };
 
 VertexOut VS(VertexIn vin)
 {
     VertexOut vout;
-    float4 pos = mul(float4(vin.posL, 1.0f), world[vin.instanceId]);
-    vout.posH = mul(pos, viewProj);
-    vout.normalW = mul(float4(vin.normalL, 1.0f), world[vin.instanceId]);
+    vout.pos = float4(vin.pos, 1.0f);
     vout.color = vin.color;
+    vout.uv = vin.uv;
     return vout;
 }
 
 float4 PS(VertexOut pin) : SV_Target
 {
-    float4 color = mul(pin.color, 0.9f);
-    float length = max(dot(pin.normalW, normalize(light)), 0.1f);
-    color = mul(color, length);
+    float4 color = mainTex.Sample(mainSampler, pin.uv) * pin.color;
     return color;
 }

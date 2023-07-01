@@ -8,8 +8,8 @@
 #pragma once
 #include "d3d12_include.h"
 #include "Graphics/WMCommandBuffer.h"
-#include "Graphics/WMRenderCommandEncoder.h"
-#include "RenderCommandEncoder.h"
+#include "Graphics/Private/DX12/RenderCommandEncoder.h"
+#include "Graphics/Private/DX12/CopyCommandEncoder.h"
 #include "CommandQueue.h"
 
 namespace WildMini
@@ -20,12 +20,13 @@ namespace WildMini
         CommandBuffer(ID3D12DescriptorHeap*, CommandQueue*, ID3D12CommandAllocator*, ID3D12GraphicsCommandList*, D3D12_COMMAND_LIST_TYPE);
         virtual ~CommandBuffer();
 
-        virtual WildMini::WMSharedPtr<WMRenderCommandEncoder> CreateRenderCommandEncoder(WMRenderPipeline* renderPipeline) override;
+        virtual WMSharedPtr<WMRenderCommandEncoder> CreateRenderCommandEncoder(WMRenderPipeline* renderPipeline) override;
+        virtual WMSharedPtr<WMCopyCommandEncoder> CreateCopyCommandEncoder() override;
         virtual void Commit() override;
         void AddEncodedCommandList(ID3D12GraphicsCommandList* commandList);
 
     protected:
-        WildMini::WMSharedPtr<CommandQueue> commandQueue;
+        WMSharedPtr<CommandQueue> commandQueue;
         ComPtr<ID3D12GraphicsCommandList> commandList;
         ComPtr<ID3D12CommandAllocator> commandAllocator;
         ComPtr<ID3D12Device> device;

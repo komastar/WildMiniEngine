@@ -173,6 +173,12 @@ void RenderCommandEncoder::SetConstantBuffer(uint32_t index, const WMGPUBuffer* 
     commandList->SetGraphicsRootConstantBufferView(index, buffer->Buffer()->GetGPUVirtualAddress());
 }
 
+void RenderCommandEncoder::SetTexture(const WMTexture* InTexture, const uint32_t index)
+{
+    const Texture* texture = dynamic_cast<const Texture*>(InTexture);
+    commandList->SetGraphicsRootShaderResourceView(index, texture->Resource()->GetGPUVirtualAddress());
+}
+
 void RenderCommandEncoder::SetVertexBuffer(const WMGPUBuffer* vertexBuffer, const uint32_t vertexSize, const uint32_t slot/* = 0*/, const uint32_t numViews/* = 1*/)
 {
     const GPUBuffer* buffer = dynamic_cast<const GPUBuffer*>(vertexBuffer);

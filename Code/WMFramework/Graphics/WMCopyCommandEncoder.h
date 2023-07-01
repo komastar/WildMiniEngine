@@ -22,6 +22,14 @@ namespace WildMini
             uint32_t y;
             uint32_t width;
             uint32_t height;
+            
+            TextureArea(uint32_t InX, uint32_t InY, uint32_t InWidth, uint32_t InHeight)
+                : x(InX)
+                , y(InY)
+                , width(InWidth)
+                , height(InHeight)
+            {
+            }
         };
 
         virtual void CopyBufferToBuffer(WMGPUBuffer* src, size_t srcOffset, WMGPUBuffer* dest, size_t destOffset, size_t copySize) = 0;

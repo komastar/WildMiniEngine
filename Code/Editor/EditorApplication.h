@@ -19,6 +19,8 @@
 #include "Graphics/WMCamera.h"
 #include "Graphics/Geometry/WMMesh.h"
 #include "Common/WMThread.h"
+#include "Graphics/WMImage.h"
+#include "Graphics/Geometry/WMMesh.h"
 
 namespace WildMini
 {
@@ -50,6 +52,11 @@ namespace WildMini
         WMSharedPtr<WMRenderPipeline> renderPipeline;
 
         WMSharedPtr<WMGPUBuffer> progressBuffer;
+        WMSharedPtr<WMGPUBuffer> vertexBuffer;
+
+        WMCamera* camera;
+        WMMesh* mesh;
+        WMImage* image;
 
         std::atomic_bool needResize;
     };

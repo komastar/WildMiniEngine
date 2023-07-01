@@ -7,18 +7,19 @@
 
 #include "Texture.h"
 #include "Type.h"
+#include "Graphics/Private/DX12/GPUBuffer.h"
 
 using namespace WildMini;
 
-Texture::Texture(ComPtr<ID3D12Resource> buffer, D3D12_RESOURCE_STATES state)
-    : buffer(buffer)
-    , state(state)
+Texture::Texture(WMSharedPtr<GPUBuffer> InBuffer, D3D12_RESOURCE_DESC desc)
+    : buffer(InBuffer)
+    , state(InBuffer->InitialState())
+    , resource(InBuffer->Buffer())
 {
-    D3D12_RESOURCE_DESC desc = buffer->GetDesc();
     width = static_cast<uint32_t>(desc.Width);
     height = static_cast<uint32_t>(desc.Height);
     format = ToPixelFormat(desc.Format);
-    size = AlignTextureRowPitch(width * PixelFormatSize(format)) * height;
+    size = AlignGPUBufferSize(width * PixelFormatSize(format) * height);
 }
 
 Texture::~Texture()
@@ -43,6 +44,21 @@ uint32_t Texture::Height() const
 WMPixelFormat Texture::Format() const
 {
     return format;
+}
+
+void Texture::Write(const void* data)
+{
+    buffer->WriteDataForTexture(data, width, height, PixelFormatSize(format));
+}
+
+const WMGPUBuffer* Texture::Buffer() const
+{
+    return buffer;
+}
+
+ID3D12Resource* Texture::Resource() const
+{
+    return resource;
 }
 
 void Texture::SetRenderTargetViewHeap(ID3D12DescriptorHeap* heap)
