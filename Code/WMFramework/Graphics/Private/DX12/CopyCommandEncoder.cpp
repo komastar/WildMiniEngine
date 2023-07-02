@@ -47,6 +47,7 @@ void CopyCommandEncoder::CopyBufferToTexture(WMGPUBuffer* src, size_t srcOffset,
     TransitionBufferState(texRawBuffer, destTexture->InitialState(), D3D12_RESOURCE_STATE_COPY_DEST);
 
     D3D12_PLACED_SUBRESOURCE_FOOTPRINT bufferFootprint;
+    
     D3D12_RESOURCE_DESC textureDesc = texRawBuffer->GetDesc();
     bufferFootprint.Offset = 0;
     bufferFootprint.Footprint.Format = textureDesc.Format;

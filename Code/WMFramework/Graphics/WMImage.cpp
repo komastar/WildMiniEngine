@@ -105,7 +105,7 @@ bool WMImage::Create(WMGraphicsDevice* device, const std::wstring& InFilePath)
         {
             if (WMSharedPtr<WMCopyCommandEncoder> encoder = commandBuffer->CreateCopyCommandEncoder())
             {
-                WMSharedPtr<WMGPUBuffer> buffer = device->CreateGPUBuffer(width * info_ptr->rowbytes * height, WMGPUBuffer::CPUCacheMode::WRITABLE);
+                WMSharedPtr<WMGPUBuffer> buffer = device->CreateGPUBuffer(texture->Size(), WMGPUBuffer::CPUCacheMode::WRITABLE);
                 WMCopyCommandEncoder::TextureArea area(0, 0, width, height);
                 encoder->CopyBufferToTexture(buffer, 0, texture, area);
 

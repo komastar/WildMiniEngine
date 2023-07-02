@@ -1,7 +1,66 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="WMImage.cpp" />
+    <ClCompile Include="Graphics\WMImage.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\WMGraphicsDevice.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\WMCamera.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Private\DX12\CopyCommandEncoder.cpp">
+      <Filter>Graphics\Private\DX12</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Private\DX12\CommandBuffer.cpp">
+      <Filter>Graphics\Private\DX12</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Private\DX12\Shader.cpp">
+      <Filter>Graphics\Private\DX12</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Private\DX12\GPUBuffer.cpp">
+      <Filter>Graphics\Private\DX12</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Private\DX12\CommandQueue.cpp">
+      <Filter>Graphics\Private\DX12</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Private\DX12\GraphicsDeviceContext.cpp">
+      <Filter>Graphics\Private\DX12</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Private\DX12\SwapChain.cpp">
+      <Filter>Graphics\Private\DX12</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Private\DX12\Texture.cpp">
+      <Filter>Graphics\Private\DX12</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Private\DX12\RenderCommandEncoder.cpp">
+      <Filter>Graphics\Private\DX12</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Private\DX12\RenderPipeline.cpp">
+      <Filter>Graphics\Private\DX12</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Geometry\WMGeometryFactory.cpp">
+      <Filter>Graphics\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Primitive\WMViewport.cpp">
+      <Filter>Graphics\Primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Primitive\WMColor.cpp">
+      <Filter>Graphics\Primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Primitive\WMRect.cpp">
+      <Filter>Graphics\Primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Primitive\WMQuad.cpp">
+      <Filter>Graphics\Primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Primitive\WMPoint.cpp">
+      <Filter>Graphics\Primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Primitive\WMSize.cpp">
+      <Filter>Graphics\Primitive</Filter>
+    </ClCompile>
     <ClCompile Include="UI\WMCanvas.cpp">
       <Filter>UI</Filter>
     </ClCompile>
@@ -104,63 +163,6 @@
     <ClCompile Include="Window\Private\Win32\WindowContext.cpp">
       <Filter>Window\Private\Win32</Filter>
     </ClCompile>
-    <ClCompile Include="Graphics\WMGraphicsDevice.cpp">
-      <Filter>Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\WMCamera.cpp">
-      <Filter>Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\Private\DX12\CopyCommandEncoder.cpp">
-      <Filter>Graphics\Private\DX12</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\Private\DX12\CommandBuffer.cpp">
-      <Filter>Graphics\Private\DX12</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\Private\DX12\Shader.cpp">
-      <Filter>Graphics\Private\DX12</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\Private\DX12\GPUBuffer.cpp">
-      <Filter>Graphics\Private\DX12</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\Private\DX12\CommandQueue.cpp">
-      <Filter>Graphics\Private\DX12</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\Private\DX12\GraphicsDeviceContext.cpp">
-      <Filter>Graphics\Private\DX12</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\Private\DX12\SwapChain.cpp">
-      <Filter>Graphics\Private\DX12</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\Private\DX12\Texture.cpp">
-      <Filter>Graphics\Private\DX12</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\Private\DX12\RenderCommandEncoder.cpp">
-      <Filter>Graphics\Private\DX12</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\Private\DX12\RenderPipeline.cpp">
-      <Filter>Graphics\Private\DX12</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\Geometry\WMGeometryFactory.cpp">
-      <Filter>Graphics\Geometry</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\Primitive\WMViewport.cpp">
-      <Filter>Graphics\Primitive</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\Primitive\WMColor.cpp">
-      <Filter>Graphics\Primitive</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\Primitive\WMRect.cpp">
-      <Filter>Graphics\Primitive</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\Primitive\WMQuad.cpp">
-      <Filter>Graphics\Primitive</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\Primitive\WMPoint.cpp">
-      <Filter>Graphics\Primitive</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics\Primitive\WMSize.cpp">
-      <Filter>Graphics\Primitive</Filter>
-    </ClCompile>
     <ClCompile Include="Component\WMComponentBase.cpp">
       <Filter>Component</Filter>
     </ClCompile>
@@ -181,13 +183,127 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="WMContainer.h" />
-    <ClInclude Include="WMLock.h" />
     <ClInclude Include="WildMini.h" />
     <ClInclude Include="WMAssert.h" />
+    <ClInclude Include="WMContainer.h" />
+    <ClInclude Include="WMLock.h" />
+    <ClInclude Include="WMSharedPtr.h" />
     <ClInclude Include="WMRefCounter.h" />
     <ClInclude Include="WMFramework.h" />
-    <ClInclude Include="WMSharedPtr.h" />
+    <ClInclude Include="Graphics\WMBlendState.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\WMCommandBuffer.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\WMImage.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\WMMaterial.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\WMRenderCommandEncoder.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\WMRenderPipeline.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\WMVertexDescriptor.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\WMCopyCommandEncoder.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\WMCamera.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\WMGPUBuffer.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\WMTexture.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\WMCommandQueue.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\WMGraphicsDevice.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\WMSwapChain.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\WMShader.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Private\GraphicsDeviceFactory.h">
+      <Filter>Graphics\Private</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Private\DX12\CopyCommandEncoder.h">
+      <Filter>Graphics\Private\DX12</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Private\DX12\CommandBuffer.h">
+      <Filter>Graphics\Private\DX12</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Private\DX12\Shader.h">
+      <Filter>Graphics\Private\DX12</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Private\DX12\Type.h">
+      <Filter>Graphics\Private\DX12</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Private\DX12\RenderCommandEncoder.h">
+      <Filter>Graphics\Private\DX12</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Private\DX12\RenderPipeline.h">
+      <Filter>Graphics\Private\DX12</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Private\DX12\GPUBuffer.h">
+      <Filter>Graphics\Private\DX12</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Private\DX12\d3dx12.h">
+      <Filter>Graphics\Private\DX12</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Private\DX12\CommandQueue.h">
+      <Filter>Graphics\Private\DX12</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Private\DX12\d3d12_include.h">
+      <Filter>Graphics\Private\DX12</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Private\DX12\GraphicsDeviceContext.h">
+      <Filter>Graphics\Private\DX12</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Private\DX12\SwapChain.h">
+      <Filter>Graphics\Private\DX12</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Private\DX12\Texture.h">
+      <Filter>Graphics\Private\DX12</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Geometry\WMGeometryFactory.h">
+      <Filter>Graphics\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Geometry\WMMesh.h">
+      <Filter>Graphics\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Geometry\WMVertex.h">
+      <Filter>Graphics\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Primitive\WMViewport.h">
+      <Filter>Graphics\Primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Primitive\WMColor.h">
+      <Filter>Graphics\Primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Primitive\WMRect.h">
+      <Filter>Graphics\Primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Primitive\WMQuad.h">
+      <Filter>Graphics\Primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Primitive\WMPoint.h">
+      <Filter>Graphics\Primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Primitive\WMSize.h">
+      <Filter>Graphics\Primitive</Filter>
+    </ClInclude>
     <ClInclude Include="UI\WMCanvas.h">
       <Filter>UI</Filter>
     </ClInclude>
@@ -317,120 +433,6 @@
     <ClInclude Include="Window\Private\Win32\WindowContext.h">
       <Filter>Window\Private\Win32</Filter>
     </ClInclude>
-    <ClInclude Include="Graphics\WMBlendState.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\WMCommandBuffer.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\WMImage.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\WMMaterial.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\WMRenderCommandEncoder.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\WMRenderPipeline.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\WMVertexDescriptor.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\WMCopyCommandEncoder.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\WMCamera.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\WMGPUBuffer.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\WMTexture.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\WMCommandQueue.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\WMGraphicsDevice.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\WMSwapChain.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\WMShader.h">
-      <Filter>Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Private\GraphicsDeviceFactory.h">
-      <Filter>Graphics\Private</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Private\DX12\CopyCommandEncoder.h">
-      <Filter>Graphics\Private\DX12</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Private\DX12\CommandBuffer.h">
-      <Filter>Graphics\Private\DX12</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Private\DX12\Shader.h">
-      <Filter>Graphics\Private\DX12</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Private\DX12\Type.h">
-      <Filter>Graphics\Private\DX12</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Private\DX12\RenderCommandEncoder.h">
-      <Filter>Graphics\Private\DX12</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Private\DX12\RenderPipeline.h">
-      <Filter>Graphics\Private\DX12</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Private\DX12\GPUBuffer.h">
-      <Filter>Graphics\Private\DX12</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Private\DX12\d3dx12.h">
-      <Filter>Graphics\Private\DX12</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Private\DX12\CommandQueue.h">
-      <Filter>Graphics\Private\DX12</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Private\DX12\d3d12_include.h">
-      <Filter>Graphics\Private\DX12</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Private\DX12\GraphicsDeviceContext.h">
-      <Filter>Graphics\Private\DX12</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Private\DX12\SwapChain.h">
-      <Filter>Graphics\Private\DX12</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Private\DX12\Texture.h">
-      <Filter>Graphics\Private\DX12</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Geometry\WMGeometryFactory.h">
-      <Filter>Graphics\Geometry</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Geometry\WMMesh.h">
-      <Filter>Graphics\Geometry</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Geometry\WMVertex.h">
-      <Filter>Graphics\Geometry</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Primitive\WMViewport.h">
-      <Filter>Graphics\Primitive</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Primitive\WMColor.h">
-      <Filter>Graphics\Primitive</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Primitive\WMRect.h">
-      <Filter>Graphics\Primitive</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Primitive\WMQuad.h">
-      <Filter>Graphics\Primitive</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Primitive\WMPoint.h">
-      <Filter>Graphics\Primitive</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics\Primitive\WMSize.h">
-      <Filter>Graphics\Primitive</Filter>
-    </ClInclude>
     <ClInclude Include="Component\WMComponent.h">
       <Filter>Component</Filter>
     </ClInclude>
@@ -463,86 +465,86 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="UI">
-      <UniqueIdentifier>{d0c2622e-b8cb-48e5-8c11-999c89ef0201}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UI\imgui">
-      <UniqueIdentifier>{cc18bc16-b5cc-4a55-95fd-ef01c51f5bd0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UI\imgui\backends">
-      <UniqueIdentifier>{4e7617ab-5fb5-447e-bd3f-1f7317142d6e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="IO">
-      <UniqueIdentifier>{a3d182d9-2357-43e6-842a-1025e4c27e80}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="IO\Data">
-      <UniqueIdentifier>{e5d2e8f5-e33d-48c2-8f2e-9facb2e01db3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="IO\File">
-      <UniqueIdentifier>{2a955d3d-d6f2-449e-afd4-12924face229}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="IO\File\Private">
-      <UniqueIdentifier>{bf9265fb-8977-4c8f-985c-3f1be1cccc33}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Log">
-      <UniqueIdentifier>{f44e909b-a2e1-4ff4-a7a6-09549578cef4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Math">
-      <UniqueIdentifier>{5c9b6a6a-7e72-43c0-b638-471fa711aefb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene">
-      <UniqueIdentifier>{09cd02a0-3d28-4a92-8fa2-c50d95ebbca9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Common">
-      <UniqueIdentifier>{930d135c-6c8a-4b16-b7e0-ef2f1adf72c9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Common\Private">
-      <UniqueIdentifier>{d7ca7cbe-3bb8-4652-a683-19afac9750b6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Common\Private\Win32">
-      <UniqueIdentifier>{d5148b1d-43eb-4816-a68f-2aac522493fc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Window">
-      <UniqueIdentifier>{c8dc376c-97de-48ec-a7e9-191b4c87248c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Window\Private">
-      <UniqueIdentifier>{e8c83326-c99d-4e28-aef8-1b0abe7d1d26}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Window\Private\Win32">
-      <UniqueIdentifier>{8332922a-6b7d-4465-9e9e-7530e67abbda}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Graphics">
-      <UniqueIdentifier>{f427b106-c24b-4c7f-9845-9c7e198921a4}</UniqueIdentifier>
+      <UniqueIdentifier>{ec1defc2-5f64-4c86-a747-cbea9d2927cc}</UniqueIdentifier>
     </Filter>
     <Filter Include="Graphics\Private">
-      <UniqueIdentifier>{8b10cec1-b48d-4313-8c45-e14733d0de68}</UniqueIdentifier>
+      <UniqueIdentifier>{c12b9f43-299f-4d0d-95f8-9d7b4f4b7a61}</UniqueIdentifier>
     </Filter>
     <Filter Include="Graphics\Private\DX12">
-      <UniqueIdentifier>{548d84da-dc62-4515-a4b7-a3a398b2b3d7}</UniqueIdentifier>
+      <UniqueIdentifier>{ddba5600-a49f-4d1f-a57a-553e1c00704d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Graphics\Geometry">
-      <UniqueIdentifier>{d4880d98-a74b-44f2-ac2c-a273abe4dd94}</UniqueIdentifier>
+      <UniqueIdentifier>{d424ad55-8f39-4294-941a-497e993ab7bc}</UniqueIdentifier>
     </Filter>
     <Filter Include="Graphics\Primitive">
-      <UniqueIdentifier>{0c5cb866-fb31-4a1a-8696-aeb5b359ab0b}</UniqueIdentifier>
+      <UniqueIdentifier>{10650eee-92f4-4f46-8bb7-90fe3fa32f50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{b09389e4-b74c-4352-bcc0-b26e178465d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\imgui">
+      <UniqueIdentifier>{0ebf9c74-c48e-496c-94cb-ebe35d6de06e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI\imgui\backends">
+      <UniqueIdentifier>{7c4f06e8-7254-4d6b-9af7-5ab547c70c89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IO">
+      <UniqueIdentifier>{ebe3749d-780e-4c14-bca2-90602cb88398}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IO\Data">
+      <UniqueIdentifier>{9d1a49cb-269b-4f76-bcc3-6db0da59adac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IO\File">
+      <UniqueIdentifier>{3435ab4b-34ec-4b60-9587-7563236a9228}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IO\File\Private">
+      <UniqueIdentifier>{084f4784-ded9-4b4c-957f-2329a21df494}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Log">
+      <UniqueIdentifier>{78ac9999-124c-4bc0-82a5-c0a79f3be878}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{cfb7c71a-375f-4229-9d1a-1c4031c93aa6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{271f2edc-44ac-4ebc-ab13-d754af7675c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{48e32dde-8ea5-4faf-ae44-fbd684ed4fac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\Private">
+      <UniqueIdentifier>{0d7e9de3-3254-4561-93cd-6d9b02ee40ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\Private\Win32">
+      <UniqueIdentifier>{dc9f9e5c-8c7d-4c43-9ef4-608f28326ef8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window">
+      <UniqueIdentifier>{3d0a666b-98cd-4055-bbcd-41f72637da02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window\Private">
+      <UniqueIdentifier>{bdb66abd-9757-475b-afd4-e1a48bcdbee6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window\Private\Win32">
+      <UniqueIdentifier>{5748e4de-87b1-4eb4-ab10-53f5586c1e2c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Component">
-      <UniqueIdentifier>{98b18c36-c547-4294-bed5-75c43d8dd8fc}</UniqueIdentifier>
+      <UniqueIdentifier>{ea2cd072-4e8b-40ef-b90a-602e54ab0fdd}</UniqueIdentifier>
     </Filter>
     <Filter Include="Component\Render">
-      <UniqueIdentifier>{cb9ed038-5e94-40cd-aee7-0528391689c2}</UniqueIdentifier>
+      <UniqueIdentifier>{a92fc269-bbe8-474b-9ac6-a35096fd7dd5}</UniqueIdentifier>
     </Filter>
     <Filter Include="Component\Render\Private">
-      <UniqueIdentifier>{3cfb6baa-9440-49f9-b7f4-071b71f52afc}</UniqueIdentifier>
+      <UniqueIdentifier>{14acdca4-36c1-4c8c-b5d4-de14e1513cf5}</UniqueIdentifier>
     </Filter>
     <Filter Include="Application">
-      <UniqueIdentifier>{de40e944-fd51-446f-9839-3b348a87a2eb}</UniqueIdentifier>
+      <UniqueIdentifier>{858e6312-5eb2-412a-a5f7-003f6280db9e}</UniqueIdentifier>
     </Filter>
     <Filter Include="Application\Private">
-      <UniqueIdentifier>{29e53b9b-a166-4c71-a8d1-882f308a3efe}</UniqueIdentifier>
+      <UniqueIdentifier>{4f279da1-f955-4bd9-ac84-9647fb37338f}</UniqueIdentifier>
     </Filter>
     <Filter Include="Application\Private\Win32">
-      <UniqueIdentifier>{30bf707a-dc53-4635-b5f5-72365d4feaa3}</UniqueIdentifier>
+      <UniqueIdentifier>{c04e68a2-3480-4e47-9df0-b9170d2a6cb6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

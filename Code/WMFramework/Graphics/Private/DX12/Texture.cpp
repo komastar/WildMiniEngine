@@ -19,7 +19,9 @@ Texture::Texture(WMSharedPtr<GPUBuffer> InBuffer, D3D12_RESOURCE_DESC desc)
     width = static_cast<uint32_t>(desc.Width);
     height = static_cast<uint32_t>(desc.Height);
     format = ToPixelFormat(desc.Format);
-    size = AlignGPUBufferSize(width * PixelFormatSize(format) * height);
+    ID3D12Device* device = nullptr;
+    resource->GetDevice(IID_PPV_ARGS(&device));
+    device->GetCopyableFootprints(&desc, 0, 1, 0, nullptr, 0, 0, &size);
 }
 
 Texture::~Texture()
